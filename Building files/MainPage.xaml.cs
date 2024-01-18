@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -68,7 +68,7 @@ namespace Tagme_
             OptionBarRelativePanel.Translation += new Vector3(0, 0, 32);
             BrowseStatusRelativePanel.Translation += new Vector3(0, 0, 32);
             DatabaseStorageStatusRelativePanel.Translation += new Vector3(0, 0, 32);
-            DatabaseStoragePercentageBar.Translation += new Vector3(0, 0, 32);
+            SearchDatabaseAutoSuggestBox.Translation += new Vector3(0, 0, 32);
         }
 
         /// <summary>
@@ -92,6 +92,16 @@ namespace Tagme_
 
                 await Task.Delay(4000);
             }
+        }
+
+        private void SearchDatabaseAutoSuggestBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+
+        }
+
+        private void SearchDatabaseAutoSuggestBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+        {
+
         }
     }
 }
