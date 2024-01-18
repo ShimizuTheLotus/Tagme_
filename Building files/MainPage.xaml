@@ -1,4 +1,4 @@
-﻿<Page
+<Page
     x:Class="Tagme_.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -33,7 +33,7 @@
                        RelativePanel.AlignTopWithPanel="True"
                        RelativePanel.AlignBottomWithPanel="True"/>
         </RelativePanel>
-        <!--The area for Status Panels-->
+        <!--The area for Status Panels and AutoSuggestBox-->
         <RelativePanel x:Name="StatusBarAreaRelativePanel"
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignRightWithPanel="True"
@@ -64,7 +64,7 @@
                            Margin="4,0,0,0"
                            CornerRadius="8"
                            RelativePanel.RightOf="BrowseStatusRelativePanel"
-                           RelativePanel.AlignRightWithPanel="True"
+                           RelativePanel.LeftOf="SearchDatabaseAutoSuggestBox"
                            Shadow="{StaticResource PageSharedShadow}">
                 <TextBlock x:Name="StorageShowTitle"
                            Text="All database"
@@ -100,6 +100,18 @@
                            RelativePanel.AlignRightWithPanel="True"
                            Margin="4,0,8,0"/>
             </RelativePanel>
+            <AutoSuggestBox x:Name="SearchDatabaseAutoSuggestBox" 
+                            Background="#44FFFFFF"
+                            Margin="4,0,0,0"
+                            CornerRadius="8"
+                            BorderThickness="0"
+                            PlaceholderText="Search database by name"
+                            QueryIcon="Find"
+                            QuerySubmitted="SearchDatabaseAutoSuggestBox_QuerySubmitted"
+                            SuggestionChosen="SearchDatabaseAutoSuggestBox_SuggestionChosen"
+                            RelativePanel.AlignRightWithPanel="True"
+                            Width="320"
+                            Shadow="{StaticResource PageSharedShadow}"/>
         </RelativePanel>
         <!--Option bar-->
         <RelativePanel Name="OptionBarRelativePanel"
@@ -116,7 +128,15 @@
                         DefaultLabelPosition="Right"
                         RelativePanel.AlignVerticalCenterWithPanel="False"
                         Margin="4,4,0,0">
-                <AppBarButton Icon="Sort" Label="Sort" CornerRadius="8"/>
+                <AppBarButton Icon="Sort" Label="Sort" CornerRadius="8">
+                    <AppBarButton.Flyout>
+                        <Flyout>
+                            <StackPanel>
+                                <TextBlock Text="qwa"/>
+                            </StackPanel>
+                        </Flyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
                 <AppBarButton Icon="PreviewLink" Label="View mode"/>
             </CommandBar>
             <TextBlock Text="Browse"
