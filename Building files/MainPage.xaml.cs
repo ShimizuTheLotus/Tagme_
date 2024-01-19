@@ -82,7 +82,7 @@ namespace Tagme_
         
         //Repeating tasks
         /// <summary>
-        /// Get storage usage every few seconds and update the info on the status bar.
+        /// Get database storage usage every few seconds and update the info on the status bar.
         /// </summary>
         private async void KeepUpdateStatusBarDiskStorageInfo()
         {
@@ -105,3 +105,4 @@ namespace Tagme_
         }
     }
 }
+ 
