@@ -34,20 +34,23 @@ namespace Tagme_
 
         //Classes
         /// <summary>
-        /// Neko services that could be used to variety of programs.
+        /// NekoWahs services that could be used to variety of programs.
         /// These functions must not ref any variety or functions of a certain program. 
+        /// Compatibility Caution: Windows UWP
         /// </summary>
-        public class NekoS
+        public class NekoWahsUWP
         {
 
         }
 
         /// <summary>
         /// Tagme_ core that has the main functions of a Tagme_ Program
+        /// Compatibility Caution: Windows UWP
+        /// Requirements: NuGet Package - Microsoft.Data.Sqlite
         /// </summary>
-        public class Tagme_Core
+        public class Tagme_CoreUWP
         {
-
+            
         }
 
         /// <summary>
