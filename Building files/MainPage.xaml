@@ -50,12 +50,14 @@
                           Glyph="&#xE76B;"
                           Margin="32,0,0,0"
                           RelativePanel.AlignLeftWithPanel="True"
-                          RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                          RelativePanel.AlignVerticalCenterWithPanel="True"
+                          ToolTipService.ToolTip="The contents are sort by"/>
                 <FontIcon x:Name="BroseViewModeStatusIcon"
                           Glyph="&#xE8FD;"
                           Margin="-8,0,16,0"
                           RelativePanel.RightOf="BrowseSortStatusIcon"
-                          RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                          RelativePanel.AlignVerticalCenterWithPanel="True"
+                          ToolTipService.ToolTip="View mode"/>
             </RelativePanel>
             <!--Database storage status bar-->
             <RelativePanel x:Name="DatabaseStorageStatusRelativePanel"
@@ -65,6 +67,7 @@
                            CornerRadius="8"
                            RelativePanel.RightOf="BrowseStatusRelativePanel"
                            RelativePanel.LeftOf="SearchDatabaseAutoSuggestBox"
+                           ToolTipService.ToolTip="The amount of total database used space"
                            Shadow="{StaticResource PageSharedShadow}">
                 <TextBlock x:Name="StorageShowTitle"
                            Text="All database"
@@ -111,6 +114,7 @@
                             SuggestionChosen="SearchDatabaseAutoSuggestBox_SuggestionChosen"
                             RelativePanel.AlignRightWithPanel="True"
                             Width="320"
+                            ToolTipService.ToolTip="Search databases by name here"
                             Shadow="{StaticResource PageSharedShadow}"/>
         </RelativePanel>
         <!--Option bar-->
@@ -128,16 +132,26 @@
                         DefaultLabelPosition="Right"
                         RelativePanel.AlignVerticalCenterWithPanel="False"
                         Margin="4,4,0,0">
-                <AppBarButton Icon="Sort" Label="Sort" CornerRadius="8">
+                <AppBarButton Icon="Sort" Label="Sort" CornerRadius="8"
+                              ToolTipService.ToolTip="Set content sortting mode">
                     <AppBarButton.Flyout>
                         <Flyout>
                             <StackPanel>
-                                <TextBlock Text="qwa"/>
+                                <Button>
+                                    <Button.Content>
+                                        <RichTextBlock>
+                                            <Paragraph>
+                                                <Run FontFamily="Segoe Fluent Icons" Text="&#xEDA2;"/>
+                                            </Paragraph>
+                                        </RichTextBlock>
+                                    </Button.Content>
+                                </Button>
                             </StackPanel>
                         </Flyout>
                     </AppBarButton.Flyout>
                 </AppBarButton>
-                <AppBarButton Icon="PreviewLink" Label="View mode"/>
+                <AppBarButton Icon="PreviewLink" Label="View mode"
+                              ToolTipService.ToolTip="Set content view mode"/>
             </CommandBar>
             <TextBlock Text="Browse"
                        FontSize="11"
@@ -153,13 +167,16 @@
                         DefaultLabelPosition="Right"
                         RelativePanel.RightOf="OptionsCommandBarPart2"
                         Margin="4,4,0,0">
-                <AppBarButton Icon="Add" Label="Add" CornerRadius="8"/>
-                <AppBarButton Label="Multi-select" CornerRadius="8">
+                <AppBarButton Icon="Add" Label="Add" CornerRadius="8"
+                              ToolTipService.ToolTip="Add database"/>
+                <AppBarButton Label="Multi-select" CornerRadius="8"
+                              ToolTipService.ToolTip="Multi-select databases">
                     <AppBarButton.Icon>
                         <FontIcon Glyph="&#xE762;" />
                     </AppBarButton.Icon>
                 </AppBarButton>
-                <AppBarButton Icon="Import" Label="Import" CornerRadius="8"/>
+                <AppBarButton Icon="Import" Label="Import" CornerRadius="8"
+                              ToolTipService.ToolTip="Add databases from file"/>
             </CommandBar>
             <TextBlock Text="Edit"
                        FontSize="11"
