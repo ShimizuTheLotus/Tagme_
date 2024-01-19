@@ -79,7 +79,7 @@ namespace Tagme_
             BrowseSortStatusIcon.Rotation = 90;
         }
 
-        
+
         //Repeating tasks
         /// <summary>
         /// Get database storage usage every few seconds and update the info on the status bar.
@@ -105,4 +105,3 @@ namespace Tagme_
         }
     }
 }
- 
