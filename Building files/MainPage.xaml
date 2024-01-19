@@ -108,7 +108,7 @@
                             Margin="4,0,0,0"
                             CornerRadius="8"
                             BorderThickness="0"
-                            PlaceholderText="Search database by name"
+                            PlaceholderText="Search databases by name"
                             QueryIcon="Find"
                             QuerySubmitted="SearchDatabaseAutoSuggestBox_QuerySubmitted"
                             SuggestionChosen="SearchDatabaseAutoSuggestBox_SuggestionChosen"
