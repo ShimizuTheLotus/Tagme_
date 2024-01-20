@@ -38,7 +38,7 @@ namespace Tagme_
             InitializeStatusPanel();
 
             //Repeating Tasks
-            KeepUpdateStatusBarDiskStorageInfo();
+            KeepUpdateStatusBarDataBaseStorageInfo();
         }
 
         //Functions
@@ -84,7 +84,7 @@ namespace Tagme_
         /// <summary>
         /// Get database storage usage every few seconds and update the info on the status bar.
         /// </summary>
-        private async void KeepUpdateStatusBarDiskStorageInfo()
+        private async void KeepUpdateStatusBarDataBaseStorageInfo()
         {
             while (true)
             {
