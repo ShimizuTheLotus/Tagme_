@@ -51,12 +51,12 @@ namespace Tagme_
         public class Tagme_CoreUWP
         {
             /// <summary>
-            /// The options of Tagme_ Databases
+            /// The options of Tagme_ Databases.
             /// </summary>
             public class DataBaseOptions
             {
                 /// <summary>
-                /// Check if a database exists
+                /// Check if a database exists.
                 /// </summary>
                 public void CheckIfDataBaseExists(string dataBasePath)
                 {
@@ -76,6 +76,14 @@ namespace Tagme_
                     return dataBaseNotExistList;
                 }
             }
+        }
+
+        /// <summary>
+        /// The data that Tagme_ needs while running.
+        /// </summary>
+        public class Tagme_RunningData
+        {
+
         }
 
 
