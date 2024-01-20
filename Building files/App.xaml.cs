@@ -50,7 +50,32 @@ namespace Tagme_
         /// </summary>
         public class Tagme_CoreUWP
         {
+            /// <summary>
+            /// The options of Tagme_ Databases
+            /// </summary>
+            public class DataBaseOptions
+            {
+                /// <summary>
+                /// Check if a database exists
+                /// </summary>
+                public void CheckIfDataBaseExists(string dataBasePath)
+                {
 
+                }
+
+                /// <summary>
+                /// Check all the databases if they're exist.
+                /// It will return a list of databases that dosen't exist.
+                /// </summary>
+                public List<string> CheckIfAllDataBaseExist()
+                {
+                    List<string> dataBaseNotExistList = new List<string>();
+
+                    //options
+
+                    return dataBaseNotExistList;
+                }
+            }
         }
 
 
