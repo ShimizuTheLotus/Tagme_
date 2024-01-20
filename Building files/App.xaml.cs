@@ -57,7 +57,7 @@ namespace Tagme_
             public class Consts
             {
                 /// <summary>
-                /// The folder of Tagme_ infos
+                /// The folder of Tagme_ info.
                 /// </summary>
                 public static StorageFolder Tagme_InfoPath = ApplicationData.Current.LocalFolder;
                 /// <summary>
@@ -67,9 +67,29 @@ namespace Tagme_
             }
 
             /// <summary>
+            /// Functions for getting info.
+            /// </summary>
+            public class InfoManager
+            {
+                /// <summary>
+                /// Get info of a list of database path.
+                /// Not checked if the databases are exist.
+                /// </summary>
+                /// <returns></returns>
+                public List<string> GetDataBaseNameIDList()
+                {
+                    List<string> getDataBasePathList = new List<string>();
+
+                    //options
+
+                    return getDataBasePathList;
+                }
+            }
+
+            /// <summary>
             /// The options of Tagme_ Databases.
             /// </summary>
-            public class DataBaseOptions
+            public class Tagme_DataBaseOptions
             {
                 /// <summary>
                 /// Check if a database exists.
@@ -80,10 +100,10 @@ namespace Tagme_
                 }
 
                 /// <summary>
-                /// Check all the databases if they're exist.
+                /// Check all the databases in list if they're exist.
                 /// It will return a list of databases that dosen't exist.
                 /// </summary>
-                public List<string> CheckIfAllDataBaseExist()
+                public List<string> CheckIfAllDataBaseInListExist(List<string> targetpathList)
                 {
                     List<string> dataBaseNotExistList = new List<string>();
 
@@ -105,7 +125,7 @@ namespace Tagme_
                 /// Open a folder in a Tagme_ database file.
                 /// </summary>
                 /// <param name="FolderID">The ID of the folder being opened</param>
-                public void DataBaseOpenFolder(string FolderID)
+                public void OpenFolder(string FolderID)
                 {
 
                 }
