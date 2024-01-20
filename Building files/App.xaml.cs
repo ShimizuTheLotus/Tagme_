@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -51,6 +52,21 @@ namespace Tagme_
         public class Tagme_CoreUWP
         {
             /// <summary>
+            /// The consts that Tagme_ uses.
+            /// </summary>
+            public class Consts
+            {
+                /// <summary>
+                /// The folder of Tagme_ infos
+                /// </summary>
+                public static StorageFolder Tagme_InfoPath = ApplicationData.Current.LocalFolder;
+                /// <summary>
+                /// The database path of a database that records the paths of all Tagme_ databases.
+                /// </summary>
+                public static string dataBasePathsDataBasePath = Path.Combine(ApplicationData.Current.LocalFolder.Path,"dbpathsDB.db");
+            }
+
+            /// <summary>
             /// The options of Tagme_ Databases.
             /// </summary>
             public class DataBaseOptions
@@ -83,7 +99,10 @@ namespace Tagme_
         /// </summary>
         public class Tagme_RunningData
         {
-
+            /// <summary>
+            /// The paths of all databases.
+            /// </summary>
+            public static List<string> dataBasePaths = new List<string>();
         }
 
 
