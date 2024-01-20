@@ -95,8 +95,17 @@ namespace Tagme_
                 /// <summary>
                 /// Create a database at a spacific path.
                 /// </summary>
-                /// <param name="CreatePath"></param>
+                /// <param name="CreatePath">The path that database will be created</param>
                 public void CreateAndInitializeDataBase(string CreatePath)
+                {
+
+                }
+
+                /// <summary>
+                /// Open a folder in a Tagme_ database file.
+                /// </summary>
+                /// <param name="FolderID">The ID of the folder being opened</param>
+                public void DataBaseOpenFolder(string FolderID)
                 {
 
                 }
