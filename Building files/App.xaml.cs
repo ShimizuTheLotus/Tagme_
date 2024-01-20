@@ -91,6 +91,15 @@ namespace Tagme_
 
                     return dataBaseNotExistList;
                 }
+
+                /// <summary>
+                /// Create a database at a spacific path.
+                /// </summary>
+                /// <param name="CreatePath"></param>
+                public void CreateAndInitializeDataBase(string CreatePath)
+                {
+
+                }
             }
         }
 
