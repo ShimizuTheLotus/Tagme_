@@ -75,7 +75,7 @@ namespace Tagme_
                 /// Get info of a list of database path.
                 /// Not checked if the databases are exist.
                 /// </summary>
-                /// <returns></returns>
+                /// <returns>A list of database path that storaged in Tagme_ info database.</returns>
                 public List<string> GetDataBaseNameIDList()
                 {
                     List<string> getDataBasePathList = new List<string>();
@@ -103,6 +103,8 @@ namespace Tagme_
                 /// Check all the databases in list if they're exist.
                 /// It will return a list of databases that dosen't exist.
                 /// </summary>
+                /// <param name="targetpathList">A list filled with database paths that waiting to check if the databases are exist.</param>
+                /// <returns>A list of paths that dosen't refer to any file.</returns>
                 public List<string> CheckIfAllDataBaseInListExist(List<string> targetpathList)
                 {
                     List<string> dataBaseNotExistList = new List<string>();
