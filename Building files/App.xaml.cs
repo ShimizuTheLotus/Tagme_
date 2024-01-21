@@ -138,7 +138,7 @@ namespace Tagme_
             /// <summary>
             /// The severity of a pushed info
             /// </summary>
-            enum PushInfoSeverity
+            public enum PushInfoSeverity
             {
                 Informational,
                 Success,
