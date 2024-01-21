@@ -86,6 +86,9 @@ namespace Tagme_
         /// </summary>
         private void InitializeDataBaseListView()
         {
+            DataBaseListView.Items.Clear();
+
+            //options
 
         }
 
