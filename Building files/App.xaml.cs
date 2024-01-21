@@ -120,7 +120,7 @@ namespace Tagme_
         /// <summary>
         /// The consts that Tagme_ uses.
         /// </summary>
-        public class Consts
+        public class Const
         {
             /// <summary>
             /// The folder of Tagme_ info.
@@ -131,6 +131,22 @@ namespace Tagme_
             /// </summary>
             public static string dataBasePathsDataBasePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "dbpathsDB.db");
         }
+
+        //Struct
+        public class Struct
+        {
+            /// <summary>
+            /// The severity of a pushed info
+            /// </summary>
+            enum PushInfoSeverity
+            {
+                Informational,
+                Success,
+                Warning,
+                Error
+            }
+        }
+
 
         /// <summary>
         /// Functions for getting and setting info.
