@@ -64,6 +64,20 @@ namespace Tagme_
         }
 
 
+        //Notice push
+        /// <summary>
+        /// Push the information.
+        /// </summary>
+        /// <param name="noticeTitle">The title of a push</param>
+        /// <param name="description">The description of the info.</param>
+        /// <param name="severity">The severity of the info.</param>
+        public void PushNotice(string noticeTitle, string description = "", Tagme_CoreUWP.Struct.PushInfoSeverity severity = Tagme_CoreUWP.Struct.PushInfoSeverity.Informational)
+        {
+
+            //options
+
+        }
+
         //Initializations
         /// <summary>
         /// Initialize TitileBar.
@@ -95,7 +109,10 @@ namespace Tagme_
                 DatabaseStorageStatusRelativePanel.Translation += new Vector3(0, 0, 32);
                 SearchDatabaseAutoSuggestBox.Translation += new Vector3(0, 0, 32);
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                PushNotice("Error", ex.ToString(), Tagme_CoreUWP.Struct.PushInfoSeverity.Error);
+            }
         }
 
         /// <summary>
