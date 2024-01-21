@@ -67,7 +67,7 @@ namespace Tagme_
             }
 
             /// <summary>
-            /// Functions for getting info.
+            /// Functions for getting and setting info.
             /// </summary>
             public class InfoManager
             {
@@ -83,6 +83,14 @@ namespace Tagme_
                     //options
 
                     return getDataBasePathList;
+                }
+
+                /// <summary>
+                /// Log the database path in the Tagme_ info database.
+                /// </summary>
+                public void LogDataBasePath(string path)
+                {
+
                 }
             }
 
@@ -143,6 +151,10 @@ namespace Tagme_
             /// The paths of all databases.
             /// </summary>
             public static List<string> dataBasePaths = new List<string>();
+            /// <summary>
+            /// The paths that Tagme_ database files exist.
+            /// </summary>
+            public static List<string> dataBasePathsExistFIle = new List<string>();
         }
 
 
