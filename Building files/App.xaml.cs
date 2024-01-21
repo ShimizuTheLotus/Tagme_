@@ -92,6 +92,27 @@ namespace Tagme_
                 {
 
                 }
+
+                /// <summary>
+                /// Remove a provided Tagme_ database path in Tagme_ info database.
+                /// </summary>
+                /// <param name="path">The path waiting to be removed from Tagme_ info database.</param>
+                public void RemoveSingleDataBasePath(string path)
+                {
+
+                }
+
+                /// <summary>
+                /// Remove the paths in the provided list from Tagme_ info database.
+                /// </summary>
+                /// <param name="paths">The path waiting to be removed from Tagme_ info database.</param>
+                public void RemoveDataBasePaths(List<string> paths)
+                {
+                    foreach (string path in paths)
+                    {
+                        RemoveSingleDataBasePath(path);
+                    }
+                }
             }
 
             /// <summary>
@@ -136,6 +157,14 @@ namespace Tagme_
                 /// </summary>
                 /// <param name="FolderID">The ID of the folder being opened</param>
                 public void OpenFolder(string FolderID)
+                {
+
+                }
+
+                /// <summary>
+                /// Go back to previous level of folder.
+                /// </summary>
+                public void GoBack()
                 {
 
                 }
