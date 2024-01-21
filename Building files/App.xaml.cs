@@ -33,160 +33,6 @@ namespace Tagme_
             this.Suspending += OnSuspending;
         }
 
-        //Classes
-        /// <summary>
-        /// NekoWahs services that could be used to variety of programs.
-        /// These functions must not ref any variety or functions of a certain program. 
-        /// Compatibility Caution: Windows UWP
-        /// </summary>
-        public class NekoWahsUWP
-        {
-
-        }
-
-        /// <summary>
-        /// Tagme_ core that has the main functions of a Tagme_ Program
-        /// Compatibility Caution: Windows UWP
-        /// Requirements: NuGet Package - Microsoft.Data.Sqlite
-        /// </summary>
-        public class Tagme_CoreUWP
-        {
-            /// <summary>
-            /// The consts that Tagme_ uses.
-            /// </summary>
-            public class Consts
-            {
-                /// <summary>
-                /// The folder of Tagme_ info.
-                /// </summary>
-                public static StorageFolder Tagme_InfoPath = ApplicationData.Current.LocalFolder;
-                /// <summary>
-                /// The database path of a database that records the paths of all Tagme_ databases.
-                /// </summary>
-                public static string dataBasePathsDataBasePath = Path.Combine(ApplicationData.Current.LocalFolder.Path,"dbpathsDB.db");
-            }
-
-            /// <summary>
-            /// Functions for getting and setting info.
-            /// </summary>
-            public class InfoManager
-            {
-                /// <summary>
-                /// Get info of a list of database path.
-                /// Not checked if the databases are exist.
-                /// </summary>
-                /// <returns>A list of database path that storaged in Tagme_ info database.</returns>
-                public List<string> GetDataBaseNameIDList()
-                {
-                    List<string> getDataBasePathList = new List<string>();
-
-                    //options
-
-                    return getDataBasePathList;
-                }
-
-                /// <summary>
-                /// Log the database path in the Tagme_ info database.
-                /// </summary>
-                public void LogDataBasePath(string path)
-                {
-
-                }
-
-                /// <summary>
-                /// Remove a provided Tagme_ database path in Tagme_ info database.
-                /// </summary>
-                /// <param name="path">The path waiting to be removed from Tagme_ info database.</param>
-                public void RemoveSingleDataBasePath(string path)
-                {
-
-                }
-
-                /// <summary>
-                /// Remove the paths in the provided list from Tagme_ info database.
-                /// </summary>
-                /// <param name="paths">The path waiting to be removed from Tagme_ info database.</param>
-                public void RemoveDataBasePaths(List<string> paths)
-                {
-                    foreach (string path in paths)
-                    {
-                        RemoveSingleDataBasePath(path);
-                    }
-                }
-            }
-
-            /// <summary>
-            /// The options of Tagme_ Databases.
-            /// </summary>
-            public class Tagme_DataBaseOptions
-            {
-                /// <summary>
-                /// Check if a database exists.
-                /// </summary>
-                public void CheckIfDataBaseExists(string dataBasePath)
-                {
-
-                }
-
-                /// <summary>
-                /// Check all the databases in list if they're exist.
-                /// It will return a list of databases that dosen't exist.
-                /// </summary>
-                /// <param name="targetpathList">A list filled with database paths that waiting to check if the databases are exist.</param>
-                /// <returns>A list of paths that dosen't refer to any file.</returns>
-                public List<string> CheckIfAllDataBaseInListExist(List<string> targetpathList)
-                {
-                    List<string> dataBaseNotExistList = new List<string>();
-
-                    //options
-
-                    return dataBaseNotExistList;
-                }
-
-                /// <summary>
-                /// Create a database at a spacific path.
-                /// </summary>
-                /// <param name="CreatePath">The path that database will be created</param>
-                public void CreateAndInitializeDataBase(string CreatePath)
-                {
-
-                }
-
-                /// <summary>
-                /// Open a folder in a Tagme_ database file.
-                /// </summary>
-                /// <param name="FolderID">The ID of the folder being opened</param>
-                public void OpenFolder(string FolderID)
-                {
-
-                }
-
-                /// <summary>
-                /// Go back to previous level of folder.
-                /// </summary>
-                public void GoBack()
-                {
-
-                }
-            }
-        }
-
-        /// <summary>
-        /// The data that Tagme_ needs while running.
-        /// </summary>
-        public class Tagme_RunningData
-        {
-            /// <summary>
-            /// The paths of all databases.
-            /// </summary>
-            public static List<string> dataBasePaths = new List<string>();
-            /// <summary>
-            /// The paths that Tagme_ database files exist.
-            /// </summary>
-            public static List<string> dataBasePathsExistFIle = new List<string>();
-        }
-
-
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used such as when the application is launched to open a specific file.
@@ -250,6 +96,177 @@ namespace Tagme_
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+    }
+
+    //Classes
+    /// <summary>
+    /// NekoWahs services that could be used to variety of programs.
+    /// These functions must not ref any variety or functions of a certain program. 
+    /// Compatibility Caution: Windows UWP
+    /// </summary>
+    public class NekoWahsUWP
+    {
+
+    }
+
+    /// <summary>
+    /// Tagme_ core that has the main functions of a Tagme_ Program
+    /// Compatibility Caution: Windows UWP
+    /// Requirements: NuGet Package - Microsoft.Data.Sqlite
+    /// </summary>
+    public class Tagme_CoreUWP
+    {
+        /// <summary>
+        /// The consts that Tagme_ uses.
+        /// </summary>
+        public class Consts
+        {
+            /// <summary>
+            /// The folder of Tagme_ info.
+            /// </summary>
+            public static StorageFolder Tagme_InfoPath = ApplicationData.Current.LocalFolder;
+            /// <summary>
+            /// The database path of a database that records the paths of all Tagme_ databases.
+            /// </summary>
+            public static string dataBasePathsDataBasePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "dbpathsDB.db");
+        }
+
+        /// <summary>
+        /// Functions for getting and setting info.
+        /// </summary>
+        public class InfoManager
+        {
+            /// <summary>
+            /// Get info of a list of database path.
+            /// Not checked if the databases are exist.
+            /// </summary>
+            /// <returns>A list of database path that storaged in Tagme_ info database.</returns>
+            public List<string> GetDataBaseNameIDList()
+            {
+                List<string> getDataBasePathList = new List<string>();
+
+                //options
+
+                return getDataBasePathList;
+            }
+
+            /// <summary>
+            /// Log the database path in the Tagme_ info database.
+            /// </summary>
+            /// <param name="path">The path waiting to be logged in Tagme_ info database</param>
+            public void LogDataBasePath(string path)
+            {
+
+            }
+
+            /// <summary>
+            /// Remove a provided Tagme_ database path in Tagme_ info database.
+            /// </summary>
+            /// <param name="path">The path waiting to be removed from Tagme_ info database.</param>
+            public void RemoveSingleDataBasePath(string path)
+            {
+
+            }
+
+            /// <summary>
+            /// Remove the paths in the provided list from Tagme_ info database.
+            /// </summary>
+            /// <param name="paths">The path waiting to be removed from Tagme_ info database.</param>
+            public void RemoveDataBasePaths(List<string> paths)
+            {
+                foreach (string path in paths)
+                {
+                    RemoveSingleDataBasePath(path);
+                }
+            }
+        }
+
+        /// <summary>
+        /// The options of Tagme_ Databases.
+        /// </summary>
+        public class Tagme_DataBaseOptions
+        {
+            /// <summary>
+            /// Check if a database exists.
+            /// </summary>
+            public void CheckIfDataBaseExists(string dataBasePath)
+            {
+
+            }
+
+            /// <summary>
+            /// Check all the databases in list if they're exist.
+            /// It will return a list of databases that dosen't exist.
+            /// </summary>
+            /// <param name="targetpathList">A list filled with database paths that waiting to check if the databases are exist.</param>
+            /// <returns>A list of paths that dosen't refer to any file.</returns>
+            public List<string> CheckIfAllDataBaseInListExist(List<string> targetpathList)
+            {
+                List<string> dataBaseNotExistList = new List<string>();
+
+                //options
+
+                return dataBaseNotExistList;
+            }
+
+            /// <summary>
+            /// Create a database at a spacific path.
+            /// </summary>
+            /// <param name="CreatePath">The path that database will be created</param>
+            public void CreateAndInitializeDataBase(string CreatePath)
+            {
+
+            }
+
+            /// <summary>
+            /// Open a folder in a Tagme_ database file.
+            /// </summary>
+            /// <param name="FolderID">The ID of the folder being opened</param>
+            public void OpenFolder(string FolderID)
+            {
+
+            }
+
+            /// <summary>
+            /// Go back to previous level of folder.
+            /// </summary>
+            public void GoBack()
+            {
+
+            }
+        }
+    }
+
+    /// <summary>
+    /// The data that Tagme_ needs while running.
+    /// </summary>
+    public class Tagme_RunningData
+    {
+        /// <summary>
+        /// The items related with Tagme_ database.
+        /// </summary>
+        public class DataBase
+        {
+            /// <summary>
+            /// The paths of all databases.
+            /// </summary>
+            public static List<string> dataBasePaths = new List<string>();
+            /// <summary>
+            /// The paths that Tagme_ database files exist.
+            /// </summary>
+            public static List<string> dataBasePathsExistFIle = new List<string>();
+        }
+
+        /// <summary>
+        /// The items related with debugging.
+        /// </summary>
+        public class Debug
+        {
+            /// <summary>
+            /// Whether if Tagme_ in debug mode.
+            /// </summary>
+            public static bool IsDebug = false;
         }
     }
 }
