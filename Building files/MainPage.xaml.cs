@@ -43,6 +43,27 @@ namespace Tagme_
 
         //Functions
 
+        //Debug
+
+        /// <summary>
+        /// Startting debug.
+        /// </summary>
+        public void DebugStart()
+        {
+            Tagme_RunningData.Debug.IsDebug = true;
+
+            KeepShadowExisting();
+        }
+
+        /// <summary>
+        /// Stopping debug.
+        /// </summary>
+        public void DebugStop()
+        {
+            Tagme_RunningData.Debug.IsDebug = false;
+        }
+
+
         //Initializations
         /// <summary>
         /// Initialize TitileBar.
@@ -66,11 +87,15 @@ namespace Tagme_
         /// </summary>
         private void InitializeShadows()
         {
-            PageSharedShadow.Receivers.Clear();
-            OptionBarRelativePanel.Translation += new Vector3(0, 0, 32);
-            BrowseStatusRelativePanel.Translation += new Vector3(0, 0, 32);
-            DatabaseStorageStatusRelativePanel.Translation += new Vector3(0, 0, 32);
-            SearchDatabaseAutoSuggestBox.Translation += new Vector3(0, 0, 32);
+            try
+            {
+                PageSharedShadow.Receivers.Clear();
+                OptionBarRelativePanel.Translation += new Vector3(0, 0, 32);
+                BrowseStatusRelativePanel.Translation += new Vector3(0, 0, 32);
+                DatabaseStorageStatusRelativePanel.Translation += new Vector3(0, 0, 32);
+                SearchDatabaseAutoSuggestBox.Translation += new Vector3(0, 0, 32);
+            }
+            catch (Exception ex) { }
         }
 
         /// <summary>
@@ -103,6 +128,18 @@ namespace Tagme_
             {
                 //options
 
+                await Task.Delay(4000);
+            }
+        }
+
+        /// <summary>
+        /// Keep the shadow of controls existing.
+        /// </summary>
+        private async void KeepShadowExisting()
+        {
+            while(true)
+            {
+                InitializeShadows();
                 await Task.Delay(4000);
             }
         }
