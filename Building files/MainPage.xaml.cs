@@ -42,6 +42,8 @@ namespace Tagme_
         }
 
         //Functions
+
+        //Initializations
         /// <summary>
         /// Initialize TitileBar.
         /// </summary>
@@ -79,6 +81,14 @@ namespace Tagme_
             BrowseSortStatusIcon.Rotation = 90;
         }
 
+        /// <summary>
+        /// Initialize the ListView of database list.
+        /// </summary>
+        private void InitializeDataBaseListView()
+        {
+
+        }
+
 
         //Repeating tasks
         /// <summary>
@@ -88,7 +98,7 @@ namespace Tagme_
         {
             while (true)
             {
-                //
+                //options
 
                 await Task.Delay(4000);
             }
