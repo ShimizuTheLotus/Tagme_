@@ -145,6 +145,16 @@ namespace Tagme_
                 Warning,
                 Error
             }
+
+            /// <summary>
+            /// Use it as a function return when the function is for creating a Tagme_ database.
+            /// </summary>
+            public enum DataBaseCreateFailedReason
+            {
+                Unknown,//Failed cause of unknown error
+                Success,//File created successfully, in fact it's not an error
+                NameUsed//The file using the name already exists
+            }
         }
 
 
@@ -278,9 +288,16 @@ namespace Tagme_
             /// Create a database at a spacific path.
             /// </summary>
             /// <param name="CreatePath">The path that database will be created</param>
-            public void CreateAndInitializeDataBase(string CreatePath)
+            /// <param name="dataBaseFileName">The name of the database file, it will be used as file name.</param>
+            /// <param name="dataBaseName">The name of the database, it will be logged in the database rather than used as the file name.</param>
+            /// <param name="cover">The cover image of the database</param>
+            public Tagme_CoreUWP.Struct.DataBaseCreateFailedReason CreateAndInitializeDataBase(string CreatePath,string dataBaseFileName, string dataBaseName, byte[] cover)
             {
 
+                //options
+
+                //When created successfully
+                return Struct.DataBaseCreateFailedReason.Success;
             }
 
             /// <summary>
