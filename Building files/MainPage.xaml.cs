@@ -171,5 +171,19 @@ namespace Tagme_
         {
 
         }
+
+        private void DebugIOButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Tagme_RunningData.Debug.IsDebug)
+            {
+                DebugIOButton.Background = new Windows.UI.Xaml.Media.SolidColorBrush(Color.FromArgb(0x6A,0xA9,0xA9,0xFF));
+                DebugStart();
+            }
+            else
+            {
+                DebugIOButton.Background = new Windows.UI.Xaml.Media.SolidColorBrush(Color.FromArgb(0x00,0xFF,0xFF,0xFF));
+                DebugStop();
+            }
+        }
     }
 }
