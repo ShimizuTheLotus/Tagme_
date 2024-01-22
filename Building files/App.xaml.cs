@@ -283,7 +283,13 @@ namespace Tagme_
             {
                 List<string> dataBaseNotExistList = new List<string>();
 
-                //options
+                foreach (string path in targetpathList)
+                {
+                    if (!CheckIfDataBaseExists(path))
+                    {
+                        dataBaseNotExistList.Add(path);
+                    }
+                }
 
                 return dataBaseNotExistList;
             }
