@@ -42,7 +42,7 @@
                        Height="32">
             <!--Browse status panel-->
             <RelativePanel x:Name="BrowseStatusRelativePanel"
-                           Background="#44FFFFFF"
+                           Background="#8EFFFFFF"
                            Height="32"
                            CornerRadius="8"
                            Shadow="{StaticResource PageSharedShadow}">
@@ -61,12 +61,12 @@
             </RelativePanel>
             <!--Database storage status bar-->
             <RelativePanel x:Name="DatabaseStorageStatusRelativePanel"
-                           Background="#44FFFFFF"
+                           Background="#8EFFFFFF"
                            Height="32"
                            Margin="4,0,0,0"
                            CornerRadius="8"
                            RelativePanel.RightOf="BrowseStatusRelativePanel"
-                           RelativePanel.LeftOf="SearchDatabaseAutoSuggestBox"
+                           RelativePanel.LeftOf="Tagme_DebugStatusPanel"
                            ToolTipService.ToolTip="The amount of total database used space"
                            Shadow="{StaticResource PageSharedShadow}">
                 <TextBlock x:Name="StorageShowTitle"
@@ -103,8 +103,18 @@
                            RelativePanel.AlignRightWithPanel="True"
                            Margin="4,0,8,0"/>
             </RelativePanel>
+            <RelativePanel x:Name="Tagme_DebugStatusPanel"
+                           Background="#8EFFFFFF"
+                           Height="32"
+                           Margin="4,0,0,0"
+                           CornerRadius="8"
+                           Width="64"
+                           RelativePanel.LeftOf="SearchDatabaseAutoSuggestBox"
+                           Shadow="{StaticResource PageSharedShadow}">
+                
+            </RelativePanel>
             <AutoSuggestBox x:Name="SearchDatabaseAutoSuggestBox" 
-                            Background="#44FFFFFF"
+                            Background="#8EFFFFFF"
                             Margin="4,0,0,0"
                             CornerRadius="8"
                             BorderThickness="0"
@@ -119,7 +129,7 @@
         </RelativePanel>
         <!--Option bar-->
         <RelativePanel Name="OptionBarRelativePanel"
-                       Background="#44FFFFFF"
+                       Background="#8EFFFFFF"
                        Margin="16,8,16,0"
                        CornerRadius="16"
                        RelativePanel.AlignLeftWithPanel="True"
@@ -186,7 +196,7 @@
         </RelativePanel>
         <!--Database list-->
         <ListView x:Name="DataBaseListView">
-            
+
         </ListView>
     </RelativePanel>
 </Page>
