@@ -155,8 +155,56 @@ namespace Tagme_
                 Success,//File created successfully, in fact it's not an error
                 NameUsed//The file using the name already exists
             }
+
+            public enum DataBaseUpdateFailedReason
+            {
+                Unknown,
+                Success,
+            }
+
+            public enum DataBaseDeleteFailedReason
+            {
+                Unknown,
+                Success,
+            }
         }
 
+        /// <summary>
+        /// The data Tagme_ needs for running.
+        /// </summary>
+        public class CoreRunningData
+        {
+            /// <summary>
+            /// Lists of Tagme_ databases.
+            /// </summary>
+            public class Tagme_DataBasesList
+            {
+                /// <summary>
+                /// The paths of all databases.
+                /// </summary>
+                public static List<string> dataBasePaths = new List<string>();
+                /// <summary>
+                /// The paths that Tagme_ database files exist.
+                /// </summary>
+                public static List<string> dataBasePathsExistFile = new List<string>();
+            }
+            /// <summary>
+            /// The data about Single Tagme_ database.
+            /// </summary>
+            public class Tagme_DataBase
+            {
+                /// <summary>
+                /// The data needed to simulate folders.
+                /// </summary>
+                public class SimulatedFolder
+                {
+                    /// <summary>
+                    /// The ID of the folder that is being used.
+                    /// </summary>
+                    public string UsingFolderID;
+                }
+            }
+        }
 
         /// <summary>
         /// Functions for getting and setting info.
@@ -327,27 +375,6 @@ namespace Tagme_
 
             }
         }
-    }
-
-    /// <summary>
-    /// The data that Tagme_ needs while running.
-    /// </summary>
-    public class Tagme_RunningData
-    {
-        /// <summary>
-        /// The items related with Tagme_ database.
-        /// </summary>
-        public class DataBase
-        {
-            /// <summary>
-            /// The paths of all databases.
-            /// </summary>
-            public static List<string> dataBasePaths = new List<string>();
-            /// <summary>
-            /// The paths that Tagme_ database files exist.
-            /// </summary>
-            public static List<string> dataBasePathsExistFIle = new List<string>();
-        }
 
         /// <summary>
         /// The items related with debugging.
@@ -359,5 +386,14 @@ namespace Tagme_
             /// </summary>
             public static bool IsDebug = false;
         }
+    }
+
+    /// <summary>
+    /// Part of the data that Tagme_ needs while running which not included in the Tagme_Core cause it's not a necessary, such as customized UI.
+    /// It's not in the Tagme_Core cause it could be customerized frequently and not always necessary to Tagme_.
+    /// </summary>
+    public class Tagme_CustomizedRunningData
+    {
+
     }
 }
