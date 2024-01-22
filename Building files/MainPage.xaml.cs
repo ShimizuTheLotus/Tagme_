@@ -50,7 +50,7 @@ namespace Tagme_
         /// </summary>
         public void DebugStart()
         {
-            Tagme_RunningData.Debug.IsDebug = true;
+            Tagme_CoreUWP.Debug.IsDebug = true;
 
             KeepShadowExisting();
         }
@@ -60,7 +60,7 @@ namespace Tagme_
         /// </summary>
         public void DebugStop()
         {
-            Tagme_RunningData.Debug.IsDebug = false;
+            Tagme_CoreUWP.Debug.IsDebug = false;
         }
 
 
@@ -172,9 +172,14 @@ namespace Tagme_
 
         }
 
+        /// <summary>
+        /// The button in debug panel clicked, then switch the debug mode.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DebugIOButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!Tagme_RunningData.Debug.IsDebug)
+            if (!Tagme_CoreUWP.Debug.IsDebug)
             {
                 DebugIOButton.Background = new Windows.UI.Xaml.Media.SolidColorBrush(Color.FromArgb(0x6A,0xA9,0xA9,0xFF));
                 DebugStart();
