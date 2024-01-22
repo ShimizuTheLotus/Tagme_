@@ -264,9 +264,13 @@ namespace Tagme_
             /// <summary>
             /// Check if a database exists.
             /// </summary>
-            public void CheckIfDataBaseExists(string dataBasePath)
+            public bool CheckIfDataBaseExists(string dataBasePath)
             {
-
+                if (File.Exists(dataBasePath))
+                {
+                    return true;
+                }
+                return false;
             }
 
             /// <summary>
