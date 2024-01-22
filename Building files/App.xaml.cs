@@ -136,7 +136,7 @@ namespace Tagme_
         public class Struct
         {
             /// <summary>
-            /// The severity of a pushed info
+            /// The severity of a pushed info.
             /// </summary>
             public enum PushInfoSeverity
             {
@@ -194,6 +194,54 @@ namespace Tagme_
                 foreach (string path in paths)
                 {
                     RemoveSingleDataBasePath(path);
+                }
+            }
+        }
+
+        /// <summary>
+        /// The string value of a table or a colume of Tagme_ database
+        /// </summary>
+        public class Tagme_DataBaseConsts
+        {
+            /// <summary>
+            /// A table with basic database info.
+            /// </summary>
+            public class BasicDataBaseInfo
+            {
+                const string Name = "BasicDataBaseInfo";
+                public class Column
+                {
+                    public class DataBaseName
+                    {
+                        public const string Name = "DataBaseName";
+                        public const string SQLiteType = "TEXT";
+                    }
+                    public class DataBaseCover
+                    {
+                        public const string Name = "DataBaseCover";
+                        public const string SQLiteType = "BLOB";
+                    }
+                    public class CreatedTime
+                    {
+                        public const string Name = "CreatedTime";
+                        public const string SQLiteType = "TEXT";
+                    }
+                    public class LastEditTime
+                    {
+                        public const string Name = "LastEditTime";
+                        public const string SQLiteType = "TEXT";
+                    }
+                    public class LastViewTime
+                    {
+                        public const string Name = "LastViewTime";
+                        public const string SQLiteType = "TEXT";
+                    }
+                    public class Tagme_DataBaseVersion
+                    {
+                        public const string Name = "Tagme_DataBaseVersion"; 
+                        public const string SQLiteType = "TEXT";
+                    }
+
                 }
             }
         }
