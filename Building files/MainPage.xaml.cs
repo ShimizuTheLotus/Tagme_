@@ -107,6 +107,7 @@ namespace Tagme_
                 OptionBarRelativePanel.Translation += new Vector3(0, 0, 32);
                 BrowseStatusRelativePanel.Translation += new Vector3(0, 0, 32);
                 DatabaseStorageStatusRelativePanel.Translation += new Vector3(0, 0, 32);
+                Tagme_DebugStatusPanel.Translation += new Vector3(0, 0, 32);
                 SearchDatabaseAutoSuggestBox.Translation += new Vector3(0, 0, 32);
             }
             catch (Exception ex)
