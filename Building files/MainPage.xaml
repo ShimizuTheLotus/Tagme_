@@ -103,6 +103,7 @@
                            RelativePanel.AlignRightWithPanel="True"
                            Margin="4,0,8,0"/>
             </RelativePanel>
+            <!--Debug status bar-->
             <RelativePanel x:Name="Tagme_DebugStatusPanel"
                            Background="#8EFFFFFF"
                            Height="32"
@@ -112,6 +113,7 @@
                            RelativePanel.LeftOf="SearchDatabaseAutoSuggestBox"
                            ToolTipService.ToolTip="Debug panel"
                            Shadow="{StaticResource PageSharedShadow}">
+                <!--Show info count and click to turn on/off debug mode-->
                 <AppBarButton x:Name="DebugIOButton" 
                               RelativePanel.AlignLeftWithPanel="True"
                               RelativePanel.AlignRightWithPanel="True"
