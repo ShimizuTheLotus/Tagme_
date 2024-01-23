@@ -119,6 +119,7 @@ namespace Tagme_
             /// Measurement:Byte
             /// The default value 1048576 Byte is 2 MiB.
             /// </summary>
+            //Compatibility Caution: Int64
             public static Int64 thresholdSizeOfFileOpenMode = 1048576;
         }
 
@@ -447,7 +448,8 @@ namespace Tagme_
             /// </summary>
             public bool CheckIfDataBaseExists(string dataBasePath)
             {
-                if (File.Exists(dataBasePath))
+                var x = new NekoWahsCoreUWP.File();
+                if (x.AccessFileChecker(dataBasePath, false) == NekoWahsCoreUWP.Struct.FileGetStatus.Exist)
                 {
                     return true;
                 }
