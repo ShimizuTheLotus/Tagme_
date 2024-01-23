@@ -7,7 +7,7 @@ We're finding ways to make Tagme_ Run on the Tagme_Core... Thus it'll be easy to
 
 ## For the users
 Requirements:
-- Windows 10, version 1809
+- Windows 10, version 1809 **(The theme shadow Effect is not available in Windows 10, version 1809!)**
 - The requirements of UWP programs(I don't know the version the program needs, but it might already be included in your Windows. Most of the times, you don't need to care about it.)
   - Microsoft.NET.Native.Framework
   - Microsoft.NET.Native.Runtime
