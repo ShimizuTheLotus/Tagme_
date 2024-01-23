@@ -114,23 +114,39 @@ namespace Tagme_
         /// </summary>
         public class CustomizableConsts
         {
-
-            public Int64 
+            /// <summary>
+            /// If file size is over this value, the core will suggest to open file with stream.
+            /// Measurement:Byte
+            /// The default value 1048576 Byte is 2 MiB.
+            /// </summary>
+            public static Int64 thresholdSizeOfFileOpenMode = 1048576;
         }
 
         public class Struct
         {
+            /// <summary>
+            /// The status used when checking if file is exist or opening file.
+            /// </summary>
             public enum FileGetStatus
             {
                 Unknown,
+                PathIsEmpty,
                 NotExist,
                 NotExistAndFailedToCreate,
                 Exist,
                 ExistButFailedToOpen
             }
 
-            public enum FileOpenMode
+            /// <summary>
+            /// The mode for opening file.
+            /// FileNotExist: The  target file is not exist.
+            /// AllIn: Use it for small file, usually text files.
+            /// Stream: Use stream to read file.
+            /// Auto: NekoWahsCore will judge to choose the file open mode automatically.
+            /// </summary>
+            public enum SuggestedFileOpenMode
             {
+                FileNotExist,
                 AllIn,
                 Stream,
                 Auto
@@ -147,9 +163,14 @@ namespace Tagme_
             /// </summary>
             /// <param name="path">File path</param>
             /// <param name="createIfNotExist">When the value is true, the core will try to create a file. Plus, if the directory of the file not exist, the core will also try to creat it.</param>
-            /// <returns>The status of the file status.</returns>
+            /// <returns>The status of the target file.</returns>
             public Struct.FileGetStatus AccessFileChecker(string path, bool createIfNotExist)
             {
+                //Direction is null or empty string.
+                if (path == null || path == string.Empty)
+                {
+                    return Struct.FileGetStatus.PathIsEmpty;
+                }
                 //Directory not exists.
                 if (!System.IO.Directory.Exists(Path.GetDirectoryName(path)))
                 {
@@ -193,6 +214,30 @@ namespace Tagme_
 
                 //File exists.
                 return Struct.FileGetStatus.Exist;
+            }
+
+            /// <summary>
+            /// Make sure a file exists and suggest 
+            /// </summary>
+            public Struct.SuggestedFileOpenMode SuggestOpenFile(string path)
+            {
+                var x = new NekoWahsCoreUWP.File();
+                //File exists
+                if (x.AccessFileChecker(path, false) != Struct.FileGetStatus.PathIsEmpty && x.AccessFileChecker(path, false) != Struct.FileGetStatus.NotExist)
+                {
+                    if (new FileInfo(path).Length <= CustomizableConsts.thresholdSizeOfFileOpenMode)
+                    {
+                        return Struct.SuggestedFileOpenMode.AllIn;
+                    }
+                    else
+                    {
+                        return Struct.SuggestedFileOpenMode.Stream;
+                    }
+                }
+                else
+                {
+                    return Struct.SuggestedFileOpenMode.FileNotExist;
+                }
             }
         }
     }
