@@ -104,15 +104,103 @@ namespace Tagme_
     /// NekoWahs services that could be used to variety of programs.
     /// These functions must not ref any variety or functions of a certain program. 
     /// Compatibility Caution: Windows UWP
+    /// Core version: 0.0.0
     /// </summary>
-    public class NekoWahsUWP
+    public class NekoWahsCoreUWP
     {
+        /// <summary>
+        /// The constant values that could be changed by developers or users.
+        /// If it will be changed by the users, the developer should save the customized values by themselves and initialize the values each time the app runs to apply the user settings.
+        /// </summary>
+        public class CustomizableConsts
+        {
 
+            public Int64 
+        }
+
+        public class Struct
+        {
+            public enum FileGetStatus
+            {
+                Unknown,
+                NotExist,
+                NotExistAndFailedToCreate,
+                Exist,
+                ExistButFailedToOpen
+            }
+
+            public enum FileOpenMode
+            {
+                AllIn,
+                Stream,
+                Auto
+            }
+        }
+
+        /// <summary>
+        /// Options about files.
+        /// </summary>
+        public class File
+        {
+            /// <summary>
+            /// Check if the path exists
+            /// </summary>
+            /// <param name="path">File path</param>
+            /// <param name="createIfNotExist">When the value is true, the core will try to create a file. Plus, if the directory of the file not exist, the core will also try to creat it.</param>
+            /// <returns>The status of the file status.</returns>
+            public Struct.FileGetStatus AccessFileChecker(string path, bool createIfNotExist)
+            {
+                //Directory not exists.
+                if (!System.IO.Directory.Exists(Path.GetDirectoryName(path)))
+                {
+                    if (createIfNotExist)
+                    {
+                        try
+                        {
+                            System.IO.Directory.CreateDirectory(Path.GetDirectoryName(path));
+                        }
+                        catch
+                        {
+                            return Struct.FileGetStatus.NotExistAndFailedToCreate;
+                        }
+                    }
+                    else
+                    {
+                        return Struct.FileGetStatus.NotExist;
+                    }
+                }
+                //Directory failed to create.
+                if (!System.IO.Directory.Exists(Path.GetDirectoryName(path)))
+                {
+                    return Struct.FileGetStatus.NotExistAndFailedToCreate;
+                }
+                else
+                {
+                    try
+                    {
+                        System.IO.File.Create(Path.GetDirectoryName(path));
+                    }
+                    catch
+                    {
+                        return Struct.FileGetStatus.NotExistAndFailedToCreate;
+                    }
+                }
+                //File failed to create.
+                if (!System.IO.File.Exists(Path.GetDirectoryName(path)))
+                {
+                    return Struct.FileGetStatus.NotExistAndFailedToCreate;
+                }
+
+                //File exists.
+                return Struct.FileGetStatus.Exist;
+            }
+        }
     }
 
     /// <summary>
     /// Tagme_ core that has the main functions of a Tagme_ Program
     /// Compatibility Caution: Windows UWP
+    /// Tagme_ core should not ref anything not in itself except NekoWahs core.
     /// Requirements: NuGet Package - Microsoft.Data.Sqlite
     /// </summary>
     public class Tagme_CoreUWP
