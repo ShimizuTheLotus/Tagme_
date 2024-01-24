@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
 
 namespace Tagme_
 {
@@ -411,13 +412,31 @@ namespace Tagme_
             }
 
             /// <summary>
-            /// Log the database path in the Tagme_ info database.
+            /// Log the database path or paths in the Tagme_ info database.
+            /// can only use path or pathsList as the parameter, use string for single path, use list for paths
             /// </summary>
             /// <param name="path">The path waiting to be logged in Tagme_ info database</param>
             /// <param name="pathsList">When </param>
             /// <returns>Is logging success?</returns>
-            public bool LogDataBasePath(string path = "", List<string> pathsList = null)
+            public bool LogDataBasePath(string path = "default", List<string> pathsList = null)
             {
+                if (path == "default" && pathsList == null)
+                {
+                    //No parameter.
+                    return false;
+                }
+                else if (path != "default" && pathsList == null)
+                {
+                    pathsList = pathsList ?? new List<string>();
+                    pathsList.Add(path);
+                }
+                else if (path != "default" && pathsList != null)
+                {
+                    //Too much parameters
+                    return false;
+                }
+
+
                 var x = new NekoWahsCoreUWP.File();
                 NekoWahsCoreUWP.Struct.FileGetStatus accessStatus = x.AccessFileChecker(path, true);
                 if (accessStatus == NekoWahsCoreUWP.Struct.FileGetStatus.Exist)
@@ -439,13 +458,16 @@ namespace Tagme_
                 {
                     db.Open();
 
-                    SqliteCommand insertCommand = new SqliteCommand();
-                    insertCommand.Connection = db;
-                    insertCommand.CommandText = "INSERT INTO @T48L3 VALUES(@C0LUMN1ND3X)";
-                    insertCommand.Parameters.Clear();
-                    insertCommand.Parameters.AddWithValue("@T48L3", "DATABASES");
-                    insertCommand.Parameters.AddWithValue("@C0LUMN1ND3X", "PATH");
-                    insertCommand.ExecuteReader();
+                    foreach (string insertpath in pathsList) 
+                    {
+                        SqliteCommand insertCommand = new SqliteCommand();
+                        insertCommand.Connection = db;
+                        insertCommand.CommandText = "INSERT INTO @T48L3 VALUES(@P4TH)";
+                        insertCommand.Parameters.Clear();
+                        insertCommand.Parameters.AddWithValue("@T48L3", "DATABASES");
+                        insertCommand.Parameters.AddWithValue("@P4TH", insertpath);
+                        insertCommand.ExecuteReader();
+                    }
 
                     db.Close();
                 }
