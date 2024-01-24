@@ -54,7 +54,7 @@ namespace Tagme_
 
             //UI change
             OptionsCommandBarDebugPart.Visibility = Visibility.Visible;
-
+            DebugInfoPanel.Margin = new Thickness(DataBaseListView.Margin.Right + 8, 8, 8, 8);
 
             //Tasks
             KeepShadowExisting();
@@ -69,6 +69,7 @@ namespace Tagme_
 
             //UI recover
             OptionsCommandBarDebugPart.Visibility= Visibility.Collapsed;
+            DebugInfoPanel.Margin = new Thickness(8, 8, DataBaseListView.Margin.Right + 8 - 40 - DebugInfoPanel.ActualWidth, 8);
         }
 
 
@@ -117,6 +118,7 @@ namespace Tagme_
                 DatabaseStorageStatusRelativePanel.Translation += new Vector3(0, 0, 32);
                 Tagme_DebugStatusPanel.Translation += new Vector3(0, 0, 32);
                 SearchDatabaseAutoSuggestBox.Translation += new Vector3(0, 0, 32);
+                DebugInfoPanel.Translation += new Vector3(0, 0, 64);
             }
             catch (Exception ex)
             {
