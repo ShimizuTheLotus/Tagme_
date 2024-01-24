@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
 
 namespace Tagme_
 {
@@ -179,13 +180,13 @@ namespace Tagme_
                     return Struct.FileGetStatus.PathIsEmpty;
                 }
                 //Directory not exists.
-                if (!System.IO.Directory.Exists(Path.GetDirectoryName(path)))
+                if (!System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(path)))
                 {
                     if (createIfNotExist)
                     {
                         try
                         {
-                            System.IO.Directory.CreateDirectory(Path.GetDirectoryName(path));
+                            System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path));
                         }
                         catch
                         {
@@ -199,7 +200,7 @@ namespace Tagme_
                 }
 
                 //Directory failed to be created.
-                if (!System.IO.Directory.Exists(Path.GetDirectoryName(path)))
+                if (!System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(path)))
                 {
                     return Struct.FileGetStatus.NotExistAndFailedToCreate;
                 }
@@ -207,7 +208,7 @@ namespace Tagme_
                 {
                     try
                     {
-                        System.IO.File.Create(Path.GetDirectoryName(path));
+                        System.IO.File.Create(System.IO.Path.GetDirectoryName(path));
                     }
                     catch
                     {
@@ -270,7 +271,7 @@ namespace Tagme_
             /// <summary>
             /// The database path of a database that records info of Tagme_ core needs, including paths of all Tagme_ databases.
             /// </summary>
-            public static string CoreInfoDataBasePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "dbpathsDB.db");
+            public static string CoreInfoDataBasePath = System.IO.Path.Combine(ApplicationData.Current.LocalFolder.Path, "dbpathsDB.db");
         }
 
         //Struct
@@ -414,25 +415,42 @@ namespace Tagme_
             /// Log the database path in the Tagme_ info database.
             /// </summary>
             /// <param name="path">The path waiting to be logged in Tagme_ info database</param>
+            /// <param name="pathsList">When </param>
             /// <returns>Is logging success?</returns>
-            public bool LogDataBasePath(string path)
+            public bool LogDataBasePath(string path = "", List<string> pathsList = null)
             {
                 var x = new NekoWahsCoreUWP.File();
                 NekoWahsCoreUWP.Struct.FileGetStatus accessStatus = x.AccessFileChecker(path, true);
                 if (accessStatus == NekoWahsCoreUWP.Struct.FileGetStatus.Exist)
                 {
-                    //options
+                    //Do nothing
                 }
                 //The db was not exist but now just created a new one, now it need to be initialized.
                 else if (accessStatus == NekoWahsCoreUWP.Struct.FileGetStatus.JustCreated)
                 {
-                    //options Initialize the info db
+                    InitializeInfoDataBase() ;
                 }
                 //Failed to create
                 else
                 {
                     return false;
                 }
+
+                using (SqliteConnection db = new SqliteConnection($"Filename={Const.CoreInfoDataBasePath}"))
+                {
+                    db.Open();
+
+                    SqliteCommand insertCommand = new SqliteCommand();
+                    insertCommand.Connection = db;
+                    insertCommand.CommandText = "INSERT INTO @T48L3 VALUES(@C0LUMN1ND3X)";
+                    insertCommand.Parameters.Clear();
+                    insertCommand.Parameters.AddWithValue("@T48L3", "DATABASES");
+                    insertCommand.Parameters.AddWithValue("@C0LUMN1ND3X", "PATH");
+                    insertCommand.ExecuteReader();
+
+                    db.Close();
+                }
+
                 return true;
             }
 
@@ -552,6 +570,7 @@ namespace Tagme_
             /// <param name="dataBaseFileName">The name of the database file, it will be used as file name.</param>
             /// <param name="dataBaseName">The name of the database, it will be logged in the database rather than used as the file name.</param>
             /// <param name="cover">The cover image of the database</param>
+            /// <returns>If succeeded, it will return success, or it will return the reason of failure</returns>
             public Tagme_CoreUWP.Struct.DataBaseCreateFailedReason CreateAndInitializeTagme_DataBase(string CreatePath,string dataBaseFileName, string dataBaseName, byte[] cover)
             {
 
