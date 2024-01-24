@@ -13,6 +13,11 @@
         <RelativePanel.Resources>
             <ThemeShadow x:Name="PageSharedShadow"/>
         </RelativePanel.Resources>
+        <RelativePanel.ChildrenTransitions>
+            <TransitionCollection>
+                <RepositionThemeTransition/>
+            </TransitionCollection>
+        </RelativePanel.ChildrenTransitions>
         <!--TitleBar-->
         <RelativePanel x:Name="AppTitleBar"
                        Height="32"
@@ -154,6 +159,11 @@
                        RelativePanel.Below="StatusBarAreaRelativePanel"
                        Height="80"
                        Shadow="{StaticResource PageSharedShadow}">
+            <RelativePanel.ChildrenTransitions>
+                <TransitionCollection>
+                    <AddDeleteThemeTransition/>
+                </TransitionCollection>
+            </RelativePanel.ChildrenTransitions>
             <!--CommandBar-->
             <CommandBar x:Name="OptionsCommandBarPart1"
                         DefaultLabelPosition="Right"
@@ -194,6 +204,11 @@
                         DefaultLabelPosition="Right"
                         RelativePanel.RightOf="OptionsCommandBarPart2"
                         Margin="4,4,0,0">
+                <CommandBar.Transitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition/>
+                    </TransitionCollection>
+                </CommandBar.Transitions>
                 <AppBarButton Icon="Add" Label="Add" CornerRadius="8"
                               ToolTipService.ToolTip="Add database"/>
                 <AppBarButton Label="Multi-select" CornerRadius="8"
@@ -210,10 +225,39 @@
                        Margin="0,0,0,0"
                        RelativePanel.AlignHorizontalCenterWith="OptionsCommandBarPart3"
                        RelativePanel.Below="OptionsCommandBarPart3"/>
+            <CommandBar x:Name="OptionsCommandBarDebugPart"
+                        DefaultLabelPosition="Right"
+                        RelativePanel.RightOf="OptionsCommandBarPart3"
+                        Margin="4,4,0,0"
+                        Visibility="Collapsed">
+                <CommandBar.Transitions>
+                    <TransitionCollection>
+                        <ContentThemeTransition/>
+                    </TransitionCollection>
+                </CommandBar.Transitions>
+                <AppBarSeparator/>
+                <AppBarButton Icon="ShowResults" Label="Debug info"/>
+            </CommandBar>
         </RelativePanel>
         <!--Database list-->
-        <ListView x:Name="DataBaseListView">
+        <ListView x:Name="DataBaseListView"
+                  RelativePanel.AlignLeftWithPanel="True"
+                  RelativePanel.AlignRightWithPanel="True"
+                  RelativePanel.Below="OptionBarRelativePanel"
+                  RelativePanel.AlignBottomWithPanel="True">
 
         </ListView>
+        <!--Debug info panel-->
+        <RelativePanel x:Name="DebugInfoPanel"
+                       Background="#8EFFFFFF"
+                       CornerRadius="8"
+                       Margin="8,8,8,8"
+                       Width="240"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.Below="OptionBarRelativePanel"
+                       RelativePanel.AlignBottomWithPanel="True"
+                       Shadow="{StaticResource PageSharedShadow}">
+            
+        </RelativePanel>
     </RelativePanel>
 </Page>
