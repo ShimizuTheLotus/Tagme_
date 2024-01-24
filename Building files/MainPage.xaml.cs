@@ -52,6 +52,11 @@ namespace Tagme_
         {
             Tagme_CoreUWP.Debug.IsDebug = true;
 
+            //UI change
+            OptionsCommandBarDebugPart.Visibility = Visibility.Visible;
+
+
+            //Tasks
             KeepShadowExisting();
         }
 
@@ -61,6 +66,9 @@ namespace Tagme_
         public void DebugStop()
         {
             Tagme_CoreUWP.Debug.IsDebug = false;
+
+            //UI recover
+            OptionsCommandBarDebugPart.Visibility= Visibility.Collapsed;
         }
 
 
