@@ -12,3 +12,9 @@ Requirements:
   - Microsoft.NET.Native.Framework
   - Microsoft.NET.Native.Runtime
   - Microsoft.VCLibs
+
+## For the developers
+### Requirements for using Tagme_CoreUWP
+*Please make sure that your program is a UWP one or some functions may not run properly.*
+- Nuget Package: Microsoft.Data.Sqlite
+- NekoWahsCoreUWP(We'll place it in the App.xaml.cs, like what we did to Tagme_CoreUWP)
