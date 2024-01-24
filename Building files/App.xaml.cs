@@ -370,11 +370,26 @@ namespace Tagme_
             /// Log the database path in the Tagme_ info database.
             /// </summary>
             /// <param name="path">The path waiting to be logged in Tagme_ info database</param>
-            public void LogDataBasePath(string path)
+            /// <returns>Is logging success?</returns>
+            public bool LogDataBasePath(string path)
             {
                 var x = new NekoWahsCoreUWP.File();
                 NekoWahsCoreUWP.Struct.FileGetStatus accessStatus = x.AccessFileChecker(path, true);
-                if(accessStatus==NekoWahsCoreUWP.Struct.FileGetStatus.Exist)
+                if (accessStatus == NekoWahsCoreUWP.Struct.FileGetStatus.Exist)
+                {
+                    //options
+                }
+                //The db was not exist but now just created a new one, now it need to be initialized.
+                else if (accessStatus == NekoWahsCoreUWP.Struct.FileGetStatus.JustCreated)
+                {
+                    //options Initialize the info db
+                }
+                //Failed to create
+                else
+                {
+                    return false;
+                }
+                return true;
             }
 
             /// <summary>
