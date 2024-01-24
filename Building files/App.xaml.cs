@@ -358,9 +358,9 @@ namespace Tagme_
             /// Please check if the dbpath exists a db file before using this function.
             /// </summary>
             /// <param name="dbpath">The path of string</param>
-            public void InitializeInfoDataBase(string dbpath = "")
+            public void InitializeInfoDataBase(string dbpath = "default")
             {
-                if (dbpath == "") dbpath = Const.CoreInfoDataBasePath;
+                if (dbpath == "default") dbpath = Const.CoreInfoDataBasePath;
 
                 using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
                 {
@@ -370,7 +370,7 @@ namespace Tagme_
                         "NAME TEXT, " +
                         "VALUE TEXT ", db);
                     insertCommand.ExecuteNonQuery();
-                    insertCommand = new SqliteCommand("CREATE TABLE IF NOT EXISTS SETTINGS(" +
+                    insertCommand = new SqliteCommand("CREATE TABLE IF NOT EXISTS DATABASES(" +
                         "PATH TEXT)", db);
                     insertCommand.ExecuteNonQuery();
 
@@ -379,29 +379,35 @@ namespace Tagme_
             }
 
             /// <summary>
-            /// Get info of a list of database path.
+            ///Get info of a list of database path.
             /// Not checked if the databases are exist.
             /// </summary>
-            /// <returns>A list of database path that storaged in Tagme_ info database.</returns>
-            public List<string> GetDataBasePathList()
+            /// <param name="getDataBasePathList">The list that will be filled with database paths.</param>
+            public void GetDataBasePathList(ref List<string> getDataBasePathList)
             {
-                List<string> getDataBasePathList = new List<string>();
+                getDataBasePathList.Clear();
 
                 var x = new NekoWahsCoreUWP.File();
                 if (x.AccessFileChecker(Const.CoreInfoDataBasePath, true) == NekoWahsCoreUWP.Struct.FileGetStatus.Exist)
                 {
-                    //options
+                    SqliteCommand selectCommand = new SqliteCommand("SELECT PATH FROM DATABASES");
+                    SqliteDataReader selectDataReader = selectCommand.ExecuteReader();
+                    while (selectDataReader.Read())
+                    {
+                        getDataBasePathList.Add(selectDataReader.GetString(0));
+                    }
                 }
                 else if(x.AccessFileChecker(Const.CoreInfoDataBasePath, true) == NekoWahsCoreUWP.Struct.FileGetStatus.JustCreated)
                 {
                     InitializeInfoDataBase();
+                    return;
                 }
                 else
                 {
                     //Tagme_ info database not exists and failed to create.
                 }
 
-                return getDataBasePathList;
+                return;
             }
 
             /// <summary>
