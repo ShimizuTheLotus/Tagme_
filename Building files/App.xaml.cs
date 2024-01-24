@@ -134,6 +134,7 @@ namespace Tagme_
                 PathIsEmpty,
                 NotExist,
                 NotExistAndFailedToCreate,
+                JustCreated,
                 Exist,
                 ExistButFailedToOpen
             }
@@ -167,6 +168,10 @@ namespace Tagme_
             /// <returns>The status of the target file.</returns>
             public Struct.FileGetStatus AccessFileChecker(string path, bool createIfNotExist)
             {
+                if (System.IO.File.Exists(path))
+                {
+                    return Struct.FileGetStatus.Exist;
+                }
                 //Direction is null or empty string.
                 if (path == null || path == string.Empty)
                 {
@@ -191,7 +196,8 @@ namespace Tagme_
                         return Struct.FileGetStatus.NotExist;
                     }
                 }
-                //Directory failed to create.
+
+                //Directory failed to be created.
                 if (!System.IO.Directory.Exists(Path.GetDirectoryName(path)))
                 {
                     return Struct.FileGetStatus.NotExistAndFailedToCreate;
@@ -207,18 +213,18 @@ namespace Tagme_
                         return Struct.FileGetStatus.NotExistAndFailedToCreate;
                     }
                 }
-                //File failed to create.
-                if (!System.IO.File.Exists(Path.GetDirectoryName(path)))
+                //File failed to be created.
+                if (!System.IO.File.Exists(path))
                 {
                     return Struct.FileGetStatus.NotExistAndFailedToCreate;
                 }
 
-                //File exists.
-                return Struct.FileGetStatus.Exist;
+                //File now exists.
+                return Struct.FileGetStatus.JustCreated;
             }
 
             /// <summary>
-            /// Make sure a file exists and suggest 
+            /// Make sure a file exists and suggest
             /// </summary>
             public Struct.SuggestedFileOpenMode SuggestOpenFile(string path)
             {
@@ -366,7 +372,9 @@ namespace Tagme_
             /// <param name="path">The path waiting to be logged in Tagme_ info database</param>
             public void LogDataBasePath(string path)
             {
-
+                var x = new NekoWahsCoreUWP.File();
+                NekoWahsCoreUWP.Struct.FileGetStatus accessStatus = x.AccessFileChecker(path, true);
+                if(accessStatus==NekoWahsCoreUWP.Struct.FileGetStatus.Exist)
             }
 
             /// <summary>
@@ -485,7 +493,7 @@ namespace Tagme_
             /// <param name="dataBaseFileName">The name of the database file, it will be used as file name.</param>
             /// <param name="dataBaseName">The name of the database, it will be logged in the database rather than used as the file name.</param>
             /// <param name="cover">The cover image of the database</param>
-            public Tagme_CoreUWP.Struct.DataBaseCreateFailedReason CreateAndInitializeDataBase(string CreatePath,string dataBaseFileName, string dataBaseName, byte[] cover)
+            public Tagme_CoreUWP.Struct.DataBaseCreateFailedReason CreateAndInitializeTagme_DataBase(string CreatePath,string dataBaseFileName, string dataBaseName, byte[] cover)
             {
 
                 //options
