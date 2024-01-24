@@ -333,9 +333,10 @@ namespace Tagme_
                 public class SimulatedFolder
                 {
                     /// <summary>
-                    /// The ID of the folder that is being used.
+                    /// A stack of opened folders
+                    /// The last element is the ID of the folder that is being used.
                     /// </summary>
-                    public string UsingFolderID;
+                    public static Stack<string> UsingFolderIDStack;
                 }
             }
         }
@@ -499,15 +500,23 @@ namespace Tagme_
             /// <param name="FolderID">The ID of the folder being opened</param>
             public void OpenFolder(string FolderID)
             {
-
+                CoreRunningData.Tagme_DataBase.SimulatedFolder.UsingFolderIDStack.Push(FolderID);
             }
 
             /// <summary>
             /// Go back to previous level of folder.
+            /// Compatibility Caution: Int64
             /// </summary>
-            public void GoBack()
+            public void GoBack(Int64 times = 1)
             {
-
+                for (Int64 i = times; i >= 0; i--)
+                {
+                    try
+                    {
+                        CoreRunningData.Tagme_DataBase.SimulatedFolder.UsingFolderIDStack.Pop();
+                    }
+                    catch { }
+                }
             }
         }
 
