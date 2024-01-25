@@ -32,6 +32,13 @@
                 <TextBlock Text="{Binding DataBaseTitle}"
                            Margin="8"
                            RelativePanel.RightOf="DataBaseCoverImage"/>
+                <Button x:Name="OperateButton"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignTopWithPanel="True"
+                        Height="32"
+                        Width="32">
+                    <FontIcon Glyph="&#xE712;"/>
+                </Button>
             </RelativePanel>
         </DataTemplate>
     </Page.Resources>
