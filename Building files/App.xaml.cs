@@ -249,6 +249,38 @@ namespace Tagme_
                 }
             }
         }
+
+        public class UI
+        {
+            //From Web, we added comment to make it easier to understand.
+            /// <summary>
+            /// Get a UI element from the visual tree. Then you can operate against the element.
+            /// </summary>
+            /// <param name="startNode">The parent of the target element waiting to be find</param>
+            /// <param name="name">The x:Name property of the target element</param>
+            /// <returns></returns>
+            public static FrameworkElement FindElementByName(DependencyObject startNode, string name)
+            {
+                int count = VisualTreeHelper.GetChildrenCount(startNode);
+                for (int i = 0; i < count; i++)
+                {
+                    var child = VisualTreeHelper.GetChild(startNode, i);
+
+                    if (child is FrameworkElement fe && fe.Name == name)
+                    {
+                        return fe;
+                    }
+
+                    var result = FindElementByName(child, name);
+                    if (result != null)
+                    {
+                        return result;
+                    }
+                }
+
+                return null;
+            }
+        }
     }
 
     /// <summary>
@@ -677,5 +709,6 @@ namespace Tagme_
                 public string DataBaseAllSubItemCount { get; set; }
             }
         }
+        public static List<TempLates.DataBaseTemplate> DataBaseListViewSource = new List<TempLates.DataBaseTemplate>();
     }
 }
