@@ -699,7 +699,7 @@ namespace Tagme_
     {
         public class TempLates
         {
-            public class DataBaseTemplate
+            public class DataBaseListViewTemplate
             {
                 public string DataBaseTitle { get; set; }
                 public object DataBaseCoverSource { get; set; }
@@ -709,6 +709,6 @@ namespace Tagme_
                 public string DataBaseAllSubItemCount { get; set; }
             }
         }
-        public static List<TempLates.DataBaseTemplate> DataBaseListViewSource = new List<TempLates.DataBaseTemplate>();
+        public static List<TempLates.DataBaseListViewTemplate> DataBaseListViewSource = new List<TempLates.DataBaseListViewTemplate>();
     }
 }
