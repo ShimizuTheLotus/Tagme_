@@ -660,11 +660,22 @@ namespace Tagme_
     }
 
     /// <summary>
-    /// Part of the data that Tagme_ needs while running which not included in the Tagme_Core cause it's not a necessary, such as customized UI.
+    /// Part of the data and other things that Tagme_ needs while running which not included in the Tagme_Core cause it's not a necessary, such as customized UI.
     /// It's not in the Tagme_Core cause it could be customerized frequently and not always necessary to Tagme_.
     /// </summary>
-    public class Tagme_CustomizedRunningData
+    public class Tagme_CustomizedCore
     {
-
+        public class TempLates
+        {
+            public class DataBaseTemplate
+            {
+                public string DataBaseTitle { get; set; }
+                public object DataBaseCoverSource { get; set; }
+                public string DataBaseCreatedTime { get; set; }
+                public string DataBaseModifiedTime { get;set; }
+                public string DataBaseFileSize { get; set; }
+                public string DataBaseAllSubItemCount { get; set; }
+            }
+        }
     }
 }
