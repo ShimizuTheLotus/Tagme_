@@ -9,10 +9,34 @@
     mc:Ignorable="d"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
-    <RelativePanel>
-        <RelativePanel.Resources>
-            <ThemeShadow x:Name="PageSharedShadow"/>
-        </RelativePanel.Resources>
+    <Page.Resources>
+        <ThemeShadow x:Name="PageSharedShadow"/>
+        <DataTemplate x:Key="DataBaseListViewTemplate">
+            <RelativePanel x:Name="DataBaseListViewTemplateBackground"
+                           CornerRadius="16"
+                           Margin="0,8,0,16"
+                           Background="#8EFFFFFF"
+                           Shadow="{StaticResource PageSharedShadow}">
+                <RelativePanel.Transitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition/>
+                        <ReorderThemeTransition/>
+                    </TransitionCollection>
+                </RelativePanel.Transitions>
+                <Image Name="DataBaseCoverImage"
+                       Height="80" Width="80" Margin="16"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignTopWithPanel="True"
+                       Stretch="UniformToFill"
+                       Source="{Binding DataBaseCoverSource}"/>
+                <TextBlock Text="{Binding DataBaseTitle}"
+                           Margin="8"
+                           RelativePanel.RightOf="DataBaseCoverImage"/>
+            </RelativePanel>
+        </DataTemplate>
+    </Page.Resources>
+
+    <RelativePanel x:Name="MainPagePanel">
         <RelativePanel.ChildrenTransitions>
             <TransitionCollection>
                 <RepositionThemeTransition/>
@@ -241,10 +265,23 @@
         </RelativePanel>
         <!--Database list-->
         <ListView x:Name="DataBaseListView"
+                  ItemTemplate="{StaticResource DataBaseListViewTemplate}"
+                  Margin="8"
                   RelativePanel.AlignLeftWithPanel="True"
                   RelativePanel.AlignRightWithPanel="True"
                   RelativePanel.Below="OptionBarRelativePanel"
-                  RelativePanel.AlignBottomWithPanel="True">
+                  RelativePanel.AlignBottomWithPanel="True"
+                  SelectionMode="None"
+                  IsItemClickEnabled="True"
+                  ItemClick="DataBaseListView_ItemClick">
+            <ListView.Transitions>
+                <TransitionCollection>
+                    <AddDeleteThemeTransition/>
+                    <RepositionThemeTransition/>
+                    <ReorderThemeTransition/>
+                </TransitionCollection>
+            </ListView.Transitions>
+
 
         </ListView>
         <!--Debug info panel-->
@@ -252,7 +289,7 @@
                        Background="#8EFFFFFF"
                        CornerRadius="8"
                        Margin="8,8,8,8"
-                       Width="240"
+                       Width="320"
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.Below="OptionBarRelativePanel"
                        RelativePanel.AlignBottomWithPanel="True"
