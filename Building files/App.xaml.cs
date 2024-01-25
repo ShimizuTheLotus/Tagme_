@@ -476,23 +476,43 @@ namespace Tagme_
             }
 
             /// <summary>
-            /// Remove a provided Tagme_ database path in Tagme_ info database.
+            /// Remove a provided Tagme_ database path or paths in Tagme_ info database.
+            /// Can only use one parameter at once.
             /// </summary>
             /// <param name="path">The path waiting to be removed from Tagme_ info database.</param>
-            public void RemoveSingleDataBasePath(string path)
+            /// <param name="pathsList">The paths waiting to be removed from Tagme_ info database.</param>
+            public void RemoveDataBasePath(string path = "default", List<string> pathsList = null)
             {
-
-            }
-
-            /// <summary>
-            /// Remove the paths in the provided list from Tagme_ info database.
-            /// </summary>
-            /// <param name="paths">The path waiting to be removed from Tagme_ info database.</param>
-            public void RemoveDataBasePaths(List<string> paths)
-            {
-                foreach (string path in paths)
+                if (path == "default" && pathsList == null)
                 {
-                    RemoveSingleDataBasePath(path);
+                    //No parameter
+                    return;
+                }
+                else if (path != "default" && pathsList != null)
+                {
+                    //Too much parameters
+                    return;
+                }
+
+                if (path != "default")
+                {
+                    pathsList = new List<string>();
+                }
+
+                using (SqliteConnection db = new SqliteConnection($"Filename={Const.CoreInfoDataBasePath}"))
+                {
+                    db.Open();
+                    foreach (string deletepath in pathsList)
+                    {
+                        SqliteCommand deleteCommand = new SqliteCommand();
+                        deleteCommand.Connection = db;
+                        deleteCommand.CommandText = "DELETE FROM @T48L3 WHERE @C0LUMN = @P4R4M3T3R";
+                        deleteCommand.Parameters.Clear();
+                        deleteCommand.Parameters.AddWithValue("@T48L3", "DATABASES");
+                        deleteCommand.Parameters.AddWithValue("@C0LUMN", "PATH");
+                        deleteCommand.Parameters.AddWithValue("@P4R4M3T3R", deletepath);
+                        deleteCommand.ExecuteNonQuery();
+                    }
                 }
             }
         }
