@@ -36,6 +36,8 @@ namespace Tagme_
             InitializeTitleBar();
             InitializeShadows();
             InitializeStatusPanel();
+            InitializeUIPositions(1000);
+            InitializeDataBaseListView();
 
             //Repeating Tasks
             KeepUpdateStatusBarDataBaseStorageInfo();
@@ -54,7 +56,7 @@ namespace Tagme_
 
             //UI change
             OptionsCommandBarDebugPart.Visibility = Visibility.Visible;
-            DebugInfoPanel.Margin = new Thickness(DataBaseListView.Margin.Right + 8, 8, 8, 8);
+            ShowDebugInfoBar();
 
             //Tasks
             KeepShadowExisting();
@@ -69,7 +71,24 @@ namespace Tagme_
 
             //UI recover
             OptionsCommandBarDebugPart.Visibility= Visibility.Collapsed;
-            DebugInfoPanel.Margin = new Thickness(8, 8, DataBaseListView.Margin.Right + 8 - 40 - DebugInfoPanel.ActualWidth, 8);
+            HideDebugInfoBar();
+        }
+        //UI movements
+        /// <summary>
+        /// Show debug info bar.
+        /// </summary>
+        public void ShowDebugInfoBar()
+        {
+            DebugInfoPanel.Margin = new Thickness(8, 8, 8, 8);
+            DataBaseListView.Margin = new Thickness(8, 8, DebugInfoPanel.Margin.Right + DebugInfoPanel.ActualWidth + 8, 8);
+        }
+        /// <summary>
+        /// Hide debug info bar.
+        /// </summary>
+        public void HideDebugInfoBar()
+        {
+            DebugInfoPanel.Margin = new Thickness(8, 8, MainPagePanel.Margin.Right + 8 - 1280 - DebugInfoPanel.ActualWidth, 8);
+            DataBaseListView.Margin = new Thickness(8, 8, MainPagePanel.Margin.Right + 8, 8);
         }
 
 
@@ -113,11 +132,11 @@ namespace Tagme_
             try
             {
                 PageSharedShadow.Receivers.Clear();
-                OptionBarRelativePanel.Translation += new Vector3(0, 0, 32);
-                BrowseStatusRelativePanel.Translation += new Vector3(0, 0, 32);
-                DatabaseStorageStatusRelativePanel.Translation += new Vector3(0, 0, 32);
-                Tagme_DebugStatusPanel.Translation += new Vector3(0, 0, 32);
-                SearchDatabaseAutoSuggestBox.Translation += new Vector3(0, 0, 32);
+                OptionBarRelativePanel.Translation += new Vector3(0, 0, 16);
+                BrowseStatusRelativePanel.Translation += new Vector3(0, 0, 16);
+                DatabaseStorageStatusRelativePanel.Translation += new Vector3(0, 0, 16);
+                Tagme_DebugStatusPanel.Translation += new Vector3(0, 0, 16);
+                SearchDatabaseAutoSuggestBox.Translation += new Vector3(0, 0, 16);
                 DebugInfoPanel.Translation += new Vector3(0, 0, 64);
             }
             catch (Exception ex)
@@ -140,11 +159,41 @@ namespace Tagme_
         private void InitializeDataBaseListView()
         {
             DataBaseListView.Items.Clear();
+            Tagme_CustomizedCore.DataBaseListViewSource.Clear();
 
             //options
 
+            DataBaseListView.ItemsSource = null;
+            DataBaseListView.ItemsSource = Tagme_CustomizedCore.DataBaseListViewSource;
+            ApplyDataBaseListViewChildShadow();
+
         }
 
+        private async void ApplyDataBaseListViewChildShadow()
+        {
+            await Task.Delay(500);
+            foreach (var item in DataBaseListView.Items)
+            {
+                ListViewItem item2 = DataBaseListView.ContainerFromItem(item) as ListViewItem;
+                if (item2 != null)
+                {
+                    item2.Background = null;
+                    RelativePanel relativePanel = NekoWahsCoreUWP.UI.FindElementByName(item2, "DataBaseListViewTemplateBackground") as RelativePanel; ;
+                    relativePanel.Translation += new Vector3(0, 0, 32);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Initialize the position of UI elements
+        /// </summary>
+        /// <param name="delay">To make sure the UI initializes properly, a delay is a necessary.</param>
+        private async void InitializeUIPositions(Int16 delay)
+        {
+            await Task.Delay(delay);
+
+            HideDebugInfoBar();
+        }
 
         //Repeating tasks
         /// <summary>
@@ -199,6 +248,11 @@ namespace Tagme_
                 DebugIOButton.Background = new Windows.UI.Xaml.Media.SolidColorBrush(Color.FromArgb(0x00,0xFF,0xFF,0xFF));
                 DebugStop();
             }
+        }
+
+        private void DataBaseListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 }
