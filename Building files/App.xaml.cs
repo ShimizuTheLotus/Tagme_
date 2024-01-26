@@ -657,7 +657,7 @@ namespace Tagme_
             /// Open a folder in a Tagme_ database file.
             /// </summary>
             /// <param name="FolderID">The ID of the folder being opened</param>
-            public void OpenFolder(string FolderID)
+            public static void OpenFolder(string FolderID)
             {
                 CoreRunningData.Tagme_DataBase.SimulatedFolder.UsingFolderIDStack.Push(FolderID);
             }
@@ -666,7 +666,7 @@ namespace Tagme_
             /// Go back to previous level of folder.
             /// Compatibility Caution: Int64
             /// </summary>
-            public void GoBack(Int64 times = 1)
+            public static void GoBack(Int64 times = 1)
             {
                 for (Int64 i = times; i >= 0; i--)
                 {
