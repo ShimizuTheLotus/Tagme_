@@ -545,6 +545,7 @@ namespace Tagme_
                         deleteCommand.Parameters.AddWithValue("@P4R4M3T3R", deletepath);
                         deleteCommand.ExecuteNonQuery();
                     }
+                    db.Close();
                 }
             }
         }
@@ -552,45 +553,45 @@ namespace Tagme_
         /// <summary>
         /// The string value of a table or a colume of Tagme_ database
         /// </summary>
-        public class Tagme_DataBaseConsts
+        public static class Tagme_DataBaseConsts
         {
             /// <summary>
             /// A table with basic database info.
             /// </summary>
-            public class BasicDataBaseInfo
+            public static class BasicDataBaseInfo
             {
-                const string Name = "BasicDataBaseInfo";
-                public class Column
+                static string Name = "BasicDataBaseInfo";
+                public static class Item
                 {
-                    public class DataBaseName
+                    public static class DataBaseName
                     {
-                        public const string Name = "DataBaseName";
-                        public const string SQLiteType = "TEXT";
+                        public static string Name = "DataBaseName";
+                        public static string SQLiteType = "TEXT";
                     }
-                    public class DataBaseCover
+                    public static class DataBaseCover
                     {
-                        public const string Name = "DataBaseCover";
-                        public const string SQLiteType = "BLOB";
+                        public static string Name = "DataBaseCover";
+                        public static string SQLiteType = "BLOB";
                     }
-                    public class CreatedTime
+                    public static class CreatedTime
                     {
-                        public const string Name = "CreatedTime";
-                        public const string SQLiteType = "TEXT";
+                        public static string Name = "CreatedTime";
+                        public static string SQLiteType = "TEXT";
                     }
-                    public class LastEditTime
+                    public static class LastEditTime
                     {
-                        public const string Name = "LastEditTime";
-                        public const string SQLiteType = "TEXT";
+                        public static string Name = "LastEditTime";
+                        public static string SQLiteType = "TEXT";
                     }
-                    public class LastViewTime
+                    public static class LastViewTime
                     {
-                        public const string Name = "LastViewTime";
-                        public const string SQLiteType = "TEXT";
+                        public static string Name = "LastViewTime";
+                        public static string SQLiteType = "TEXT";
                     }
-                    public class Tagme_DataBaseVersion
+                    public static class Tagme_DataBaseVersion
                     {
-                        public const string Name = "Tagme_DataBaseVersion"; 
-                        public const string SQLiteType = "TEXT";
+                        public static string Name = "Tagme_DataBaseVersion"; 
+                        public static string SQLiteType = "TEXT";
                     }
 
                 }
@@ -634,6 +635,34 @@ namespace Tagme_
                 }
 
                 return dataBaseNotExistList;
+            }
+
+            /// <summary>
+            /// Get a list of the databases that is exist and is logged in the Tagme_ info database.
+            /// </summary>
+            /// <returns>The list of exist database.</returns>
+            public List<string> GetExistDataBasesList()
+            {
+                List<string> dataBaseList = new List<string>();
+                try
+                {
+                    using (SqliteConnection db = new SqliteConnection($"Filename={Const.CoreInfoDataBasePath}"))
+                    {
+                        db.Open();
+
+                        SqliteCommand selectCommand = new SqliteCommand($"SELECT PATH FROM DATABASES", db);
+                        SqliteDataReader query = selectCommand.ExecuteReader();
+                        while (query.Read())
+                        {
+                            dataBaseList.Add(query.GetString(0));
+                        }
+
+
+                        db.Close();
+                    }
+                }
+                catch (Exception ex) { }
+                return dataBaseList;
             }
 
             /// <summary>
