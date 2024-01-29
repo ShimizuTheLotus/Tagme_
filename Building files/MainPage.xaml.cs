@@ -290,6 +290,10 @@ namespace Tagme_
             if (DataBaseListView.SelectedItems.Count > 0)
             {
                 Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath = Tagme_CustomizedCore.DataBaseListViewSource[DataBaseListView.SelectedIndex].DataBasePath;
+
+
+                //Navigate
+                Frame.Navigate(typeof(DataBaseViewPage));
             }
         }
     }
