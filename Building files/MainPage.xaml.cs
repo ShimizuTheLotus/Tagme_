@@ -180,6 +180,13 @@ namespace Tagme_
                     {
                         db.Open();
 
+                        //Get dbtitle
+                        SqliteCommand selectCommand = new SqliteCommand("SELECT @Item FROM @Table");
+                        selectCommand.Connection = db;
+                        selectCommand.Parameters.Clear();
+                        selectCommand.Parameters.AddWithValue("@Item", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.DataBaseName.Name);
+                        selectCommand.Parameters.AddWithValue("@Table", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Name);
+                        //Get dbcover
 
 
                         Tagme_CustomizedCore.DataBaseListViewSource.Add(new Tagme_CustomizedCore.TempLates.DataBaseListViewTemplate
@@ -290,7 +297,6 @@ namespace Tagme_
             if (DataBaseListView.SelectedItems.Count > 0)
             {
                 Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath = Tagme_CustomizedCore.DataBaseListViewSource[DataBaseListView.SelectedIndex].DataBasePath;
-
 
                 //Navigate
                 Frame.Navigate(typeof(DataBaseViewPage));
