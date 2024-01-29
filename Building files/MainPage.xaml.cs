@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Navigation;
 using System.Numerics;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using Microsoft.Data.Sqlite;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -161,7 +162,41 @@ namespace Tagme_
             DataBaseListView.Items.Clear();
             Tagme_CustomizedCore.DataBaseListViewSource.Clear();
 
-            //options
+            //Get databases that exists.
+            List<string> ExistDataBasePathsList = Tagme_CoreUWP.Tagme_DataBaseOptions.GetExistDataBasesList();
+
+            try
+            {
+                foreach (string dbpath in ExistDataBasePathsList) 
+                {
+                    string dbtitle = "";
+                    byte[] dbcover = null;
+                    string createdTime = "";
+                    string modifiedTime = "";
+                    string databaseFileSize = "";
+                    string subitemcount = "";
+
+                    using (SqliteConnection db = new SqliteConnection($"Filenanme={dbpath}"))
+                    {
+                        db.Open();
+
+
+
+                        Tagme_CustomizedCore.DataBaseListViewSource.Add(new Tagme_CustomizedCore.TempLates.DataBaseListViewTemplate
+                        {
+                            DataBasePath = dbpath,
+                            DataBaseTitle = dbtitle,
+                            DataBaseCover = dbcover,
+                            DataBaseCreatedTime = createdTime,
+                            DataBaseModifiedTime = modifiedTime,
+                            DataBaseFileSize = databaseFileSize,
+                            DataBaseAllSubItemCount = subitemcount,
+                        });
+                        db.Close();
+                    }
+                }
+            }
+            catch (Exception ex) { }
 
             DataBaseListView.ItemsSource = null;
             DataBaseListView.ItemsSource = Tagme_CustomizedCore.DataBaseListViewSource;
@@ -252,7 +287,10 @@ namespace Tagme_
 
         private void DataBaseListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            if (DataBaseListView.SelectedItems.Count > 0)
+            {
+                Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath = Tagme_CustomizedCore.DataBaseListViewSource[DataBaseListView.SelectedIndex].DataBasePath;
+            }
         }
     }
 }
