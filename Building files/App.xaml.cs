@@ -601,12 +601,12 @@ namespace Tagme_
         /// <summary>
         /// The options of Tagme_ Databases.
         /// </summary>
-        public class Tagme_DataBaseOptions
+        public static class Tagme_DataBaseOptions
         {
             /// <summary>
             /// Check if a database exists.
             /// </summary>
-            public bool CheckIfDataBaseExists(string dataBasePath)
+            public static bool CheckIfDataBaseExists(string dataBasePath)
             {
                 var x = new NekoWahsCoreUWP.File();
                 if (x.AccessFileChecker(dataBasePath, false) == NekoWahsCoreUWP.Struct.FileGetStatus.Exist)
@@ -622,7 +622,7 @@ namespace Tagme_
             /// </summary>
             /// <param name="targetpathList">A list filled with database paths that waiting to check if the databases are exist.</param>
             /// <returns>A list of paths that dosen't refer to any file.</returns>
-            public List<string> CheckIfAllDataBaseInListExist(List<string> targetpathList)
+            public static List<string> CheckIfAllDataBaseInListExist(List<string> targetpathList)
             {
                 List<string> dataBaseNotExistList = new List<string>();
 
@@ -641,7 +641,7 @@ namespace Tagme_
             /// Get a list of the databases that is exist and is logged in the Tagme_ info database.
             /// </summary>
             /// <returns>The list of exist database.</returns>
-            public List<string> GetExistDataBasesList()
+            public static List<string> GetExistDataBasesList()
             {
                 List<string> dataBaseList = new List<string>();
                 try
@@ -673,7 +673,7 @@ namespace Tagme_
             /// <param name="dataBaseName">The name of the database, it will be logged in the database rather than used as the file name.</param>
             /// <param name="cover">The cover image of the database</param>
             /// <returns>If succeeded, it will return success, or it will return the reason of failure</returns>
-            public Tagme_CoreUWP.Struct.DataBaseCreateFailedReason CreateAndInitializeTagme_DataBase(string CreatePath,string dataBaseFileName, string dataBaseName, byte[] cover)
+            public static Tagme_CoreUWP.Struct.DataBaseCreateFailedReason CreateAndInitializeTagme_DataBase(string CreatePath,string dataBaseFileName, string dataBaseName, byte[] cover)
             {
 
                 //options
@@ -730,6 +730,7 @@ namespace Tagme_
         {
             public class DataBaseListViewTemplate
             {
+                public string DataBasePath { get; set; }
                 public string DataBaseTitle { get; set; }
                 public object DataBaseCoverSource { get; set; }
                 public string DataBaseCreatedTime { get; set; }
