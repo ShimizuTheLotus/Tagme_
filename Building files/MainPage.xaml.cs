@@ -199,11 +199,7 @@ namespace Tagme_
                         selectCommand.Parameters.Clear();
                         selectCommand.Parameters.AddWithValue("@Item", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.DataBaseCover.Name);
                         selectCommand.Parameters.AddWithValue("@Table", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Name);
-                        reader = selectCommand.ExecuteReader();
-                        while (reader.Read())
-                        {
-                            //options
-                        }
+                        dbcover = (byte[])selectCommand.ExecuteScalar();
                         //Get createdTime
                         selectCommand = new SqliteCommand("SELECT @Item FROM @Table");
                         selectCommand.Connection = db;
