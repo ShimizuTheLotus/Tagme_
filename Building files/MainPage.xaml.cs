@@ -238,7 +238,7 @@ namespace Tagme_
                             DataBaseCover = dbcover,
                             DataBaseCreatedTime = createdTime,
                             DataBaseModifiedTime = modifiedTime,
-                            DataBaseFileSize = databaseFileSize,
+                            DataBaseFileSize = dbFileSize,
                             DataBaseAllSubItemCount = subitemcount,
                         });
                         db.Close();
