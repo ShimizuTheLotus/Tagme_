@@ -223,6 +223,9 @@ namespace Tagme_
                             modifiedTime = reader.GetString(0);
                         }
                         //Get dbFileSize
+                        DirectoryInfo directoryInfo = new DirectoryInfo(dbpath);
+                        FileInfo[] fileInfos = directoryInfo.GetFiles();
+                        dbFileSize = fileInfos[0].Length.ToString();
 
                         //Get subitemCount
 
