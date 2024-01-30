@@ -367,6 +367,7 @@ namespace Tagme_
             /// </summary>
             public class Tagme_DataBase
             {
+                public static string UsingDataBasePath;
                 /// <summary>
                 /// The data needed to simulate folders.
                 /// </summary>
@@ -560,7 +561,7 @@ namespace Tagme_
             /// </summary>
             public static class BasicDataBaseInfo
             {
-                static string Name = "BasicDataBaseInfo";
+                public static string Name = "BasicDataBaseInfo";
                 public static class Item
                 {
                     public static class DataBaseName
@@ -578,9 +579,9 @@ namespace Tagme_
                         public static string Name = "CreatedTime";
                         public static string SQLiteType = "TEXT";
                     }
-                    public static class LastEditTime
+                    public static class LastModifiedTime
                     {
-                        public static string Name = "LastEditTime";
+                        public static string Name = "LastModifiedTime";
                         public static string SQLiteType = "TEXT";
                     }
                     public static class LastViewTime
@@ -732,7 +733,7 @@ namespace Tagme_
             {
                 public string DataBasePath { get; set; }
                 public string DataBaseTitle { get; set; }
-                public object DataBaseCoverSource { get; set; }
+                public object DataBaseCover { get; set; }
                 public string DataBaseCreatedTime { get; set; }
                 public string DataBaseModifiedTime { get;set; }
                 public string DataBaseFileSize { get; set; }
