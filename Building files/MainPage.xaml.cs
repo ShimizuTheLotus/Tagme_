@@ -74,6 +74,7 @@ namespace Tagme_
             OptionsCommandBarDebugPart.Visibility= Visibility.Collapsed;
             HideDebugInfoBar();
         }
+
         //UI movements
         /// <summary>
         /// Show debug info bar.
@@ -83,6 +84,7 @@ namespace Tagme_
             DebugInfoPanel.Margin = new Thickness(8, 8, 8, 8);
             DataBaseListView.Margin = new Thickness(8, 8, DebugInfoPanel.Margin.Right + DebugInfoPanel.ActualWidth + 8, 8);
         }
+
         /// <summary>
         /// Hide debug info bar.
         /// </summary>
@@ -173,7 +175,7 @@ namespace Tagme_
                     byte[] dbcover = null;
                     string createdTime = "";
                     string modifiedTime = "";
-                    string databaseFileSize = "";
+                    string dbFileSize = "";
                     string subitemcount = "";
 
                     using (SqliteConnection db = new SqliteConnection($"Filenanme={dbpath}"))
@@ -186,7 +188,47 @@ namespace Tagme_
                         selectCommand.Parameters.Clear();
                         selectCommand.Parameters.AddWithValue("@Item", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.DataBaseName.Name);
                         selectCommand.Parameters.AddWithValue("@Table", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Name);
+                        SqliteDataReader reader = selectCommand.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            dbtitle = reader.GetString(0);
+                        }
                         //Get dbcover
+                        selectCommand = new SqliteCommand("SELECT @Item FROM @Table");
+                        selectCommand.Connection = db;
+                        selectCommand.Parameters.Clear();
+                        selectCommand.Parameters.AddWithValue("@Item", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.DataBaseCover.Name);
+                        selectCommand.Parameters.AddWithValue("@Table", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Name);
+                        reader = selectCommand.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            //options
+                        }
+                        //Get createdTime
+                        selectCommand = new SqliteCommand("SELECT @Item FROM @Table");
+                        selectCommand.Connection = db;
+                        selectCommand.Parameters.Clear();
+                        selectCommand.Parameters.AddWithValue("@Item", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.CreatedTime.Name);
+                        selectCommand.Parameters.AddWithValue("@Table", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Name);
+                        reader = selectCommand.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            createdTime = reader.GetString(0);
+                        }
+                        //Get modifiedTime
+                        selectCommand = new SqliteCommand("SELECT @Item FROM @Table");
+                        selectCommand.Connection = db;
+                        selectCommand.Parameters.Clear();
+                        selectCommand.Parameters.AddWithValue("@Item", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.LastModifiedTime.Name);
+                        selectCommand.Parameters.AddWithValue("@Table", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Name);
+                        reader = selectCommand.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            modifiedTime = reader.GetString(0);
+                        }
+                        //Get dbFileSize
+
+                        //Get subitemCount
 
 
                         Tagme_CustomizedCore.DataBaseListViewSource.Add(new Tagme_CustomizedCore.TempLates.DataBaseListViewTemplate
