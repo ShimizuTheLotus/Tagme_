@@ -234,7 +234,7 @@ namespace Tagme_
                         {
                             DataBasePath = dbpath,
                             DataBaseTitle = dbtitle,
-                            DataBaseCover = dbcover,
+                            DataBaseCover = NekoWahsCoreUWP.TypeService.ByteToImage(dbcover),
                             DataBaseCreatedTime = createdTime,
                             DataBaseModifiedTime = modifiedTime,
                             DataBaseFileSize = dbFileSize,
