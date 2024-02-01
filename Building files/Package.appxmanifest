@@ -1,17 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  IgnorableNamespaces="uap mp">
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap mp rescap">
 
   <Identity
-    Name="6669d856-5287-497b-b1a8-32e5b629827f"
+    Name="6d25ca75-9793-463f-807d-3e15fd6561e3"
     Publisher="CN=ChiSu"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="6669d856-5287-497b-b1a8-32e5b629827f" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="6d25ca75-9793-463f-807d-3e15fd6561e3" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Tagme_</DisplayName>
@@ -45,5 +46,6 @@
 
   <Capabilities>
     <Capability Name="internetClient" />
+	  <rescap:Capability Name="broadFileSystemAccess"/>
   </Capabilities>
 </Package>
