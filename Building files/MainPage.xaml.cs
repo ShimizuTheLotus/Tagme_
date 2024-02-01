@@ -261,7 +261,7 @@ namespace Tagme_
                 if (item2 != null)
                 {
                     item2.Background = null;
-                    RelativePanel relativePanel = NekoWahsCoreUWP.UI.FindElementByName(item2, "DataBaseListViewTemplateBackground") as RelativePanel; ;
+                    RelativePanel relativePanel = NekoWahsCoreUWP.UIXAML.FindElementByName(item2, "DataBaseListViewTemplateBackground") as RelativePanel; ;
                     relativePanel.Translation += new Vector3(0, 0, 32);
                 }
             }
