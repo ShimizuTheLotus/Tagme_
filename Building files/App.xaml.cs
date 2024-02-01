@@ -275,7 +275,7 @@ namespace Tagme_
             }
         }
 
-        public class UI
+        public class UIXAML
         {
             //From Web, we added comment to make it easier to understand.
             /// <summary>
