@@ -661,8 +661,18 @@ namespace Tagme_
                         public static string Name = "RelatedIDs";
                         public static string SQLiteType = "TEXT";
                     }
+                    public static class CreatedTimeStamp
+                    {
+                        public static string Name = "CreatedTimeStamp";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class ModifiedTimeStamp
+                    {
+                        public static string Name = "ModifiedTimeStamp";
+                        public static string SQLiteType = "TEXT";
+                    }
                 }
-            }
+            }   
         }
 
         /// <summary>
