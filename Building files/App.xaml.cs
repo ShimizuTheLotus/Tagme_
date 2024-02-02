@@ -673,6 +673,10 @@ namespace Tagme_
                     }
                 }
             }
+
+            /// <summary>
+            /// 
+            /// </summary>
             public static class ItemIndexRoot
             {
                 public static class ItemID
@@ -680,6 +684,12 @@ namespace Tagme_
                     public static string Name = "ItemID";
                     public static string SQLiteType = "TEXT";
                 }
+                public static class ItemParentID
+                {
+                    public static string Name = "ItemParentID";
+                    public static string SQLiteType = "TEXT";
+                }
+
                 public static class ContentType
                 {
                     public static string Name = "ContentType";
