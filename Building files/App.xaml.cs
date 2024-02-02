@@ -622,6 +622,43 @@ namespace Tagme_
 
                 }
             }
+            public static class TagMapping
+            {
+                public static string Name = "TagMapping";
+                public static class Item
+                {
+                    public static class TagMapID
+                    {
+                        public static string Name = "TagMapID";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class TagID
+                    {
+                        public static string Name = "TagID";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class Tag
+                    {
+                        public static string Name = "Tag";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class TagDescription
+                    {
+                        public static string Name = "TagDescription";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class TagParentID
+                    {
+                        public static string Name = "TagParentID";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class RelatedTagIDs
+                    {
+                        public static string Name = "RelatedIDs";
+                        public static string SQLiteType = "TEXT";
+                    }
+                }
+            }
         }
 
         /// <summary>
