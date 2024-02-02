@@ -672,7 +672,50 @@ namespace Tagme_
                         public static string SQLiteType = "TEXT";
                     }
                 }
-            }   
+            }
+            public static class ItemIndexRoot
+            {
+                public static class ItemID
+                {
+                    public static string Name = "ItemID";
+                    public static string SQLiteType = "TEXT";
+                }
+                public static class ContentType
+                {
+                    public static string Name = "ContentType";
+                    public static string SQLiteType = "TEXT";
+                }
+                public static class Title
+                {
+                    public static string Name = "Title";
+                    public static string SQLiteType = "TEXT";
+                }
+                public static class Description
+                {
+                    public static string Name = "Description ";
+                    public static string SQLiteType = "TEXT";
+                }
+                public static class ItemSourceMap
+                {
+                    public static string Name = "ItemSourceMap ";
+                    public static string SQLiteType = "TEXT";
+                }
+                public static class PropertyMap
+                {
+                    public static string Name = "PropertyMap";
+                    public static string SQLiteType = "TEXT";
+                }
+                public static class CreatedTimeStamp
+                {
+                    public static string Name = "CreatedTimeStamp";
+                    public static string SQLiteType = "TEXT";
+                }
+                public static class ModifiedTimeStamp
+                {
+                    public static string Name = "ModifiedTimeStamp ";
+                    public static string SQLiteType = "TEXT";
+                }
+            }
         }
 
         /// <summary>
