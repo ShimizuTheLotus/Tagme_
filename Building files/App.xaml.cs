@@ -622,6 +622,10 @@ namespace Tagme_
 
                 }
             }
+
+            /// <summary>
+            /// A table for tags.
+            /// </summary>
             public static class TagMapping
             {
                 public static string Name = "TagMapping";
