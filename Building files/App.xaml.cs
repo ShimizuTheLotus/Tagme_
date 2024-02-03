@@ -726,6 +726,35 @@ namespace Tagme_
                     public static string SQLiteType = "TEXT";
                 }
             }
+
+            public static class ItemSouece
+            {
+                public static class ID
+                {
+                    public static string Name = "ID";
+                    public static string SQLiteType = "TEXT";
+                }
+                public static class FileName
+                {
+                    public static string Name = "FileName";
+                    public static string SQLiteType = "TEXT";
+                }
+                public static class IsChain
+                {
+                    public static string Name = "IsChain";
+                    public static string SQLiteType = "TEXT";
+                }
+                public static class ChainID
+                {
+                    public static string Name = "ChainID";
+                    public static string SQLiteType = "TEXT";
+                }
+                public static class Content
+                {
+                    public static string Name = "Content";
+                    public static string SQLiteType = "BLOB";
+                }
+            }
         }
 
         /// <summary>
