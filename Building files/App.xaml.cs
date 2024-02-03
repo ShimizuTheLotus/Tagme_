@@ -619,7 +619,6 @@ namespace Tagme_
                         public static string Name = "Tagme_DataBaseVersion"; 
                         public static string SQLiteType = "TEXT";
                     }
-
                 }
             }
 
@@ -675,84 +674,95 @@ namespace Tagme_
             }
 
             /// <summary>
-            /// 
+            /// The root of item.
             /// </summary>
             public static class ItemIndexRoot
             {
-                public static class ItemID
+                public static string Name = "ItemIndexRoot";
+                public static class Item
                 {
-                    public static string Name = "ItemID";
-                    public static string SQLiteType = "TEXT";
-                }
-                public static class ItemParentID
-                {
-                    public static string Name = "ItemParentID";
-                    public static string SQLiteType = "TEXT";
-                }
+                    public static class ItemID
+                    {
+                        public static string Name = "ItemID";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class ItemParentID
+                    {
+                        public static string Name = "ItemParentID";
+                        public static string SQLiteType = "TEXT";
+                    }
 
-                public static class ContentType
-                {
-                    public static string Name = "ContentType";
-                    public static string SQLiteType = "TEXT";
-                }
-                public static class Title
-                {
-                    public static string Name = "Title";
-                    public static string SQLiteType = "TEXT";
-                }
-                public static class Description
-                {
-                    public static string Name = "Description ";
-                    public static string SQLiteType = "TEXT";
-                }
-                public static class ItemSourceMap
-                {
-                    public static string Name = "ItemSourceMap ";
-                    public static string SQLiteType = "TEXT";
-                }
-                public static class PropertyMap
-                {
-                    public static string Name = "PropertyMap";
-                    public static string SQLiteType = "TEXT";
-                }
-                public static class CreatedTimeStamp
-                {
-                    public static string Name = "CreatedTimeStamp";
-                    public static string SQLiteType = "TEXT";
-                }
-                public static class ModifiedTimeStamp
-                {
-                    public static string Name = "ModifiedTimeStamp ";
-                    public static string SQLiteType = "TEXT";
+                    public static class ContentType
+                    {
+                        public static string Name = "ContentType";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class Title
+                    {
+                        public static string Name = "Title";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class Description
+                    {
+                        public static string Name = "Description ";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class ItemSourceMap
+                    {
+                        public static string Name = "ItemSourceMap ";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class PropertyMap
+                    {
+                        public static string Name = "PropertyMap";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class CreatedTimeStamp
+                    {
+                        public static string Name = "CreatedTimeStamp";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class ModifiedTimeStamp
+                    {
+                        public static string Name = "ModifiedTimeStamp ";
+                        public static string SQLiteType = "TEXT";
+                    }
                 }
             }
 
-            public static class ItemSouece
+            /// <summary>
+            /// The file in item, each item can only contains only one itemsource.
+            /// </summary>
+            public static class ItemSource
             {
-                public static class ID
+                public static string Name = "ItemSource";
+                public static class Item
                 {
-                    public static string Name = "ID";
-                    public static string SQLiteType = "TEXT";
-                }
-                public static class FileName
-                {
-                    public static string Name = "FileName";
-                    public static string SQLiteType = "TEXT";
-                }
-                public static class IsChain
-                {
-                    public static string Name = "IsChain";
-                    public static string SQLiteType = "TEXT";
-                }
-                public static class ChainID
-                {
-                    public static string Name = "ChainID";
-                    public static string SQLiteType = "TEXT";
-                }
-                public static class Content
-                {
-                    public static string Name = "Content";
-                    public static string SQLiteType = "BLOB";
+                    public static class ID
+                    {
+                        public static string Name = "ID";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class FileName
+                    {
+                        public static string Name = "FileName";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class IsChain
+                    {
+                        public static string Name = "IsChain";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class ChainID
+                    {
+                        public static string Name = "ChainID";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class Content
+                    {
+                        public static string Name = "Content";
+                        public static string SQLiteType = "BLOB";
+                    }
                 }
             }
         }
