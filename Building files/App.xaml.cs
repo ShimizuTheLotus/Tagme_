@@ -1032,6 +1032,27 @@ namespace Tagme_
                         createCommand.Parameters.AddWithValue("@V4LU39", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemIndexRoot.Item.ModifiedTimeStamp.SQLiteType);
                         createCommand.ExecuteNonQuery();
 
+                        createCommand = new SqliteCommand();
+                        createCommand.Connection = db;
+                        createCommand.CommandText = $"CREATE TABLE IF NOT EXISTS @T4BL3(" +
+                            $"@P4R4M3T3R1 @V4LU31," +
+                            $"@P4R4M3T3R2 @V4LU32," +
+                            $"@P4R4M3T3R3 @V4LU33," +
+                            $"@P4R4M3T3R4 @V4LU34," +
+                            $"@P4R4M3T3R5 @V4LU35)";
+                        createCommand.Parameters.AddWithValue("@T4BL3", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemSource.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R1", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemSource.Item.ID.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R2", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemSource.Item.FileName.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R3", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemSource.Item.IsChain.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R4", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemSource.Item.ChainID .Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R5", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemSource.Item.Content.Name);
+                        createCommand.Parameters.AddWithValue("@V4LU31", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemSource.Item.ID.SQLiteType);
+                        createCommand.Parameters.AddWithValue("@V4LU32", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemSource.Item.FileName.SQLiteType);
+                        createCommand.Parameters.AddWithValue("@V4LU33", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemSource.Item.IsChain.SQLiteType);
+                        createCommand.Parameters.AddWithValue("@V4LU34", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemSource.Item.ChainID.SQLiteType);
+                        createCommand.Parameters.AddWithValue("@V4LU35", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemSource.Item.Content.SQLiteType);
+                        createCommand.ExecuteNonQuery();
+
                         db.Close();
                     }
                 }
