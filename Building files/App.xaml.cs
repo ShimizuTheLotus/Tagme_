@@ -764,6 +764,36 @@ namespace Tagme_
                         public static string SQLiteType = "BLOB";
                     }
                 }
+                /// <summary>
+                /// ItemProperty
+                /// </summary>
+                public static class ItemProperty
+                {
+                    public static string Name = "ItemProperty";
+                    public static class Item
+                    {
+                        public static class ID
+                        {
+                            public static string Name = "ID";
+                            public static string SQLiteType = "TEXT";
+                        }
+                        public static class ParentID
+                        {
+                            public static string Name = "ParentID";
+                            public static string SQLiteType = "TEXT";
+                        }
+                        public static class Property
+                        {
+                            public static string Name = "Property";
+                            public static string SQLiteType = "TEXT";
+                        }
+                        public static class Value
+                        {
+                            public static string Name = "Value";
+                            public static string SQLiteType = "TEXT";
+                        }
+                    }
+                }
             }
         }
 
