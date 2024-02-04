@@ -930,6 +930,7 @@ namespace Tagme_
             {
                 try
                 {
+                    //CreateFile
                     if (!Directory.Exists(CreatePath))
                     {
                         Directory.CreateDirectory(CreatePath);
@@ -937,8 +938,40 @@ namespace Tagme_
                     StorageFolder storageFolder = await StorageFolder.GetFolderFromPathAsync(CreatePath);
                     StorageFile storageFile = await storageFolder.CreateFileAsync(dataBaseName + ".tdb", CreationCollisionOption.GenerateUniqueName);
 
+                    string dbpath = storageFile.Path;
+                    using(SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
+                    {
+                        db.Open();
+
+                        SqliteCommand createCommand = new SqliteCommand();
+                        createCommand.Connection = db;
+                        createCommand.CommandText = $"CREATE TABLE IF NOT EXISTS @T4BL3(" +
+                            $"@P4R4M3T3R1 @V4LU31," +
+                            $"@P4R4M3T3R2 @V4LU32," +
+                            $"@P4R4M3T3R3 @V4LU33," +
+                            $"@P4R4M3T3R4 @V4LU34," +
+                            $"@P4R4M3T3R5 @V4LU35," +
+                            $"@P4R4M3T3R6 @V4LU36)";
+                        createCommand.Parameters.Clear();
+                        createCommand.Parameters.AddWithValue("@T4BL3", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R1", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.DataBaseName.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R2", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.DataBaseCover.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R3", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.CreatedTime.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R4", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.LastModifiedTime.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R5", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.LastViewTime.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R6", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.Tagme_DataBaseVersion.Name);
+                        createCommand.Parameters.AddWithValue("@V4LU31", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.DataBaseName.SQLiteType);
+                        createCommand.Parameters.AddWithValue("@V4LU32", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.DataBaseCover.SQLiteType);
+                        createCommand.Parameters.AddWithValue("@V4LU33", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.CreatedTime.SQLiteType);
+                        createCommand.Parameters.AddWithValue("@V4LU34", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.LastModifiedTime.SQLiteType);
+                        createCommand.Parameters.AddWithValue("@V4LU35", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.LastViewTime.SQLiteType);
+                        createCommand.Parameters.AddWithValue("@V4LU36", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.Tagme_DataBaseVersion.SQLiteType);
+                        createCommand.ExecuteNonQuery();
+
+                        db.Close();
+                    }
                 }
-                catch { }
+                catch {  }
 
                 //When created successfully
                 return Struct.DataBaseCreateFailedReason.Success;
