@@ -764,86 +764,86 @@ namespace Tagme_
                         public static string SQLiteType = "BLOB";
                     }
                 }
+            }
 
-                /// <summary>
-                /// ItemProperty
-                /// </summary>
-                public static class ItemProperty
+            /// <summary>
+            /// ItemProperty
+            /// </summary>
+            public static class ItemProperty
+            {
+                public static string Name = "ItemProperty";
+                public static class Item
                 {
-                    public static string Name = "ItemProperty";
-                    public static class Item
+                    public static class ID
                     {
-                        public static class ID
-                        {
-                            public static string Name = "ID";
-                            public static string SQLiteType = "TEXT";
-                        }
-                        public static class ParentID
-                        {
-                            public static string Name = "ParentID";
-                            public static string SQLiteType = "TEXT";
-                        }
-                        public static class Property
-                        {
-                            public static string Name = "Property";
-                            public static string SQLiteType = "TEXT";
-                        }
-                        public static class Value
-                        {
-                            public static string Name = "Value";
-                            public static string SQLiteType = "TEXT";
-                        }
+                        public static string Name = "ID";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class ParentID
+                    {
+                        public static string Name = "ParentID";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class Property
+                    {
+                        public static string Name = "Property";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class Value
+                    {
+                        public static string Name = "Value";
+                        public static string SQLiteType = "TEXT";
                     }
                 }
+            }
 
-                /// <summary>
-                /// Property template
-                /// </summary>
-                public static class ItemPropertyTemplate
+            /// <summary>
+            /// Property template
+            /// </summary>
+            public static class ItemPropertyTemplate
+            {
+                public static string Name = "ItemPropertyTemplate";
+                public static class Item
                 {
-                    public static string Name = "ItemPropertyTemplate";
-                    public static class Item
+                    public static class TemplateID
                     {
-                        public static class TemplateID
-                        {
-                            public static string Name = "TemplateID";
-                            public static string SQLiteType = "TEXT";
-                        }
-                        public static class TemplateName
-                        {
-                            public static string Name = "TemplateName";
-                            public static string SQLiteType = "TEXT";
-                        }
-                        public static class ID
-                        {
-                            public static string Name = "ID";
-                            public static string SQLiteType = "TEXT";
-                        }
-                        public static class ParentID
-                        {
-                            public static string Name = "ParentID";
-                            public static string SQLiteType = "TEXT";
-                        }
-                        public static class Property
-                        {
-                            public static string Name = "Property";
-                            public static string SQLiteType = "TEXT";
-                        }
-                        public static class Value
-                        {
-                            public static string Name = "Value";
-                            public static string SQLiteType = "TEXT";
-                        }
-                        public static class CreatedTimeStamp
-                        {
-                            public static string Name = "CreatedTimeStamp";
-                            public static string SQLiteType = "TEXT";
-                        }
-                        public static class ModifiedTimeStamp
-                        {
-                            public static string Name = "ModifiedTimeStamp";
-                            public static string SQLiteType = "TEXT";
-                        }
+                        public static string Name = "TemplateID";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class TemplateName
+                    {
+                        public static string Name = "TemplateName";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class ID
+                    {
+                        public static string Name = "ID";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class ParentID
+                    {
+                        public static string Name = "ParentID";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class Property
+                    {
+                        public static string Name = "Property";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class Value
+                    {
+                        public static string Name = "Value";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class CreatedTimeStamp
+                    {
+                        public static string Name = "CreatedTimeStamp";
+                        public static string SQLiteType = "TEXT";
+                    }
+                    public static class ModifiedTimeStamp
+                    {
+                        public static string Name = "ModifiedTimeStamp";
+                        public static string SQLiteType = "TEXT";
                     }
                 }
             }
