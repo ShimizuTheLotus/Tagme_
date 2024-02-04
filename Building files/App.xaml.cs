@@ -1053,6 +1053,24 @@ namespace Tagme_
                         createCommand.Parameters.AddWithValue("@V4LU35", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemSource.Item.Content.SQLiteType);
                         createCommand.ExecuteNonQuery();
 
+                        createCommand = new SqliteCommand();
+                        createCommand.Connection = db;
+                        createCommand.CommandText = $"CREATE TABLE IF NOT EXISTS @T4BL3(" +
+                            $"@P4R4M3T3R1 @V4LU31," +
+                            $"@P4R4M3T3R2 @V4LU32," +
+                            $"@P4R4M3T3R3 @V4LU33," +
+                            $"@P4R4M3T3R4 @V4LU34)";
+                        createCommand.Parameters.AddWithValue("@T4BL3", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemProperty.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R1", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemProperty.Item.ID.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R2", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemProperty.Item.ParentID.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R3", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemProperty.Item.Property.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R4", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemProperty.Item.Value.Name);
+                        createCommand.Parameters.AddWithValue("@V4LU31", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemProperty.Item.ID.SQLiteType);
+                        createCommand.Parameters.AddWithValue("@V4LU32", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemProperty.Item.ParentID.SQLiteType);
+                        createCommand.Parameters.AddWithValue("@V4LU33", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemProperty.Item.Property.SQLiteType);
+                        createCommand.Parameters.AddWithValue("@V4LU34", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemProperty.Item.Value.SQLiteType);
+                        createCommand.ExecuteNonQuery();
+
                         db.Close();
                     }
                 }
