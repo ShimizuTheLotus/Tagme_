@@ -165,7 +165,7 @@ namespace Tagme_
             Tagme_CustomizedCore.DataBaseListViewSource.Clear();
 
             //Get databases that exists.
-            List<string> ExistDataBasePathsList = Tagme_CoreUWP.Tagme_DataBaseOptions.GetExistDataBasesList();
+            List<string> ExistDataBasePathsList = Tagme_CoreUWP.Tagme_DataBaseOption.GetExistDataBasesList();
 
             try
             {
