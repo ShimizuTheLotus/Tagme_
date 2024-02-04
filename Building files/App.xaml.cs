@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -852,7 +853,7 @@ namespace Tagme_
         /// <summary>
         /// The options of Tagme_ Databases.
         /// </summary>
-        public static class Tagme_DataBaseOptions
+        public static class Tagme_DataBaseOption
         {
             /// <summary>
             /// Check if a database exists.
@@ -916,6 +917,7 @@ namespace Tagme_
                 return dataBaseList;
             }
 
+
             /// <summary>
             /// Create a database at a spacific path.
             /// </summary>
@@ -924,10 +926,19 @@ namespace Tagme_
             /// <param name="dataBaseName">The name of the database, it will be logged in the database rather than used as the file name.</param>
             /// <param name="cover">The cover image of the database</param>
             /// <returns>If succeeded, it will return success, or it will return the reason of failure</returns>
-            public static Tagme_CoreUWP.Struct.DataBaseCreateFailedReason CreateAndInitializeTagme_DataBase(string CreatePath,string dataBaseFileName, string dataBaseName, byte[] cover)
+            public static async Task<Tagme_CoreUWP.Struct.DataBaseCreateFailedReason> CreateAndInitializeTagme_DataBase(string CreatePath,string dataBaseFileName, string dataBaseName, byte[] cover)
             {
+                try
+                {
+                    if (!Directory.Exists(CreatePath))
+                    {
+                        Directory.CreateDirectory(CreatePath);
+                    }
+                    StorageFolder storageFolder = await StorageFolder.GetFolderFromPathAsync(CreatePath);
+                    StorageFile storageFile = await storageFolder.CreateFileAsync(dataBaseName + ".tdb", CreationCollisionOption.GenerateUniqueName);
 
-                //options
+                }
+                catch { }
 
                 //When created successfully
                 return Struct.DataBaseCreateFailedReason.Success;
