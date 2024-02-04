@@ -936,6 +936,10 @@ namespace Tagme_
                         Directory.CreateDirectory(CreatePath);
                     }
                     StorageFolder storageFolder = await StorageFolder.GetFolderFromPathAsync(CreatePath);
+                    if(Directory.Exists(System.IO.Path.Combine(CreatePath, dataBaseName))) 
+                    {
+                        return Struct.DataBaseCreateFailedReason.NameUsed;
+                    }
                     StorageFile storageFile = await storageFolder.CreateFileAsync(dataBaseName + ".tdb", CreationCollisionOption.GenerateUniqueName);
 
                     //Insert tables
@@ -1104,7 +1108,10 @@ namespace Tagme_
                         db.Close();
                     }
                 }
-                catch { }
+                catch 
+                {
+                    return Struct.DataBaseCreateFailedReason.Unknown;
+                }
 
                 //When created successfully
                 return Struct.DataBaseCreateFailedReason.Success;
