@@ -600,19 +600,19 @@ namespace Tagme_
                         public static string Name = "DataBaseCover";
                         public static string SQLiteType = "BLOB";
                     }
-                    public static class CreatedTime
+                    public static class CreatedTimeStamp
                     {
-                        public static string Name = "CreatedTime";
+                        public static string Name = "CreatedTimeStamp";
                         public static string SQLiteType = "TEXT";
                     }
-                    public static class LastModifiedTime
+                    public static class LastModifiedTimeStamp
                     {
-                        public static string Name = "LastModifiedTime";
+                        public static string Name = "LastModifiedTimeStamp";
                         public static string SQLiteType = "TEXT";
                     }
-                    public static class LastViewTime
+                    public static class LastViewTimeStamp
                     {
-                        public static string Name = "LastViewTime";
+                        public static string Name = "LastViewTimeStamp";
                         public static string SQLiteType = "TEXT";
                     }
                     public static class Tagme_DataBaseVersion
@@ -938,6 +938,7 @@ namespace Tagme_
                     StorageFolder storageFolder = await StorageFolder.GetFolderFromPathAsync(CreatePath);
                     StorageFile storageFile = await storageFolder.CreateFileAsync(dataBaseName + ".tdb", CreationCollisionOption.GenerateUniqueName);
 
+                    //Insert tables
                     string dbpath = storageFile.Path;
                     using(SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
                     {
@@ -956,22 +957,22 @@ namespace Tagme_
                         createCommand.Parameters.AddWithValue("@T4BL3", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Name);
                         createCommand.Parameters.AddWithValue("@P4R4M3T3R1", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.DataBaseName.Name);
                         createCommand.Parameters.AddWithValue("@P4R4M3T3R2", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.DataBaseCover.Name);
-                        createCommand.Parameters.AddWithValue("@P4R4M3T3R3", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.CreatedTime.Name);
-                        createCommand.Parameters.AddWithValue("@P4R4M3T3R4", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.LastModifiedTime.Name);
-                        createCommand.Parameters.AddWithValue("@P4R4M3T3R5", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.LastViewTime.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R3", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.CreatedTimeStamp.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R4", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.LastModifiedTimeStamp.Name);
+                        createCommand.Parameters.AddWithValue("@P4R4M3T3R5", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.LastViewTimeStamp.Name);
                         createCommand.Parameters.AddWithValue("@P4R4M3T3R6", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.Tagme_DataBaseVersion.Name);
                         createCommand.Parameters.AddWithValue("@V4LU31", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.DataBaseName.SQLiteType);
                         createCommand.Parameters.AddWithValue("@V4LU32", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.DataBaseCover.SQLiteType);
-                        createCommand.Parameters.AddWithValue("@V4LU33", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.CreatedTime.SQLiteType);
-                        createCommand.Parameters.AddWithValue("@V4LU34", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.LastModifiedTime.SQLiteType);
-                        createCommand.Parameters.AddWithValue("@V4LU35", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.LastViewTime.SQLiteType);
+                        createCommand.Parameters.AddWithValue("@V4LU33", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.CreatedTimeStamp.SQLiteType);
+                        createCommand.Parameters.AddWithValue("@V4LU34", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.LastModifiedTimeStamp.SQLiteType);
+                        createCommand.Parameters.AddWithValue("@V4LU35", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.LastViewTimeStamp.SQLiteType);
                         createCommand.Parameters.AddWithValue("@V4LU36", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.Tagme_DataBaseVersion.SQLiteType);
                         createCommand.ExecuteNonQuery();
 
                         db.Close();
                     }
                 }
-                catch {  }
+                catch { }
 
                 //When created successfully
                 return Struct.DataBaseCreateFailedReason.Success;
