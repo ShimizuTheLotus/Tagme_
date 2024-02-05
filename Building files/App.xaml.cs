@@ -411,14 +411,14 @@ namespace Tagme_
         /// <summary>
         /// Functions for getting and setting info.
         /// </summary>
-        public class InfoManager
+        public static class InfoManager
         {
             /// <summary>
             /// Initialize the database for Tagme_ core info.
             /// Please check if the dbpath exists a db file before using this function.
             /// </summary>
             /// <param name="dbpath">The path of string</param>
-            public void InitializeInfoDataBase(string dbpath = "default")
+            public static void InitializeInfoDataBase(string dbpath = "default")
             {
                 if (dbpath == "default") dbpath = Const.CoreInfoDataBasePath;
 
@@ -443,7 +443,7 @@ namespace Tagme_
             /// Not checked if the databases are exist.
             /// </summary>
             /// <param name="getDataBasePathList">The list that will be filled with database paths.</param>
-            public void GetDataBasePathList(ref List<string> getDataBasePathList)
+            public static void GetDataBasePathList(ref List<string> getDataBasePathList)
             {
                 getDataBasePathList.Clear();
 
@@ -477,7 +477,7 @@ namespace Tagme_
             /// <param name="path">The path waiting to be logged in Tagme_ info database</param>
             /// <param name="pathsList">When </param>
             /// <returns>Is logging success?</returns>
-            public bool LogDataBasePath(string path = "default", List<string> pathsList = null)
+            public static bool LogDataBasePath(string path = "default", List<string> pathsList = null)
             {
                 if (path == "default" && pathsList == null)
                 {
@@ -540,7 +540,7 @@ namespace Tagme_
             /// </summary>
             /// <param name="path">The path waiting to be removed from Tagme_ info database.</param>
             /// <param name="pathsList">The paths waiting to be removed from Tagme_ info database.</param>
-            public void RemoveDataBasePath(string path = "default", List<string> pathsList = null)
+            public static void RemoveDataBasePath(string path = "default", List<string> pathsList = null)
             {
                 if (path == "default" && pathsList == null)
                 {
@@ -582,6 +582,10 @@ namespace Tagme_
         /// </summary>
         public static class Tagme_DataBaseConsts
         {
+            /// <summary>
+            /// The version of Tagme_ database.
+            /// </summary>
+            public static string Tagme_DataBaseVersion = "1";
             /// <summary>
             /// A table with basic database info.
             /// </summary>
@@ -913,7 +917,7 @@ namespace Tagme_
                         db.Close();
                     }
                 }
-                catch (Exception ex) { }
+                catch { }
                 return dataBaseList;
             }
 
@@ -941,6 +945,10 @@ namespace Tagme_
                         return Struct.DataBaseCreateFailedReason.NameUsed;
                     }
                     StorageFile storageFile = await storageFolder.CreateFileAsync(dataBaseName + ".tdb", CreationCollisionOption.GenerateUniqueName);
+                    if (storageFile == null) { return Struct.DataBaseCreateFailedReason.Unknown; }
+
+                    //Log database path.
+                    Tagme_CoreUWP.InfoManager.LogDataBasePath(path: storageFile.Path);
 
                     //Insert tables
                     string dbpath = storageFile.Path;
@@ -1104,6 +1112,21 @@ namespace Tagme_
                         createCommand.Parameters.AddWithValue("@V4LU37", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemPropertyTemplate.Item.CreatedTimeStamp.SQLiteType);
                         createCommand.Parameters.AddWithValue("@V4LU38", Tagme_CoreUWP.Tagme_DataBaseConsts.ItemPropertyTemplate.Item.ModifiedTimeStamp.SQLiteType);
                         createCommand.ExecuteNonQuery();
+
+
+                        //Insert basic database info
+                        SqliteCommand insertCommand = new SqliteCommand();
+                        insertCommand.Connection = db;
+                        insertCommand.CommandText = $"INSERT INTO @T4BL3" +
+                            $"VALUES(@DataBaseName, @DataBaseCover, @CreatedTimeStamp, @LastModifiedTimeStamp, @LastViewTimeStamp, @Tagme_DataBaseversion)";
+                        insertCommand.Parameters.Clear();
+                        insertCommand.Parameters.AddWithValue("@DataBaseName", dataBaseFileName);
+                        insertCommand.Parameters.AddWithValue("@DataBaseCover", cover);
+                        insertCommand.Parameters.AddWithValue("@CreatedTimeStamp", DateTimeOffset.Now.ToUnixTimeSeconds().ToString());
+                        insertCommand.Parameters.AddWithValue("@LastModifiedTimeStamp", DateTimeOffset.Now.ToUnixTimeSeconds().ToString());
+                        insertCommand.Parameters.AddWithValue("@LastViewTimeStamp", DateTimeOffset.Now.ToUnixTimeSeconds().ToString());
+                        insertCommand.Parameters.AddWithValue("@Tagme_DataBaseversion", Tagme_CoreUWP.Tagme_DataBaseConsts.Tagme_DataBaseVersion);
+                        insertCommand.ExecuteNonQuery();
 
                         db.Close();
                     }
