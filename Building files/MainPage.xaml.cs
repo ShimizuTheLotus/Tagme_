@@ -49,7 +49,7 @@ namespace Tagme_
         //Debug
 
         /// <summary>
-        /// Startting debug.
+        /// Starting debug.
         /// </summary>
         public void DebugStart()
         {
@@ -111,7 +111,7 @@ namespace Tagme_
 
         //Initializations
         /// <summary>
-        /// Initialize TitileBar.
+        /// Initialize TitleBar.
         /// </summary>
         public void InitializeTitleBar()
         {
@@ -122,7 +122,7 @@ namespace Tagme_
             Window.Current.SetTitleBar(DragBar);
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
 
-            //Set TitleBar button colot
+            //Set TitleBar button color
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
         }
@@ -171,41 +171,41 @@ namespace Tagme_
             {
                 foreach (string dbpath in ExistDataBasePathsList) 
                 {
-                    string dbtitle = "";
-                    byte[] dbcover = null;
+                    string dbTitle = "";
+                    byte[] dbCover = null;
                     string createdTime = "";
                     string modifiedTime = "";
                     string dbFileSize = "";
-                    string subitemcount = "";
+                    string subitemCount = "";
 
-                    using (SqliteConnection db = new SqliteConnection($"Filenanme={dbpath}"))
+                    using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
                     {
                         db.Open();
 
-                        //Get dbtitle
+                        //Get dbTitle
                         SqliteCommand selectCommand = new SqliteCommand("SELECT @Item FROM @Table");
                         selectCommand.Connection = db;
                         selectCommand.Parameters.Clear();
-                        selectCommand.Parameters.AddWithValue("@Item", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.DataBaseName.Name);
-                        selectCommand.Parameters.AddWithValue("@Table", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Name);
+                        selectCommand.Parameters.AddWithValue("@Item", Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.DataBaseName.Name);
+                        selectCommand.Parameters.AddWithValue("@Table", Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name);
                         SqliteDataReader reader = selectCommand.ExecuteReader();
                         while (reader.Read())
                         {
-                            dbtitle = reader.GetString(0);
+                            dbTitle = reader.GetString(0);
                         }
-                        //Get dbcover
+                        //Get dbCover
                         selectCommand = new SqliteCommand("SELECT @Item FROM @Table");
                         selectCommand.Connection = db;
                         selectCommand.Parameters.Clear();
-                        selectCommand.Parameters.AddWithValue("@Item", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.DataBaseCover.Name);
-                        selectCommand.Parameters.AddWithValue("@Table", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Name);
-                        dbcover = (byte[])selectCommand.ExecuteScalar();
+                        selectCommand.Parameters.AddWithValue("@Item", Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.DataBaseCover.Name);
+                        selectCommand.Parameters.AddWithValue("@Table", Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name);
+                        dbCover = (byte[])selectCommand.ExecuteScalar();
                         //Get createdTime
                         selectCommand = new SqliteCommand("SELECT @Item FROM @Table");
                         selectCommand.Connection = db;
                         selectCommand.Parameters.Clear();
-                        selectCommand.Parameters.AddWithValue("@Item", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.CreatedTime.Name);
-                        selectCommand.Parameters.AddWithValue("@Table", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Name);
+                        selectCommand.Parameters.AddWithValue("@Item", Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.CreatedTimeStamp.Name);
+                        selectCommand.Parameters.AddWithValue("@Table", Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name);
                         reader = selectCommand.ExecuteReader();
                         while (reader.Read())
                         {
@@ -215,8 +215,8 @@ namespace Tagme_
                         selectCommand = new SqliteCommand("SELECT @Item FROM @Table");
                         selectCommand.Connection = db;
                         selectCommand.Parameters.Clear();
-                        selectCommand.Parameters.AddWithValue("@Item", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Item.LastModifiedTime.Name);
-                        selectCommand.Parameters.AddWithValue("@Table", Tagme_CoreUWP.Tagme_DataBaseConsts.BasicDataBaseInfo.Name);
+                        selectCommand.Parameters.AddWithValue("@Item", Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.LastModifiedTimeStamp.Name);
+                        selectCommand.Parameters.AddWithValue("@Table", Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name);
                         reader = selectCommand.ExecuteReader();
                         while (reader.Read())
                         {
@@ -224,8 +224,8 @@ namespace Tagme_
                         }
                         //Get dbFileSize
                         DirectoryInfo directoryInfo = new DirectoryInfo(dbpath);
-                        FileInfo[] fileInfos = directoryInfo.GetFiles();
-                        dbFileSize = fileInfos[0].Length.ToString();
+                        FileInfo[] fileInfoList = directoryInfo.GetFiles();
+                        dbFileSize = fileInfoList[0].Length.ToString();
 
                         //Get subitemCount
 
@@ -233,12 +233,12 @@ namespace Tagme_
                         Tagme_CustomizedCore.DataBaseListViewSource.Add(new Tagme_CustomizedCore.TempLates.DataBaseListViewTemplate
                         {
                             DataBasePath = dbpath,
-                            DataBaseTitle = dbtitle,
-                            DataBaseCover = NekoWahsCoreUWP.TypeService.ByteToImage(dbcover),
+                            DataBaseTitle = dbTitle,
+                            DataBaseCover = NekoWahsCoreUWP.TypeService.ByteToImage(dbCover),
                             DataBaseCreatedTime = createdTime,
                             DataBaseModifiedTime = modifiedTime,
                             DataBaseFileSize = dbFileSize,
-                            DataBaseAllSubItemCount = subitemcount,
+                            DataBaseAllSubItemCount = subitemCount,
                         });
                         db.Close();
                     }
