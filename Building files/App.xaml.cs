@@ -330,7 +330,6 @@ namespace Tagme_
             /// The database path of a database that records info of Tagme_ core needs, including paths of all Tagme_ databases.
             /// </summary>
             public static string CoreInfoDataBasePath = System.IO.Path.Combine(ApplicationData.Current.LocalFolder.Path, "dbPathsDB.db");
-            public static string Tagme_DataBaseVersion = "1";
         }
 
         //Struct
@@ -1139,6 +1138,11 @@ namespace Tagme_
 
                 //When created successfully
                 return Struct.DataBaseCreateFailedReason.Success;
+            }
+
+            public static void SortDataBase()
+            {
+
             }
 
             /// <summary>
