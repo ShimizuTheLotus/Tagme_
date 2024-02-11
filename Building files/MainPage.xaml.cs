@@ -72,7 +72,7 @@ namespace Tagme_
         /// <summary>
         /// This "MainPage" is not refered to MainPage.xaml!
         /// </summary>
-        public async void ShowMainPage()
+        public void ShowMainPage()
         {
             //Show database list page.
             Frame.Navigate(typeof(DataBaseListPage));
