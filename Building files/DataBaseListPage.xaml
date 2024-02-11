@@ -1,0 +1,307 @@
+﻿<Page
+    x:Class="Tagme_.DataBaseListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Tagme_"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <ThemeShadow x:Name="PageSharedShadow"/>
+        <DataTemplate x:Key="DataBaseListViewTemplate">
+            <RelativePanel x:Name="DataBaseListViewTemplateBackground"
+                           CornerRadius="16"
+                           Margin="0,8,0,16"
+                           Background="#8EFFFFFF"
+                           Shadow="{StaticResource PageSharedShadow}">
+                <RelativePanel.Transitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition/>
+                        <ReorderThemeTransition/>
+                    </TransitionCollection>
+                </RelativePanel.Transitions>
+                <Image Name="DataBaseCoverImage"
+                       Height="80" Width="80" Margin="16"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignTopWithPanel="True"
+                       Stretch="UniformToFill"
+                       Source="{Binding DataBaseCoverSource}"/>
+                <TextBlock Text="{Binding DataBaseTitle}"
+                           Margin="8"
+                           RelativePanel.RightOf="DataBaseCoverImage"/>
+                <Button x:Name="OperateButton"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignTopWithPanel="True"
+                        Height="32"
+                        Width="32">
+                    <FontIcon Glyph="&#xE712;"/>
+                </Button>
+            </RelativePanel>
+        </DataTemplate>
+    </Page.Resources>
+
+    <RelativePanel x:Name="MainPagePanel">
+        <RelativePanel.ChildrenTransitions>
+            <TransitionCollection>
+                <RepositionThemeTransition/>
+            </TransitionCollection>
+        </RelativePanel.ChildrenTransitions>
+        <!--TitleBar-->
+        <RelativePanel x:Name="AppTitleBar"
+                       Height="32"
+                       Background="Transparent"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.AlignTopWithPanel="True">
+            <!--Program name-->
+            <TextBlock Text="ProgramName"
+                       FontSize="11"
+                       Margin="8,0,0,0"
+                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            <!--The area for dragging the app window-->
+            <Rectangle x:Name="DragBar"
+                       Fill="Transparent"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.AlignTopWithPanel="True"
+                       RelativePanel.AlignBottomWithPanel="True"/>
+        </RelativePanel>
+        <!--The area for Status Panels and AutoSuggestBox-->
+        <RelativePanel x:Name="StatusBarAreaRelativePanel"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.Below="AppTitleBar"
+                       Margin="16,0,16,0"
+                       Height="32">
+            <!--Browse status panel-->
+            <RelativePanel x:Name="BrowseStatusRelativePanel"
+                           Background="#8EFFFFFF"
+                           Height="32"
+                           CornerRadius="8"
+                           Shadow="{StaticResource PageSharedShadow}">
+                <FontIcon x:Name="BrowseSortStatusIcon"
+                          Glyph="&#xE76B;"
+                          Margin="32,0,0,0"
+                          RelativePanel.AlignLeftWithPanel="True"
+                          RelativePanel.AlignVerticalCenterWithPanel="True"
+                          ToolTipService.ToolTip="The contents are sort by"/>
+                <FontIcon x:Name="BroseViewModeStatusIcon"
+                          Glyph="&#xE8FD;"
+                          Margin="-8,0,16,0"
+                          RelativePanel.RightOf="BrowseSortStatusIcon"
+                          RelativePanel.AlignVerticalCenterWithPanel="True"
+                          ToolTipService.ToolTip="View mode"/>
+            </RelativePanel>
+            <!--Database storage status bar-->
+            <RelativePanel x:Name="DatabaseStorageStatusRelativePanel"
+                           Background="#8EFFFFFF"
+                           Height="32"
+                           Margin="4,0,0,0"
+                           CornerRadius="8"
+                           RelativePanel.RightOf="BrowseStatusRelativePanel"
+                           RelativePanel.LeftOf="Tagme_DebugStatusPanel"
+                           ToolTipService.ToolTip="The amount of total database used space"
+                           Shadow="{StaticResource PageSharedShadow}">
+                <TextBlock x:Name="StorageShowTitle"
+                           Text="All database"
+                           Margin="8,-4,0,0"
+                           RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                <TextBlock x:Name="DatabaseStorageShowTotalSpaceTextBlock" 
+                           Text="--"
+                           Margin="4,-4,0,0"
+                           RelativePanel.RightOf="StorageShowTitle"
+                           RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                <!--Show database storage percentage of a measuring unit, such as gigabyte-->
+                <ProgressBar x:Name="DatabaseStoragePercentageBar"
+                             RelativePanel.AlignVerticalCenterWithPanel="True"
+                             RelativePanel.RightOf="DatabaseStorageShowTotalSpaceTextBlock"
+                             RelativePanel.LeftOf="DatabaseStorageShowUsedStorageTextBlock"
+                             Margin="4,0,8,0"
+                             Value="50"
+                             CornerRadius="2"/>
+                <!--The measuring unit used here is a level lower of that DatabaseStorageShowTotalSpaceTextBlock is using-->
+                <TextBlock x:Name="DatabaseStorageShowUsedStorageTextBlock"
+                           Text="--"
+                           RelativePanel.AlignVerticalCenterWithPanel="True"
+                           RelativePanel.LeftOf="DatabaseStorageTextBlockSeperator"
+                           Margin="4,0,0,0"/>
+                <TextBlock x:Name="DatabaseStorageTextBlockSeperator"
+                           Text="/"
+                           RelativePanel.AlignVerticalCenterWithPanel="True"
+                           RelativePanel.LeftOf="DatabaseStorageShowTotalStorageTextBlock"
+                           Margin="4,0,0,0"/>
+                <TextBlock x:Name="DatabaseStorageShowTotalStorageTextBlock"
+                           Text="--"
+                           RelativePanel.AlignVerticalCenterWithPanel="True"
+                           RelativePanel.AlignRightWithPanel="True"
+                           Margin="4,0,8,0"/>
+            </RelativePanel>
+            <!--Debug status bar-->
+            <RelativePanel x:Name="Tagme_DebugStatusPanel"
+                           Background="#8EFFFFFF"
+                           Height="32"
+                           Margin="4,0,0,0"
+                           CornerRadius="8"
+                           Width="64"
+                           RelativePanel.LeftOf="SearchDatabaseAutoSuggestBox"
+                           ToolTipService.ToolTip="Debug panel"
+                           Shadow="{StaticResource PageSharedShadow}">
+                <!--Show info count and click to turn on/off debug mode-->
+                <AppBarButton x:Name="DebugIOButton" 
+                              RelativePanel.AlignLeftWithPanel="True"
+                              RelativePanel.AlignRightWithPanel="True"
+                              RelativePanel.AlignTopWithPanel="True"
+                              RelativePanel.AlignBottomWithPanel="True"
+                              Margin="-2,-6,0,-6"
+                              ManipulationMode="All"
+                              Click="DebugIOButton_Click">
+                    <RichTextBlock IsTextSelectionEnabled="False">
+                        <Paragraph>
+                            <Run x:Name="DebugStatus" FontFamily="Segoe Fluent Icons" FontSize="13" Text="&#xE91F;" Foreground="Green"></Run>
+                            <Run x:Name="DebugInfoNum" Text="0" FontWeight="SemiBold"></Run>
+                        </Paragraph>
+                    </RichTextBlock>
+                </AppBarButton>
+            </RelativePanel>
+            <AutoSuggestBox x:Name="SearchDatabaseAutoSuggestBox" 
+                            Background="#8EFFFFFF"
+                            Margin="4,0,0,0"
+                            CornerRadius="8"
+                            BorderThickness="0"
+                            PlaceholderText="Search databases by name"
+                            QueryIcon="Find"
+                            QuerySubmitted="SearchDatabaseAutoSuggestBox_QuerySubmitted"
+                            SuggestionChosen="SearchDatabaseAutoSuggestBox_SuggestionChosen"
+                            RelativePanel.AlignRightWithPanel="True"
+                            Width="320"
+                            ToolTipService.ToolTip="Search databases by name here"
+                            Shadow="{StaticResource PageSharedShadow}"/>
+        </RelativePanel>
+        <!--Option bar-->
+        <RelativePanel Name="OptionBarRelativePanel"
+                       Background="#8EFFFFFF"
+                       Margin="16,8,16,0"
+                       CornerRadius="16"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.Below="StatusBarAreaRelativePanel"
+                       Height="80"
+                       Shadow="{StaticResource PageSharedShadow}">
+            <RelativePanel.ChildrenTransitions>
+                <TransitionCollection>
+                    <AddDeleteThemeTransition/>
+                </TransitionCollection>
+            </RelativePanel.ChildrenTransitions>
+            <!--CommandBar-->
+            <CommandBar x:Name="OptionsCommandBarPart1"
+                        DefaultLabelPosition="Right"
+                        RelativePanel.AlignVerticalCenterWithPanel="False"
+                        Margin="4,4,0,0">
+                <AppBarButton Icon="Sort" Label="Sort" CornerRadius="8"
+                              ToolTipService.ToolTip="Set content sortting mode">
+                    <AppBarButton.Flyout>
+                        <Flyout>
+                            <StackPanel>
+                                <Button>
+                                    <Button.Content>
+                                        <RichTextBlock>
+                                            <Paragraph>
+                                                <Run FontFamily="Segoe Fluent Icons" Text="&#xEDA2;"/>
+                                            </Paragraph>
+                                        </RichTextBlock>
+                                    </Button.Content>
+                                </Button>
+                            </StackPanel>
+                        </Flyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+                <AppBarButton Icon="PreviewLink" Label="View mode"
+                              ToolTipService.ToolTip="Set content view mode"/>
+            </CommandBar>
+            <TextBlock Text="Browse"
+                       FontSize="11"
+                       Margin="0,0,0,0"
+                       RelativePanel.AlignHorizontalCenterWith="OptionsCommandBarPart1"
+                       RelativePanel.Below="OptionsCommandBarPart1"/>
+            <CommandBar x:Name="OptionsCommandBarPart2"
+                        RelativePanel.RightOf="OptionsCommandBarPart1"
+                        Margin="4,4,0,0">
+                <AppBarSeparator/>
+            </CommandBar>
+            <CommandBar x:Name="OptionsCommandBarPart3"
+                        DefaultLabelPosition="Right"
+                        RelativePanel.RightOf="OptionsCommandBarPart2"
+                        Margin="4,4,0,0">
+                <CommandBar.Transitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition/>
+                    </TransitionCollection>
+                </CommandBar.Transitions>
+                <AppBarButton x:Uid="AddDataBase"
+                              Icon="Add" Label="Add" CornerRadius="8"
+                              Click="AppBarButton_Click"
+                              ToolTipService.ToolTip="Add database"/>
+                <AppBarButton Label="Multi-select" CornerRadius="8"
+                              ToolTipService.ToolTip="Multi-select databases">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE762;" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton Icon="Import" Label="Import" CornerRadius="8"
+                              ToolTipService.ToolTip="Add databases from file"/>
+            </CommandBar>
+            <TextBlock x:Uid="EditDataBase"
+                       FontSize="11"
+                       Margin="0,0,0,0"
+                       RelativePanel.AlignHorizontalCenterWith="OptionsCommandBarPart3"
+                       RelativePanel.Below="OptionsCommandBarPart3"/>
+            <CommandBar x:Name="OptionsCommandBarDebugPart"
+                        DefaultLabelPosition="Right"
+                        RelativePanel.RightOf="OptionsCommandBarPart3"
+                        Margin="4,4,0,0"
+                        Visibility="Collapsed">
+                <CommandBar.Transitions>
+                    <TransitionCollection>
+                        <ContentThemeTransition/>
+                    </TransitionCollection>
+                </CommandBar.Transitions>
+                <AppBarSeparator/>
+                <AppBarButton Icon="ShowResults" Label="Debug info"/>
+            </CommandBar>
+        </RelativePanel>
+        <!--Database list-->
+        <ListView x:Name="DataBaseListView"
+                  ItemTemplate="{StaticResource DataBaseListViewTemplate}"
+                  Margin="8"
+                  RelativePanel.AlignLeftWithPanel="True"
+                  RelativePanel.AlignRightWithPanel="True"
+                  RelativePanel.Below="OptionBarRelativePanel"
+                  RelativePanel.AlignBottomWithPanel="True"
+                  SelectionMode="None"
+                  IsItemClickEnabled="True"
+                  ItemClick="DataBaseListView_ItemClick">
+            <ListView.Transitions>
+                <TransitionCollection>
+                    <AddDeleteThemeTransition/>
+                    <RepositionThemeTransition/>
+                    <ReorderThemeTransition/>
+                </TransitionCollection>
+            </ListView.Transitions>
+        </ListView>
+
+        <!--Debug info panel-->
+        <RelativePanel x:Name="DebugInfoPanel"
+                       Background="#8EFFFFFF"
+                       CornerRadius="8"
+                       Margin="8,8,8,8"
+                       Width="320"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.Below="OptionBarRelativePanel"
+                       RelativePanel.AlignBottomWithPanel="True"
+                       Shadow="{StaticResource PageSharedShadow}">
+
+        </RelativePanel>
+    </RelativePanel>
+</Page>
