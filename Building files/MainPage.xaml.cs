@@ -75,7 +75,7 @@ namespace Tagme_
         public void ShowMainPage()
         {
             //Show database list page.
-            Frame.Navigate(typeof(DataBaseListPage));
+            NavigationFrame.Navigate(typeof(DataBaseListPage));
         }
     }
 }
