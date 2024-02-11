@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
-    <RelativePanel>
+    <RelativePanel x:Name="MainPagePanel">
         <!--TitleBar-->
         <RelativePanel x:Name="AppTitleBar"
                        Height="32"
@@ -30,7 +30,8 @@
                        RelativePanel.AlignTopWithPanel="True"
                        RelativePanel.AlignBottomWithPanel="True"/>
         </RelativePanel>
-        <Frame x:Name="NavigationFrame">
+        <Frame x:Name="NavigationFrame"
+               RelativePanel.Below="AppTitleBar">
             
         </Frame>
     </RelativePanel>
