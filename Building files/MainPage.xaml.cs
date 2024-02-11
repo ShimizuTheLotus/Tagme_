@@ -35,9 +35,22 @@ namespace Tagme_
 
             //Extend panel into title bar.
             ExtendPanelIntoTitleBar();
+
+            //To make sure the page is loaded, then we can navigate without error.
+            Loaded += MainPage_Loaded;
         }
 
         //Initializations
+        /// <summary>
+        /// To make sure the page is loaded, then we can navigate without error.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            ShowMainPage();
+        }
+        
         /// <summary>
         /// Initialize TitleBar.
         /// </summary>
@@ -53,6 +66,16 @@ namespace Tagme_
             //Set TitleBar button color
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+        }
+
+
+        /// <summary>
+        /// This "MainPage" is not refered to MainPage.xaml!
+        /// </summary>
+        public async void ShowMainPage()
+        {
+            //Show database list page.
+            Frame.Navigate(typeof(DataBaseListPage));
         }
     }
 }
