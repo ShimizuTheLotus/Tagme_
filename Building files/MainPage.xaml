@@ -241,6 +241,7 @@
                     </TransitionCollection>
                 </CommandBar.Transitions>
                 <AppBarButton Icon="Add" Label="Add" CornerRadius="8"
+                              Click="AppBarButton_Click"
                               ToolTipService.ToolTip="Add database"/>
                 <AppBarButton Label="Multi-select" CornerRadius="8"
                               ToolTipService.ToolTip="Multi-select databases">
@@ -291,6 +292,7 @@
 
 
         </ListView>
+        
         <!--Debug info panel-->
         <RelativePanel x:Name="DebugInfoPanel"
                        Background="#8EFFFFFF"
