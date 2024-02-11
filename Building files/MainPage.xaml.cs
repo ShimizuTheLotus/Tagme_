@@ -32,6 +32,27 @@ namespace Tagme_
         public MainPage()
         {
             this.InitializeComponent();
+
+            //Extend panel into title bar.
+            ExtendPanelIntoTitleBar();
+        }
+
+        //Initializations
+        /// <summary>
+        /// Initialize TitleBar.
+        /// </summary>
+        public void ExtendPanelIntoTitleBar()
+        {
+            //Extend view into TitleBar
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
+            // Set XAML element as a drag region.
+            Window.Current.SetTitleBar(DragBar);
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+
+            //Set TitleBar button color
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
         }
     }
 }
