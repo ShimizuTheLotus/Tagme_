@@ -289,8 +289,6 @@
                     <ReorderThemeTransition/>
                 </TransitionCollection>
             </ListView.Transitions>
-
-
         </ListView>
         
         <!--Debug info panel-->
