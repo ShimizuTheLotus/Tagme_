@@ -343,5 +343,11 @@ namespace Tagme_
                 Frame.Navigate(typeof(DataBaseViewPage));
             }
         }
+
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Add database page
+            Frame.Navigate(typeof(DataBaseViewPage));
+        }
     }
 }
