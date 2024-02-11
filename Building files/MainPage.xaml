@@ -10,6 +10,28 @@
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <RelativePanel>
-        
+        <!--TitleBar-->
+        <RelativePanel x:Name="AppTitleBar"
+                       Height="32"
+                       Background="Transparent"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.AlignTopWithPanel="True">
+            <!--Program name-->
+            <TextBlock Text="ProgramName"
+                       FontSize="11"
+                       Margin="8,0,0,0"
+                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            <!--The area for dragging the app window-->
+            <Rectangle x:Name="DragBar"
+                       Fill="Transparent"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.AlignTopWithPanel="True"
+                       RelativePanel.AlignBottomWithPanel="True"/>
+        </RelativePanel>
+        <Frame x:Name="NavigationFrame">
+            
+        </Frame>
     </RelativePanel>
 </Page>
