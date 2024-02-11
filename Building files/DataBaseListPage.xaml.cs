@@ -33,7 +33,6 @@ namespace Tagme_
             this.InitializeComponent();
 
             //Initialize
-            InitializeTitleBar();
             InitializeShadows();
             InitializeStatusPanel();
             InitializeUIPositions(1000);
@@ -108,23 +107,6 @@ namespace Tagme_
 
         }
 
-        //Initializations
-        /// <summary>
-        /// Initialize TitleBar.
-        /// </summary>
-        public void InitializeTitleBar()
-        {
-            //Extend view into TitleBar
-            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
-            coreTitleBar.ExtendViewIntoTitleBar = true;
-            // Set XAML element as a drag region.
-            Window.Current.SetTitleBar(DragBar);
-            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-
-            //Set TitleBar button color
-            titleBar.ButtonBackgroundColor = Colors.Transparent;
-            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
-        }
 
         /// <summary>
         /// Initialize the shadow of the UI elements.
