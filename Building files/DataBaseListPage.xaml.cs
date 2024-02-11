@@ -35,7 +35,7 @@ namespace Tagme_
             //Initialize
             InitializeShadows();
             InitializeStatusPanel();
-            InitializeUIPositions(1000);
+            InitializeUIPositions();
             InitializeDataBaseListView();
 
             //Repeating Tasks
@@ -251,11 +251,8 @@ namespace Tagme_
         /// <summary>
         /// Initialize the position of UI elements
         /// </summary>
-        /// <param name="delay">To make sure the UI initializes properly, a delay is a necessary.</param>
-        private async void InitializeUIPositions(Int16 delay)
+        private void InitializeUIPositions()
         {
-            await Task.Delay(delay);
-
             HideDebugInfoBar();
         }
 
