@@ -20,12 +20,12 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using Microsoft.Data.Sqlite;
 
-// https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Tagme_
 {
     /// <summary>
-    /// 可用于自身或导航至 Frame 内部的空白页。
+    /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainPage : Page
     {
