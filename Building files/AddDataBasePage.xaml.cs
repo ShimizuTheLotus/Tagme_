@@ -25,6 +25,15 @@ namespace Tagme_
         public AddDataBasePage()
         {
             this.InitializeComponent();
+
+            Loaded += AddDataBasePage_Loaded;
+        }
+
+        //Functions
+        //Loaded
+        private void AddDataBasePage_Loaded(object sender, RoutedEventArgs e)
+        {
+            Tagme_CustomizedCore.CustomizedRunningData.PageStack.Push(typeof(AddDataBasePage));
         }
     }
 }
