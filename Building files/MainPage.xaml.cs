@@ -77,5 +77,10 @@ namespace Tagme_
             //Show database list page.
             NavigationFrame.Navigate(typeof(DataBaseListPage));
         }
+
+        private void TitleBarBackButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
