@@ -1189,6 +1189,31 @@ namespace Tagme_
     /// </summary>
     public static class Tagme_CustomizedCore
     {
+        /// <summary>
+        /// Structs. NOT a static class!
+        /// </summary>
+        public class Struct
+        {
+            /// <summary>
+            /// PagesStack is a stack that could update the back button status at MainPage.xaml.
+            /// </summary>
+            public class PagesStack : Stack<Type>
+            {
+                public new void Push(Type type)
+                {
+                    base.Push(type);
+                    if (base.Count > 1)
+                    {
+                        MainPage.UpdateBackButtonStatus(true);
+                    }
+                }
+                public new Type Pop()
+                {
+                    MainPage.UpdateBackButtonStatus(base.Count > 1);
+                    return base.Pop();
+                }
+            }
+        }
         public class TempLates
         {
             public class DataBaseListViewTemplate
@@ -1211,7 +1236,7 @@ namespace Tagme_
             /// <summary>
             /// The stack of using page
             /// </summary>
-            public static Stack<object> PageStack = new Stack<object>();
+            public static Struct.PagesStack PageStack = new Struct.PagesStack();
         }
     }
 }
