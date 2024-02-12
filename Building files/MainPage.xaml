@@ -70,7 +70,8 @@
                                  Height="40"
                                  Width="40"
                                  Margin="2"
-                                 CornerRadius="4">
+                                 CornerRadius="4"
+                                 Click="TitleBarBackButton_Click">
                     <HyperlinkButton.Content>
                         <!--&#xE830 is for ChromeBack-->
                         <FontIcon Glyph="&#xE830;" FontSize="11"/>
