@@ -1204,12 +1204,12 @@ namespace Tagme_
                     base.Push(type);
                     if (base.Count > 1)
                     {
-                        MainPage.UpdateBackButtonStatus(true);
+                        MainPage.GlobalUpdateMainPageBackButtonStatus(true);
                     }
                 }
                 public new Type Pop()
                 {
-                    MainPage.UpdateBackButtonStatus(base.Count > 1);
+                    MainPage.GlobalUpdateMainPageBackButtonStatus(base.Count > 1);
                     return base.Pop();
                 }
             }
