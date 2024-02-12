@@ -19,6 +19,9 @@ using System.Numerics;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using Microsoft.Data.Sqlite;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -29,6 +32,36 @@ namespace Tagme_
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        //Types
+        public class PageStack : ObservableCollection<Type>
+        {
+            public PageStack()
+            {
+                CollectionChanged += PageStack_CollectionChanged;
+            }
+            private void PageStack_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+            {
+                var x = new MainPage();
+                x.UpdateBackButtonStatus();
+            }
+            public void Push(Type type)
+            {
+                base.Add(type);
+            }
+            public Type Pop()
+            {
+                var item = base[base.Count - 1];
+                base.RemoveAt(base.Count - 1);
+                return item;
+            }
+        }
+
+        //Running data
+        public static class RunningData
+        {
+            public static PageStack PageStack = new PageStack();
+        }
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -38,6 +71,8 @@ namespace Tagme_
 
             //To make sure the page is loaded, then we can navigate without error.
             Loaded += MainPage_Loaded;
+
+            //Initialize
         }
 
         //Initializations
@@ -49,17 +84,7 @@ namespace Tagme_
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             ShowMainPage();
-            Tagme_CustomizedCore.CustomizedRunningData.PageStack.Push(typeof(MainPage));
-        }
-
-        public void GlobalUpdateMainPageBackButtonStatus(bool enable)
-        {
-            var page = new MainPage();
-            page.UpdateBackButtonStatus(enable);
-        }
-        private void UpdateBackButtonStatus(bool enable)
-        {
-            TitleBarBackButton.IsEnabled = enable;
+            RunningData.PageStack.Push(typeof(MainPage));
         }
         
         /// <summary>
@@ -89,12 +114,20 @@ namespace Tagme_
             NavigationFrame.Navigate(typeof(DataBaseListPage));
         }
 
+        public void UpdateBackButtonStatus()
+        {
+            TitleBarBackButton.IsEnabled = (RunningData.PageStack.Count > 1);
+        }
+
         private void TitleBarBackButton_Click(object sender, RoutedEventArgs e)
         {
             if (NavigationFrame.CanGoBack)
             {
                 NavigationFrame.GoBack();
-
+                if (RunningData.PageStack.Count < 2)
+                {
+                    TitleBarBackButton.IsEnabled = false;
+                }
             }
         }
     }
