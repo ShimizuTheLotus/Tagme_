@@ -80,7 +80,8 @@
                 </HyperlinkButton>
             </StackPanel>
             <!--Program name-->
-            <TextBlock Text="Tagme_"
+            <TextBlock x:Name="ProgramTitle"
+                       Text="Tagme_"
                        Margin="8,0,0,0"
                        RelativePanel.RightOf="TitleBarButtonPanel"
                        RelativePanel.AlignVerticalCenterWithPanel="True"/>

@@ -49,6 +49,12 @@ namespace Tagme_
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             ShowMainPage();
+            Tagme_CustomizedCore.CustomizedRunningData.PageStack.Push(typeof(MainPage));
+        }
+
+        public static void UpdateBackButtonStatus(bool enable)
+        {
+            TitleBarBackButton.IsEnabled = enable;
         }
         
         /// <summary>
@@ -83,6 +89,7 @@ namespace Tagme_
             if (NavigationFrame.CanGoBack)
             {
                 NavigationFrame.GoBack();
+
             }
         }
     }
