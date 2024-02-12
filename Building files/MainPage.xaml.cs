@@ -52,7 +52,12 @@ namespace Tagme_
             Tagme_CustomizedCore.CustomizedRunningData.PageStack.Push(typeof(MainPage));
         }
 
-        public static void UpdateBackButtonStatus(bool enable)
+        public static void GlobalUpdateMainPageBackButtonStatus(bool enable)
+        {
+            var page = new MainPage();
+            page.UpdateBackButtonStatus(enable);
+        }
+        private void UpdateBackButtonStatus(bool enable)
         {
             TitleBarBackButton.IsEnabled = enable;
         }
