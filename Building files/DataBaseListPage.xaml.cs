@@ -32,6 +32,8 @@ namespace Tagme_
         {
             this.InitializeComponent();
 
+            Loaded += DataBaseListPage_Loaded;
+
             //Initialize
             InitializeShadows();
             InitializeStatusPanel();
@@ -43,6 +45,11 @@ namespace Tagme_
         }
 
         //Functions
+        //Loaded
+        private void DataBaseListPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            Tagme_CustomizedCore.CustomizedRunningData.PageStack.Push(this);
+        }
 
         //Debug
 
