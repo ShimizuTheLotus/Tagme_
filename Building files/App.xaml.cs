@@ -1203,5 +1203,12 @@ namespace Tagme_
             }
         }
         public static List<TempLates.DataBaseListViewTemplate> DataBaseListViewSource = new List<TempLates.DataBaseListViewTemplate>();
+        /// <summary>
+        /// The customized data for Tagme_ UI or something else running.
+        /// </summary>
+        public static class CustomizedRunningData
+        {
+            public static Stack<object> PageStack = new Stack<object>();
+        }
     }
 }
