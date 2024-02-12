@@ -33,7 +33,7 @@ namespace Tagme_
         //Loaded
         private void AddDataBasePage_Loaded(object sender, RoutedEventArgs e)
         {
-            Tagme_CustomizedCore.CustomizedRunningData.PageStack.Push(typeof(AddDataBasePage));
+            MainPage.RunningData.PageStack.Push(typeof(AddDataBasePage));
         }
     }
 }

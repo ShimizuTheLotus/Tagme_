@@ -48,7 +48,7 @@ namespace Tagme_
         //Loaded
         private void DataBaseListPage_Loaded(object sender, RoutedEventArgs e)
         {
-            Tagme_CustomizedCore.CustomizedRunningData.PageStack.Push(typeof(DataBaseListPage));
+            MainPage.RunningData.PageStack.Push(typeof(DataBaseListPage));
         }
 
         //Debug
