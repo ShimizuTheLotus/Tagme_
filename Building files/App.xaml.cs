@@ -1211,7 +1211,7 @@ namespace Tagme_
             /// <summary>
             /// The stack of using page
             /// </summary>
-            public static Struct.PagesStack PageStack = new Struct.PagesStack();
+            public static Stack<Type> PageStack = new Stack<Type>();
         }
     }
 }
