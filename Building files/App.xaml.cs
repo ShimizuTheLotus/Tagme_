@@ -1187,7 +1187,7 @@ namespace Tagme_
     /// Part of the data and other things that Tagme_ needs while running which not included in the Tagme_Core cause it's not a necessary, such as customized UI.
     /// It's not in the Tagme_Core cause it could be customized frequently and not always necessary to Tagme_.
     /// </summary>
-    public class Tagme_CustomizedCore
+    public static class Tagme_CustomizedCore
     {
         public class TempLates
         {
