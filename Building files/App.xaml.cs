@@ -1208,6 +1208,9 @@ namespace Tagme_
         /// </summary>
         public static class CustomizedRunningData
         {
+            /// <summary>
+            /// The stack of using page
+            /// </summary>
             public static Stack<object> PageStack = new Stack<object>();
         }
     }
