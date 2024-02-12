@@ -80,7 +80,7 @@ namespace Tagme_
 
         private void TitleBarBackButton_Click(object sender, RoutedEventArgs e)
         {
-            if(NavigationFrame.CanGoBack)
+            if (NavigationFrame.CanGoBack)
             {
                 NavigationFrame.GoBack();
             }
