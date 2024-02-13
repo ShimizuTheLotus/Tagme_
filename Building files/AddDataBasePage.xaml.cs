@@ -25,21 +25,6 @@ namespace Tagme_
         public AddDataBasePage()
         {
             this.InitializeComponent();
-
-            Loaded += AddDataBasePage_Loaded;
-        }
-
-        //Functions
-        //Loaded
-        private void AddDataBasePage_Loaded(object sender, RoutedEventArgs e)
-        {
-            
-        }
-        //Over rides
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            MainPage.RunningData.PageStack.Push(typeof(AddDataBasePage));
         }
     }
 }
