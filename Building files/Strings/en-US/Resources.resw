@@ -125,4 +125,8 @@
     <value>Edit</value>
     <comment>MainPage.EditDataBase</comment>
   </data>
+  <data name="ProgramTitle_AddDataBase.Text" xml:space="preserve">
+    <value>Add database</value>
+    <comment>MainPage.ProgramTitle.AddDataBase</comment>
+  </data>
 </root>

@@ -92,12 +92,35 @@ namespace Tagme_
                 TitleBarBackButton.IsEnabled = true;
                 //RelativePanel.AlignCenterWithPanel = "True"
                 ProgramTitle.SetValue(HorizontalAlignmentProperty, HorizontalAlignment.Center);
+                UpdateProgramTitle();
+                //ProgramTitle.Text = NavigationFrame.Content.ToString();
             }
             else
             {
                 TitleBarBackButton.IsEnabled = false;
                 ProgramTitle.SetValue(HorizontalAlignmentProperty, HorizontalAlignment.Left);
+                UpdateProgramTitle();
+                //ProgramTitle.Text = NavigationFrame.Content.ToString();
             }
+        }
+
+
+        //Update UI
+        //Update ProgramTitle
+        private void UpdateProgramTitle()
+        {
+            string title = "Tagme_";
+            string pageName = NavigationFrame.Content.ToString();
+            var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+            switch (pageName)
+            {
+                case "Tagme_.AddDataBasePage":
+                    title += $"-{resourceLoader.GetString("ProgramTitle_AddDataBase/Text")}";
+                    break;
+                default:
+                    break;
+            }
+            ProgramTitle.Text = title;
         }
         
 
