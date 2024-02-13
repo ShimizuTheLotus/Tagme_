@@ -117,14 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddDataBase.Label" xml:space="preserve">
+  <data name="DataBaseListPage.OptionBar.Browse.AppBarButton.Sort.Label" xml:space="preserve">
+    <value>排序</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Browse.AppBarButton.Sort.ToolTipService.ToolTip" xml:space="preserve">
+    <value>设置排序方式</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Browse.AppBarButton.ViewMode.Label" xml:space="preserve">
+    <value>视图</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Browse.AppBarButton.ViewMode.ToolTipService.ToolTip" xml:space="preserve">
+    <value>设置视图</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Browse.Title.Text" xml:space="preserve">
+    <value>浏览</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Edit.AppBarButton.CreateDataBase.Label" xml:space="preserve">
     <value>新建</value>
   </data>
-  <data name="EditDataBase.Text" xml:space="preserve">
+  <data name="DataBaseListPage.OptionBar.Edit.AppBarButton.CreateDataBase.ToolTipService.ToolTip" xml:space="preserve">
+    <value>新建数据库</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Edit.AppBarButton.Import.Label" xml:space="preserve">
+    <value>导入</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Edit.AppBarButton.Import.ToolTipService.ToolTip" xml:space="preserve">
+    <value>导入文件</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Edit.AppBarButton.MultiSelect.Label" xml:space="preserve">
+    <value>多选</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Edit.AppBarButton.MultiSelect.ToolTipService.ToolTip" xml:space="preserve">
+    <value>选中多个数据库</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Edit.Title.Text" xml:space="preserve">
     <value>编辑</value>
   </data>
-  <data name="ProgramTitle_CreateDataBase.Text" xml:space="preserve">
+  <data name="DataBaseListPage.SearchBox.PlaceholderText" xml:space="preserve">
+    <value>搜索数据库名称</value>
+  </data>
+  <data name="DataBaseListPage.SearchBox.ToolTipService.ToolTip" xml:space="preserve">
+    <value>在此处用名称搜索数据库</value>
+  </data>
+  <data name="MainPage.CS.StatusTitle.ProgramTitle_CreateDataBase.Text" xml:space="preserve">
     <value>新建数据库</value>
-    <comment>MainPage.ProgramTitle.CreateDataBase</comment>
   </data>
 </root>

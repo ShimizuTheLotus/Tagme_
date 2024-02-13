@@ -117,16 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddDataBase.Label" xml:space="preserve">
-    <value>Add</value>
-    <comment>MainPage.AddDataBase</comment>
+  <data name="DataBaseListPage.OptionBar.Browse.AppBarButton.Sort.Label" xml:space="preserve">
+    <value>Sort</value>
   </data>
-  <data name="EditDataBase.Text" xml:space="preserve">
-    <value>Edit</value>
-    <comment>MainPage.EditDataBase</comment>
+  <data name="DataBaseListPage.OptionBar.Browse.AppBarButton.Sort.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Set content sortting mode</value>
   </data>
-  <data name="ProgramTitle_CreateDataBase.Text" xml:space="preserve">
+  <data name="DataBaseListPage.OptionBar.Browse.AppBarButton.ViewMode.Label" xml:space="preserve">
+    <value>View mode</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Browse.AppBarButton.ViewMode.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Set content view mode</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Browse.Title.Text" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Edit.AppBarButton.CreateDataBase.Label" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Edit.AppBarButton.CreateDataBase.ToolTipService.ToolTip" xml:space="preserve">
     <value>Create database</value>
-    <comment>MainPage.ProgramTitle.CreateDataBase</comment>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Edit.AppBarButton.Import.Label" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Edit.AppBarButton.Import.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Import databases file</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Edit.AppBarButton.MultiSelect.Label" xml:space="preserve">
+    <value>Multi-select</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Edit.AppBarButton.MultiSelect.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Multi-select databases</value>
+  </data>
+  <data name="DataBaseListPage.OptionBar.Edit.Title.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="DataBaseListPage.SearchBox.PlaceholderText" xml:space="preserve">
+    <value>Search databases by name</value>
+  </data>
+  <data name="DataBaseListPage.SearchBox.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Search databases by name here</value>
+  </data>
+  <data name="MainPage.CS.StatusTitle.ProgramTitle_CreateDataBase.Text" xml:space="preserve">
+    <value>Create database</value>
   </data>
 </root>
