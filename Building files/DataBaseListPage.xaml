@@ -145,7 +145,8 @@
                     </RichTextBlock>
                 </AppBarButton>
             </RelativePanel>
-            <AutoSuggestBox x:Name="SearchDatabaseAutoSuggestBox" 
+            <AutoSuggestBox x:Name="SearchDatabaseAutoSuggestBox"
+                            x:Uid="DataBaseListPage/SearchBox"
                             Background="#8EFFFFFF"
                             Margin="4,0,0,0"
                             CornerRadius="8"
@@ -179,7 +180,8 @@
                         DefaultLabelPosition="Right"
                         RelativePanel.AlignVerticalCenterWithPanel="False"
                         Margin="4,4,0,0">
-                <AppBarButton Icon="Sort" Label="Sort" CornerRadius="8"
+                <AppBarButton x:Uid="DataBaseListPage/OptionBar/Browse/AppBarButton/Sort"
+                              Icon="Sort" Label="Sort" CornerRadius="8"
                               ToolTipService.ToolTip="Set content sortting mode">
                     <AppBarButton.Flyout>
                         <Flyout>
@@ -197,10 +199,12 @@
                         </Flyout>
                     </AppBarButton.Flyout>
                 </AppBarButton>
-                <AppBarButton Icon="PreviewLink" Label="View mode"
+                <AppBarButton x:Uid="DataBaseListPage/OptionBar/Browse/AppBarButton/ViewMode"
+                              Icon="PreviewLink" Label="View mode"
                               ToolTipService.ToolTip="Set content view mode"/>
             </CommandBar>
-            <TextBlock Text="Browse"
+            <TextBlock x:Uid="DataBaseListPage/OptionBar/Browse/Title"
+                       Text="Browse"
                        FontSize="11"
                        Margin="0,0,0,0"
                        RelativePanel.AlignHorizontalCenterWith="OptionsCommandBarPart1"
@@ -219,20 +223,22 @@
                         <RepositionThemeTransition/>
                     </TransitionCollection>
                 </CommandBar.Transitions>
-                <AppBarButton x:Uid="AddDataBase"
-                              Icon="Add" Label="Add" CornerRadius="8"
+                <AppBarButton x:Uid="DataBaseListPage/OptionBar/Edit/AppBarButton/CreateDataBase"
+                              Icon="Add" Label="Create" CornerRadius="8"
                               Click="AppBarButton_Click"
-                              ToolTipService.ToolTip="Add database"/>
-                <AppBarButton Label="Multi-select" CornerRadius="8"
+                              ToolTipService.ToolTip="Create database"/>
+                <AppBarButton x:Uid="DataBaseListPage/OptionBar/Edit/AppBarButton/MultiSelect"
+                              Label="Multi-select" CornerRadius="8"
                               ToolTipService.ToolTip="Multi-select databases">
                     <AppBarButton.Icon>
                         <FontIcon Glyph="&#xE762;" />
                     </AppBarButton.Icon>
                 </AppBarButton>
-                <AppBarButton Icon="Import" Label="Import" CornerRadius="8"
-                              ToolTipService.ToolTip="Add databases from file"/>
+                <AppBarButton x:Uid="DataBaseListPage/OptionBar/Edit/AppBarButton/Import"
+                              Icon="Import" Label="Import" CornerRadius="8"
+                              ToolTipService.ToolTip="Import databases from file"/>
             </CommandBar>
-            <TextBlock x:Uid="EditDataBase"
+            <TextBlock x:Uid="DataBaseListPage/OptionBar/Edit/Title"
                        FontSize="11"
                        Margin="0,0,0,0"
                        RelativePanel.AlignHorizontalCenterWith="OptionsCommandBarPart3"
