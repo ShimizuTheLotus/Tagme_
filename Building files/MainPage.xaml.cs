@@ -87,35 +87,41 @@ namespace Tagme_
         //Events
         private void NavigationFrame_Navigated(object sender, NavigationEventArgs e)
         {
+            //Not at home page.
             if (NavigationFrame.CanGoBack)
             {
                 TitleBarBackButton.IsEnabled = true;
                 //RelativePanel.AlignCenterWithPanel = "True"
                 ProgramTitle.SetValue(HorizontalAlignmentProperty, HorizontalAlignment.Center);
                 UpdateProgramTitle();
-                //ProgramTitle.Text = NavigationFrame.Content.ToString();
             }
             else
             {
                 TitleBarBackButton.IsEnabled = false;
+                //Let ProgramTitle align left.
                 ProgramTitle.SetValue(HorizontalAlignmentProperty, HorizontalAlignment.Left);
                 UpdateProgramTitle();
-                //ProgramTitle.Text = NavigationFrame.Content.ToString();
             }
         }
 
 
         //Update UI
         //Update ProgramTitle
+        /// <summary>
+        /// Change the text of ProgramTitle and fit it with current page.
+        /// </summary>
         private void UpdateProgramTitle()
         {
+            //Title text
             string title = "Tagme_";
+            //CUrrent page name
             string pageName = NavigationFrame.Content.ToString();
+            //Resouece getter(.resw)
             var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
             switch (pageName)
             {
-                case "Tagme_.AddDataBasePage":
-                    title += $"-{resourceLoader.GetString("ProgramTitle_AddDataBase/Text")}";
+                case "Tagme_.CreateDataBasePage":
+                    title += $" - {resourceLoader.GetString("ProgramTitle_CreateDataBase/Text")}";
                     break;
                 default:
                     break;
