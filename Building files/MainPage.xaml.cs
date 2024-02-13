@@ -62,7 +62,7 @@ namespace Tagme_
         {
             ShowMainPage();
             RunningData.PageStack.Push(typeof(MainPage));
-            TitleBarBackButton.IsEnabled = (RunningData.PageStack.Count > 1);
+            NavigationFrame.Navigated += NavigationFrame_Navigated;
         }
         
         /// <summary>
@@ -82,7 +82,6 @@ namespace Tagme_
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
         }
 
-
         /// <summary>
         /// This "MainPage" is not refered to MainPage.xaml!
         /// </summary>
@@ -92,11 +91,27 @@ namespace Tagme_
             NavigationFrame.Navigate(typeof(DataBaseListPage));
         }
 
+        //Events
+        private void NavigationFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            UpdateBackButtonStatus();
+        }
+
+
+        //UI updates
+        private void UpdateBackButtonStatus()
+        {
+            TitleBarBackButton.IsEnabled = RunningData.PageStack.Count > 1;
+        }
+        
+
+        //UI events
         private void TitleBarBackButton_Click(object sender, RoutedEventArgs e)
         {
             if (NavigationFrame.CanGoBack)
             {
                 NavigationFrame.GoBack();
+                RunningData.PageStack.Pop();
                 if (RunningData.PageStack.Count < 2)
                 {
                     TitleBarBackButton.IsEnabled = false;
