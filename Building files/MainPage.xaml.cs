@@ -90,9 +90,12 @@ namespace Tagme_
             if (NavigationFrame.CanGoBack)
             {
                 TitleBarBackButton.IsEnabled = true;
+                //RelativePanel.AlignCenterWithPanel = "True"
+                ProgramTitle.SetValue(HorizontalAlignmentProperty, HorizontalAlignment.Center);
             }
             else
             {
+                ProgramTitle.SetValue(HorizontalAlignmentProperty, HorizontalAlignment.Left);
                 TitleBarBackButton.IsEnabled = false;
             }
         }
