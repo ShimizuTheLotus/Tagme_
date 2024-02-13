@@ -95,8 +95,8 @@ namespace Tagme_
             }
             else
             {
-                ProgramTitle.SetValue(HorizontalAlignmentProperty, HorizontalAlignment.Left);
                 TitleBarBackButton.IsEnabled = false;
+                ProgramTitle.SetValue(HorizontalAlignmentProperty, HorizontalAlignment.Left);
             }
         }
         
