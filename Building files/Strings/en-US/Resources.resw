@@ -125,8 +125,8 @@
     <value>Edit</value>
     <comment>MainPage.EditDataBase</comment>
   </data>
-  <data name="ProgramTitle_AddDataBase.Text" xml:space="preserve">
-    <value>Add database</value>
-    <comment>MainPage.ProgramTitle.AddDataBase</comment>
+  <data name="ProgramTitle_CreateDataBase.Text" xml:space="preserve">
+    <value>Create database</value>
+    <comment>MainPage.ProgramTitle.CreateDataBase</comment>
   </data>
 </root>

@@ -123,4 +123,8 @@
   <data name="EditDataBase.Text" xml:space="preserve">
     <value>编辑</value>
   </data>
+  <data name="ProgramTitle_CreateDataBase.Text" xml:space="preserve">
+    <value>新建数据库</value>
+    <comment>MainPage.ProgramTitle.CreateDataBase</comment>
+  </data>
 </root>

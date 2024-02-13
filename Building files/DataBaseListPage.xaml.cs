@@ -332,7 +332,7 @@ namespace Tagme_
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             //Add database page
-            Frame.Navigate(typeof(AddDataBasePage));
+            Frame.Navigate(typeof(CreateDataBasePage));
         }
     }
 }
