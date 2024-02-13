@@ -1,4 +1,4 @@
-﻿<Page
+﻿<Page 
     x:Class="Tagme_.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -61,30 +61,41 @@
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.AlignTopWithPanel="True">
+            <RelativePanel.ChildrenTransitions>
+                <TransitionCollection>
+                    <RepositionThemeTransition/>
+                </TransitionCollection>
+            </RelativePanel.ChildrenTransitions>
             <StackPanel x:Name="TitleBarButtonPanel"
                         Orientation="Horizontal"
                         RelativePanel.AlignTopWithPanel="True"
                         RelativePanel.AlignBottomWithPanel="True">
-                <HyperlinkButton x:Name="TitleBarBackButton"
-                                 Foreground="{ThemeResource ButtonForeground}"
-                                 Height="40"
-                                 Width="40"
-                                 Margin="2"
-                                 CornerRadius="4"
-                                 Click="TitleBarBackButton_Click"
-                                 IsEnabled="False">
-                    <HyperlinkButton.Content>
-                        <!--&#xE830 is for ChromeBack-->
-                        <FontIcon Glyph="&#xE830;" FontSize="11"/>
-                    </HyperlinkButton.Content>
-                </HyperlinkButton>
+                <AppBarButton x:Name="TitleBarBackButton"
+                              Height="48"
+                              Width="40"
+                              Margin="2"
+                              CornerRadius="4"
+                              Click="TitleBarBackButton_Click"
+                              IsEnabled="False">
+                    <AppBarButton.Content>
+                        <!--&#xE72B;-->
+                        <!--&#xE830; is for ChromeBack-->
+                        <FontIcon Glyph="&#xE830;"/>
+                    </AppBarButton.Content>
+                </AppBarButton>
             </StackPanel>
             <!--Program name-->
             <TextBlock x:Name="ProgramTitle"
                        Text="Tagme_"
-                       Margin="8,0,0,0"
+                       Margin="8,0,48,0"
                        RelativePanel.RightOf="TitleBarButtonPanel"
-                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                       RelativePanel.AlignRightWithPanel="True"
+                       TextAlignment="Left"
+                       RelativePanel.AlignVerticalCenterWithPanel="True">
+                <TextBlock.ScaleTransition>
+                    <Vector3Transition/>
+                </TextBlock.ScaleTransition>
+            </TextBlock>
             <!--The area for dragging the app window-->
             <Rectangle x:Name="DragBar"
                        Fill="Transparent"
