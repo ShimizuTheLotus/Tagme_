@@ -121,7 +121,7 @@ namespace Tagme_
             switch (pageName)
             {
                 case "Tagme_.CreateDataBasePage":
-                    title += $" - {resourceLoader.GetString("MainPage/CS/StatusTitle/ProgramTitle_CreateDataBaseText")}";
+                    title += $" - {resourceLoader.GetString("MainPage/CS/StatusTitle/ProgramTitle_CreateDataBase/Text")}";
                     break;
                 default:
                     break;
