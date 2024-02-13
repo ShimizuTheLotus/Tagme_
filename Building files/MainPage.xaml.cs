@@ -50,6 +50,7 @@ namespace Tagme_
             Loaded += MainPage_Loaded;
 
             //Initialize
+
         }
 
         //Initializations
@@ -61,7 +62,6 @@ namespace Tagme_
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             ShowMainPage();
-            RunningData.PageStack.Push(typeof(MainPage));
             NavigationFrame.Navigated += NavigationFrame_Navigated;
         }
         
@@ -95,13 +95,18 @@ namespace Tagme_
         private void NavigationFrame_Navigated(object sender, NavigationEventArgs e)
         {
             UpdateBackButtonStatus();
+
+            //test
+            TitleBarBackButton.Content = RunningData.PageStack.Count.ToString();
+
         }
+
 
 
         //UI updates
         private void UpdateBackButtonStatus()
         {
-            TitleBarBackButton.IsEnabled = RunningData.PageStack.Count > 1;
+            TitleBarBackButton.IsEnabled = RunningData.PageStack.Count > 0;
         }
         
 
@@ -110,8 +115,8 @@ namespace Tagme_
         {
             if (NavigationFrame.CanGoBack)
             {
-                NavigationFrame.GoBack();
                 RunningData.PageStack.Pop();
+                NavigationFrame.GoBack();
                 if (RunningData.PageStack.Count < 2)
                 {
                     TitleBarBackButton.IsEnabled = false;

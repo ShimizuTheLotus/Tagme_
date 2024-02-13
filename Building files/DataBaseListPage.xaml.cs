@@ -48,6 +48,10 @@ namespace Tagme_
         //Loaded
         private void DataBaseListPage_Loaded(object sender, RoutedEventArgs e)
         {
+            while (MainPage.RunningData.PageStack.Count > 0 && MainPage.RunningData.PageStack.Last() == typeof(DataBaseListPage))
+            {
+                MainPage.RunningData.PageStack.Pop();
+            }
             MainPage.RunningData.PageStack.Push(typeof(DataBaseListPage));
         }
 
@@ -332,7 +336,7 @@ namespace Tagme_
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             //Add database page
-            Frame.Navigate(typeof(DataBaseViewPage));
+            Frame.Navigate(typeof(AddDataBasePage));
         }
     }
 }
