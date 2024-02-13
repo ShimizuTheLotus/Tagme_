@@ -22,6 +22,7 @@ using Microsoft.Data.Sqlite;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Runtime.CompilerServices;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -32,28 +33,6 @@ namespace Tagme_
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public class MainPageViewModel : INotifyPropertyChanged
-        {
-            private bool _isBackButtonEnabled = false;
-            public bool IsBackButtonEnabled
-            {
-                get { return _isBackButtonEnabled; }
-                set 
-                {
-                    if (_isBackButtonEnabled != value)
-                    {
-                        _isBackButtonEnabled = value;
-                        OnPropertyChanged();
-                    }
-                }
-            }
-            public event PropertyChangedEventHandler PropertyChanged;
-            protected virtual void OnPropertyChanged(string propertyName = null)
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
         //Running data
         public static class RunningData
         {
@@ -83,6 +62,7 @@ namespace Tagme_
         {
             ShowMainPage();
             RunningData.PageStack.Push(typeof(MainPage));
+            TitleBarBackButton.IsEnabled = (RunningData.PageStack.Count > 1);
         }
         
         /// <summary>
@@ -110,11 +90,6 @@ namespace Tagme_
         {
             //Show database list page.
             NavigationFrame.Navigate(typeof(DataBaseListPage));
-        }
-
-        public void UpdateBackButtonStatus()
-        {
-            TitleBarBackButton.IsEnabled = (RunningData.PageStack.Count > 1);
         }
 
         private void TitleBarBackButton_Click(object sender, RoutedEventArgs e)
