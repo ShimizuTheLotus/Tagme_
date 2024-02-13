@@ -32,34 +32,32 @@ namespace Tagme_
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        //Types
-        public class PageStack : ObservableCollection<Type>
+        public class MainPageViewModel : INotifyPropertyChanged
         {
-            public PageStack()
+            private bool _isBackButtonEnabled = false;
+            public bool IsBackButtonEnabled
             {
-                CollectionChanged += PageStack_CollectionChanged;
+                get { return _isBackButtonEnabled; }
+                set 
+                {
+                    if (_isBackButtonEnabled != value)
+                    {
+                        _isBackButtonEnabled = value;
+                        OnPropertyChanged();
+                    }
+                }
             }
-            private void PageStack_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+            public event PropertyChangedEventHandler PropertyChanged;
+            protected virtual void OnPropertyChanged(string propertyName = null)
             {
-                var x = new MainPage();
-                x.UpdateBackButtonStatus();
-            }
-            public void Push(Type type)
-            {
-                base.Add(type);
-            }
-            public Type Pop()
-            {
-                var item = base[base.Count - 1];
-                base.RemoveAt(base.Count - 1);
-                return item;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
         //Running data
         public static class RunningData
         {
-            public static PageStack PageStack = new PageStack();
+            public static Stack<Type> PageStack = new Stack<Type>();
         }
 
         public MainPage()
