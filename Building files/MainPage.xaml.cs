@@ -33,12 +33,6 @@ namespace Tagme_
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        //Running data
-        public static class RunningData
-        {
-            public static Stack<Type> PageStack = new Stack<Type>();
-        }
-
         public MainPage()
         {
             this.InitializeComponent();
@@ -50,7 +44,6 @@ namespace Tagme_
             Loaded += MainPage_Loaded;
 
             //Initialize
-
         }
 
         //Initializations
@@ -94,19 +87,14 @@ namespace Tagme_
         //Events
         private void NavigationFrame_Navigated(object sender, NavigationEventArgs e)
         {
-            UpdateBackButtonStatus();
-
-            //test
-            TitleBarBackButton.Content = RunningData.PageStack.Count.ToString();
-
-        }
-
-
-
-        //UI updates
-        private void UpdateBackButtonStatus()
-        {
-            TitleBarBackButton.IsEnabled = RunningData.PageStack.Count > 0;
+            if (NavigationFrame.CanGoBack)
+            {
+                TitleBarBackButton.IsEnabled = true;
+            }
+            else
+            {
+                TitleBarBackButton.IsEnabled = false;
+            }
         }
         
 
@@ -115,9 +103,12 @@ namespace Tagme_
         {
             if (NavigationFrame.CanGoBack)
             {
-                RunningData.PageStack.Pop();
                 NavigationFrame.GoBack();
-                if (RunningData.PageStack.Count < 2)
+                if (NavigationFrame.CanGoBack)
+                {
+                    TitleBarBackButton.IsEnabled = true;
+                }
+                else
                 {
                     TitleBarBackButton.IsEnabled = false;
                 }
