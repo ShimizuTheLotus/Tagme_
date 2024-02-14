@@ -44,7 +44,7 @@ But I'll write a document here for better understand and safe storage.
 
 - The example will works like this tree struct:
 
-- - Fruit
-  - - Apple
-    - - Green Apple
+  - Fruit
+    - Apple
+      - Green Apple
     - Banana
