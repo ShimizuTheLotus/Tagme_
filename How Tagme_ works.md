@@ -33,9 +33,18 @@ But I'll write a document here for better understand and safe storage.
 [^StructListRefer2]:You may found that we use TEXT rather than TimeStamp or INTEGER. This cause we want to make our database usable without considering the Unix timestamp rollover problem. But when the Tagme_ core process it, it will be transformed into Int64 to compare it's value for the nessary functions such as sorting or showing the time.
 [^StructListRefer3]:Parent ID could make tags in a tree struct, to better understand, please look down:
 
-- Example 1:
+- Example:
 
 | TagID | Tag | TagParentID |
 |---|---|---|
 | 1 | Fruit |  |
-- Example 2:
+| 2 | Apple | 1 |
+| 3 | Banana | 1 |
+| 4 | Green Apple | 2 |
+
+- The example will works like this tree struct:
+
+- - Fruit
+  - - Apple
+    - - Green Apple
+    - Banana
