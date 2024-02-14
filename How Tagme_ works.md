@@ -41,6 +41,7 @@ But I'll write a document here for better understand and safe storage.
 >     - Apple
 >       - Green Apple
 >     - Banana
+> 
 > Thus, when you search Fruit, Apple, Green Apple and Banana will also be included in the result. when you search Green Apple, Fruit and Apple will also be included in the result.
 
 [^StructListRefer1]:The display name is shown in Tagme_ as the database name, this allows user to use some illegal charcters or words (such as "/", "\\", and even Enter) to name the items in Tagme_
