@@ -18,3 +18,6 @@ Requirements:
 *Please make sure that your program is a UWP one otherwise some functions may not run properly.*
 - Nuget Package: Microsoft.Data.Sqlite
 - NekoWahsCoreUWP(We'll place it in the App.xaml.cs, like what we did to Tagme_CoreUWP)
+
+## Want to know my building diary of Tagme_?
+Go to see: ***https://github.com/ShimizuTheLotus/Tagme_/blob/main/Diary.md***
