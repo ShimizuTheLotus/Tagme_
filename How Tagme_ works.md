@@ -13,6 +13,21 @@ But I'll write a document here for better understand and safe storage.
 | DataBaseName | TEXT | The display name of database(Not filename[^StructListRefer1]) |
 | DataBaseCover | BLOB | The cover image of a Tagme_ database |
 | CreatedTimeStamp | TEXT[^StructListRefer2] | The timestamp of database create time(seconds since Jan. 1, 1970) |
+| LastModifiedTimeStamp | TEXT | The timestamp of the last modified timestamp(seconds since Jan. 1, 1970) of this database |
+| LastViewTimeStamp | TEXT | The timestamp of last timestamp(seconds since Jan. 1, 1970) view this database |
+| Tagme_DataBaseVersion | TEXT | The version of Tagme_ database rules that this database is using[^StructListRefer3] |
+
+### TagMapping
+| Item | SQLite Type | Description |
+|---|---|---|
+| TagMapID | TEXT |  |
+| TagID | TEXT | A unique integer ID of tag |
+| Tag | TEXT | The text of tag |
+| TagDescription | TEXT | The description of tag, to let you better know what the tag means |
+| TagParentID | TEXT |  |
+| RelatedTagIDs | TEXT |  |
+| CreatedTimeStamp | TEXT |  |
+| ModifiedTimeStamp | TEXT |  |
 
 [^StructListRefer1]:The display name is shown in Tagme_ as the database name, this allows user to use some illegal charcters or words (such as "/", "\\", and even Enter) to name the items in Tagme_
 [^StructListRefer2]:You may found that we use TEXT rather than TimeStamp or INTEGER. This cause we want to make our database usable without considering the Unix timestamp rollover problem. But when the Tagme_ core process it, it will be transformed into Int64 to compare it's value for the nessary functions such as sorting or showing the time.
