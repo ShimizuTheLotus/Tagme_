@@ -35,6 +35,7 @@ namespace Tagme_
             InitializeShadow();
         }
 
+        //Initialize UI shadow
         public void InitializeShadow()
         {
             DataBaseCoverPanel.Translation += new System.Numerics.Vector3(0, 0, 16);
