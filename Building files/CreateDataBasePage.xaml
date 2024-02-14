@@ -11,14 +11,22 @@
         <ThemeShadow x:Name="PageSharedShadow"/>
     </Page.Resources>
     <RelativePanel Background="Transparent">
-        <RelativePanel x:Name="DataBaseCoverPanel"
-                       CornerRadius="8"
-                       Margin="16"
-                       Shadow="{StaticResource PageSharedShadow}">
-            <Image x:Name="DataBaseCoverImage"
+        <StackPanel x:Name="EditInfoPanel"
+                    Orientation="Horizontal">
+            <StackPanel x:Name="DataBaseCoverPanel"
+                    CornerRadius="8"
+                    Margin="16"
+                    Shadow="{StaticResource PageSharedShadow}">
+                <Image x:Name="DataBaseCoverImage"
                    Height="256"
                    Width="256"
                    Source="Assets\Square150x150Logo.scale-200.png"/>
-        </RelativePanel>
+            </StackPanel>
+            <StackPanel>
+                <TextBox x:Name="DataBaseNameTextBox"
+                         x:Uid="CreateDataBasePage/InputInfo/DataBaseNameTextBox"
+                         Header="Database Name"/>
+            </StackPanel>
+        </StackPanel>
     </RelativePanel>
 </Page>
