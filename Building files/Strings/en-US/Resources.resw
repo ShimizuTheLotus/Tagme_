@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CreateDataBasePage.InputInfo.DataBaseCoverChangeButton.Content" xml:space="preserve">
+    <value>Change Cover</value>
+  </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseNameTextBox.Header" xml:space="preserve">
     <value>DataBase Name</value>
+  </data>
+  <data name="CreateDataBasePage.InputInfo.DataBasePathTextBlock.Text" xml:space="preserve">
+    <value>Cover Source Path:</value>
   </data>
   <data name="DataBaseListPage.OptionBar.Browse.AppBarButton.Sort.Label" xml:space="preserve">
     <value>Sort</value>

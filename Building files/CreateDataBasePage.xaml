@@ -22,10 +22,22 @@
                    Width="256"
                    Source="Assets\Square150x150Logo.scale-200.png"/>
             </StackPanel>
-            <StackPanel>
+            <StackPanel x:Name="MovableSettingsPanel">
+                <StackPanel.ChildrenTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition IsStaggeringEnabled="True" />
+                    </TransitionCollection>
+                </StackPanel.ChildrenTransitions>
                 <TextBox x:Name="DataBaseNameTextBox"
                          x:Uid="CreateDataBasePage/InputInfo/DataBaseNameTextBox"
                          Header="Database Name"/>
+                <TextBlock x:Name="DataBasePathTextBlock"
+                           x:Uid="CreateDataBasePage/InputInfo/DataBasePathTextBlock"
+                           Text="Cover Source Path:"
+                           FontSize="17"/>
+                <Button x:Name="DataBaseCoverChangeButton"
+                        x:Uid=""
+                        Content="Change Cover"/>
             </StackPanel>
         </StackPanel>
     </RelativePanel>
