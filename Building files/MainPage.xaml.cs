@@ -120,6 +120,7 @@ namespace Tagme_
             var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
             switch (pageName)
             {
+                //At create database page
                 case "Tagme_.CreateDataBasePage":
                     title += $" - {resourceLoader.GetString("MainPage/CS/StatusTitle/ProgramTitle_CreateDataBase/Text")}";
                     break;
@@ -133,6 +134,7 @@ namespace Tagme_
         //UI events
         private void TitleBarBackButton_Click(object sender, RoutedEventArgs e)
         {
+            //Update go back button usability status
             if (NavigationFrame.CanGoBack)
             {
                 NavigationFrame.GoBack();

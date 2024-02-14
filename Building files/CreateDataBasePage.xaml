@@ -6,9 +6,19 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
-
-    </Grid>
+    Background="Transparent">
+    <Page.Resources>
+        <ThemeShadow x:Name="PageSharedShadow"/>
+    </Page.Resources>
+    <RelativePanel Background="Transparent">
+        <RelativePanel x:Name="DataBaseCoverPanel"
+                       CornerRadius="8"
+                       Margin="16"
+                       Shadow="{StaticResource PageSharedShadow}">
+            <Image x:Name="DataBaseCoverImage"
+                   Height="256"
+                   Width="256"
+                   Source="Assets\Square150x150Logo.scale-200.png"/>
+        </RelativePanel>
+    </RelativePanel>
 </Page>
