@@ -34,5 +34,5 @@ But I'll write a document here for better understand and safe storage.
 [^StructListRefer3]:Parent ID could make tags in a tree struct, to better understand, please look down:
 - Example 1:
 - | TagID | Tag | TagParentID |
-- |---|---|---|
-- | 1 | Fruit |  |
+ |---|---|---|
+ | 1 | Fruit |  |
