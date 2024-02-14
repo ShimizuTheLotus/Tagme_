@@ -35,5 +35,5 @@ But I'll write a document here for better understand and safe storage.
 
 Example 1:
 - | TagID | Tag | TagParentID |
-- |---|---|---|
-- | 1 | Fruit |  |
+|---|---|---|
+| 1 | Fruit |  |
