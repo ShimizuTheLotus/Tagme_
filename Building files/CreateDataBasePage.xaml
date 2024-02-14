@@ -30,14 +30,25 @@
                 </StackPanel.ChildrenTransitions>
                 <TextBox x:Name="DataBaseNameTextBox"
                          x:Uid="CreateDataBasePage/InputInfo/DataBaseNameTextBox"
+                         Margin="16,8,8,8"
                          Header="Database Name"/>
                 <TextBlock x:Name="DataBasePathTextBlock"
                            x:Uid="CreateDataBasePage/InputInfo/DataBasePathTextBlock"
+                           Margin="16,8,8,8"
                            Text="Cover Source Path:"
                            FontSize="17"/>
                 <Button x:Name="DataBaseCoverChangeButton"
                         x:Uid="CreateDataBasePage/InputInfo/DataBaseCoverChangeButton"
+                        Margin="16,8,8,8"
                         Content="Change Cover"/>
+                <TextBlock x:Name="DataBaseSavePathTextBlock"
+                           x:Uid="CreateDataBasePage/InputInfo/DataBaseSavePathTextBlock"
+                           Margin="16,8,8,8"
+                           Text="Save Database At:"/>
+                <Button x:Name="DataBaseChooseDataBaseSavePathButton"
+                        x:Uid="CreateDataBasePage/InputInfo/DataBaseChooseDataBaseSavePathButton"
+                        Margin="16,8,8,8"
+                        Content="Choose Path"/>
             </StackPanel>
         </StackPanel>
     </RelativePanel>
