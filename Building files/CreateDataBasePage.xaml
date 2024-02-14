@@ -36,7 +36,7 @@
                            Text="Cover Source Path:"
                            FontSize="17"/>
                 <Button x:Name="DataBaseCoverChangeButton"
-                        x:Uid=""
+                        x:Uid="CreateDataBasePage/InputInfo/DataBaseCoverChangeButton"
                         Content="Change Cover"/>
             </StackPanel>
         </StackPanel>
