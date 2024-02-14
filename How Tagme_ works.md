@@ -10,4 +10,6 @@ But I'll write a document here for better understand and safe storage.
 ### BasicDataBaseInfo
 | Item | SQLite Type | Description |
 |---|---|---|
-| DataBaseName | TEXT | The name of database(Not filename) |
+| DataBaseName | TEXT | The display name of database(Not filename[^StructListRefer1]) |
+
+[^StructListRefer1]:The display name is shown in Tagme_ as the database name, this allows user to use some illegal charcters or words (such as "/", "\\", and even Enter) to name the items in Tagme_
