@@ -32,6 +32,7 @@ But I'll write a document here for better understand and safe storage.
 [^StructListRefer1]:The display name is shown in Tagme_ as the database name, this allows user to use some illegal charcters or words (such as "/", "\\", and even Enter) to name the items in Tagme_
 [^StructListRefer2]:You may found that we use TEXT rather than TimeStamp or INTEGER. This cause we want to make our database usable without considering the Unix timestamp rollover problem. But when the Tagme_ core process it, it will be transformed into Int64 to compare it's value for the nessary functions such as sorting or showing the time.
 [^StructListRefer3]:Parent ID could make tags in a tree struct, to better understand, please look down:
+
 Example 1:
 | TagID | Tag | TagParentID |
 |---|---|---|
