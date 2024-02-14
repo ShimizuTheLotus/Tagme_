@@ -36,6 +36,7 @@ But I'll write a document here for better understand and safe storage.
 > | 2 | Apple | 1 |
 > | 3 | Banana | 1 |
 > | 4 | Green Apple | 2 |
+> 
 > The example will works like this tree struct:
 > - Fruit
 >     - Apple
