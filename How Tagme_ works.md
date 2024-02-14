@@ -6,3 +6,8 @@
 You can find the answer at: **App.xaml.cs > Tagme_ > Tagme_CoreUWP > Tagme_DataBaseConst**
 
 But I'll write a document here for better understand and safe storage.
+
+### BasicDataBaseInfo
+| Item | SQLite Type | Description |
+|---|---|---|
+| DataBaseName | TEXT | The name of database(Not filename) |
