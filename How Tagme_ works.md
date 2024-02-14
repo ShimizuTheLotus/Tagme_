@@ -24,24 +24,25 @@ But I'll write a document here for better understand and safe storage.
 | TagID | TEXT | A unique integer ID of tag |
 | Tag | TEXT | The text of tag |
 | TagDescription | TEXT | The description of tag, to let you better know what the tag means |
-| TagParentID | TEXT | The parent ID of the tag[^StructListRefer3], empty for none |
+| TagParentID | TEXT | The parent ID of the tag, empty for none |
 | RelatedTagIDs | TEXT | A list using space to separate that logged several TagID in. When you adding this tag to an item, the tags having their TagID in this list will appear to a suggested tag list, empty for none |
 | CreatedTimeStamp | TEXT | The timestamp of tag create time(seconds since Jan. 1, 1970) |
 | ModifiedTimeStamp | TEXT | The timestamp of the last modified timestamp(seconds since Jan. 1, 1970) of this tag |
-
-[^StructListRefer1]:The display name is shown in Tagme_ as the database name, this allows user to use some illegal charcters or words (such as "/", "\\", and even Enter) to name the items in Tagme_
-[^StructListRefer2]:You may found that we use TEXT rather than TimeStamp or INTEGER. This cause we want to make our database usable without considering the Unix timestamp rollover problem. But when the Tagme_ core process it, it will be transformed into Int64 to compare it's value for the nessary functions such as sorting or showing the time.
-[^StructListRefer3]:Parent ID could make tags in a tree struct, to better understand, please look down:
-Example:
-| TagID | Tag | TagParentID |
-|-------|-----|-------------|
-| 1 | Fruit |  |
-| 2 | Apple | 1 |
-| 3 | Banana | 1 |
-| 4 | Green Apple | 2 |
+> Parent ID could make tags in a tree struct, to better understand, please look down:
+> Example:
+> | TagID | Tag | TagParentID |
+> |-------|-----|-------------|
+> | 1 | Fruit |  |
+> | 2 | Apple | 1 |
+> | 3 | Banana | 1 |
+> | 4 | Green Apple | 2 |
 The example will works like this tree struct:
   - Fruit
     - Apple
       - Green Apple
     - Banana
 Thus, when you search Fruit, Apple, Green Apple and Banana will also be included in the result. when you search Green Apple, Fruit and Apple will also be included in the result.
+
+[^StructListRefer1]:The display name is shown in Tagme_ as the database name, this allows user to use some illegal charcters or words (such as "/", "\\", and even Enter) to name the items in Tagme_
+[^StructListRefer2]:You may found that we use TEXT rather than TimeStamp or INTEGER. This cause we want to make our database usable without considering the Unix timestamp rollover problem. But when the Tagme_ core process it, it will be transformed into Int64 to compare it's value for the nessary functions such as sorting or showing the time.
+
