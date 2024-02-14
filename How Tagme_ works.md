@@ -29,6 +29,7 @@ But I'll write a document here for better understand and safe storage.
 | CreatedTimeStamp | TEXT | The timestamp of tag create time(seconds since Jan. 1, 1970) |
 | ModifiedTimeStamp | TEXT | The timestamp of the last modified timestamp(seconds since Jan. 1, 1970) of this tag |
 > Parent ID could make tags in a tree struct, to better understand, please look down:
+> 
 > Example:
 > | TagID | Tag | TagParentID |
 > |-------|-----|-------------|
