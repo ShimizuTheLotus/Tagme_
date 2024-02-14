@@ -25,6 +25,19 @@ namespace Tagme_
         public CreateDataBasePage()
         {
             this.InitializeComponent();
+
+            Loaded += CreateDataBasePage_Loaded;
+        }
+
+        //Loaded
+        private void CreateDataBasePage_Loaded(object sender, RoutedEventArgs e)
+        {
+            InitializeShadow();
+        }
+
+        public void InitializeShadow()
+        {
+            DataBaseCoverPanel.Translation += new System.Numerics.Vector3(0, 0, 16);
         }
     }
 }
