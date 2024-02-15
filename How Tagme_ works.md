@@ -46,6 +46,20 @@ But I'll write a document here for better understand and safe storage.
 > 
 > Thus, when you search Fruit, Apple, Green Apple and Banana will also be included in the result. when you search Green Apple, Fruit and Apple will also be included in the result.
 
+### ItemIndexRoot
+| Item | SQLite Type | Description |
+|---|---|---|
+| ItemID | TEXT | A unique ID of item |
+| ItemParentID | TEXT | The ItemID of the parent of this item(empty for none) |
+| ContentType | TEXT | The type of the content, including: File:, Folder:, URL:, StorageItemPath: |
+| Title | TEXT | The title of the item |
+| Description | TEXT | The description of this item |
+| ItemSourceMap | TEXT | If this item is not a folder, it will have a Item source in the table ItemSource. For ContentType Folder, it's empty |
+| PropertyMap | TEXT | It will point at a ID in table ItemProperty and that's its property tree root |
+| CreatedTimeStamp | TEXT | The timestamp of item create time(seconds since Jan. 1, 1970) |
+| ModifiedTimeStamp | TEXT | The timestamp of the last modified timestamp(seconds since Jan. 1, 1970) of this item |
+> ContentType is the type of the content
+
 [^StructListRefer1]:The display name is shown in Tagme_ as the database name, this allows user to use some illegal charcters or words (such as "/", "\\", and even Enter) to name the items in Tagme_
 [^StructListRefer2]:You may found that we use TEXT rather than TimeStamp or INTEGER. This cause we want to make our database usable without considering the Unix timestamp rollover problem. But when the Tagme_ core process it, it will be transformed into Int64 to compare it's value for the nessary functions such as sorting or showing the time.
 
