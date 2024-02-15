@@ -82,6 +82,15 @@ But I'll write a document here for better understand and safe storage.
 > | StorageItemPath:File: |  | Texts, logged the paths of files. |
 >
 > When we searching a property of something, if a folder have this property, all items in the folder will be included in the searching result.
+ 
+### ItemSource
+| Item | SQLite Type | Description |
+|---|---|---|
+| ID | TEXT | A ID of a storage Item. **The ID could be same if the value of IsChain is 1 and the lines are serveral parts of a same file.** |
+| FileName | TEXT | The name of a file or folder. |
+| IsChain | TEXT | When the file is too big, we'll separate it into serveral pieces and use "Chain" to string them up |
+| ChainID | TEXT | When the file is separated it can help us know the order stringing up |
+| Content | BLOB | The content of file(empty for none) |
 
 [^StructListRefer1]:The display name is shown in Tagme_ as the database name, this allows user to use some illegal charcters or words (such as "/", "\\", and even Enter) to name the items in Tagme_
 [^StructListRefer2]:You may found that we use TEXT rather than TimeStamp or INTEGER. This cause we want to make our database usable without considering the Unix timestamp rollover problem. But when the Tagme_ core process it, it will be transformed into Int64 to compare it's value for the nessary functions such as sorting or showing the time.
