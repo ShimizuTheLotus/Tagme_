@@ -73,8 +73,8 @@ But I'll write a document here for better understand and safe storage.
 > | File:Image:TIFF | .tif | TIFF Files |
 > | File:Image:JPEG XR | .jxr .wdp | JPEG XR Files |
 > | File:Image:ICO | .ico | ICO Files |
-> | File:Audio: |  | Audio Files |
-> | File:Video: |  | Video Files |
+> | File:Audio: | Unknown | Audio Files |
+> | File:Video: | Unknown | Video Files |
 > | Folder: |  | All folders |
 > | URL: |  | All URL links |
 > | StorageItemPath: |  | Texts, logged the paths of items. |
