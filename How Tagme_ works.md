@@ -64,9 +64,22 @@ But I'll write a document here for better understand and safe storage.
 > | ContentType | File Extension(File Only) | Description |
 > |---|---|---|
 > | File: | .* | All files |
+> | File:Text: | .txt | .txt files |
+> | File:Image: | .jpeg .jpg .jpe .jfif .jif .png .bmp .gif .tif .jxr .wdp .ico | Image files |
+> | File:Image:JPEG | .jpeg .jpg .jpe .jfif .jif | JPEG Files |
+> | File:Image:PNG | .png | PNG Files |
+> | File:Image:BMP | .bmp | BMP Files |
+> | File:Image:GIF | .gif | GIF Files |
+> | File:Image:TIFF | .tif | TIFF Files |
+> | File:Image:JPEG XR | .jxr .wdp | JPEG XR Files |
+> | File:Image:ICO | .ico | ICO Files |
+> | File:Audio: |  | Audio Files |
+> | File:Video: |  | Video Files |
 > | Folder: |  | All folders |
 > | URL: |  | All URL links |
 > | StorageItemPath: |  | Texts, logged the paths of items. |
+> | StorageItemPath:Folder: |  | Texts, logged the paths of folders. |
+> | StorageItemPath:File: |  | Texts, logged the paths of files. |
 
 [^StructListRefer1]:The display name is shown in Tagme_ as the database name, this allows user to use some illegal charcters or words (such as "/", "\\", and even Enter) to name the items in Tagme_
 [^StructListRefer2]:You may found that we use TEXT rather than TimeStamp or INTEGER. This cause we want to make our database usable without considering the Unix timestamp rollover problem. But when the Tagme_ core process it, it will be transformed into Int64 to compare it's value for the nessary functions such as sorting or showing the time.
