@@ -10,18 +10,27 @@
     <Page.Resources>
         <ThemeShadow x:Name="PageSharedShadow"/>
     </Page.Resources>
-    <RelativePanel Background="Transparent">
+    <RelativePanel x:Name="BasePanel"
+                   Background="Transparent">
         <StackPanel x:Name="EditInfoPanel"
                     Orientation="Horizontal">
-            <StackPanel x:Name="DataBaseCoverPanel"
-                    CornerRadius="8"
-                    Margin="16"
-                    Shadow="{StaticResource PageSharedShadow}">
+            <StackPanel.ChildrenTransitions>
+                <TransitionCollection>
+                    <RepositionThemeTransition/>
+                </TransitionCollection>
+            </StackPanel.ChildrenTransitions>
+            <RelativePanel x:Name="DataBaseCoverPanel"
+                        CornerRadius="8"
+                        Margin="32,16,16,8"
+                        Height="256"
+                        Width="256"
+                        Shadow="{StaticResource PageSharedShadow}">
                 <Image x:Name="DataBaseCoverImage"
-                   Height="256"
-                   Width="256"
-                   Source="Assets\Square150x150Logo.scale-200.png"/>
-            </StackPanel>
+                       Height="256"
+                       Width="256"
+                       Stretch="UniformToFill"
+                       Source="Assets\Square150x150Logo.scale-200.png"/>
+            </RelativePanel>
             <StackPanel x:Name="MovableSettingsPanel">
                 <StackPanel.ChildrenTransitions>
                     <TransitionCollection>
@@ -30,6 +39,7 @@
                 </StackPanel.ChildrenTransitions>
                 <TextBox x:Name="DataBaseNameTextBox"
                          x:Uid="CreateDataBasePage/InputInfo/DataBaseNameTextBox"
+                         MinWidth="260"
                          Margin="16,8,8,8"
                          Header="Database Name"/>
                 <TextBlock x:Name="DataBasePathTextBlock"
