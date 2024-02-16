@@ -1,1 +1,1 @@
-[ ] MainPage.xaml
+[x] MainPage.xaml
