@@ -15,7 +15,7 @@ But I'll write a document here for better understand and safe storage.
 | CreatedTimeStamp | TEXT[^StructListRefer2] | The timestamp of database create time(seconds since Jan. 1, 1970) |
 | LastModifiedTimeStamp | TEXT | The timestamp of the last modified timestamp(seconds since Jan. 1, 1970) of this database |
 | LastViewTimeStamp | TEXT | The timestamp of last timestamp(seconds since Jan. 1, 1970) view this database |
-| Tagme_DataBaseVersion | TEXT | The version of Tagme_ database rules that this database is using[^StructListRefer3] |
+| Tagme_DataBaseVersion | TEXT | The version of Tagme_ database rules that this database is using |
 
 ### TagMapping
 | Item | SQLite Type | Description |
