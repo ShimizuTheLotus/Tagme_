@@ -7,7 +7,12 @@ You can find the answer at: **App.xaml.cs > Tagme_ > Tagme_CoreUWP > Tagme_DataB
 
 But I'll write a document here for better understand and safe storage.
 
-[Link](https://github.com/ShimizuTheLotus/Tagme_/blob/main/Documents/How%20Tagme_%20works.md#itempropertytemplate)
+[BasicDataBaseInfo](https://github.com/ShimizuTheLotus/Tagme_/blob/main/Documents/How%20Tagme_%20works.md#basicdatabaseinfo)
+[TagMapping](https://github.com/ShimizuTheLotus/Tagme_/blob/main/Documents/How%20Tagme_%20works.md#tagmapping)
+[ItemIndexRoot](https://github.com/ShimizuTheLotus/Tagme_/blob/main/Documents/How%20Tagme_%20works.md#itemindexroot)
+[ItemSource](https://github.com/ShimizuTheLotus/Tagme_/blob/main/Documents/How%20Tagme_%20works.md#itemsource)
+[ItemProperty](https://github.com/ShimizuTheLotus/Tagme_/blob/main/Documents/How%20Tagme_%20works.md#itemproperty)
+[ItemPropertyTemplate](https://github.com/ShimizuTheLotus/Tagme_/blob/main/Documents/How%20Tagme_%20works.md#itempropertytemplate)
 
 ### BasicDataBaseInfo
 | Item | SQLite Type | Description |
