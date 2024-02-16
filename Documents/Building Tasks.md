@@ -1,6 +1,11 @@
 - [ ] MainPage.xaml
   - [x] TitleBar
+    - [x] Extend panel into title bar
     - [x] TitleBarBackButton
       - [x] Back button global back function
       - [x] Back button disabled when unable to go back
     - [x] ProgramTitle
+      - [x] Change title function
+        - [x] Recognize which page a Frame is at
+      - [x] Smooth motion
+        - [x] Change alignment
