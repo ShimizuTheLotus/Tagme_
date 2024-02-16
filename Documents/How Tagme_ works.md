@@ -93,9 +93,26 @@ But I'll write a document here for better understand and safe storage.
 | Content | BLOB | The content of file(empty for none) |
 
 ### ItemProperty
+| Item | SQLite Type | Description |
+|---|---|---|
+| ID | TEXT | Unique ID of property |
+| ParentID | TEXT | The ID of the parent of this property[^StructListRefer3], none for not having |
+| Property | TEXT | The name of the property |
+| Value | TEXT | The value of the property |
 
 ### ItemPropertyTemplate
+| Item | SQLite Type | Description |
+|---|---|---|
+| TemplateID | TEXT | The unique ID of a template. All items in the template ID have a same TemplateID |
+| TemplateName | TEXT | The name of template |
+| ID | TEXT | The ID of the item. The ID is unique for the items having same TemplateID |
+| ParentID | TEXT | The ID of the parent of the item having same TemplateID |
+| Property | TEXT | The name of the property |
+| Value | TEXT | The value of the property |
+| CreatedTimeStamp | TEXT | The timestamp of item create time(seconds since Jan. 1, 1970) |
+| ModifiedTimeStamp | TEXT | The timestamp of the last modified timestamp(seconds since Jan. 1, 1970) of this item |
+
 
 [^StructListRefer1]:The display name is shown in Tagme_ as the database name, this allows user to use some illegal charcters or words (such as "/", "\\", and even Enter) to name the items in Tagme_
 [^StructListRefer2]:You may found that we use TEXT rather than TimeStamp or INTEGER. This cause we want to make our database usable without considering the Unix timestamp rollover problem. But when the Tagme_ core process it, it will be transformed into Int64 to compare it's value for the nessary functions such as sorting or showing the time.
-
+[^StructListRefer3]: Some property may logical included by the others, such as location and time could be included in property time
