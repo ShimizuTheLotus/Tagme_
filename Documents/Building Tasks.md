@@ -1,4 +1,4 @@
-- [ ] MainPage.xaml
+- [x] MainPage.xaml
   - [x] TitleBar
     - [x] Extend panel into title bar
     - [x] TitleBarBackButton
@@ -9,3 +9,18 @@
         - [x] Recognize which page a Frame is at
       - [x] Smooth motion
         - [x] Change alignment
+- [ ] CreateDataBasePage.xaml
+  - [ ] Change create database settings
+    - [ ] Change database cover
+      - [ ] Show cover
+        - [x] Image control
+        - [ ] Update image source
+    - [ ] Change database name
+      - [ ] Deny empty name when create database(show "no empty name" or something)
+    - [ ] Change database save path
+    - [ ] Show database property list
+    - [ ] Let the layout fit the window(move the edit panel down the image or right of it when the window size dosen't fit)
+    - [ ] Create database button
+      - [ ] Deny empty name
+      - [ ] Skip adding a default color when cover not selected
+    - [ ] Cancel button
