@@ -1,2 +1,6 @@
 - [ ] MainPage.xaml
   - [x] TitleBar
+    - [x] TitleBarBackButton
+      - [x] Back button global back function
+      - [x] Back button disabled when unable to go back
+    - [x] ProgramTitle
