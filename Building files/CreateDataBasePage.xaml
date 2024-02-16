@@ -12,54 +12,57 @@
     </Page.Resources>
     <RelativePanel x:Name="BasePanel"
                    Background="Transparent">
-        <StackPanel x:Name="EditInfoPanel"
+        <ScrollViewer>
+            <StackPanel x:Name="EditInfoPanel"
                     Orientation="Horizontal">
-            <StackPanel.ChildrenTransitions>
-                <TransitionCollection>
-                    <RepositionThemeTransition/>
-                </TransitionCollection>
-            </StackPanel.ChildrenTransitions>
-            <RelativePanel x:Name="DataBaseCoverPanel"
+                <StackPanel.ChildrenTransitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition/>
+                    </TransitionCollection>
+                </StackPanel.ChildrenTransitions>
+                <RelativePanel x:Name="DataBaseCoverPanel"
                         CornerRadius="8"
                         Margin="32,16,16,8"
                         Height="256"
                         Width="256"
                         Shadow="{StaticResource PageSharedShadow}">
-                <Image x:Name="DataBaseCoverImage"
+                    <Image x:Name="DataBaseCoverImage"
                        Height="256"
                        Width="256"
                        Stretch="UniformToFill"
                        Source="Assets\Square150x150Logo.scale-200.png"/>
-            </RelativePanel>
-            <StackPanel x:Name="MovableSettingsPanel">
-                <StackPanel.ChildrenTransitions>
-                    <TransitionCollection>
-                        <EntranceThemeTransition IsStaggeringEnabled="True" />
-                    </TransitionCollection>
-                </StackPanel.ChildrenTransitions>
-                <TextBox x:Name="DataBaseNameTextBox"
+                </RelativePanel>
+                <StackPanel x:Name="MovableSettingsPanel">
+                    <StackPanel.ChildrenTransitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition IsStaggeringEnabled="True" />
+                        </TransitionCollection>
+                    </StackPanel.ChildrenTransitions>
+                    <TextBox x:Name="DataBaseNameTextBox"
                          x:Uid="CreateDataBasePage/InputInfo/DataBaseNameTextBox"
                          MinWidth="260"
                          Margin="16,8,8,8"
                          Header="Database Name"/>
-                <TextBlock x:Name="DataBasePathTextBlock"
+                    <TextBlock x:Name="DataBasePathTextBlock"
                            x:Uid="CreateDataBasePage/InputInfo/DataBasePathTextBlock"
                            Margin="16,8,8,8"
                            Text="Cover Source Path:"
                            FontSize="17"/>
-                <Button x:Name="DataBaseCoverChangeButton"
+                    <Button x:Name="DataBaseCoverChangeButton"
                         x:Uid="CreateDataBasePage/InputInfo/DataBaseCoverChangeButton"
                         Margin="16,8,8,8"
                         Content="Change Cover"/>
-                <TextBlock x:Name="DataBaseSavePathTextBlock"
+                    <TextBlock x:Name="DataBaseSavePathTextBlock"
                            x:Uid="CreateDataBasePage/InputInfo/DataBaseSavePathTextBlock"
                            Margin="16,8,8,8"
                            Text="Save Database At:"/>
-                <Button x:Name="DataBaseChooseDataBaseSavePathButton"
+                    <Button x:Name="DataBaseChooseDataBaseSavePathButton"
                         x:Uid="CreateDataBasePage/InputInfo/DataBaseChooseDataBaseSavePathButton"
                         Margin="16,8,8,8"
                         Content="Choose Path"/>
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
+            
+        </ScrollViewer>
     </RelativePanel>
 </Page>
