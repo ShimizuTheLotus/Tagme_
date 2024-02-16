@@ -1,1 +1,2 @@
 - [ ] MainPage.xaml
+  - [x] TitleBar
