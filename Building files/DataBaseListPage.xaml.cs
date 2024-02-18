@@ -218,7 +218,7 @@ namespace Tagme_
                         //Get subitemCount
 
 
-                        Tagme_CustomizedCore.DataBaseListViewSource.Add(new Tagme_CustomizedCore.TempLates.DataBaseListViewTemplate
+                        Tagme_CustomizedCore.DataBaseListViewSource.Add(new Tagme_CustomizedCore.Template.DataBaseListViewTemplate
                         {
                             DataBasePath = dbpath,
                             DataBaseTitle = dbTitle,
