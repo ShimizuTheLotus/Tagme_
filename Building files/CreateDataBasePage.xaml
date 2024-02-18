@@ -62,7 +62,9 @@
                         Content="Choose Path"/>
                 </StackPanel>
             </StackPanel>
-            
+            <StackPanel>
+                <TextBlock Text="Properties List"/>
+            </StackPanel>
         </ScrollViewer>
     </RelativePanel>
 </Page>
