@@ -1189,7 +1189,7 @@ namespace Tagme_
     /// </summary>
     public static class Tagme_CustomizedCore
     {
-        public class TempLates
+        public class Template
         {
             public class DataBaseListViewTemplate
             {
@@ -1202,7 +1202,7 @@ namespace Tagme_
                 public string DataBaseAllSubItemCount { get; set; }
             }
         }
-        public static List<TempLates.DataBaseListViewTemplate> DataBaseListViewSource = new List<TempLates.DataBaseListViewTemplate>();
+        public static List<Template.DataBaseListViewTemplate> DataBaseListViewSource = new List<Template.DataBaseListViewTemplate>();
         /// <summary>
         /// The customized data for Tagme_ UI or something else running.
         /// </summary>
