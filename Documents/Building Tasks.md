@@ -1,3 +1,4 @@
+- [x] App.xaml
 - [x] MainPage.xaml
   - [x] TitleBar
     - [x] Extend panel into title bar

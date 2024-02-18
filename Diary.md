@@ -7,3 +7,5 @@
 - I tried to apply .resw files to globalization Tagme_.
 ### Feb. 14 2024
 - I'm starting build page: CreateDataBase.
+### Feb. 16 2024
+- I finished reorder the layout when window size changed. Now it looks perfect.
