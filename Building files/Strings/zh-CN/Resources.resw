@@ -132,6 +132,30 @@
   <data name="CreateDataBasePage.InputInfo.DataBaseSavePathTextBlock.Text" xml:space="preserve">
     <value>将数据库保存至：</value>
   </data>
+  <data name="CreateDataBasePage.PropertyList.CreateDataBaseTimestamp.Text" xml:space="preserve">
+    <value>创建数据库时间戳：</value>
+  </data>
+  <data name="CreateDataBasePage.PropertyList.DataBaseCoverSourcePath.Text" xml:space="preserve">
+    <value>数据库封面源路径：</value>
+  </data>
+  <data name="CreateDataBasePage.PropertyList.DataBaseName.Text" xml:space="preserve">
+    <value>数据库名称：</value>
+  </data>
+  <data name="CreateDataBasePage.PropertyList.DataBaseSavePath.Text" xml:space="preserve">
+    <value>数据库保存路径：</value>
+  </data>
+  <data name="CreateDataBasePage.PropertyList.LastViewDataBaseTimestamp.Text" xml:space="preserve">
+    <value>最后浏览时间戳：</value>
+  </data>
+  <data name="CreateDataBasePage.PropertyList.ModifyDataBaseTimestamp.Text" xml:space="preserve">
+    <value>修改数据库时间戳</value>
+  </data>
+  <data name="CreateDataBasePage.PropertyList.Tagme_DataBaseVersion.Text" xml:space="preserve">
+    <value>Tagme_数据库版本：</value>
+  </data>
+  <data name="CreateDataBasePage.PropertyList.Title.Text" xml:space="preserve">
+    <value>属性列表</value>
+  </data>
   <data name="DataBaseListPage.OptionBar.Browse.AppBarButton.Sort.Label" xml:space="preserve">
     <value>排序</value>
   </data>
