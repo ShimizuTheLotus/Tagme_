@@ -146,10 +146,10 @@ namespace Tagme_
 
             /// <summary>
             /// The mode for opening file.
-            /// FileNotExist: The  target file is not exist.
+            /// FileNotExist: The target file is not exist.
             /// AllIn: Use it for small file, usually text files.
             /// Stream: Use stream to read file.
-            /// Auto: NekoWahsCore will judge to choose the file open mode automatically.
+            /// Auto: NekoWahsCore will determine which file open mode to use automatically.
             /// </summary>
             public enum SuggestedFileOpenMode
             {
@@ -161,7 +161,7 @@ namespace Tagme_
         }
 
         /// <summary>
-        /// Services for types, such as change a type into another type.
+        /// Services for types, such as changing a type into another type.
         /// </summary>
         public static class TypeService
         {
@@ -252,9 +252,9 @@ namespace Tagme_
             }
 
             /// <summary>
-            /// Make sure a file exists and suggest
+            /// Make sure a file exists and suggest the file open method.
             /// </summary>
-            public Struct.SuggestedFileOpenMode SuggestOpenFileMode(string path)
+            public Struct.SuggestedFileOpenMode SuggestOpenFileMethod(string path)
             {
                 var x = new NekoWahsCoreUWP.File();
                 //File exists
@@ -415,7 +415,7 @@ namespace Tagme_
         {
             /// <summary>
             /// Initialize the database for Tagme_ core info.
-            /// Please check if the dbpath exists a db file before using this function.
+            /// Please check if the dbpath exists a database file before using this function.
             /// </summary>
             /// <param name="dbpath">The path of string</param>
             public static void InitializeInfoDataBase(string dbpath = "default")
@@ -439,7 +439,7 @@ namespace Tagme_
             }
 
             /// <summary>
-            ///Get info of a list of database path.
+            /// Get info of a list of database path.
             /// Not checked if the databases are exist.
             /// </summary>
             /// <param name="getDataBasePathList">The list that will be filled with database paths.</param>
