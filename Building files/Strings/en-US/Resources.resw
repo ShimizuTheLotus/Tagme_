@@ -132,6 +132,30 @@
   <data name="CreateDataBasePage.InputInfo.DataBaseSavePathTextBlock.Text" xml:space="preserve">
     <value>Save database at:</value>
   </data>
+  <data name="CreateDataBasePage.PropertyList.CreateDataBaseTimestamp.Text" xml:space="preserve">
+    <value>Create database timestamp:</value>
+  </data>
+  <data name="CreateDataBasePage.PropertyList.DataBaseCoverSourcePath.Text" xml:space="preserve">
+    <value>Database cover source path:</value>
+  </data>
+  <data name="CreateDataBasePage.PropertyList.DataBaseName.Text" xml:space="preserve">
+    <value>Database name:</value>
+  </data>
+  <data name="CreateDataBasePage.PropertyList.DataBaseSavePath.Text" xml:space="preserve">
+    <value>Database save path:</value>
+  </data>
+  <data name="CreateDataBasePage.PropertyList.LastViewDataBaseTimestamp.Text" xml:space="preserve">
+    <value>Last view database timestamp:</value>
+  </data>
+  <data name="CreateDataBasePage.PropertyList.ModifyDataBaseTimestamp.Text" xml:space="preserve">
+    <value>Modify database timestamp:</value>
+  </data>
+  <data name="CreateDataBasePage.PropertyList.Tagme_DataBaseVersion.Text" xml:space="preserve">
+    <value>Tagme_ database version:</value>
+  </data>
+  <data name="CreateDataBasePage.PropertyList.Title.Text" xml:space="preserve">
+    <value>Property list</value>
+  </data>
   <data name="DataBaseListPage.OptionBar.Browse.AppBarButton.Sort.Label" xml:space="preserve">
     <value>Sort</value>
   </data>

@@ -69,14 +69,14 @@
                     </StackPanel>
                 </StackPanel>
                 <StackPanel x:Name="PropertyPanel" Margin="16">
-                    <TextBlock Text="PropertyList" Style="{StaticResource TitleTextBlockStyle}"/>
-                    <TextBlock Text="Database name:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
-                    <TextBlock Text="Database cover source path:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
-                    <TextBlock Text="Database save path:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
-                    <TextBlock Text="Create database timestamp:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
-                    <TextBlock Text="Modify database timestamp:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
-                    <TextBlock Text="Last view database timestamp:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
-                    <TextBlock Text="Tagme_ database version:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/Title" Text="Property list" Style="{StaticResource TitleTextBlockStyle}"/>
+                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/DataBaseName" Text="Database name:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/DataBaseCoverSourcePath" Text="Database cover source path:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/DataBaseSavePath" Text="Database save path:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/CreateDataBaseTimestamp" Text="Create database timestamp:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/ModifyDataBaseTimestamp" Text="Modify database timestamp:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/LastViewDataBaseTimestamp" Text="Last view database timestamp:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/Tagme_DataBaseVersion" Text="Tagme_ database version:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
