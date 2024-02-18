@@ -49,27 +49,30 @@
                          x:Uid="CreateDataBasePage/InputInfo/DataBaseNameTextBox"
                          MinWidth="260"
                          Margin="16,8,8,8"
-                         Header="Database Name"/>
+                         Header="Database name"/>
                         <TextBlock x:Name="DataBasePathTextBlock"
                            x:Uid="CreateDataBasePage/InputInfo/DataBasePathTextBlock"
                            Margin="16,8,8,8"
-                           Text="Cover Source Path:"/>
+                           Text="Cover source path:"/>
                         <Button x:Name="DataBaseCoverChangeButton"
                         x:Uid="CreateDataBasePage/InputInfo/DataBaseCoverChangeButton"
                         Margin="16,8,8,8"
-                        Content="Change Cover"/>
+                        Content="Change cover"/>
                         <TextBlock x:Name="DataBaseSavePathTextBlock"
                            x:Uid="CreateDataBasePage/InputInfo/DataBaseSavePathTextBlock"
                            Margin="16,8,8,8"
-                           Text="Save Database At:"/>
+                           Text="Save database at:"/>
                         <Button x:Name="DataBaseChooseDataBaseSavePathButton"
                         x:Uid="CreateDataBasePage/InputInfo/DataBaseChooseDataBaseSavePathButton"
                         Margin="16,8,8,8"
-                        Content="Choose Path"/>
+                        Content="Choose path"/>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel x:Name="PropertyPanel">
-                    <TextBlock Text="PropertyList"/>
+                <StackPanel x:Name="PropertyPanel" Margin="16">
+                    <TextBlock Text="PropertyList" FontSize="20"/>
+                    <TextBlock Text="Database name:"/>
+                    <TextBlock Text="Database cover source path:"/>
+                    <TextBlock Text="Database save path:"/>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
