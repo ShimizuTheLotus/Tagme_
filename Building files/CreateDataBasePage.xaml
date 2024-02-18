@@ -21,23 +21,23 @@
                     </TransitionCollection>
                 </StackPanel.ChildrenTransitions>
                 <StackPanel x:Name="EditInfoPanel"
-                    Orientation="Horizontal">
+                            Orientation="Horizontal">
                     <StackPanel.ChildrenTransitions>
                         <TransitionCollection>
                             <RepositionThemeTransition/>
                         </TransitionCollection>
                     </StackPanel.ChildrenTransitions>
                     <RelativePanel x:Name="DataBaseCoverPanel"
-                        CornerRadius="8"
-                        Margin="32,16,16,8"
-                        Height="256"
-                        Width="256"
-                        Shadow="{StaticResource PageSharedShadow}">
+                                   CornerRadius="8"
+                                   Margin="32,16,16,8"
+                                   Height="256"
+                                   Width="256"
+                                   Shadow="{StaticResource PageSharedShadow}">
                         <Image x:Name="DataBaseCoverImage"
-                       Height="256"
-                       Width="256"
-                       Stretch="UniformToFill"
-                       Source="Assets\Square150x150Logo.scale-200.png"/>
+                               Height="256"
+                               Width="256"
+                               Stretch="UniformToFill"
+                               Source="Assets\Square150x150Logo.scale-200.png"/>
                     </RelativePanel>
                     <StackPanel x:Name="MovableSettingsPanel">
                         <StackPanel.ChildrenTransitions>
@@ -46,33 +46,37 @@
                             </TransitionCollection>
                         </StackPanel.ChildrenTransitions>
                         <TextBox x:Name="DataBaseNameTextBox"
-                         x:Uid="CreateDataBasePage/InputInfo/DataBaseNameTextBox"
-                         MinWidth="260"
-                         Margin="16,8,8,8"
-                         Header="Database name"/>
+                                 x:Uid="CreateDataBasePage/InputInfo/DataBaseNameTextBox"
+                                 MinWidth="260"
+                                 Margin="16,8,8,8"
+                                 Header="Database name"/>
                         <TextBlock x:Name="DataBasePathTextBlock"
-                           x:Uid="CreateDataBasePage/InputInfo/DataBasePathTextBlock"
-                           Margin="16,8,8,8"
-                           Text="Cover source path:"/>
+                                   x:Uid="CreateDataBasePage/InputInfo/DataBasePathTextBlock"
+                                   Margin="16,8,8,8"
+                                   Text="Cover source path:"/>
                         <Button x:Name="DataBaseCoverChangeButton"
-                        x:Uid="CreateDataBasePage/InputInfo/DataBaseCoverChangeButton"
-                        Margin="16,8,8,8"
-                        Content="Change cover"/>
+                                x:Uid="CreateDataBasePage/InputInfo/DataBaseCoverChangeButton"
+                                Margin="16,8,8,8"
+                                Content="Change cover"/>
                         <TextBlock x:Name="DataBaseSavePathTextBlock"
-                           x:Uid="CreateDataBasePage/InputInfo/DataBaseSavePathTextBlock"
-                           Margin="16,8,8,8"
-                           Text="Save database at:"/>
+                                   x:Uid="CreateDataBasePage/InputInfo/DataBaseSavePathTextBlock"
+                                   Margin="16,8,8,8"
+                                   Text="Save database at:"/>
                         <Button x:Name="DataBaseChooseDataBaseSavePathButton"
-                        x:Uid="CreateDataBasePage/InputInfo/DataBaseChooseDataBaseSavePathButton"
-                        Margin="16,8,8,8"
-                        Content="Choose path"/>
+                                x:Uid="CreateDataBasePage/InputInfo/DataBaseChooseDataBaseSavePathButton"
+                                Margin="16,8,8,8"
+                                Content="Choose path"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel x:Name="PropertyPanel" Margin="16">
-                    <TextBlock Text="PropertyList" FontSize="20"/>
-                    <TextBlock Text="Database name:"/>
-                    <TextBlock Text="Database cover source path:"/>
-                    <TextBlock Text="Database save path:"/>
+                    <TextBlock Text="PropertyList" Style="{StaticResource TitleTextBlockStyle}"/>
+                    <TextBlock Text="Database name:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock Text="Database cover source path:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock Text="Database save path:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock Text="Create database timestamp:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock Text="Modify database timestamp:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock Text="Last view database timestamp:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock Text="Tagme_ database version:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
