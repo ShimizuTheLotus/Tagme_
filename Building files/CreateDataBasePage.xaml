@@ -12,7 +12,8 @@
     </Page.Resources>
     <RelativePanel x:Name="BasePanel"
                    Background="Transparent">
-        <ScrollViewer>
+        <ScrollViewer RelativePanel.AlignTopWithPanel="True"
+                      RelativePanel.Above="CreateButtonPanel">
             <!--ScrollViewerPanel-->
             <StackPanel>
                 <StackPanel.ChildrenTransitions>
@@ -69,6 +70,11 @@
                     </StackPanel>
                 </StackPanel>
                 <StackPanel x:Name="PropertyPanel" Margin="16">
+                    <StackPanel.ChildrenTransitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition IsStaggeringEnabled="True"/>
+                        </TransitionCollection>
+                    </StackPanel.ChildrenTransitions>
                     <TextBlock x:Uid="CreateDataBasePage/PropertyList/Title" Text="Property list" Style="{StaticResource TitleTextBlockStyle}"/>
                     <TextBlock x:Uid="CreateDataBasePage/PropertyList/DataBaseName" Text="Database name:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
                     <TextBlock x:Uid="CreateDataBasePage/PropertyList/DataBaseCoverSourcePath" Text="Database cover source path:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
@@ -80,5 +86,22 @@
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
+        <RelativePanel x:Name="CreateButtonPanel"
+                       Height="64"
+                       RelativePanel.AlignBottomWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       Shadow="{StaticResource PageSharedShadow}">
+            <StackPanel Orientation="Horizontal"
+                        RelativePanel.AlignLeftWithPanel="True"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignTopWithPanel="True"
+                        RelativePanel.AlignBottomWithPanel="True"
+                        RelativePanel.AlignHorizontalCenterWithPanel="True"
+                        RelativePanel.AlignVerticalCenterWithPanel="True">
+                <Button Content="Cancel"/>
+                <Button Content="Create" Style="{StaticResource AccentButtonStyle}"/>
+            </StackPanel>
+        </RelativePanel>
     </RelativePanel>
 </Page>
