@@ -24,4 +24,6 @@
     - [ ] Create database button
       - [ ] Deny empty name
       - [ ] Skip adding a default cover when cover not selected
+        - [ ] Auto resize
     - [ ] Cancel button
+      - [ ] Auto resize
