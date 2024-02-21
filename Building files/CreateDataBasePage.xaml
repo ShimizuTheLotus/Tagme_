@@ -68,6 +68,15 @@
                                 x:Uid="CreateDataBasePage/InputInfo/DataBaseChooseDataBaseSavePathButton"
                                 Margin="16,8,8,8"
                                 Content="Choose path"/>
+                        <TextBlock x:Name="DataBaseFileNameHeader"
+                                   Text="DataBaseFileName:"
+                                   Margin="16,8,0,0"/>
+                        <StackPanel x:Name="DataBaseFileNameStackPanel"
+                                    Orientation="Horizontal"
+                                    Margin="16,8,8,8">
+                            <TextBox x:Name="DataBaseFileNameTextBox"/>
+                            <TextBlock Text=".tdb" VerticalAlignment="Center"/>
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel x:Name="PropertyPanel" Margin="16">
