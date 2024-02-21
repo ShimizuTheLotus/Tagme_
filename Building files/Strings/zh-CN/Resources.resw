@@ -150,6 +150,9 @@
   <data name="CreateDataBasePage.PropertyList.DataBaseCoverSourcePath.Text" xml:space="preserve">
     <value>数据库封面源路径：</value>
   </data>
+  <data name="CreateDataBasePage.PropertyList.DataBaseFilePath.Text" xml:space="preserve">
+    <value>数据库路径：</value>
+  </data>
   <data name="CreateDataBasePage.PropertyList.DataBaseName.Text" xml:space="preserve">
     <value>数据库名称：</value>
   </data>

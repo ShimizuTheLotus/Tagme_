@@ -85,14 +85,41 @@
                             <EntranceThemeTransition IsStaggeringEnabled="True"/>
                         </TransitionCollection>
                     </StackPanel.ChildrenTransitions>
-                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/Title" Text="Property list" Style="{StaticResource TitleTextBlockStyle}"/>
-                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/DataBaseName" Text="Database name:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
-                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/DataBaseCoverSourcePath" Text="Database cover source path:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
-                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/DataBaseSavePath" Text="Database save path:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
-                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/CreateDataBaseTimestamp" Text="Create database timestamp:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
-                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/ModifyDataBaseTimestamp" Text="Modify database timestamp:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
-                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/LastViewDataBaseTimestamp" Text="Last view database timestamp:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
-                    <TextBlock x:Uid="CreateDataBasePage/PropertyList/Tagme_DataBaseVersion" Text="Tagme_ database version:" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Name="PropertyList_Title"
+                               x:Uid="CreateDataBasePage/PropertyList/Title"
+                               Text="Property list" 
+                               Style="{StaticResource TitleTextBlockStyle}"/>
+                    <TextBlock x:Name="PropertyList_DataBaseName"
+                               x:Uid="CreateDataBasePage/PropertyList/DataBaseName"
+                               Text="Database name:"
+                               Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Name="PropertyList_DataBaseCoverSourcePath"
+                               x:Uid="CreateDataBasePage/PropertyList/DataBaseCoverSourcePath"
+                               Text="Database cover source path:" 
+                               Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Name="PropertyList_DataBaseSavePath" 
+                               x:Uid="CreateDataBasePage/PropertyList/DataBaseSavePath"
+                               Text="Database save path:"
+                               Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Name="PropertyList_CreateDataBaseTimestamp"
+                               x:Uid="CreateDataBasePage/PropertyList/CreateDataBaseTimestamp"
+                               Text="Create database timestamp:"
+                               Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Name="PropertyList_ModifyDataBaseTimestamp"
+                               x:Uid="CreateDataBasePage/PropertyList/ModifyDataBaseTimestamp"
+                               Text="Modify database timestamp:"
+                               Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Name="PropertyList_LastViewDataBaseTimestamp"
+                               x:Uid="CreateDataBasePage/PropertyList/LastViewDataBaseTimestamp"
+                               Text="Last view database timestamp:"
+                               Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Name="PropertyList_Tagme_DataBaseVersion" 
+                               x:Uid="CreateDataBasePage/PropertyList/Tagme_DataBaseVersion"
+                               Text="Tagme_ database version:"
+                               Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Name="PropertyList_DataBaseFilePath"
+                               x:Uid="CreateDataBasePage/PropertyList/DataBaseFilePath"
+                               Style="{StaticResource BodyStrongTextBlockStyle}"/>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
