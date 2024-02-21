@@ -132,6 +132,9 @@
   <data name="CreateDataBasePage.InputInfo.DataBaseCoverChangeButton.Content" xml:space="preserve">
     <value>Change cover</value>
   </data>
+  <data name="CreateDataBasePage.InputInfo.DataBaseFileNameHeader.Text" xml:space="preserve">
+    <value>Database file name:</value>
+  </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseNameTextBox.Header" xml:space="preserve">
     <value>Database name</value>
   </data>

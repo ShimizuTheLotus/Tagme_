@@ -132,6 +132,9 @@
   <data name="CreateDataBasePage.InputInfo.DataBaseCoverChangeButton.Content" xml:space="preserve">
     <value>更换封面</value>
   </data>
+  <data name="CreateDataBasePage.InputInfo.DataBaseFileNameHeader.Text" xml:space="preserve">
+    <value>数据库文件名称：</value>
+  </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseNameTextBox.Header" xml:space="preserve">
     <value>数据库名称</value>
   </data>
