@@ -50,7 +50,8 @@
                                  x:Uid="CreateDataBasePage/InputInfo/DataBaseNameTextBox"
                                  MinWidth="260"
                                  Margin="16,8,8,8"
-                                 Header="Database name"/>
+                                 Header="Database name"
+                                 TextChanged="DataBaseNameTextBox_TextChanged"/>
                         <TextBlock x:Name="DataBasePathTextBlock"
                                    x:Uid="CreateDataBasePage/InputInfo/DataBasePathTextBlock"
                                    Margin="16,8,8,8"
@@ -111,7 +112,7 @@
                         Content="Create" 
                         Style="{StaticResource AccentButtonStyle}" 
                         Grid.Column="1" 
-                        Margin="16 0 8 0" 
+                        Margin="8 0 16 0" 
                         HorizontalAlignment="Stretch" />
             </Grid>
         </RelativePanel>

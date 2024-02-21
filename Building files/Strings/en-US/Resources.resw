@@ -123,6 +123,9 @@
   <data name="CreateDataBasePage.CreateOrNotButtonPanel.CreateButton.Content" xml:space="preserve">
     <value>Create</value>
   </data>
+  <data name="CreateDataBasePage.CS.InputInfo.NoEmptyDataBaseName.Text" xml:space="preserve">
+    <value>You must name the database.</value>
+  </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseChooseDataBaseSavePathButton.Content" xml:space="preserve">
     <value>Choose path</value>
   </data>

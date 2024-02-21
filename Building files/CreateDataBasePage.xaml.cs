@@ -66,11 +66,54 @@ namespace Tagme_
             }
         }
 
+        //Initialization
         //Initialize UI shadow
         public void InitializeShadow()
         {
             DataBaseCoverPanel.Translation += new System.Numerics.Vector3(0, 0, 16);
             CreateButtonPanel.Translation += new System.Numerics.Vector3(0, 0, 16);
+        }
+
+
+        //Functions
+        //Remind naming the database.
+        private void RemindNamingDataBase()
+        {
+            if (DataBaseNameTextBox.Text != string.Empty)
+            {
+                StackPanel stackPanel = (StackPanel)FindName("MovableSettingsPanel");
+                TextBlock textBlock = (TextBlock)FindName("NoEmptyDataBaseNameReminder");
+                int index = stackPanel.Children.IndexOf(textBlock);
+                if (index != -1)
+                {
+                    stackPanel.Children.RemoveAt(index);
+                }
+            }
+            else
+            {
+                var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+
+                StackPanel stackPanel = (StackPanel)FindName("MovableSettingsPanel");
+                TextBlock textBlock = new TextBlock();
+                textBlock.Name = "NoEmptyDataBaseNameReminder";
+                textBlock.Text = resourceLoader.GetString("CreateDataBasePage/CS/InputInfo/NoEmptyDataBaseName/Text");
+                SolidColorBrush solidColorBrush = new SolidColorBrush(Windows.UI.Colors.Red);
+                textBlock.Foreground = solidColorBrush;
+                textBlock.Margin = new Thickness(16, 0, 8, 8);
+                int index = stackPanel.Children.IndexOf(DataBaseNameTextBox);
+                if (index != -1)
+                {
+                    stackPanel.Children.Insert(index + 1, textBlock);
+                }
+            }
+        }
+
+
+        //UI events
+
+        private void DataBaseNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            RemindNamingDataBase();
         }
     }
 }
