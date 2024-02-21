@@ -100,8 +100,19 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="CancelCreateDataBaseButton" Content="Cancel" Grid.Column="0" Margin="16 0 8 0" HorizontalAlignment="Stretch"/>
-                <Button x:Name="CreateDataBaseButton" Content="Create" Style="{StaticResource AccentButtonStyle}" Grid.Column="1" Margin="16 0 8 0" HorizontalAlignment="Stretch" />
+                <Button x:Name="CancelCreateDataBaseButton"
+                        x:Uid="CreateDataBasePage/CreateOrNotButtonPanel/CancelButton"
+                        Content="Cancel" 
+                        Grid.Column="0" 
+                        Margin="16 0 8 0"
+                        HorizontalAlignment="Stretch"/>
+                <Button x:Name="CreateDataBaseButton" 
+                        x:Uid="CreateDataBasePage/CreateOrNotButtonPanel/CreateButton"
+                        Content="Create" 
+                        Style="{StaticResource AccentButtonStyle}" 
+                        Grid.Column="1" 
+                        Margin="16 0 8 0" 
+                        HorizontalAlignment="Stretch" />
             </Grid>
         </RelativePanel>
     </RelativePanel>
