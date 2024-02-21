@@ -92,16 +92,17 @@
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignRightWithPanel="True"
                        Shadow="{StaticResource PageSharedShadow}">
-            <StackPanel Orientation="Horizontal"
-                        RelativePanel.AlignLeftWithPanel="True"
-                        RelativePanel.AlignRightWithPanel="True"
-                        RelativePanel.AlignTopWithPanel="True"
-                        RelativePanel.AlignBottomWithPanel="True"
-                        RelativePanel.AlignHorizontalCenterWithPanel="True"
-                        RelativePanel.AlignVerticalCenterWithPanel="True">
-                <Button Content="Cancel"/>
-                <Button Content="Create" Style="{StaticResource AccentButtonStyle}"/>
-            </StackPanel>
+            <Grid RelativePanel.AlignLeftWithPanel="True"
+                  RelativePanel.AlignRightWithPanel="True"
+                  RelativePanel.AlignTopWithPanel="True"
+                  RelativePanel.AlignBottomWithPanel="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="CancelCreateDataBaseButton" Content="Cancel" Grid.Column="0" Margin="16 0 8 0" HorizontalAlignment="Stretch"/>
+                <Button x:Name="CreateDataBaseButton" Content="Create" Style="{StaticResource AccentButtonStyle}" Grid.Column="1" Margin="16 0 8 0" HorizontalAlignment="Stretch" />
+            </Grid>
         </RelativePanel>
     </RelativePanel>
 </Page>
