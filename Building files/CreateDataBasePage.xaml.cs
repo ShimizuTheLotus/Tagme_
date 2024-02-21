@@ -64,10 +64,6 @@ namespace Tagme_
                 EditInfoPanel.Orientation = Orientation.Vertical;
                 DataBaseNameTextBox.Width = BasePanel.ActualWidth - 2 * DataBaseNameTextBox.Margin.Left;
             }
-
-            //Resize buttons
-            //CancelCreateDataBaseButton.Margin = new Thickness(32, 0, 16, 0);
-            //CreateDataBaseButton.Margin = new Thickness(32, 0, 16, 0);
         }
 
         //Initialize UI shadow
