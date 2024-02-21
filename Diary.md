@@ -9,3 +9,5 @@
 - I'm starting build page: CreateDataBase.
 ### Feb. 16 2024
 - I finished reorder the layout when window size changed. Now it looks perfect.
+### Feb. 21 2024
+- I finished letting two buttons resizing to fit the window.
