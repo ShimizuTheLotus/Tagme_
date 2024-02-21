@@ -23,5 +23,7 @@
     - [ ] Let the layout fit the window(move the edit panel down the image or right of it when the window size dosen't fit)
     - [ ] Create database button
       - [ ] Deny empty name
-      - [ ] Skip adding a default color when cover not selected
+      - [ ] Skip adding a default cover when cover not selected
+        - [ ] Auto resize
     - [ ] Cancel button
+      - [ ] Auto resize
