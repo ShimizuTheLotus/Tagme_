@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -79,8 +80,19 @@ namespace Tagme_
         //Remind naming the database.
         private void RemindNamingDataBase()
         {
+            //Update the property list
+            var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+            PropertyList_DataBaseName.Text = resourceLoader.GetString("CreateDataBasePage/PropertyList/DataBaseName/Text") + DataBaseNameTextBox.Text;
+
             if (DataBaseNameTextBox.Text != string.Empty)
             {
+                //Not Empty
+                var UISettings = new UISettings();
+                var color = UISettings.GetColorValue(UIColorType.AccentLight1);
+                var foregroundColorBrush = new SolidColorBrush(color);
+                PropertyList_DataBaseName.Foreground = PropertyList_Title.Foreground;
+
+                //Delete NoEmptyDataBaseNameReminder
                 StackPanel stackPanel = (StackPanel)FindName("MovableSettingsPanel");
                 TextBlock textBlock = (TextBlock)FindName("NoEmptyDataBaseNameReminder");
                 int index = stackPanel.Children.IndexOf(textBlock);
@@ -91,8 +103,10 @@ namespace Tagme_
             }
             else
             {
-                var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+                //Empty
+                PropertyList_DataBaseName.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
 
+                //Add NoEmptyDataBaseNameReminder
                 StackPanel stackPanel = (StackPanel)FindName("MovableSettingsPanel");
                 TextBlock textBlock = new TextBlock();
                 textBlock.Name = "NoEmptyDataBaseNameReminder";
