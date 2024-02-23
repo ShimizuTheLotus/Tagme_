@@ -72,7 +72,7 @@ namespace Tagme_
         public void InitializeShadow()
         {
             DataBaseCoverPanel.Translation += new System.Numerics.Vector3(0, 0, 16);
-            CreateButtonPanel.Translation += new System.Numerics.Vector3(0, 0, 16);
+            CreateButtonPanel.Translation += new System.Numerics.Vector3(0, 0, 64);
         }
 
 
