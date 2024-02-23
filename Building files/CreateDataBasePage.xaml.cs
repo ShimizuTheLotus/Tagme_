@@ -87,15 +87,23 @@ namespace Tagme_
             if (DataBaseNameTextBox.Text != string.Empty)
             {
                 //Not Empty
-                var UISettings = new UISettings();
-                var color = UISettings.GetColorValue(UIColorType.AccentLight1);
-                var foregroundColorBrush = new SolidColorBrush(color);
-                PropertyList_DataBaseName.Foreground = PropertyList_Title.Foreground;
+                StackPanel stackPanel = (StackPanel)FindName("PropertyPanel");
+                TextBlock originalTextBlock = (TextBlock)FindName("PropertyList_DataBaseName");
+                TextBlock newTextBlock = new TextBlock();
+                newTextBlock.Name = "PropertyList_DataBaseName";
+                newTextBlock.Text = originalTextBlock.Text;
+                newTextBlock.Style = originalTextBlock.Style;
+                int index = stackPanel.Children.IndexOf(originalTextBlock);
+                if (index != -1)
+                {
+                    stackPanel.Children.Remove(originalTextBlock);
+                    stackPanel.Children.Insert(index, newTextBlock);
+                }
 
                 //Delete NoEmptyDataBaseNameReminder
-                StackPanel stackPanel = (StackPanel)FindName("MovableSettingsPanel");
+                stackPanel = (StackPanel)FindName("MovableSettingsPanel");
                 TextBlock textBlock = (TextBlock)FindName("NoEmptyDataBaseNameReminder");
-                int index = stackPanel.Children.IndexOf(textBlock);
+                index = stackPanel.Children.IndexOf(textBlock);
                 if (index != -1)
                 {
                     stackPanel.Children.RemoveAt(index);
@@ -104,7 +112,8 @@ namespace Tagme_
             else
             {
                 //Empty
-                PropertyList_DataBaseName.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
+                TextBlock originalTextBlock = (TextBlock)FindName("PropertyList_DataBaseName");
+                originalTextBlock.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
 
                 //Add NoEmptyDataBaseNameReminder
                 StackPanel stackPanel = (StackPanel)FindName("MovableSettingsPanel");
