@@ -11,3 +11,5 @@
 - I finished reorder the layout when window size changed. Now it looks perfect.
 ### Feb. 21 2024
 - I finished letting two buttons resizing to fit the window.
+### Feb. 23 2024
+- I find a way to solve the problem that after changing the color of TextBlock, the TextBlock can hardly resolve its color theme to the default: it could change its color automatically to fit the dark/light theme. The solution is: new a TextBlock and replace the original. However, it caused other problems, some codes setting the properties of the TextBlock will not make any difference. I found the problem and updated my UWP notes: https://github.com/ShimizuTheLotus/ShimizuTheLotus/blob/main/Note/UWP/CS%20And%20UI.md
