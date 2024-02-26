@@ -82,13 +82,13 @@ namespace Tagme_
         {
             //Update the property list
             var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
-            PropertyList_DataBaseName.Text = resourceLoader.GetString("CreateDataBasePage/PropertyList/DataBaseName/Text") + DataBaseNameTextBox.Text;
+            TextBlock originalTextBlock = (TextBlock)FindName("PropertyList_DataBaseName");
+            originalTextBlock.Text = resourceLoader.GetString("CreateDataBasePage/PropertyList/DataBaseName/Text") + DataBaseNameTextBox.Text;
 
             if (DataBaseNameTextBox.Text != string.Empty)
             {
                 //Not Empty
-                StackPanel stackPanel = (StackPanel)FindName("PropertyPanel");
-                TextBlock originalTextBlock = (TextBlock)FindName("PropertyList_DataBaseName");
+                StackPanel stackPanel = (StackPanel)FindName("PropertyList_DataBaseNamePanel");
                 TextBlock newTextBlock = new TextBlock();
                 newTextBlock.Name = "PropertyList_DataBaseName";
                 newTextBlock.Text = originalTextBlock.Text;
@@ -112,7 +112,6 @@ namespace Tagme_
             else
             {
                 //Empty
-                TextBlock originalTextBlock = (TextBlock)FindName("PropertyList_DataBaseName");
                 originalTextBlock.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
 
                 //Add NoEmptyDataBaseNameReminder

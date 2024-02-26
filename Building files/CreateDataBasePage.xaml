@@ -89,10 +89,12 @@
                                x:Uid="CreateDataBasePage/PropertyList/Title"
                                Text="Property list" 
                                Style="{StaticResource TitleTextBlockStyle}"/>
-                    <TextBlock x:Name="PropertyList_DataBaseName"
+                    <StackPanel x:Name="PropertyList_DataBaseNamePanel">
+                        <TextBlock x:Name="PropertyList_DataBaseName"
                                x:Uid="CreateDataBasePage/PropertyList/DataBaseName"
                                Text="Database name:"
                                Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    </StackPanel>
                     <TextBlock x:Name="PropertyList_DataBaseCoverSourcePath"
                                x:Uid="CreateDataBasePage/PropertyList/DataBaseCoverSourcePath"
                                Text="Database cover source path:" 
