@@ -1,4 +1,4 @@
-# Building Tasks
+# Building Task
 
 - [x] App.xaml
 - [x] MainPage.xaml
@@ -28,5 +28,5 @@
       - [ ] Deny existing path
       - [ ] Skip adding a default cover when cover not selected
         - [x] Auto resize
-    - [ ] Cancel button
-      - [ ] Auto resize
+    - [x] Cancel button
+      - [x] Auto resize
