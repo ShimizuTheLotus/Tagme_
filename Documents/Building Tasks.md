@@ -23,7 +23,8 @@
     - [ ] Change database save path
     - [ ] Show database property list
     - [x] Let the layout fit the window(move the edit panel down the image or right of it when the window size dosen't fit)
-    - [ ] Create database button
+    - [ ] Create database
+      - [x] Create database button
       - [ ] Deny empty name
       - [ ] Deny existing path
       - [ ] Skip adding a default cover when cover not selected
