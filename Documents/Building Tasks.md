@@ -1,4 +1,4 @@
-# Building Tasks
+# Building Task
 
 - [x] App.xaml
 - [x] MainPage.xaml
@@ -18,15 +18,16 @@
       - [ ] Show cover
         - [x] Image control
         - [ ] Update image source
-    - [ ] Change database name
-      - [ ] Deny empty name when create database(show "no empty name" or something)
+    - [x] Change database name
+      - [x] Deny empty name when create database(show "no empty name" or something)
     - [ ] Change database save path
     - [ ] Show database property list
     - [x] Let the layout fit the window(move the edit panel down the image or right of it when the window size dosen't fit)
-    - [ ] Create database button
-      - [ ] Deny empty name
+    - [ ] Create database
+      - [x] Create database button
+      - [x] Deny empty name
       - [ ] Deny existing path
       - [ ] Skip adding a default cover when cover not selected
         - [x] Auto resize
-    - [ ] Cancel button
-      - [ ] Auto resize
+    - [x] Cancel button
+      - [x] Auto resize
