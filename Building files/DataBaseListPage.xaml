@@ -145,6 +145,7 @@
                     </RichTextBlock>
                 </AppBarButton>
             </RelativePanel>
+            <!--AutoSuggestBox for database searching-->
             <AutoSuggestBox x:Name="SearchDatabaseAutoSuggestBox"
                             x:Uid="DataBaseListPage/SearchBox"
                             Background="#8EFFFFFF"
