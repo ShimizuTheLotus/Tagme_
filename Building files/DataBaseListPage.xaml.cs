@@ -18,6 +18,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using static Tagme_.Tagme_CoreUWP.Tagme_DataBaseConst.ItemIndexRoot.Item;
+using System.Text;
+using Windows.UI.Xaml.Shapes;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -233,6 +236,18 @@ namespace Tagme_
                 }
             }
             catch (Exception ex) { }
+
+            //For effect preview
+            Tagme_CustomizedCore.DataBaseListViewSource.Add(new Tagme_CustomizedCore.Template.DataBaseListViewTemplate
+            {
+                DataBasePath = "path",
+                DataBaseTitle = "dbTitle",
+                DataBaseCover = "Assets/StoreLogo.png",
+                DataBaseCreatedTime = "0",
+                DataBaseModifiedTime = "0",
+                DataBaseFileSize = "0",
+                DataBaseAllSubItemCount = "0",
+            });
 
             DataBaseListView.ItemsSource = null;
             DataBaseListView.ItemsSource = Tagme_CustomizedCore.DataBaseListViewSource;

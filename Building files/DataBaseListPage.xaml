@@ -30,7 +30,8 @@
                        Source="{Binding DataBaseCoverSource}"/>
                 <TextBlock Text="{Binding DataBaseTitle}"
                            Margin="8"
-                           RelativePanel.RightOf="DataBaseCoverImage"/>
+                           RelativePanel.RightOf="DataBaseCoverImage"
+                           Style="{StaticResource SubtitleTextBlockStyle}"/>
                 <Button x:Name="OperateButton"
                         RelativePanel.AlignRightWithPanel="True"
                         RelativePanel.AlignTopWithPanel="True"
