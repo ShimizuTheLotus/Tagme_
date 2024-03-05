@@ -15,3 +15,5 @@
 - I find a way to solve the problem that after changing the color of TextBlock, the TextBlock can hardly resolve its color theme to the default: it could change its color automatically to fit the dark/light theme. The solution is: new a TextBlock and replace the original. However, it caused other problems, some codes setting the properties of the TextBlock will not make any difference. I found the problem and updated my UWP notes: https://github.com/ShimizuTheLotus/ShimizuTheLotus/blob/main/Note/UWP/CS%20And%20UI.md
 ### Feb. 26 2024
 - I solved the reposition animation of the TextBlock when the text changed by putting it in a non child animation panel.
+### Mar. 4 2024
+- I added some code to preview the style of database list.
