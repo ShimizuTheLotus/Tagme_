@@ -17,3 +17,5 @@
 - I solved the reposition animation of the TextBlock when the text changed by putting it in a non child animation panel.
 ### Mar. 4 2024
 - I added some code to preview the style of database list.
+### Mar. 6 2024
+- I tried to run ver 2 build of Tagme_ and found it lost its certification.
