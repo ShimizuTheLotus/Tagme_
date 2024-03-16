@@ -27,18 +27,41 @@
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignTopWithPanel="True"
                        Stretch="UniformToFill"
-                       Source="{Binding DataBaseCoverSource}"/>
-                <TextBlock Text="{Binding DataBaseTitle}"
+                       Source="{Binding DataBaseCover}"/>
+                <TextBlock Name="DataBaseListViewTemplateDataBaseTitle"
+                           Text="{Binding DataBaseTitle}"
                            Margin="8"
                            RelativePanel.RightOf="DataBaseCoverImage"
                            Style="{StaticResource SubtitleTextBlockStyle}"/>
-                <Button x:Name="OperateButton"
+                <StackPanel Name="DataBaseListViewTemplateTimeRelatedInfoStackPanel"
+                            Orientation="Horizontal"
+                            RelativePanel.AlignBottomWithPanel="True"
+                            RelativePanel.RightOf="DataBaseCoverImage"
+                            Margin="16,8">
+                    <FontIcon Glyph="&#xE81C;"/>
+                    <TextBlock Text="{Binding DataBaseCreatedTime}" Margin="4,0,0,0"/>
+                    <FontIcon Glyph="&#xE890;" Margin="8,0,0,0"/>
+                    <TextBlock Text="{Binding DataBaseModifiedTime}" Margin="4,0,0,0"/>
+                </StackPanel>
+                <StackPanel Name="DataBaseListViewTemplateOtherInfoStackPanel"
+                            RelativePanel.LeftOf="OperateButton"
+                            RelativePanel.Below="DataBaseListViewTemplateDataBaseTitle">
+                    <StackPanel Orientation="Horizontal">
+                        <FontIcon Glyph="&#xEDA2;"/>
+                        <TextBlock Text="{Binding DataBaseFileSize}" Margin="4,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <FontIcon Glyph="&#xE8EF;"/>
+                        <TextBlock Text="{Binding DataBaseAllSubItemCount}" Margin="4,0,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+                <AppBarButton Name="OperateButton"
                         RelativePanel.AlignRightWithPanel="True"
                         RelativePanel.AlignTopWithPanel="True"
-                        Height="32"
-                        Width="32">
+                        Height="48"
+                        Width="48">
                     <FontIcon Glyph="&#xE712;"/>
-                </Button>
+                </AppBarButton>
             </RelativePanel>
         </DataTemplate>
     </Page.Resources>
