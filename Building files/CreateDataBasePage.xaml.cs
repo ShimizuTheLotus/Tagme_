@@ -87,7 +87,7 @@ namespace Tagme_
 
             if (DataBaseNameTextBox.Text != string.Empty)
             {
-                //Not Empty
+                //Database name is Not Empty
                 StackPanel stackPanel = (StackPanel)FindName("PropertyList_DataBaseNamePanel");
                 TextBlock newTextBlock = new TextBlock();
                 newTextBlock.Name = "PropertyList_DataBaseName";
@@ -134,6 +134,17 @@ namespace Tagme_
         //UI events
 
         private void DataBaseNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            RemindNamingDataBase();
+        }
+
+        //Main buttons
+        private void CancelCreateDataBaseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.GoBack();
+        }
+
+        private void CreateDataBaseButton_Click(object sender, RoutedEventArgs e)
         {
             RemindNamingDataBase();
         }
