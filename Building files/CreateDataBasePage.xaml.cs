@@ -101,12 +101,19 @@ namespace Tagme_
                 }
 
                 //Delete NoEmptyDataBaseNameReminder
-                stackPanel = (StackPanel)FindName("MovableSettingsPanel");
-                TextBlock textBlock = (TextBlock)FindName("NoEmptyDataBaseNameReminder");
-                index = stackPanel.Children.IndexOf(textBlock);
-                if (index != -1)
+                while (true)
                 {
-                    stackPanel.Children.RemoveAt(index);
+                    stackPanel = (StackPanel)FindName("MovableSettingsPanel");
+                    TextBlock textBlock = (TextBlock)FindName("NoEmptyDataBaseNameReminder");
+                    index = stackPanel.Children.IndexOf(textBlock);
+                    if (index != -1)
+                    {
+                        stackPanel.Children.RemoveAt(index);
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
             }
             else
@@ -123,7 +130,9 @@ namespace Tagme_
                 textBlock.Foreground = solidColorBrush;
                 textBlock.Margin = new Thickness(16, 0, 8, 8);
                 int index = stackPanel.Children.IndexOf(DataBaseNameTextBox);
-                if (index != -1)
+                if (index != -1 &&
+                    index + 1 < stackPanel.Children.Count /*&&
+                    stackpanel.children[index + 1].gettype() != typeof(textblock)*/)
                 {
                     stackPanel.Children.Insert(index + 1, textBlock);
                 }
