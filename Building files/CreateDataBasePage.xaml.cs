@@ -131,10 +131,17 @@ namespace Tagme_
                 textBlock.Margin = new Thickness(16, 0, 8, 8);
                 int index = stackPanel.Children.IndexOf(DataBaseNameTextBox);
                 if (index != -1 &&
-                    index + 1 < stackPanel.Children.Count /*&&
-                    stackpanel.children[index + 1].gettype() != typeof(textblock)*/)
+                    index + 1 < stackPanel.Children.Count)
                 {
-                    stackPanel.Children.Insert(index + 1, textBlock);
+                    if (stackPanel.Children[index + 1].GetType() == typeof(TextBlock))
+                    {
+                        TextBlock tb = stackPanel.Children[index + 1] as TextBlock;
+                        if (tb.Text != resourceLoader.GetString("CreateDataBasePage/CS/InputInfo/NoEmptyDataBaseName/Text"))
+                        {
+                            stackPanel.Children.Insert(index + 1, textBlock);
+                        }
+                    }
+
                 }
             }
         }
