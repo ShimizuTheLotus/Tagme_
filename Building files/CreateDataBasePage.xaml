@@ -125,6 +125,7 @@
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
+        <!--Main button panel-->
         <RelativePanel x:Name="CreateButtonPanel"
                        Height="64"
                        RelativePanel.AlignBottomWithPanel="True"
@@ -139,19 +140,23 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                <!--Main cancel button-->
                 <Button x:Name="CancelCreateDataBaseButton"
                         x:Uid="CreateDataBasePage/CreateOrNotButtonPanel/CancelButton"
-                        Content="Cancel" 
+                        Content="Cancel"
                         Grid.Column="0" 
                         Margin="16 0 8 0"
-                        HorizontalAlignment="Stretch"/>
+                        HorizontalAlignment="Stretch"
+                        Click="CancelCreateDataBaseButton_Click"/>
+                <!--Main create button-->
                 <Button x:Name="CreateDataBaseButton" 
                         x:Uid="CreateDataBasePage/CreateOrNotButtonPanel/CreateButton"
                         Content="Create" 
                         Style="{StaticResource AccentButtonStyle}" 
                         Grid.Column="1" 
                         Margin="8 0 16 0" 
-                        HorizontalAlignment="Stretch" />
+                        HorizontalAlignment="Stretch"
+                        Click="CreateDataBaseButton_Click"/>
             </Grid>
         </RelativePanel>
     </RelativePanel>
