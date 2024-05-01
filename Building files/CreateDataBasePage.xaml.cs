@@ -37,6 +37,10 @@ namespace Tagme_
         private void CreateDataBasePage_Loaded(object sender, RoutedEventArgs e)
         {
             InitializeShadow();
+
+            //Initialize Property list
+            var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+            PropertyList_DataBaseCoverSourcePath.Text = resourceLoader.GetString("CreateDataBasePage/PropertyList/DataBaseCoverSourcePath/Text") + " [" + resourceLoader.GetString("CreateDataBasePage/CS/PropertyList/Default/Text") + "]";
         }
 
         //SizeChanged
@@ -141,10 +145,12 @@ namespace Tagme_
                             stackPanel.Children.Insert(index + 1, textBlock);
                         }
                     }
-
                 }
             }
         }
+
+        //Remind Choosing Path to create
+
 
 
         //UI events
@@ -163,6 +169,22 @@ namespace Tagme_
         private void CreateDataBaseButton_Click(object sender, RoutedEventArgs e)
         {
             RemindNamingDataBase();
+        }
+
+
+        //Change database settings
+        private async void DataBaseCoverChangeButton_Click(object sender, RoutedEventArgs e)
+        {
+            var picker = new Windows.Storage.Pickers.FileOpenPicker();
+            foreach (string item in Tagme_CoreUWP.Const.SupportedImageExtendNameList)
+            {
+                picker.FileTypeFilter.Add(item);
+            }
+            Windows.Storage.StorageFile image = await picker.PickSingleFileAsync();
+            if (image != null)
+            {
+                //Change Image source
+            }
         }
     }
 }

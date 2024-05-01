@@ -126,11 +126,17 @@
   <data name="CreateDataBasePage.CS.InputInfo.NoEmptyDataBaseName.Text" xml:space="preserve">
     <value>你必须给数据库命名。</value>
   </data>
+  <data name="CreateDataBasePage.CS.PropertyList.Default.Text" xml:space="preserve">
+    <value>默认</value>
+  </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseChooseDataBaseSavePathButton.Content" xml:space="preserve">
     <value>选择路径</value>
   </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseCoverChangeButton.Content" xml:space="preserve">
     <value>更换封面</value>
+  </data>
+  <data name="CreateDataBasePage.InputInfo.DataBaseCreatePathTextBlock.Text" xml:space="preserve">
+    <value>将数据库创建至：</value>
   </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseFileNameHeader.Text" xml:space="preserve">
     <value>数据库文件名称：</value>
@@ -141,23 +147,20 @@
   <data name="CreateDataBasePage.InputInfo.DataBasePathTextBlock.Text" xml:space="preserve">
     <value>封面源路径：</value>
   </data>
-  <data name="CreateDataBasePage.InputInfo.DataBaseSavePathTextBlock.Text" xml:space="preserve">
-    <value>将数据库保存至：</value>
-  </data>
   <data name="CreateDataBasePage.PropertyList.CreateDataBaseTimestamp.Text" xml:space="preserve">
     <value>创建数据库时间戳：</value>
   </data>
   <data name="CreateDataBasePage.PropertyList.DataBaseCoverSourcePath.Text" xml:space="preserve">
     <value>数据库封面源路径：</value>
   </data>
+  <data name="CreateDataBasePage.PropertyList.DataBaseCreatePath.Text" xml:space="preserve">
+    <value>数据库创建路径：</value>
+  </data>
   <data name="CreateDataBasePage.PropertyList.DataBaseFilePath.Text" xml:space="preserve">
     <value>数据库路径：</value>
   </data>
   <data name="CreateDataBasePage.PropertyList.DataBaseName.Text" xml:space="preserve">
     <value>数据库名称：</value>
-  </data>
-  <data name="CreateDataBasePage.PropertyList.DataBaseSavePath.Text" xml:space="preserve">
-    <value>数据库保存路径：</value>
   </data>
   <data name="CreateDataBasePage.PropertyList.LastViewDataBaseTimestamp.Text" xml:space="preserve">
     <value>最后浏览时间戳：</value>

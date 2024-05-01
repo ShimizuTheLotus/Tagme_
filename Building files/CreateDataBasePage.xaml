@@ -59,16 +59,18 @@
                         <Button x:Name="DataBaseCoverChangeButton"
                                 x:Uid="CreateDataBasePage/InputInfo/DataBaseCoverChangeButton"
                                 Margin="16,8,8,8"
-                                Content="Change cover"/>
+                                Content="Change cover"
+                                Click="DataBaseCoverChangeButton_Click"/>
                         <TextBlock x:Name="DataBaseSavePathTextBlock"
-                                   x:Uid="CreateDataBasePage/InputInfo/DataBaseSavePathTextBlock"
+                                   x:Uid="CreateDataBasePage/InputInfo/DataBaseCreatePathTextBlock"
                                    Margin="16,8,8,8"
-                                   Text="Save database at:"/>
+                                   Text="Create database at:"/>
                         <Button x:Name="DataBaseChooseDataBaseSavePathButton"
                                 x:Uid="CreateDataBasePage/InputInfo/DataBaseChooseDataBaseSavePathButton"
                                 Margin="16,8,8,8"
                                 Content="Choose path"/>
                         <TextBlock x:Name="DataBaseFileNameHeader"
+                                   
                                    Text="DataBaseFileName:"
                                    Margin="16,8,0,0"/>
                         <StackPanel x:Name="DataBaseFileNameStackPanel"
@@ -99,9 +101,9 @@
                                x:Uid="CreateDataBasePage/PropertyList/DataBaseCoverSourcePath"
                                Text="Database cover source path:" 
                                Style="{StaticResource BodyStrongTextBlockStyle}"/>
-                    <TextBlock x:Name="PropertyList_DataBaseSavePath" 
-                               x:Uid="CreateDataBasePage/PropertyList/DataBaseSavePath"
-                               Text="Database save path:"
+                    <TextBlock x:Name="PropertyList_DataBaseCreatePath" 
+                               x:Uid="CreateDataBasePage/PropertyList/DataBaseCreatePath"
+                               Text="Database create path:"
                                Style="{StaticResource BodyStrongTextBlockStyle}"/>
                     <TextBlock x:Name="PropertyList_CreateDataBaseTimestamp"
                                x:Uid="CreateDataBasePage/PropertyList/CreateDataBaseTimestamp"
