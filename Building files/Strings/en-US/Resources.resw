@@ -135,6 +135,9 @@
   <data name="CreateDataBasePage.InputInfo.DataBaseCoverChangeButton.Content" xml:space="preserve">
     <value>Change cover</value>
   </data>
+  <data name="CreateDataBasePage.InputInfo.DataBaseCoverUseDefaultButton.Content" xml:space="preserve">
+    <value>Use default</value>
+  </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseCreatePathTextBlock.Text" xml:space="preserve">
     <value>Create database at:</value>
   </data>

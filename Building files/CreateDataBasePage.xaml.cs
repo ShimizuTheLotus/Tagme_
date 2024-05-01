@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage.Streams;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -13,6 +14,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -169,6 +171,7 @@ namespace Tagme_
         private void CreateDataBaseButton_Click(object sender, RoutedEventArgs e)
         {
             RemindNamingDataBase();
+
         }
 
 
@@ -183,8 +186,31 @@ namespace Tagme_
             Windows.Storage.StorageFile image = await picker.PickSingleFileAsync();
             if (image != null)
             {
-                //Change Image source
+                //Change sample cover image source
+                using (IRandomAccessStream fileStream = await image.OpenAsync(Windows.Storage.FileAccessMode.Read))
+                {
+                    BitmapImage bitmapImage = new BitmapImage();
+                    bitmapImage.DecodePixelWidth = 1024;
+                    await bitmapImage.SetSourceAsync(fileStream);
+                    DataBaseCoverImage.Source = bitmapImage;
+                }
+
+                //Change path in propertylist
+                var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+
+                PropertyList_DataBaseCoverSourcePath.Text = resourceLoader.GetString("CreateDataBasePage/PropertyList/DataBaseCoverSourcePath/Text") + " " + image.Path;
             }
+        }
+
+        private void DataBaseCoverUseDefaultButton_Click(object sender, RoutedEventArgs e)
+        {
+            BitmapImage bitmapImage = new BitmapImage();
+            bitmapImage.DecodePixelWidth = 1024;
+            bitmapImage.UriSource = new Uri(DataBaseCoverImage.BaseUri, "Assets\\Square150x150Logo.scale-200.png");
+            DataBaseCoverImage.Source = bitmapImage;
+
+            var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+            PropertyList_DataBaseCoverSourcePath.Text = resourceLoader.GetString("CreateDataBasePage/PropertyList/DataBaseCoverSourcePath/Text") + " [" + resourceLoader.GetString("CreateDataBasePage/CS/PropertyList/Default/Text") + "]";
         }
     }
 }

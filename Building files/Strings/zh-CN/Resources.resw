@@ -135,6 +135,9 @@
   <data name="CreateDataBasePage.InputInfo.DataBaseCoverChangeButton.Content" xml:space="preserve">
     <value>更换封面</value>
   </data>
+  <data name="CreateDataBasePage.InputInfo.DataBaseCoverUseDefaultButton.Content" xml:space="preserve">
+    <value>使用默认值</value>
+  </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseCreatePathTextBlock.Text" xml:space="preserve">
     <value>将数据库创建至：</value>
   </data>

@@ -61,6 +61,11 @@
                                 Margin="16,8,8,8"
                                 Content="Change cover"
                                 Click="DataBaseCoverChangeButton_Click"/>
+                        <Button x:Name="DataBaseCoverUseDefaultButton"
+                                x:Uid="CreateDataBasePage/InputInfo/DataBaseCoverUseDefaultButton"
+                                Margin="16,8,8,8"
+                                Content="Use default"
+                                Click="DataBaseCoverUseDefaultButton_Click"/>
                         <TextBlock x:Name="DataBaseSavePathTextBlock"
                                    x:Uid="CreateDataBasePage/InputInfo/DataBaseCreatePathTextBlock"
                                    Margin="16,8,8,8"
@@ -70,7 +75,7 @@
                                 Margin="16,8,8,8"
                                 Content="Choose path"/>
                         <TextBlock x:Name="DataBaseFileNameHeader"
-                                   
+                                   x:Uid="CreateDataBasePage/PropertyList/DataBaseFilePath"
                                    Text="DataBaseFileName:"
                                    Margin="16,8,0,0"/>
                         <StackPanel x:Name="DataBaseFileNameStackPanel"
