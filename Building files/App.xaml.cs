@@ -370,6 +370,11 @@ namespace Tagme_
             }
         }
 
+        public class Services
+        {
+
+        }
+
         /// <summary>
         /// The data Tagme_ needs for running.
         /// </summary>
