@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -26,6 +27,13 @@ namespace Tagme_
     /// </summary>
     public sealed partial class CreateDataBasePage : Page
     {
+        static class CreateDataBaseProperties
+        {
+            //Database name will use the value of the textblock
+            public static BitmapImage coverSource = new BitmapImage();
+            public static string savePath = string.Empty;
+        }
+
         public CreateDataBasePage()
         {
             this.InitializeComponent();
@@ -43,6 +51,10 @@ namespace Tagme_
             //Initialize Property list
             var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
             PropertyList_DataBaseCoverSourcePath.Text = resourceLoader.GetString("CreateDataBasePage/PropertyList/DataBaseCoverSourcePath/Text") + " [" + resourceLoader.GetString("CreateDataBasePage/CS/PropertyList/Default/Text") + "]";
+
+            //Initialize CreateDataBaseProperties
+            CreateDataBaseProperties.coverSource.DecodePixelWidth = 1024;
+            CreateDataBaseProperties.coverSource.UriSource = new Uri(DataBaseCoverImage.BaseUri, "Assets\\Square150x150Logo.scale-200.png");
         }
 
         //SizeChanged
@@ -51,6 +63,7 @@ namespace Tagme_
             //throw new NotImplementedException();
             FitLayout();
         }
+
         private void FitLayout()
         {
             //Reorder flyout
@@ -154,7 +167,6 @@ namespace Tagme_
         //Remind Choosing Path to create
 
 
-
         //UI events
 
         private void DataBaseNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -168,10 +180,27 @@ namespace Tagme_
             Frame.GoBack();
         }
 
-        private void CreateDataBaseButton_Click(object sender, RoutedEventArgs e)
+        private async void CreateDataBaseButton_Click(object sender, RoutedEventArgs e)
         {
             RemindNamingDataBase();
+            //Basicc check passed, now create database and initialize
+            if (DataBaseNameTextBox.Text != string.Empty)
+            {
+                var savePicker = new Windows.Storage.Pickers.FileSavePicker();
+                savePicker.FileTypeChoices.Add("Tagme_ database file", new List<string>() { ".tdb" });
+                savePicker.SuggestedFileName = "Tagme_ database";
+                StorageFile file = await savePicker.PickSaveFileAsync();
 
+                if (file != null)
+                {
+                    //Get cover image
+                    BitmapImage bitmapImage = DataBaseCoverImage.Source as BitmapImage;
+                    var buffer = await NekoWahsCoreUWP.TypeService.BitmapImageToByte(bitmapImage);
+
+                    //Create database
+                    Tagme_CoreUWP.Tagme_DataBaseOperation.InitializeTagme_DataBase(file.Path, DataBaseNameTextBox.Text, buffer);
+                }
+            }
         }
 
 
@@ -186,14 +215,15 @@ namespace Tagme_
             Windows.Storage.StorageFile image = await picker.PickSingleFileAsync();
             if (image != null)
             {
+                image = await 
                 //Change sample cover image source
                 using (IRandomAccessStream fileStream = await image.OpenAsync(Windows.Storage.FileAccessMode.Read))
                 {
-                    BitmapImage bitmapImage = new BitmapImage();
-                    bitmapImage.DecodePixelWidth = 1024;
-                    await bitmapImage.SetSourceAsync(fileStream);
-                    DataBaseCoverImage.Source = bitmapImage;
+                    CreateDataBaseProperties.coverSource.DecodePixelWidth = 1024;
+                    await CreateDataBaseProperties.coverSource.SetSourceAsync(fileStream);
+                    DataBaseCoverImage.Source = CreateDataBaseProperties.coverSource;
                 }
+
 
                 //Change path in propertylist
                 var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
@@ -204,13 +234,17 @@ namespace Tagme_
 
         private void DataBaseCoverUseDefaultButton_Click(object sender, RoutedEventArgs e)
         {
-            BitmapImage bitmapImage = new BitmapImage();
-            bitmapImage.DecodePixelWidth = 1024;
-            bitmapImage.UriSource = new Uri(DataBaseCoverImage.BaseUri, "Assets\\Square150x150Logo.scale-200.png");
-            DataBaseCoverImage.Source = bitmapImage;
+            CreateDataBaseProperties.coverSource.DecodePixelWidth = 1024;
+            CreateDataBaseProperties.coverSource.UriSource = new Uri(DataBaseCoverImage.BaseUri, "Assets\\Square150x150Logo.scale-200.png");
+            DataBaseCoverImage.Source = CreateDataBaseProperties.coverSource;
 
             var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
             PropertyList_DataBaseCoverSourcePath.Text = resourceLoader.GetString("CreateDataBasePage/PropertyList/DataBaseCoverSourcePath/Text") + " [" + resourceLoader.GetString("CreateDataBasePage/CS/PropertyList/Default/Text") + "]";
+        }
+
+        private void DataBaseChooseDataBaseSavePathButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

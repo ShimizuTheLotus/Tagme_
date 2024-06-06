@@ -73,7 +73,8 @@
                         <Button x:Name="DataBaseChooseDataBaseSavePathButton"
                                 x:Uid="CreateDataBasePage/InputInfo/DataBaseChooseDataBaseSavePathButton"
                                 Margin="16,8,8,8"
-                                Content="Choose path"/>
+                                Content="Choose path"
+                                Click="DataBaseChooseDataBaseSavePathButton_Click"/>
                         <TextBlock x:Name="DataBaseFileNameHeader"
                                    x:Uid="CreateDataBasePage/PropertyList/DataBaseFilePath"
                                    Text="DataBaseFileName:"

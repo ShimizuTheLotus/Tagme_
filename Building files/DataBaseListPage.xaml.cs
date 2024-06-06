@@ -156,7 +156,7 @@ namespace Tagme_
             Tagme_CustomizedCore.DataBaseListViewSource.Clear();
 
             //Get databases that exists.
-            List<string> ExistDataBasePathsList = Tagme_CoreUWP.Tagme_DataBaseOption.GetExistDataBasesList();
+            List<string> ExistDataBasePathsList = Tagme_CoreUWP.Tagme_DataBaseOperation.GetExistDataBasesList();
 
             try
             {
@@ -225,7 +225,7 @@ namespace Tagme_
                         {
                             DataBasePath = dbpath,
                             DataBaseTitle = dbTitle,
-                            DataBaseCover = NekoWahsCoreUWP.TypeService.ByteToImage(dbCover),
+                            DataBaseCover = NekoWahsCoreUWP.TypeService.ByteToBitmapImage(dbCover),
                             DataBaseCreatedTime = createdTime,
                             DataBaseModifiedTime = modifiedTime,
                             DataBaseFileSize = dbFileSize,
