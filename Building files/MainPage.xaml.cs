@@ -90,6 +90,7 @@ namespace Tagme_
             //Not at home page.
             if (NavigationFrame.CanGoBack)
             {
+                //TitleBarBackButton.Visibility = Visibility.Visible;
                 TitleBarBackButton.IsEnabled = true;
                 //RelativePanel.AlignCenterWithPanel = "True"
                 ProgramTitle.SetValue(HorizontalAlignmentProperty, HorizontalAlignment.Center);
@@ -97,6 +98,7 @@ namespace Tagme_
             }
             else
             {
+                //TitleBarBackButton.Visibility = Visibility.Collapsed;
                 TitleBarBackButton.IsEnabled = false;
                 //Let ProgramTitle align left.
                 ProgramTitle.SetValue(HorizontalAlignmentProperty, HorizontalAlignment.Left);
