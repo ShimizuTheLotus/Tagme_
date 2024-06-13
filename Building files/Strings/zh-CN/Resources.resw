@@ -129,6 +129,9 @@
   <data name="CreateDataBasePage.CS.PropertyList.Default.Text" xml:space="preserve">
     <value>默认</value>
   </data>
+  <data name="CreateDataBasePage.InputInfo.CoverSettingsTextBlock.Text" xml:space="preserve">
+    <value>封面</value>
+  </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseCoverChangeButton.Content" xml:space="preserve">
     <value>更换封面</value>
   </data>
@@ -141,26 +144,11 @@
   <data name="CreateDataBasePage.InputInfo.DataBaseNameTextBox.Header" xml:space="preserve">
     <value>数据库名称</value>
   </data>
-  <data name="CreateDataBasePage.PropertyList.CreateDataBaseTimestamp.Text" xml:space="preserve">
-    <value>创建数据库时间戳：</value>
-  </data>
   <data name="CreateDataBasePage.PropertyList.DataBaseCoverSourcePath.Text" xml:space="preserve">
     <value>数据库封面源路径：</value>
   </data>
-  <data name="CreateDataBasePage.PropertyList.DataBaseCreatePath.Text" xml:space="preserve">
-    <value>数据库创建路径：</value>
-  </data>
-  <data name="CreateDataBasePage.PropertyList.DataBaseFilePath.Text" xml:space="preserve">
-    <value>数据库路径：</value>
-  </data>
   <data name="CreateDataBasePage.PropertyList.DataBaseName.Text" xml:space="preserve">
     <value>数据库名称：</value>
-  </data>
-  <data name="CreateDataBasePage.PropertyList.LastViewDataBaseTimestamp.Text" xml:space="preserve">
-    <value>最后浏览时间戳：</value>
-  </data>
-  <data name="CreateDataBasePage.PropertyList.ModifyDataBaseTimestamp.Text" xml:space="preserve">
-    <value>修改数据库时间戳</value>
   </data>
   <data name="CreateDataBasePage.PropertyList.Tagme_DataBaseVersion.Text" xml:space="preserve">
     <value>Tagme_数据库版本：</value>
