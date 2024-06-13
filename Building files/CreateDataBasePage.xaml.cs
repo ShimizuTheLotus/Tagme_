@@ -32,6 +32,7 @@ namespace Tagme_
             //Database name will use the value of the textblock
             public static BitmapImage coverSource = new BitmapImage();
             public static string savePath = string.Empty;
+
         }
 
         public CreateDataBasePage()
@@ -96,7 +97,7 @@ namespace Tagme_
 
 
         //Functions
-        //Remind naming the database.
+        //Remind naming the database(NOT file name!).
         private void RemindNamingDataBase()
         {
             //Update the property list
@@ -212,10 +213,16 @@ namespace Tagme_
             {
                 picker.FileTypeFilter.Add(item);
             }
-            Windows.Storage.StorageFile image = await picker.PickSingleFileAsync();
-            if (image != null)
+
+            Windows.Storage.StorageFile imagesource = await picker.PickSingleFileAsync();
+            Windows.Storage.StorageFile image;
+            if (imagesource != null)
             {
-                image = await 
+                image = await imagesource.CopyAsync(ApplicationData.Current.LocalCacheFolder, imagesource.Name, NameCollisionOption.ReplaceExisting);
+                if (image != null)
+                {
+                    await image.DeleteAsync(StorageDeleteOption.PermanentDelete);
+                }
                 //Change sample cover image source
                 using (IRandomAccessStream fileStream = await image.OpenAsync(Windows.Storage.FileAccessMode.Read))
                 {
@@ -242,9 +249,5 @@ namespace Tagme_
             PropertyList_DataBaseCoverSourcePath.Text = resourceLoader.GetString("CreateDataBasePage/PropertyList/DataBaseCoverSourcePath/Text") + " [" + resourceLoader.GetString("CreateDataBasePage/CS/PropertyList/Default/Text") + "]";
         }
 
-        private void DataBaseChooseDataBaseSavePathButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

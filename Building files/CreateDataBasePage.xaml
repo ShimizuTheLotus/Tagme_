@@ -66,15 +66,6 @@
                                 Margin="16,8,8,8"
                                 Content="Use default"
                                 Click="DataBaseCoverUseDefaultButton_Click"/>
-                        <TextBlock x:Name="DataBaseSavePathTextBlock"
-                                   x:Uid="CreateDataBasePage/InputInfo/DataBaseCreatePathTextBlock"
-                                   Margin="16,8,8,8"
-                                   Text="Create database at:"/>
-                        <Button x:Name="DataBaseChooseDataBaseSavePathButton"
-                                x:Uid="CreateDataBasePage/InputInfo/DataBaseChooseDataBaseSavePathButton"
-                                Margin="16,8,8,8"
-                                Content="Choose path"
-                                Click="DataBaseChooseDataBaseSavePathButton_Click"/>
                         <TextBlock x:Name="DataBaseFileNameHeader"
                                    x:Uid="CreateDataBasePage/PropertyList/DataBaseFilePath"
                                    Text="DataBaseFileName:"
