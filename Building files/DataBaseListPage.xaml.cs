@@ -184,6 +184,17 @@ namespace Tagme_
                         {
                             dbTitle = reader.GetString(0);
                         }
+                        //Get dbDiscribe
+                        selectCommand = new SqliteCommand("SELECT @Item FROM @Table");
+                        selectCommand.Connection = db;
+                        selectCommand.Parameters.Clear();
+                        selectCommand.Parameters.AddWithValue("@Item", Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.Description.Name);
+                        selectCommand.Parameters.AddWithValue("@Table", Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name);
+                        reader = selectCommand.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            dbTitle = reader.GetString(0);
+                        }
                         //Get dbCover
                         selectCommand = new SqliteCommand("SELECT @Item FROM @Table");
                         selectCommand.Connection = db;
