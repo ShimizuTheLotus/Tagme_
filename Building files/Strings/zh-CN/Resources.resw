@@ -129,26 +129,17 @@
   <data name="CreateDataBasePage.CS.PropertyList.Default.Text" xml:space="preserve">
     <value>默认</value>
   </data>
-  <data name="CreateDataBasePage.InputInfo.DataBaseChooseDataBaseSavePathButton.Content" xml:space="preserve">
-    <value>选择路径</value>
-  </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseCoverChangeButton.Content" xml:space="preserve">
     <value>更换封面</value>
   </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseCoverUseDefaultButton.Content" xml:space="preserve">
     <value>使用默认值</value>
   </data>
-  <data name="CreateDataBasePage.InputInfo.DataBaseCreatePathTextBlock.Text" xml:space="preserve">
-    <value>将数据库创建至：</value>
-  </data>
-  <data name="CreateDataBasePage.InputInfo.DataBaseFileNameHeader.Text" xml:space="preserve">
-    <value>数据库文件名称：</value>
+  <data name="CreateDataBasePage.InputInfo.DataBaseDescriptionTextBox.Header" xml:space="preserve">
+    <value>描述</value>
   </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseNameTextBox.Header" xml:space="preserve">
     <value>数据库名称</value>
-  </data>
-  <data name="CreateDataBasePage.InputInfo.DataBasePathTextBlock.Text" xml:space="preserve">
-    <value>封面源路径：</value>
   </data>
   <data name="CreateDataBasePage.PropertyList.CreateDataBaseTimestamp.Text" xml:space="preserve">
     <value>创建数据库时间戳：</value>

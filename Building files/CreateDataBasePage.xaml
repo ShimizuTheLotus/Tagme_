@@ -66,16 +66,11 @@
                                 Margin="16,8,8,8"
                                 Content="Use default"
                                 Click="DataBaseCoverUseDefaultButton_Click"/>
-                        <TextBlock x:Name="DataBaseFileNameHeader"
-                                   x:Uid="CreateDataBasePage/PropertyList/DataBaseFilePath"
-                                   Text="DataBaseFileName:"
-                                   Margin="16,8,0,0"/>
-                        <StackPanel x:Name="DataBaseFileNameStackPanel"
-                                    Orientation="Horizontal"
-                                    Margin="16,8,8,8">
-                            <TextBox x:Name="DataBaseFileNameTextBox"/>
-                            <TextBlock Text=".tdb" VerticalAlignment="Center"/>
-                        </StackPanel>
+                        <TextBox x:Name="DataBaseDescriptionTextBox"
+                                 x:Uid="CreateDataBasePage/InputInfo/DataBaseDescriptionTextBox"
+                                 Margin="16,8,8,8"
+                                 Header="description"
+                                 AcceptsReturn="True"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel x:Name="PropertyPanel" Margin="16">

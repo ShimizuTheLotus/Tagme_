@@ -129,26 +129,17 @@
   <data name="CreateDataBasePage.CS.PropertyList.Default.Text" xml:space="preserve">
     <value>Default</value>
   </data>
-  <data name="CreateDataBasePage.InputInfo.DataBaseChooseDataBaseSavePathButton.Content" xml:space="preserve">
-    <value>Choose path</value>
-  </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseCoverChangeButton.Content" xml:space="preserve">
     <value>Change cover</value>
   </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseCoverUseDefaultButton.Content" xml:space="preserve">
     <value>Use default</value>
   </data>
-  <data name="CreateDataBasePage.InputInfo.DataBaseCreatePathTextBlock.Text" xml:space="preserve">
-    <value>Create database at:</value>
-  </data>
-  <data name="CreateDataBasePage.InputInfo.DataBaseFileNameHeader.Text" xml:space="preserve">
-    <value>Database file name:</value>
+  <data name="CreateDataBasePage.InputInfo.DataBaseDescriptionTextBox.Header" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseNameTextBox.Header" xml:space="preserve">
     <value>Database name</value>
-  </data>
-  <data name="CreateDataBasePage.InputInfo.DataBasePathTextBlock.Text" xml:space="preserve">
-    <value>Cover source path:</value>
   </data>
   <data name="CreateDataBasePage.PropertyList.CreateDataBaseTimestamp.Text" xml:space="preserve">
     <value>Create database timestamp:</value>
