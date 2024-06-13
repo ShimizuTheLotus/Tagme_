@@ -219,10 +219,6 @@ namespace Tagme_
             if (imagesource != null)
             {
                 image = await imagesource.CopyAsync(ApplicationData.Current.LocalCacheFolder, imagesource.Name, NameCollisionOption.ReplaceExisting);
-                if (image != null)
-                {
-                    await image.DeleteAsync(StorageDeleteOption.PermanentDelete);
-                }
                 //Change sample cover image source
                 using (IRandomAccessStream fileStream = await image.OpenAsync(Windows.Storage.FileAccessMode.Read))
                 {
@@ -230,6 +226,11 @@ namespace Tagme_
                     await CreateDataBaseProperties.coverSource.SetSourceAsync(fileStream);
                     DataBaseCoverImage.Source = CreateDataBaseProperties.coverSource;
                 }
+                if (image != null)
+                {
+                    await image.DeleteAsync(StorageDeleteOption.PermanentDelete);
+                }
+
 
 
                 //Change path in propertylist

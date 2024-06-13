@@ -129,6 +129,9 @@
   <data name="CreateDataBasePage.CS.PropertyList.Default.Text" xml:space="preserve">
     <value>Default</value>
   </data>
+  <data name="CreateDataBasePage.InputInfo.CoverSettingsTextBlock.Text" xml:space="preserve">
+    <value>Cover</value>
+  </data>
   <data name="CreateDataBasePage.InputInfo.DataBaseCoverChangeButton.Content" xml:space="preserve">
     <value>Change cover</value>
   </data>
@@ -141,26 +144,11 @@
   <data name="CreateDataBasePage.InputInfo.DataBaseNameTextBox.Header" xml:space="preserve">
     <value>Database name</value>
   </data>
-  <data name="CreateDataBasePage.PropertyList.CreateDataBaseTimestamp.Text" xml:space="preserve">
-    <value>Create database timestamp:</value>
-  </data>
   <data name="CreateDataBasePage.PropertyList.DataBaseCoverSourcePath.Text" xml:space="preserve">
     <value>Database cover source path:</value>
   </data>
-  <data name="CreateDataBasePage.PropertyList.DataBaseCreatePath.Text" xml:space="preserve">
-    <value>Database create path:</value>
-  </data>
-  <data name="CreateDataBasePage.PropertyList.DataBaseFilePath.Text" xml:space="preserve">
-    <value>Database file path:</value>
-  </data>
   <data name="CreateDataBasePage.PropertyList.DataBaseName.Text" xml:space="preserve">
     <value>Database name:</value>
-  </data>
-  <data name="CreateDataBasePage.PropertyList.LastViewDataBaseTimestamp.Text" xml:space="preserve">
-    <value>Last view database timestamp:</value>
-  </data>
-  <data name="CreateDataBasePage.PropertyList.ModifyDataBaseTimestamp.Text" xml:space="preserve">
-    <value>Modify database timestamp:</value>
   </data>
   <data name="CreateDataBasePage.PropertyList.Tagme_DataBaseVersion.Text" xml:space="preserve">
     <value>Tagme_ database version:</value>
