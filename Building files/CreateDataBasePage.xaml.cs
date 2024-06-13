@@ -199,9 +199,10 @@ namespace Tagme_
                     var buffer = await NekoWahsCoreUWP.TypeService.BitmapImageToByte(bitmapImage);
 
                     //Create database
-                    Tagme_CoreUWP.Tagme_DataBaseOperation.InitializeTagme_DataBase(file.Path, DataBaseNameTextBox.Text, buffer);
+                    Tagme_CoreUWP.Tagme_DataBaseOperation.InitializeTagme_DataBase(file.Path, DataBaseDescriptionTextBox.Text, DataBaseNameTextBox.Text, buffer);
                 }
             }
+            Frame.GoBack();
         }
 
 
