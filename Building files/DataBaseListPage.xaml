@@ -33,6 +33,13 @@
                            Margin="8"
                            RelativePanel.RightOf="DataBaseCoverImage"
                            Style="{StaticResource SubtitleTextBlockStyle}"/>
+                <TextBlock Name="DataBaseListViewTemplateDataBaseDescription"
+                           Text="{Binding DataBaseDescription}"
+                           Margin="8"
+                           TextWrapping="Wrap"
+                           RelativePanel.Below="DataBaseListViewTemplateDataBaseTitle"
+                           RelativePanel.RightOf="DataBaseCoverImage"
+                           RelativePanel.LeftOf="DataBaseListViewTemplateOtherInfoStackPanel"/>
                 <StackPanel Name="DataBaseListViewTemplateTimeRelatedInfoStackPanel"
                             Orientation="Horizontal"
                             RelativePanel.AlignBottomWithPanel="True"
@@ -40,7 +47,7 @@
                             Margin="16,8">
                     <FontIcon Glyph="&#xE81C;"/>
                     <TextBlock Text="{Binding DataBaseCreatedTime}" Margin="4,0,0,0"/>
-                    <FontIcon Glyph="&#xE890;" Margin="8,0,0,0"/>
+                    <FontIcon Glyph="&#xE70F;" Margin="8,0,0,0"/>
                     <TextBlock Text="{Binding DataBaseModifiedTime}" Margin="4,0,0,0"/>
                 </StackPanel>
                 <StackPanel Name="DataBaseListViewTemplateOtherInfoStackPanel"

@@ -163,6 +163,7 @@ namespace Tagme_
                 foreach (string dbpath in ExistDataBasePathsList)
                 {
                     string dbTitle = "";
+                    string dbDescription = "";
                     byte[] dbCover = null;
                     string createdTime = "";
                     string modifiedTime = "";
@@ -191,7 +192,7 @@ namespace Tagme_
                             reader = selectCommand.ExecuteReader();
                             while (reader.Read())
                             {
-                                dbTitle = reader.GetString(0);
+                                dbDescription = reader.GetString(0);
                             }
                             //Get dbCover
                             selectCommand = new SqliteCommand($"SELECT {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.DataBaseCover.Name} FROM {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name}");
@@ -228,9 +229,10 @@ namespace Tagme_
                             {
                                 DataBasePath = dbpath,
                                 DataBaseTitle = dbTitle,
+                                DataBaseDescription = dbDescription,
                                 DataBaseCover = ShimizuCoreUWP.TypeService.ByteToBitmapImage(dbCover),
-                                DataBaseCreatedTime = createdTime,
-                                DataBaseModifiedTime = modifiedTime,
+                                DataBaseCreatedTime = ShimizuCoreUWP.UnitConvertion.SecondUnixTimeStampToDateTime(long.Parse(createdTime)).ToString(),
+                                DataBaseModifiedTime = ShimizuCoreUWP.UnitConvertion.SecondUnixTimeStampToDateTime(long.Parse(modifiedTime)).ToString(),
                                 DataBaseFileSize = ShimizuCoreUWP.UnitConvertion.FitByte(dbFileSize),
                                 DataBaseAllSubItemCount = subitemCount,
                             });

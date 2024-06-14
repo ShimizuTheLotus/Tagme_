@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using static System.Net.Mime.MediaTypeNames;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -45,7 +46,7 @@ namespace Tagme_
 
 
         //Loaded
-        private void CreateDataBasePage_Loaded(object sender, RoutedEventArgs e)
+        private async void CreateDataBasePage_Loaded(object sender, RoutedEventArgs e)
         {
             InitializeShadow();
 
@@ -57,6 +58,14 @@ namespace Tagme_
             //Initialize CreateDataBaseProperties
             CreateDataBaseProperties.coverSource.DecodePixelWidth = 1024;
             CreateDataBaseProperties.coverSource.UriSource = new Uri(DataBaseCoverImage.BaseUri, "Assets\\Square150x150Logo.scale-200.png");
+
+            //Initialize database cover
+            BitmapImage bitmapImage = DataBaseCoverImage.Source as BitmapImage;
+            RandomAccessStreamReference stream = RandomAccessStreamReference.CreateFromUri(bitmapImage.UriSource);
+            var streamContent = await stream.OpenReadAsync();
+            byte[] buffer = new byte[streamContent.Size];
+            await streamContent.ReadAsync(buffer.AsBuffer(), (uint)streamContent.Size, InputStreamOptions.None);
+            CreateDataBaseProperties.coverImage = buffer;
         }
 
         //SizeChanged
