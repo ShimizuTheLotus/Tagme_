@@ -218,7 +218,7 @@ namespace Tagme_
             {
                 image = await imagesource.CopyAsync(ApplicationData.Current.LocalCacheFolder, imagesource.Name, NameCollisionOption.ReplaceExisting);
                 //Change sample cover image source
-                CreateDataBaseProperties.coverImage = await NekoWahsCoreUWP.TypeService.BitmapImageFileToByte(image);
+                CreateDataBaseProperties.coverImage = await ShimitsuCoreUWP.TypeService.BitmapImageFileToByte(image);
                 using (IRandomAccessStream fileStream = await image.OpenAsync(Windows.Storage.FileAccessMode.Read))
                 {
                     CreateDataBaseProperties.coverSource.DecodePixelWidth = 1024;
