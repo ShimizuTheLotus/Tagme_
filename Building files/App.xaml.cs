@@ -1146,6 +1146,7 @@ namespace Tagme_
                         $"{Tagme_CoreUWP.Tagme_DataBaseConst.ItemPropertyTemplate.Item.ModifiedTimeStamp.Name} {Tagme_CoreUWP.Tagme_DataBaseConst.ItemPropertyTemplate.Item.ModifiedTimeStamp.SQLiteType})";
                     createCommand.ExecuteNonQuery();
 
+                    string secondUnixTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
 
                     //Insert basic database info
                     SqliteCommand insertCommand = new SqliteCommand();
@@ -1156,9 +1157,9 @@ namespace Tagme_
                     insertCommand.Parameters.AddWithValue("@DataBaseName", dataBaseName);
                     insertCommand.Parameters.AddWithValue("@DataBaseDescription", databaseDescription);
                     insertCommand.Parameters.AddWithValue("@DataBaseCover", cover);
-                    insertCommand.Parameters.AddWithValue("@CreatedTimeStamp", DateTimeOffset.Now.ToUnixTimeSeconds().ToString());
-                    insertCommand.Parameters.AddWithValue("@LastModifiedTimeStamp", DateTimeOffset.Now.ToUnixTimeSeconds().ToString());
-                    insertCommand.Parameters.AddWithValue("@LastViewTimeStamp", DateTimeOffset.Now.ToUnixTimeSeconds().ToString());
+                    insertCommand.Parameters.AddWithValue("@CreatedTimeStamp", secondUnixTimestamp);
+                    insertCommand.Parameters.AddWithValue("@LastModifiedTimeStamp", secondUnixTimestamp);
+                    insertCommand.Parameters.AddWithValue("@LastViewTimeStamp", secondUnixTimestamp);
                     insertCommand.Parameters.AddWithValue("@Tagme_DataBaseVersion", Tagme_CoreUWP.Tagme_DataBaseConst.Tagme_DataBaseVersion);
                     insertCommand.ExecuteNonQuery();
 
