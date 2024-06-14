@@ -107,12 +107,12 @@ namespace Tagme_
 
     //Classes
     /// <summary>
-    /// NekoWahs services that could be used to variety of programs.
+    /// Shimitsu services that could be used to variety of programs.
     /// These functions must not ref any variety or functions of a certain program. 
     /// Compatibility Caution: Windows UWP
     /// Core version: 0.0.0
     /// </summary>
-    public class NekoWahsCoreUWP
+    public class ShimitsuCoreUWP
     {
         /// <summary>
         /// The constant values that could be changed by developers or users.
@@ -150,7 +150,7 @@ namespace Tagme_
             /// FileNotExist: The target file is not exist.
             /// AllIn: Use it for small file, usually text files.
             /// Stream: Use stream to read file.
-            /// Auto: NekoWahsCore will determine which file open mode to use automatically.
+            /// Auto: ShimitsuCore will determine which file open mode to use automatically.
             /// </summary>
             public enum SuggestedFileOpenMode
             {
@@ -269,7 +269,7 @@ namespace Tagme_
             /// </summary>
             public Struct.SuggestedFileOpenMode SuggestOpenFileMethod(string path)
             {
-                var x = new NekoWahsCoreUWP.File();
+                var x = new ShimitsuCoreUWP.File();
                 //File exists
                 if (x.AccessFileChecker(path, false) != Struct.FileGetStatus.PathIsEmpty && x.AccessFileChecker(path, false) != Struct.FileGetStatus.NotExist)
                 {
@@ -325,7 +325,7 @@ namespace Tagme_
     /// <summary>
     /// Tagme_ core that has the main functions of a Tagme_ Program
     /// Compatibility Caution: Windows UWP
-    /// Tagme_ core should not ref anything not in itself except NekoWahs core.
+    /// Tagme_ core should not ref anything not in itself except Shimitsu core.
     /// Requirements: NuGet Package - Microsoft.Data.Sqlite
     /// </summary>
     public class Tagme_CoreUWP
@@ -493,8 +493,8 @@ namespace Tagme_
             {
                 getDataBasePathList.Clear();
 
-                var x = new NekoWahsCoreUWP.File();
-                if (x.AccessFileChecker(Const.CoreInfoDataBasePath, true) == NekoWahsCoreUWP.Struct.FileGetStatus.Exist)
+                var x = new ShimitsuCoreUWP.File();
+                if (x.AccessFileChecker(Const.CoreInfoDataBasePath, true) == ShimitsuCoreUWP.Struct.FileGetStatus.Exist)
                 {
                     SqliteCommand selectCommand = new SqliteCommand("SELECT PATH FROM DATABASES");
                     SqliteDataReader selectDataReader = selectCommand.ExecuteReader();
@@ -503,7 +503,7 @@ namespace Tagme_
                         getDataBasePathList.Add(selectDataReader.GetString(0));
                     }
                 }
-                else if(x.AccessFileChecker(Const.CoreInfoDataBasePath, true) == NekoWahsCoreUWP.Struct.FileGetStatus.JustCreated)
+                else if(x.AccessFileChecker(Const.CoreInfoDataBasePath, true) == ShimitsuCoreUWP.Struct.FileGetStatus.JustCreated)
                 {
                     InitializeInfoDataBase();
                     return;
@@ -542,14 +542,14 @@ namespace Tagme_
                 }
 
 
-                var x = new NekoWahsCoreUWP.File();
-                NekoWahsCoreUWP.Struct.FileGetStatus accessStatus = x.AccessFileChecker(path, true);
-                if (accessStatus == NekoWahsCoreUWP.Struct.FileGetStatus.Exist)
+                var x = new ShimitsuCoreUWP.File();
+                ShimitsuCoreUWP.Struct.FileGetStatus accessStatus = x.AccessFileChecker(path, true);
+                if (accessStatus == ShimitsuCoreUWP.Struct.FileGetStatus.Exist)
                 {
                     //Do nothing
                 }
                 //The db was not exist but now just created a new one, now it need to be initialized.
-                else if (accessStatus == NekoWahsCoreUWP.Struct.FileGetStatus.JustCreated)
+                else if (accessStatus == ShimitsuCoreUWP.Struct.FileGetStatus.JustCreated)
                 {
                     InitializeInfoDataBase() ;
                 }
@@ -920,8 +920,8 @@ namespace Tagme_
             /// </summary>
             public static bool CheckIfDataBaseExists(string dataBasePath)
             {
-                var x = new NekoWahsCoreUWP.File();
-                if (x.AccessFileChecker(dataBasePath, false) == NekoWahsCoreUWP.Struct.FileGetStatus.Exist)
+                var x = new ShimitsuCoreUWP.File();
+                if (x.AccessFileChecker(dataBasePath, false) == ShimitsuCoreUWP.Struct.FileGetStatus.Exist)
                 {
                     return true;
                 }

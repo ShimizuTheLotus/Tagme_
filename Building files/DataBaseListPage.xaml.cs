@@ -228,7 +228,7 @@ namespace Tagme_
                             {
                                 DataBasePath = dbpath,
                                 DataBaseTitle = dbTitle,
-                                DataBaseCover = NekoWahsCoreUWP.TypeService.ByteToBitmapImage(dbCover),
+                                DataBaseCover = ShimitsuCoreUWP.TypeService.ByteToBitmapImage(dbCover),
                                 DataBaseCreatedTime = createdTime,
                                 DataBaseModifiedTime = modifiedTime,
                                 DataBaseFileSize = dbFileSize,
@@ -269,7 +269,7 @@ namespace Tagme_
                 if (item2 != null)
                 {
                     item2.Background = null;
-                    RelativePanel relativePanel = NekoWahsCoreUWP.UIXAML.FindElementByName(item2, "DataBaseListViewTemplateBackground") as RelativePanel;
+                    RelativePanel relativePanel = ShimitsuCoreUWP.UIXAML.FindElementByName(item2, "DataBaseListViewTemplateBackground") as RelativePanel;
                     relativePanel.Translation += new Vector3(0, 0, 32);
                 }
             }
