@@ -52,6 +52,7 @@ namespace Tagme_
             //Initialize Property list
             var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
             PropertyList_DataBaseCoverSourcePath.Text = resourceLoader.GetString("CreateDataBasePage/PropertyList/DataBaseCoverSourcePath/Text") + " [" + resourceLoader.GetString("CreateDataBasePage/CS/PropertyList/Default/Text") + "]";
+            PropertyList_Tagme_DataBaseVersion.Text += " " + Tagme_CoreUWP.Tagme_DataBaseConst.Tagme_DataBaseVersion;
 
             //Initialize CreateDataBaseProperties
             CreateDataBaseProperties.coverSource.DecodePixelWidth = 1024;
