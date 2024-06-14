@@ -32,7 +32,7 @@ namespace Tagme_
             //Database name will use the value of the textblock
             public static BitmapImage coverSource = new BitmapImage();
             public static string savePath = string.Empty;
-
+            public static byte[] coverImage = null;
         }
 
         public CreateDataBasePage()
@@ -192,14 +192,11 @@ namespace Tagme_
                 savePicker.SuggestedFileName = "Tagme_ database";
                 StorageFile file = await savePicker.PickSaveFileAsync();
 
+                //Database created
                 if (file != null)
                 {
-                    //Get cover image
-                    BitmapImage bitmapImage = DataBaseCoverImage.Source as BitmapImage;
-                    var buffer = await NekoWahsCoreUWP.TypeService.BitmapImageToByte(bitmapImage);
-
                     //Create database
-                    Tagme_CoreUWP.Tagme_DataBaseOperation.InitializeTagme_DataBase(file.Path, DataBaseDescriptionTextBox.Text, DataBaseNameTextBox.Text, buffer);
+                    Tagme_CoreUWP.Tagme_DataBaseOperation.InitializeTagme_DataBase(file.Path, DataBaseNameTextBox.Text, DataBaseDescriptionTextBox.Text, CreateDataBaseProperties.coverImage);
                 }
             }
             Frame.GoBack();
@@ -221,16 +218,19 @@ namespace Tagme_
             {
                 image = await imagesource.CopyAsync(ApplicationData.Current.LocalCacheFolder, imagesource.Name, NameCollisionOption.ReplaceExisting);
                 //Change sample cover image source
+                CreateDataBaseProperties.coverImage = await NekoWahsCoreUWP.TypeService.BitmapImageFileToByte(image);
                 using (IRandomAccessStream fileStream = await image.OpenAsync(Windows.Storage.FileAccessMode.Read))
                 {
                     CreateDataBaseProperties.coverSource.DecodePixelWidth = 1024;
                     await CreateDataBaseProperties.coverSource.SetSourceAsync(fileStream);
-                    DataBaseCoverImage.Source = CreateDataBaseProperties.coverSource;
+
                 }
-                if (image != null)
+                DataBaseCoverImage.Source = CreateDataBaseProperties.coverSource;
+
+                /*if (image != null)
                 {
-                    await image.DeleteAsync(StorageDeleteOption.PermanentDelete);
-                }
+                    await image.deleteasync(storagedeleteoption.permanentdelete);
+                }*/
 
 
 

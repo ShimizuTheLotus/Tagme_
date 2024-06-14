@@ -184,9 +184,10 @@ namespace Tagme_
             }
 
             //Turn a BitmapImage into byte[] type
-            public static async Task<byte[]> BitmapImageToByte(BitmapImage bitmapImage)
+            public static async Task<byte[]> BitmapImageFileToByte(StorageFile bitmapImageFile)
             {
-                RandomAccessStreamReference stream = RandomAccessStreamReference.CreateFromUri(bitmapImage.UriSource);
+                if (bitmapImageFile == null) return null;
+                RandomAccessStreamReference stream = RandomAccessStreamReference.CreateFromFile(bitmapImageFile);
                 var streamContent = await stream.OpenReadAsync();
                 byte[] buffer = new byte[streamContent.Size];
                 await streamContent.ReadAsync(buffer.AsBuffer(), (uint)streamContent.Size, InputStreamOptions.None);
