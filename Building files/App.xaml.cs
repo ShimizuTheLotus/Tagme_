@@ -201,6 +201,7 @@ namespace Tagme_
         /// </summary>
         public static class UnitConvertion
         {
+            //Change the storage unit to normal unit
             public static string FitByte(long byteNum)
             {
                 if (byteNum < Math.Pow(1024, 1))
@@ -243,6 +244,16 @@ namespace Tagme_
                 {
                     return (byteNum / Math.Pow(1024, 9)).ToString() + "BiB";
                 }
+            }
+
+            public static DateTime SecondUnixTimeStampToDateTime(Int64 timestamp)
+            {
+                Int64 begtime = timestamp * 10000000;
+                DateTime dt_1970 = new DateTime(1970, 1, 1, 8, 0, 0);
+                Int64 ticks_1970 = dt_1970.Ticks;
+                Int64 time_ticks = ticks_1970 + begtime;
+                DateTime dt = new DateTime(time_ticks);
+                return dt;
             }
         }
 
@@ -1222,6 +1233,7 @@ namespace Tagme_
             {
                 public string DataBasePath { get; set; }
                 public string DataBaseTitle { get; set; }
+                public string DataBaseDescription { get; set; }
                 public object DataBaseCover { get; set; }
                 public string DataBaseCreatedTime { get; set; }
                 public string DataBaseModifiedTime { get;set; }
