@@ -197,6 +197,56 @@ namespace Tagme_
         }
 
         /// <summary>
+        /// Convert the units, usually storage
+        /// </summary>
+        public static class UnitConvertion
+        {
+            public static string FitByte(long byteNum)
+            {
+                if (byteNum < Math.Pow(1024, 1))
+                {
+                    return byteNum.ToString() + "B";
+                }
+                else if (byteNum < Math.Pow(1024, 2))
+                {
+                    return (byteNum/ Math.Pow(1024, 1)).ToString() + "KiB";
+                }
+                else if (byteNum < Math.Pow(1024, 3))
+                {
+                    return (byteNum / Math.Pow(1024, 2)) + "MiB";
+                }
+                else if (byteNum < Math.Pow(1024, 4))
+                {
+                    return (byteNum / Math.Pow(1024, 3)).ToString() + "GiB";
+                }
+                else if (byteNum < Math.Pow(1024, 5))
+                {
+                    return (byteNum / Math.Pow(1024, 4)).ToString() + "TiB";
+                }
+                else if (byteNum < Math.Pow(1024, 6))
+                {
+                    return (byteNum / Math.Pow(1024, 5)).ToString() + "PiB";
+                }
+                else if (byteNum < Math.Pow(1024, 7))
+                {
+                    return (byteNum / Math.Pow(1024, 6)).ToString() + "EiB";
+                }
+                else if (byteNum < Math.Pow(1024, 8))
+                {
+                    return (byteNum / Math.Pow(1024, 7)).ToString() + "ZiB";
+                }
+                else if (byteNum < Math.Pow(1024, 9))
+                {
+                    return (byteNum / Math.Pow(1024, 8)).ToString() + "YiB";
+                }
+                else
+                {
+                    return (byteNum / Math.Pow(1024, 9)).ToString() + "BiB";
+                }
+            }
+        }
+
+        /// <summary>
         /// Options about files.
         /// </summary>
         public class File

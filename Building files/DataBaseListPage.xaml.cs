@@ -166,7 +166,7 @@ namespace Tagme_
                     byte[] dbCover = null;
                     string createdTime = "";
                     string modifiedTime = "";
-                    string dbFileSize = "";
+                    long dbFileSize = 0;
                     string subitemCount = "";
 
                     if (File.Exists(dbpath)) {
@@ -219,7 +219,7 @@ namespace Tagme_
                             //Get dbFileSize
                             //DirectoryInfo directoryInfo = new DirectoryInfo(dbpath);
                             FileInfo fileInfoList = new FileInfo(dbpath);
-                            dbFileSize = fileInfoList.Length.ToString();
+                            dbFileSize = fileInfoList.Length;
 
                             //Get subitemCount
 
@@ -228,10 +228,10 @@ namespace Tagme_
                             {
                                 DataBasePath = dbpath,
                                 DataBaseTitle = dbTitle,
-                                DataBaseCover = ShimitsuCoreUWP.TypeService.ByteToBitmapImage(dbCover),
+                                DataBaseCover = ShimizuCoreUWP.TypeService.ByteToBitmapImage(dbCover),
                                 DataBaseCreatedTime = createdTime,
                                 DataBaseModifiedTime = modifiedTime,
-                                DataBaseFileSize = dbFileSize,
+                                DataBaseFileSize = ShimizuCoreUWP.UnitConvertion.FitByte(dbFileSize),
                                 DataBaseAllSubItemCount = subitemCount,
                             });
                             db.Close();
@@ -269,7 +269,7 @@ namespace Tagme_
                 if (item2 != null)
                 {
                     item2.Background = null;
-                    RelativePanel relativePanel = ShimitsuCoreUWP.UIXAML.FindElementByName(item2, "DataBaseListViewTemplateBackground") as RelativePanel;
+                    RelativePanel relativePanel = ShimizuCoreUWP.UIXAML.FindElementByName(item2, "DataBaseListViewTemplateBackground") as RelativePanel;
                     relativePanel.Translation += new Vector3(0, 0, 32);
                 }
             }
