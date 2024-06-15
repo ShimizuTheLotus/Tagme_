@@ -550,30 +550,36 @@ namespace Tagme_
             /// Not checked if the databases are exist.
             /// </summary>
             /// <param name="getDataBasePathList">The list that will be filled with database paths.</param>
-            public static void GetDataBasePathList(ref List<string> getDataBasePathList)
+            public static void GetDataBasePathList(ref List<string> getDataBasePathList, string dbpath = "default")
             {
                 getDataBasePathList.Clear();
-
-                var x = new ShimizuCoreUWP.File();
-                if (x.AccessFileChecker(Const.CoreInfoDataBasePath, true) == ShimizuCoreUWP.Struct.FileGetStatus.Exist)
+                if (dbpath == "default") dbpath = Const.CoreInfoDataBasePath;
+                using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
                 {
-                    SqliteCommand selectCommand = new SqliteCommand("SELECT PATH FROM DATABASES");
-                    SqliteDataReader selectDataReader = selectCommand.ExecuteReader();
-                    while (selectDataReader.Read())
+                    db.Open();
+                    var x = new ShimizuCoreUWP.File();
+                    if (x.AccessFileChecker(Const.CoreInfoDataBasePath, true) == ShimizuCoreUWP.Struct.FileGetStatus.Exist)
                     {
-                        getDataBasePathList.Add(selectDataReader.GetString(0));
-                    }
-                }
-                else if(x.AccessFileChecker(Const.CoreInfoDataBasePath, true) == ShimizuCoreUWP.Struct.FileGetStatus.JustCreated)
-                {
-                    InitializeInfoDataBase();
-                    return;
-                }
-                else
-                {
-                    //Tagme_ info database not exists and failed to create.
-                }
 
+                        SqliteCommand selectCommand = new SqliteCommand("SELECT PATH FROM DATABASES");
+                        selectCommand.Connection = db;
+                        SqliteDataReader selectDataReader = selectCommand.ExecuteReader();
+                        while (selectDataReader.Read())
+                        {
+                            getDataBasePathList.Add(selectDataReader.GetString(0));
+                        }
+                    }
+                    else if (x.AccessFileChecker(Const.CoreInfoDataBasePath, true) == ShimizuCoreUWP.Struct.FileGetStatus.JustCreated)
+                    {
+                        InitializeInfoDataBase();
+                        return;
+                    }
+                    else
+                    {
+                        //Tagme_ info database not exists and failed to create.
+                    }
+                    db.Close();
+                }
                 return;
             }
 
@@ -624,8 +630,13 @@ namespace Tagme_
                 {
                     db.Open();
 
+                    List<string> existPaths = new List<string>();
+                    GetDataBasePathList(ref existPaths);
+
                     foreach (string insertPath in pathsList) 
                     {
+                        if(existPaths.Contains(insertPath))
+                            continue;
                         SqliteCommand createCommand = new SqliteCommand();
                         createCommand.Connection = db;
                         createCommand.CommandText = "CREATE TABLE IF NOT EXISTS DATABASES(PATH TEXT)";
@@ -676,10 +687,8 @@ namespace Tagme_
                     {
                         SqliteCommand deleteCommand = new SqliteCommand();
                         deleteCommand.Connection = db;
-                        deleteCommand.CommandText = "DELETE FROM @TABLE WHERE @C0LUMN = @P4R4M3T3R";
+                        deleteCommand.CommandText = "DELETE FROM DATABASES WHERE PATH = @P4R4M3T3R";
                         deleteCommand.Parameters.Clear();
-                        deleteCommand.Parameters.AddWithValue("@TABLE", "DATABASES");
-                        deleteCommand.Parameters.AddWithValue("@C0LUMN", "PATH");
                         deleteCommand.Parameters.AddWithValue("@P4R4M3T3R", deletePath);
                         deleteCommand.ExecuteNonQuery();
                     }
