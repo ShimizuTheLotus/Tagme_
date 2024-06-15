@@ -346,6 +346,7 @@ namespace Tagme_
             if (DataBaseListView.SelectedItems.Count > 0)
             {
                 Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath = Tagme_CustomizedCore.DataBaseListViewSource[DataBaseListView.SelectedIndex].DataBasePath;
+                Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBase = Tagme_CustomizedCore.DataBaseListViewSource[DataBaseListView.SelectedIndex].DataBaseTitle;
 
                 //Navigate
                 Frame.Navigate(typeof(DataBaseViewPage));

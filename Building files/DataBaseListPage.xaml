@@ -9,68 +9,84 @@
     Background="Transparent">
 
     <Page.Resources>
-        <ThemeShadow x:Name="PageSharedShadow"/>
-        <DataTemplate x:Key="DataBaseListViewTemplate">
-            <RelativePanel x:Name="DataBaseListViewTemplateBackground"
-                           CornerRadius="16"
-                           Margin="0,8,0,16"
-                           Background="#8EFFFFFF"
-                           Shadow="{StaticResource PageSharedShadow}">
-                <RelativePanel.Transitions>
-                    <TransitionCollection>
-                        <RepositionThemeTransition/>
-                        <ReorderThemeTransition/>
-                    </TransitionCollection>
-                </RelativePanel.Transitions>
-                <Image Name="DataBaseCoverImage"
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="Tagme_DefaultThemeColor" Color="#8EFFFFFF"/>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="Tagme_DefaultThemeColor" Color="#3EFFFFFF"/>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="HighContrast">
+                    <SolidColorBrush x:Key="Tagme_DefaultThemeColor" Color="Black"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+            <Style TargetType="RelativePanel" x:Key="Tagme_DefaultPanelBackground">
+                <Setter Property="Background" Value="{ThemeResource Tagme_DefaultThemeColor}"/>
+            </Style>
+            <ThemeShadow x:Name="PageSharedShadow"/>
+            <DataTemplate x:Key="DataBaseListViewTemplate">
+                <RelativePanel x:Name="DataBaseListViewTemplateBackground"
+                               CornerRadius="16"
+                               Margin="0,8,0,16"
+                               Style="{ThemeResource Tagme_DefaultPanelBackground}"
+                               Shadow="{StaticResource PageSharedShadow}">
+                    <RelativePanel.Transitions>
+                        <TransitionCollection>
+                            <RepositionThemeTransition/>
+                            <ReorderThemeTransition/>
+                        </TransitionCollection>
+                    </RelativePanel.Transitions>
+                    <Image Name="DataBaseCoverImage"
                        Height="80" Width="80" Margin="16"
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignTopWithPanel="True"
                        Stretch="UniformToFill"
                        Source="{Binding DataBaseCover}"/>
-                <TextBlock Name="DataBaseListViewTemplateDataBaseTitle"
+                    <TextBlock Name="DataBaseListViewTemplateDataBaseTitle"
                            Text="{Binding DataBaseTitle}"
                            Margin="8"
                            RelativePanel.RightOf="DataBaseCoverImage"
                            Style="{StaticResource SubtitleTextBlockStyle}"/>
-                <TextBlock Name="DataBaseListViewTemplateDataBaseDescription"
+                    <TextBlock Name="DataBaseListViewTemplateDataBaseDescription"
                            Text="{Binding DataBaseDescription}"
                            Margin="8"
                            TextWrapping="Wrap"
                            RelativePanel.Below="DataBaseListViewTemplateDataBaseTitle"
                            RelativePanel.RightOf="DataBaseCoverImage"
                            RelativePanel.LeftOf="DataBaseListViewTemplateOtherInfoStackPanel"/>
-                <StackPanel Name="DataBaseListViewTemplateTimeRelatedInfoStackPanel"
+                    <StackPanel Name="DataBaseListViewTemplateTimeRelatedInfoStackPanel"
                             Orientation="Horizontal"
                             RelativePanel.AlignBottomWithPanel="True"
                             RelativePanel.RightOf="DataBaseCoverImage"
                             Margin="16,8">
-                    <FontIcon Glyph="&#xE81C;"/>
-                    <TextBlock Text="{Binding DataBaseCreatedTime}" Margin="4,0,0,0"/>
-                    <FontIcon Glyph="&#xE70F;" Margin="8,0,0,0"/>
-                    <TextBlock Text="{Binding DataBaseModifiedTime}" Margin="4,0,0,0"/>
-                </StackPanel>
-                <StackPanel Name="DataBaseListViewTemplateOtherInfoStackPanel"
+                        <FontIcon Glyph="&#xE81C;"/>
+                        <TextBlock Text="{Binding DataBaseCreatedTime}" Margin="4,0,0,0"/>
+                        <FontIcon Glyph="&#xE70F;" Margin="8,0,0,0"/>
+                        <TextBlock Text="{Binding DataBaseModifiedTime}" Margin="4,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Name="DataBaseListViewTemplateOtherInfoStackPanel"
                             RelativePanel.LeftOf="OperateButton"
                             RelativePanel.Below="DataBaseListViewTemplateDataBaseTitle">
-                    <StackPanel Orientation="Horizontal">
-                        <FontIcon Glyph="&#xEDA2;"/>
-                        <TextBlock Text="{Binding DataBaseFileSize}" Margin="4,0,0,0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xEDA2;"/>
+                            <TextBlock Text="{Binding DataBaseFileSize}" Margin="4,0,0,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xE8EF;"/>
+                            <TextBlock Text="{Binding DataBaseAllSubItemCount}" Margin="4,0,0,0"/>
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <FontIcon Glyph="&#xE8EF;"/>
-                        <TextBlock Text="{Binding DataBaseAllSubItemCount}" Margin="4,0,0,0"/>
-                    </StackPanel>
-                </StackPanel>
-                <AppBarButton Name="OperateButton"
+                    <AppBarButton Name="OperateButton"
                         RelativePanel.AlignRightWithPanel="True"
                         RelativePanel.AlignTopWithPanel="True"
                         Height="48"
                         Width="48">
-                    <FontIcon Glyph="&#xE712;"/>
-                </AppBarButton>
-            </RelativePanel>
-        </DataTemplate>
+                        <FontIcon Glyph="&#xE712;"/>
+                    </AppBarButton>
+                </RelativePanel>
+            </DataTemplate>
+        </ResourceDictionary>
     </Page.Resources>
 
     <RelativePanel x:Name="MainPagePanel"
@@ -88,7 +104,7 @@
                        Height="32">
             <!--Browse status panel-->
             <RelativePanel x:Name="BrowseStatusRelativePanel"
-                           Background="#8EFFFFFF"
+                           Style="{ThemeResource Tagme_DefaultPanelBackground}"
                            Height="32"
                            CornerRadius="8"
                            Shadow="{StaticResource PageSharedShadow}">
@@ -107,7 +123,7 @@
             </RelativePanel>
             <!--Database storage status bar-->
             <RelativePanel x:Name="DatabaseStorageStatusRelativePanel"
-                           Background="#8EFFFFFF"
+                           Style="{ThemeResource Tagme_DefaultPanelBackground}"
                            Height="32"
                            Margin="4,0,0,0"
                            CornerRadius="8"
@@ -151,7 +167,7 @@
             </RelativePanel>
             <!--Debug status bar-->
             <RelativePanel x:Name="Tagme_DebugStatusPanel"
-                           Background="#8EFFFFFF"
+                           Style="{ThemeResource Tagme_DefaultPanelBackground}"
                            Height="32"
                            Margin="4,0,0,0"
                            CornerRadius="8"
@@ -179,7 +195,6 @@
             <!--AutoSuggestBox for database searching-->
             <AutoSuggestBox x:Name="SearchDatabaseAutoSuggestBox"
                             x:Uid="DataBaseListPage/SearchBox"
-                            Background="#8EFFFFFF"
                             Margin="4,0,0,0"
                             CornerRadius="8"
                             BorderThickness="0"
@@ -194,7 +209,7 @@
         </RelativePanel>
         <!--Option bar-->
         <RelativePanel Name="OptionBarRelativePanel"
-                       Background="#8EFFFFFF"
+                       Style="{ThemeResource Tagme_DefaultPanelBackground}"
                        Margin="16,8,16,0"
                        CornerRadius="16"
                        RelativePanel.AlignLeftWithPanel="True"
@@ -297,7 +312,7 @@
                   RelativePanel.AlignRightWithPanel="True"
                   RelativePanel.Below="OptionBarRelativePanel"
                   RelativePanel.AlignBottomWithPanel="True"
-                  SelectionMode="None"
+                  SelectionMode="Single"
                   IsItemClickEnabled="True"
                   ItemClick="DataBaseListView_ItemClick">
             <ListView.Transitions>
