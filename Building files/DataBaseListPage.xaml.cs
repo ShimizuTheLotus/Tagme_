@@ -50,8 +50,9 @@ namespace Tagme_
         //Functions
         //Loaded
         private void DataBaseListPage_Loaded(object sender, RoutedEventArgs e)
-        {
-
+        {List<string> dblist = new List<string>();
+            Tagme_CoreUWP.InfoManager.GetDataBasePathList(ref dblist);
+            Tagme_CoreUWP.InfoManager.RemoveDataBasePath(pathsList: Tagme_CoreUWP.Tagme_DataBaseOperation.CheckIfAllDataBaseInListExist(dblist));
         }
 
         //Debug
