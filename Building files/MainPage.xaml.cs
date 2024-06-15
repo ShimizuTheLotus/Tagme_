@@ -126,6 +126,9 @@ namespace Tagme_
                 case "Tagme_.CreateDataBasePage":
                     title += $" - {resourceLoader.GetString("MainPage/CS/StatusTitle/ProgramTitle_CreateDataBase/Text")}";
                     break;
+                case "Tagme_.DataBaseViewPage":
+                    title += " " + Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBase;
+                    break;
                 //At home page
                 default:
                     break;

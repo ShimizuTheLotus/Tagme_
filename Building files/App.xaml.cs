@@ -501,6 +501,7 @@ namespace Tagme_
             public class Tagme_DataBase
             {
                 public static string UsingDataBasePath;
+                public static string UsingDataBase;
                 /// <summary>
                 /// The data needed to simulate folders.
                 /// </summary>
