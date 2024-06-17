@@ -15,7 +15,7 @@
                     <SolidColorBrush x:Key="Tagme_DefaultThemeColor" Color="#8EFFFFFF"/>
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
-                    <SolidColorBrush x:Key="Tagme_DefaultThemeColor" Color="#3EFFFFFF"/>
+                    <SolidColorBrush x:Key="Tagme_DefaultThemeColor" Color="#15FFFFFF"/>
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="HighContrast">
                     <SolidColorBrush x:Key="Tagme_DefaultThemeColor" Color="Black"/>
@@ -270,7 +270,8 @@
                         <RepositionThemeTransition/>
                     </TransitionCollection>
                 </CommandBar.Transitions>
-                <AppBarButton x:Uid="DataBaseListPage/OptionBar/Edit/AppBarButton/CreateDataBase"
+                <AppBarButton x:Name="OptionBarCreateDataBaseAppBarButton"
+                              x:Uid="DataBaseListPage/OptionBar/Edit/AppBarButton/CreateDataBase"
                               Icon="Add" Label="Create" CornerRadius="8"
                               Click="AppBarButton_Click"
                               ToolTipService.ToolTip="Create database"/>

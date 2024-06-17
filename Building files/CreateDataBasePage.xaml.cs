@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using static System.Net.Mime.MediaTypeNames;
@@ -44,6 +45,27 @@ namespace Tagme_
             SizeChanged += CreateDataBasePage_SizeChanged;
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("CreateDataBasePagePageConnectedAnimation");
+            if (anim != null)
+            {
+                anim.TryStart(BasePanel);
+            }
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+
+            if (e.NavigationMode == NavigationMode.Back)
+            {
+                ConnectedAnimation animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackCreateDataBasePagePageConnectedAnimation", BasePanel);
+                animation.Configuration = new DirectConnectedAnimationConfiguration();
+            }
+        }
 
         //Loaded
         private async void CreateDataBasePage_Loaded(object sender, RoutedEventArgs e)
