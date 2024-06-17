@@ -9,7 +9,23 @@
     Background="Transparent">
 
     <Page.Resources>
-        <ThemeShadow x:Name="PageSharedShadow"/>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="Tagme_DefaultThemeColor" Color="#8EFFFFFF"/>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="Tagme_DefaultThemeColor" Color="#15FFFFFF"/>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="HighContrast">
+                    <SolidColorBrush x:Key="Tagme_DefaultThemeColor" Color="Black"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+            <Style TargetType="RelativePanel" x:Key="Tagme_DefaultPanelBackground">
+                <Setter Property="Background" Value="{ThemeResource Tagme_DefaultThemeColor}"/>
+            </Style>
+            <ThemeShadow x:Name="PageSharedShadow"/>
+        </ResourceDictionary>
     </Page.Resources>
     <RelativePanel x:Name="PagePanel">
         <RelativePanel.ChildrenTransitions>
@@ -17,11 +33,13 @@
                 <RepositionThemeTransition/>
             </TransitionCollection>
         </RelativePanel.ChildrenTransitions>
-        <!--TitleBar-->
-        <RelativePanel x:Name="AppTitleBar">
-            <TextBlock Text="ProgramName"
-                       FontSize="11"
-                       Margin="0,0,0,0"/>
+        <RelativePanel x:Name="OperationPanel"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.AlignTopWithPanel="True"
+                       Height="160"
+                       Style="{ThemeResource Tagme_DefaultPanelBackground}">
+            
         </RelativePanel>
     </RelativePanel>
 </Page>

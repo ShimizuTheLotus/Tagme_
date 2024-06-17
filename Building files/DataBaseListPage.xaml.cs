@@ -21,6 +21,7 @@ using Windows.UI.Xaml.Navigation;
 using static Tagme_.Tagme_CoreUWP.Tagme_DataBaseConst.ItemIndexRoot.Item;
 using System.Text;
 using Windows.UI.Xaml.Shapes;
+using Windows.UI.Xaml.Media.Animation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -45,6 +46,22 @@ namespace Tagme_
 
             //Repeating Tasks
             KeepUpdateStatusBarDataBaseStorageInfo();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            ConnectedAnimation animation = ConnectedAnimationService.GetForCurrentView().GetAnimation("BackDataBaseViewPageOptionBarConnectedAnimation");
+            if (animation != null)
+            {
+                animation.TryStart(OptionBarRelativePanel);
+            }
+            animation = ConnectedAnimationService.GetForCurrentView().GetAnimation("BackCreateDataBasePagePageConnectedAnimation");
+            if (animation != null)
+            {
+                animation.TryStart(OptionBarCreateDataBaseAppBarButton);
+            }
         }
 
         //Functions
@@ -348,13 +365,18 @@ namespace Tagme_
                 Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath = Tagme_CustomizedCore.DataBaseListViewSource[DataBaseListView.SelectedIndex].DataBasePath;
                 Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBase = Tagme_CustomizedCore.DataBaseListViewSource[DataBaseListView.SelectedIndex].DataBaseTitle;
 
+                //ConnectedAnimation
+                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionBarConnectedAnimation", OptionBarRelativePanel);
+
                 //Navigate
-                Frame.Navigate(typeof(DataBaseViewPage));
+                Frame.Navigate(typeof(DataBaseViewPage), null, new SuppressNavigationTransitionInfo());
             }
         }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
+            ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("CreateDataBasePagePageConnectedAnimation", OptionBarCreateDataBaseAppBarButton);
+
             //Add database page
             Frame.Navigate(typeof(CreateDataBasePage));
         }
