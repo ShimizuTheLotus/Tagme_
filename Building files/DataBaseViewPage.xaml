@@ -39,7 +39,12 @@
                        RelativePanel.AlignTopWithPanel="True"
                        Height="160"
                        Style="{ThemeResource Tagme_DefaultPanelBackground}">
-            
+            <CommandBar x:Name="OptionBarCommandBarEditPart"
+                        DefaultLabelPosition="Right">
+                <AppBarButton x:Name="OptionBarEditAppBarButton"
+                              Icon="Edit" Label="edit">
+                </AppBarButton>
+            </CommandBar>
         </RelativePanel>
     </RelativePanel>
 </Page>
