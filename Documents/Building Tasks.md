@@ -12,22 +12,22 @@
         - [x] Recognize which page a Frame is at
       - [x] Smooth motion
         - [x] Change alignment
-- [ ] CreateDataBasePage.xaml
-  - [ ] Change create database settings
-    - [ ] Change database cover
-      - [ ] Show cover
+- [x] CreateDataBasePage.xaml
+  - [x] Change create database settings
+    - [x] Change database cover
+      - [x] Show cover
         - [x] Image control
-        - [ ] Update image source
+        - [x] Update image source
     - [x] Change database name
       - [x] Deny empty name when create database(show "no empty name" or something)
-    - [ ] Change database save path
-    - [ ] Show database property list
+    - [x] Change database save path
+    - [x] Show database property list
     - [x] Let the layout fit the window(move the edit panel down the image or right of it when the window size dosen't fit)
-    - [ ] Create database
+    - [x] Create database
       - [x] Create database button
       - [x] Deny empty name
-      - [ ] Deny existing path
-      - [ ] Skip adding a default cover when cover not selected
+      - [x] Deny existing path
+      - [x] Skip adding a default cover when cover not selected
         - [x] Auto resize
     - [x] Cancel button
       - [x] Auto resize
