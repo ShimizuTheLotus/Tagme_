@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,6 +27,13 @@ namespace Tagme_
         public DataBaseViewPage()
         {
             this.InitializeComponent();
+
+            Loaded += DataBaseViewPage_Loaded;
+        }
+
+        private void DataBaseViewPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            SetDataBaseCoverImageOnPropertyPagePanel();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -37,6 +45,41 @@ namespace Tagme_
             {
                 anim.TryStart(OperationPanel);
             }
+            anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionBarSortAppBarButtonConnectedAnimation");
+            if (anim != null)
+            {
+                anim.TryStart(OptionBarSortAppBarButton);
+            }
+            anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionBarViewModeAppBarButtonConnectedAnimation");
+            if (anim != null)
+            {
+                anim.TryStart(OptionBarViewModeAppBarButton);
+            }
+            anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionCommandBarBrowseLabelConnectedAnimation");
+            if (anim != null)
+            {
+                anim.TryStart(OptionBarBrowseLabel);
+            }
+            anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionsCommandBarSeparator1ConnectedAnimation");
+            if (anim != null)
+            {
+                anim.TryStart(OptionBarCommandBarSeparator1);
+            }
+            anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionBarCreateDataBaseAppBarButtonConnectedAnimation");
+            if (anim != null)
+            {
+                anim.TryStart(OptionBarAddItemAppBarButton);
+            }
+            anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionBarMultiSelectAppBarButtonConnectedAnimation");
+            if (anim != null)
+            {
+                anim.TryStart(OptionBarMultiSelectAppBarButton);
+            }
+            anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionCommandBarEditLabelConnectedAnimation");
+            if (anim != null)
+            {
+                anim.TryStart(OptionBarEditLabel);
+            }
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
@@ -47,7 +90,57 @@ namespace Tagme_
             {
                 ConnectedAnimation animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackDataBaseViewPageOptionBarConnectedAnimation", OperationPanel);
                 animation.Configuration = new DirectConnectedAnimationConfiguration();
+                animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackDataBaseViewPageOptionBarSortAppBarButtonConnectedAnimation", OptionBarSortAppBarButton);
+                animation.Configuration = new DirectConnectedAnimationConfiguration();
+                animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackDataBaseViewPageOptionBarViewModeAppBarButtonConnectedAnimation", OptionBarViewModeAppBarButton);
+                animation.Configuration = new DirectConnectedAnimationConfiguration();
+                animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackDataBaseViewPageOptionCommandBarBrowseLabelConnectedAnimation", OptionBarBrowseLabel);
+                animation.Configuration = new DirectConnectedAnimationConfiguration();
+                animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackDataBaseViewPageOptionsCommandBarSeparator1ConnectedAnimation", OptionBarCommandBarSeparator1);
+                animation.Configuration = new DirectConnectedAnimationConfiguration();
+                animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackDataBaseViewPageOptionCommandBarEditLabelConnectedAnimation", OptionBarEditLabel);
+                animation.Configuration = new DirectConnectedAnimationConfiguration();
+                try
+                {
+                    animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackDataBaseViewPageOptionBarCreateDataBaseAppBarButtonConnectedAnimation", OptionBarAddItemAppBarButton);
+                    animation.Configuration = new DirectConnectedAnimationConfiguration();
+                }
+                catch { }
+                try
+                {
+                    animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackDataBaseViewPageOptionBarMultiSelectAppBarButtonConnectedAnimation", OptionBarMultiSelectAppBarButton);
+                    animation.Configuration = new DirectConnectedAnimationConfiguration();
+                }catch(Exception ex) { }
+
+
+
             }
+        }
+
+
+        //Functions
+        private void SetDataBaseCoverImageOnPropertyPagePanel()
+        {
+            if (File.Exists(Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath))
+            {
+                using (SqliteConnection db = new SqliteConnection($"Filename={Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath}"))
+                {
+                    db.Open();
+
+                    //Get image
+                    SqliteCommand selectCommand = new SqliteCommand($"SELECT {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.DataBaseCover.Name} FROM {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name}");
+                    selectCommand.Connection = db;
+                    OptionBarCurrentDataBasePropertyPageButtonImage.Source = ShimizuCoreUWP.TypeService.ByteToBitmapImage((byte[])selectCommand.ExecuteScalar());
+
+                    db.Close();
+                }
+            }
+        }
+
+
+        private void OptionBarCurrentDataBasePropertyPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Navigate to DataBasePropertyPage
         }
     }
 }

@@ -57,6 +57,43 @@ namespace Tagme_
             {
                 animation.TryStart(OptionBarRelativePanel);
             }
+            animation = ConnectedAnimationService.GetForCurrentView().GetAnimation("BackDataBaseViewPageOptionBarSortAppBarButtonConnectedAnimation");
+            if (animation != null)
+            {
+                animation.TryStart(OptionBarSortAppBarButton);
+            }
+            animation = ConnectedAnimationService.GetForCurrentView().GetAnimation("BackDataBaseViewPageOptionBarViewModeAppBarButtonConnectedAnimation");
+            if (animation != null)
+            {
+                animation.TryStart(OptionBarViewModeAppBarButton);
+            }
+            animation = ConnectedAnimationService.GetForCurrentView().GetAnimation("BackDataBaseViewPageOptionCommandBarBrowseLabelConnectedAnimation");
+            if (animation != null)
+            {
+                animation.TryStart(OptionCommandBarBrowseLabel);
+            }
+            animation = ConnectedAnimationService.GetForCurrentView().GetAnimation("BackDataBaseViewPageOptionsCommandBarSeparator1ConnectedAnimation");
+            if (animation != null)
+            {
+                animation.TryStart(OptionsCommandBarSeparator1);
+            }
+            animation = ConnectedAnimationService.GetForCurrentView().GetAnimation("BackDataBaseViewPageOptionBarCreateDataBaseAppBarButtonConnectedAnimation");
+            if (animation != null)
+            {
+                animation.TryStart(OptionBarCreateDataBaseAppBarButton);
+            }
+            animation = ConnectedAnimationService.GetForCurrentView().GetAnimation("BackDataBaseViewPageOptionBarMultiSelectAppBarButtonConnectedAnimation");
+            if (animation != null)
+            {
+                animation.TryStart(OptionBarMultiSelectAppBarButton);
+            }
+            animation = ConnectedAnimationService.GetForCurrentView().GetAnimation("BackDataBaseViewPageOptionCommandBarEditLabelConnectedAnimation");
+            if (animation != null)
+            {
+                animation.TryStart(OptionCommandBarEditLabel);
+            }
+
+
             animation = ConnectedAnimationService.GetForCurrentView().GetAnimation("BackCreateDataBasePagePageConnectedAnimation");
             if (animation != null)
             {
@@ -67,7 +104,8 @@ namespace Tagme_
         //Functions
         //Loaded
         private void DataBaseListPage_Loaded(object sender, RoutedEventArgs e)
-        {List<string> dblist = new List<string>();
+        {
+            List<string> dblist = new List<string>();
             Tagme_CoreUWP.InfoManager.GetDataBasePathList(ref dblist);
             Tagme_CoreUWP.InfoManager.RemoveDataBasePath(pathsList: Tagme_CoreUWP.Tagme_DataBaseOperation.CheckIfAllDataBaseInListExist(dblist));
         }
@@ -367,6 +405,13 @@ namespace Tagme_
 
                 //ConnectedAnimation
                 ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionBarConnectedAnimation", OptionBarRelativePanel);
+                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionBarSortAppBarButtonConnectedAnimation", OptionBarSortAppBarButton);
+                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionBarViewModeAppBarButtonConnectedAnimation", OptionBarViewModeAppBarButton);
+                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionCommandBarBrowseLabelConnectedAnimation", OptionCommandBarBrowseLabel);
+                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionsCommandBarSeparator1ConnectedAnimation", OptionsCommandBarSeparator1);
+                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionBarCreateDataBaseAppBarButtonConnectedAnimation", OptionBarCreateDataBaseAppBarButton);
+                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionBarMultiSelectAppBarButtonConnectedAnimation", OptionBarMultiSelectAppBarButton);
+                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionCommandBarEditLabelConnectedAnimation", OptionCommandBarEditLabel);
 
                 //Navigate
                 Frame.Navigate(typeof(DataBaseViewPage), null, new SuppressNavigationTransitionInfo());
