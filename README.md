@@ -15,6 +15,10 @@ Requirements:
   - Microsoft.VCLibs
 
 ## For the developers
+
+## For Gitcode
+Don't clone my repo and make a doll of me!
+
 ### Requirements for using Tagme_CoreUWP
 *Please make sure that your template is a UWP one otherwise some functions may not run properly.*
 - Nuget Package: Microsoft.Data.Sqlite
