@@ -28,4 +28,4 @@
 ## Jun. 29 2024
 - I found my repositories are cloned by Gitcode, which belongs to CSDN, who stealed most of github open source repositories. After I knew that I made a **Special** update in README.md for them.
 **Anyone wanting to clone the repository should obey the GNU GPL 3.0, you shouldn't point the original author to anyother one, even that's a account with a same name with the author but on a different site, even that's a robot account.**
-**At least for this project, its only author is [ShimizuTheLotus](github.com/ShimizuTheLotus/) on github.com, and here's the [original project link]([github.com/ShimizuTheLotus](github.com/ShimizuTheLotus/Tagme_))**
+**At least for this project, its only author is [ShimizuTheLotus](https://github.com/ShimizuTheLotus/) on github.com, and here's the [original project link](https://github.com/ShimizuTheLotus/Tagme_)**
