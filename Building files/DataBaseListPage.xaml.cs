@@ -22,6 +22,7 @@ using static Tagme_.Tagme_CoreUWP.Tagme_DataBaseConst.ItemIndexRoot.Item;
 using System.Text;
 using Windows.UI.Xaml.Shapes;
 using Windows.UI.Xaml.Media.Animation;
+using System.Collections.ObjectModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -412,9 +413,12 @@ namespace Tagme_
                 ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionBarCreateDataBaseAppBarButtonConnectedAnimation", OptionBarCreateDataBaseAppBarButton);
                 ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionBarMultiSelectAppBarButtonConnectedAnimation", OptionBarMultiSelectAppBarButton);
                 ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionCommandBarEditLabelConnectedAnimation", OptionCommandBarEditLabel);
-
-                //Navigate
-                Frame.Navigate(typeof(DataBaseViewPage), null, new SuppressNavigationTransitionInfo());
+                if (DataBaseListView.ContainerFromItem(e.ClickedItem) is ListViewItem container)
+                {
+                    Tagme_CustomizedCore.Template.DataBaseListViewTemplate item = container.Content as Tagme_CustomizedCore.Template.DataBaseListViewTemplate;
+                    DataBaseListView.PrepareConnectedAnimation("DataBaseViewPageOptionSelectedDataBaseCoverConnectedAnimation", item, "DataBaseCoverImage");
+                    Frame.Navigate(typeof(DataBaseViewPage), item, new SuppressNavigationTransitionInfo());
+                }
             }
         }
 

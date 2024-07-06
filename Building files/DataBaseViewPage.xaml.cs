@@ -80,6 +80,11 @@ namespace Tagme_
             {
                 anim.TryStart(OptionBarEditLabel);
             }
+            anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionSelectedDataBaseCoverConnectedAnimation");
+            if (anim != null)
+            {
+                anim.TryStart(OptionBarCurrentDataBasePropertyPageButtonImage);
+            }
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
@@ -99,6 +104,8 @@ namespace Tagme_
                 animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackDataBaseViewPageOptionsCommandBarSeparator1ConnectedAnimation", OptionBarCommandBarSeparator1);
                 animation.Configuration = new DirectConnectedAnimationConfiguration();
                 animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackDataBaseViewPageOptionCommandBarEditLabelConnectedAnimation", OptionBarEditLabel);
+                animation.Configuration = new DirectConnectedAnimationConfiguration();
+                //animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionSelectedDataBaseCoverConnectedAnimation", OptionBarCurrentDataBasePropertyPageButtonImage);
                 animation.Configuration = new DirectConnectedAnimationConfiguration();
                 try
                 {
