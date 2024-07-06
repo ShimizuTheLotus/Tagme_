@@ -8,15 +8,16 @@ We're finding ways to make Tagme_ Run on the Tagme_Core... Thus it'll be easy to
 
 ## For Everyone
 **Original ver uploaded on:**
-|-------|&nbsp;|-|&nbsp;|-----|&nbsp;|-|&nbsp;&nbsp;|-|&nbsp;&nbsp;|-|&nbsp;&nbsp;|-|&nbsp;&nbsp;|-----\
 
-|-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-|&nbsp;&nbsp;&nbsp;|-|&nbsp;&nbsp;&nbsp;|-|&nbsp;&nbsp;|-|&nbsp;&nbsp;|-|&nbsp;&nbsp;|-|&nbsp;&nbsp;|-|&nbsp;&nbsp;|-|
+|-------|&nbsp; |-|&nbsp; |-----|&nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-----\
 
-|-|&nbsp;&nbsp;|--|&nbsp;|-|&nbsp;&nbsp;&nbsp;|-|&nbsp;&nbsp;&nbsp;|------|&nbsp;&nbsp;|-|&nbsp;&nbsp;|-|&nbsp;&nbsp;|------|
+|-|&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |-|&nbsp; &nbsp; &nbsp; |-|&nbsp; &nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|
 
-|-|&nbsp;&nbsp;&nbsp;|-|&nbsp;|-|&nbsp;&nbsp;&nbsp;|-|&nbsp;&nbsp;&nbsp;|-|&nbsp;&nbsp;|-|&nbsp;&nbsp;|-|&nbsp;&nbsp;|-|&nbsp;&nbsp;|-|&nbsp;&nbsp;|-|
+|-|&nbsp; &nbsp; |--|&nbsp; |-|&nbsp; &nbsp; &nbsp; |-|&nbsp; &nbsp; &nbsp; |------|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |------|
 
-|-------|&nbsp;|-|&nbsp;&nbsp;&nbsp;|-|&nbsp;&nbsp;&nbsp;|-|&nbsp;&nbsp;|-|&nbsp;&nbsp;|------|&nbsp;&nbsp;|-----/
+|-|&nbsp; &nbsp; &nbsp; |-|&nbsp; |-|&nbsp; &nbsp; &nbsp; |-|&nbsp; &nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|
+
+|-------|&nbsp; |-|&nbsp; &nbsp; &nbsp; |-|&nbsp; &nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |------|&nbsp; &nbsp; |-----/
 
 ## For the users
 Requirements:
