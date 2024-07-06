@@ -6,6 +6,19 @@ We're finding ways to make Tagme_ Run on the Tagme_Core... Thus it'll be easy to
 
 ***Tell me if there's some content's that dosen't like human language!!! That might be my cat stepped on my keyboard when I was not aside my laptop!!!***
 
+## For Everyone
+**Original ver uploaded on:** ***git******hub***
+
+|-------|&nbsp; |-|&nbsp; &nbsp; |-----|&nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-----\
+
+|-|&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; |-|&nbsp; &nbsp; &nbsp; |-|&nbsp; &nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|
+
+|-|&nbsp; &nbsp; |--|&nbsp; |-|&nbsp; &nbsp; &nbsp; |-|&nbsp; &nbsp; &nbsp; |------|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |------|
+
+|-|&nbsp; &nbsp; &nbsp; |-|&nbsp; |-|&nbsp; &nbsp; &nbsp; |-|&nbsp; &nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |-|
+
+|-------|&nbsp; |-|&nbsp; &nbsp; &nbsp; |-|&nbsp; &nbsp; &nbsp; |-|&nbsp; &nbsp; |-|&nbsp; &nbsp; |------|&nbsp; &nbsp; |-----/
+
 ## For the users
 Requirements:
 - Windows 10, version 1809 **(The theme shadow Effect is not available in Windows 10, version 1809!)**
