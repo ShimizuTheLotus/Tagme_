@@ -27,12 +27,46 @@
                 <Setter Property="Background" Value="{ThemeResource Tagme_DefaultThemeColor}"/>
             </Style>
             <ThemeShadow x:Name="PageSharedShadow"/>
+            <DataTemplate x:Key="DataBaseListViewTemplate">
+                <RelativePanel CornerRadius="16"
+                               Margin="0,8,0,16"
+                               Style="{ThemeResource Tagme_DefaultPanelBackground}"
+                               Shadow="{StaticResource PageSharedShadow}">
+                    <!--The value of a ItemImage is nullable, consider using default image when the value is null-->
+                    <Image Name ="ItemImage"
+                           Height="80"
+                           Width="80"
+                           Margin="16"
+                           RelativePanel.AlignTopWithPanel="True"
+                           RelativePanel.AlignLeftWithPanel="True"
+                           Stretch="UniformToFill"
+                           Source="{Binding ItemNullableImage}"/>
+                    <TextBlock Name="ItemText"
+                       Text="{Binding DataBaseTitle}"
+                       Margin="8"
+                       RelativePanel.RightOf="ItemImage"
+                       Style="{StaticResource SubtitleTextBlockStyle}"/>
+                </RelativePanel>
+            </DataTemplate>
         </ResourceDictionary>
     </Page.Resources>
     <RelativePanel x:Name="PagePanel">
+        <Button x:Name="OptionBarCurrentDataBasePropertyPageButton"
+                Click="OptionBarCurrentDataBasePropertyPageButton_Click"
+                RelativePanel.AlignTopWithPanel="True"
+                RelativePanel.AlignLeftWithPanel="True"
+                Height="100" Width="110"
+                CornerRadius="0,0,8,0">
+            <Button.Content>
+                <Image x:Name="OptionBarCurrentDataBasePropertyPageButtonImage"
+                       Height="80"
+                       Width="80"
+                       Stretch="UniformToFill"/>
+            </Button.Content>
+        </Button>
         <RelativePanel x:Name="OperationPanel"
-                       RelativePanel.AlignLeftWithPanel="True"
-                       RelativePanel.LeftOf="OptionBarCurrentDataBasePropertyPageButton"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.RightOf="OptionBarCurrentDataBasePropertyPageButton"
                        RelativePanel.AlignTopWithPanel="True"
                        Height="80"
                        Style="{ThemeResource Tagme_DefaultPanelBackground}">
@@ -79,7 +113,7 @@
                 </AppBarButton>
                 <AppBarButton x:Name="OptionBarCopyAppBarButton"
                               Icon="Copy" Label="copy">
-                    
+
                 </AppBarButton>
             </CommandBar>
             <TextBlock x:Name="OptionBarEditLabel"
@@ -90,19 +124,6 @@
                        RelativePanel.Below="OptionBarCommandBarEditPart"/>
 
         </RelativePanel>
-        <Button x:Name="OptionBarCurrentDataBasePropertyPageButton"
-                Click="OptionBarCurrentDataBasePropertyPageButton_Click"
-                RelativePanel.AlignTopWithPanel="True"
-                RelativePanel.AlignRightWithPanel="True"
-                Height="100" Width="110"
-                CornerRadius="0,0,0,8">
-            <Button.Content>
-                <Image x:Name="OptionBarCurrentDataBasePropertyPageButtonImage"
-                       Height="80"
-                       Width="80"
-                       Stretch="UniformToFill"/>
-            </Button.Content>
-        </Button>
         <ListView x:Name="DataBaseCurrentFolderListView"
                   RelativePanel.Below="OperationPanel">
 
