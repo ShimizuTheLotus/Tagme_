@@ -123,6 +123,9 @@
     <Compile Include="CreateDataBasePage.xaml.cs">
       <DependentUpon>CreateDataBasePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataBaseDetailPage.xaml.cs">
+      <DependentUpon>DataBaseDetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataBaseListPage.xaml.cs">
       <DependentUpon>DataBaseListPage.xaml</DependentUpon>
     </Compile>
@@ -155,6 +158,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="CreateDataBasePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataBaseDetailPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
