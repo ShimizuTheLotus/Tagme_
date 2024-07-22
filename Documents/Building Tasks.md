@@ -31,3 +31,15 @@
         - [x] Auto resize
     - [x] Cancel button
       - [x] Auto resize
+- [ ] DataBaseDetailPage.xaml
+  - [ ] Show proporties
+   - [ ] Cover image
+   - [ ] TItle
+   - [ ] Created time
+   - [ ] Modified time
+   - [ ] Subitem count
+   - [ ] Storage
+  - [ ] Show struct button(Navigate to DataBaseStructPage.xaml)
+- [ ] DataBaseStructPage.xaml
+ - [ ] Navigation view
+ - [ ] Do not show image CheckBox(default: false, when it is false, the image will be shown as "Image" with hyperlink type, click to show it.)
