@@ -8,7 +8,7 @@
 - Item count
 
 ##Item Page(DataBaseViewPage.xaml)
-- Item cover
+- Image or item type icon
 - Title
 - Description
 - Item ID(Optional)
