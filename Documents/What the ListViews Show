@@ -1,0 +1,19 @@
+##Main Page(DataBaseListPage.xaml)
+- Database cover image
+- Title
+- Description
+- Created time
+- Modified time
+- Storage
+- Item count
+
+##Item Page(DataBaseViewPage.xaml)
+- Item cover
+- Title
+- Description
+- Item ID(Optional)
+- Parent ID(Optional)
+- Tags(Optional)
+- Tag IDs(Optional)
+- Created time(Optional)
+- Modified time(Optional)
