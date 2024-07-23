@@ -1,5 +1,7 @@
-# Building Task
-
+# Building Tasks
+## Features
+- [ ] Esc&Return key to go back
+## Pages
 - [x] App.xaml
 - [x] MainPage.xaml
   - [x] TitleBar
