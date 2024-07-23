@@ -35,13 +35,16 @@
       - [x] Auto resize
 - [ ] DataBaseDetailPage.xaml
   - [ ] Show proporties
-   - [ ] Cover image
-   - [ ] TItle
-   - [ ] Created time
-   - [ ] Modified time
-   - [ ] Subitem count
-   - [ ] Storage
-  - [ ] Show struct button(Navigate to DataBaseStructPage.xaml)
+    - [ ] Cover image
+    - [ ] Name
+    - [ ] Path
+    - [ ] Created time
+    - [ ] Modified time
+    - [ ] Subitem count
+    - [ ] Storage
+  - [ ] Check incompleted item (These item not have completed data in all tables. Let the user decide whether fix or not, if true, try to fix them automatically.)
+  - [ ] Check unlinked item (These item will never show because no links points to them, if there's an unlinked item, provide the user these choices: delete or create a new item with the item)
+  - [ ] Show view struct button(Navigate to DataBaseStructPage.xaml)
 - [ ] DataBaseStructPage.xaml
  - [ ] Navigation view
  - [ ] Do not show image CheckBox(default: false, when it is false, the image will be shown as "Image" with hyperlink type, click to show it.)
