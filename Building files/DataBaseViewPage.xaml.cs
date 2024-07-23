@@ -148,6 +148,7 @@ namespace Tagme_
         private void OptionBarCurrentDataBaseDetailPageButton_Click(object sender, RoutedEventArgs e)
         {
             //Navigate to DataBaseDetailPage
+            ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionBarCurrentDataBaseDetailPageButtonConnectedAnimation", OptionBarCurrentDataBaseDetailPageButton);
             Frame.Navigate(typeof(DataBaseDetailPage));
         }
     }
