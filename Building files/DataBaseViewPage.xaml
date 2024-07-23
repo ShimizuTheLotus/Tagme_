@@ -51,14 +51,14 @@
         </ResourceDictionary>
     </Page.Resources>
     <RelativePanel x:Name="PagePanel">
-        <Button x:Name="OptionBarCurrentDataBasePropertyPageButton"
-                Click="OptionBarCurrentDataBasePropertyPageButton_Click"
+        <Button x:Name="OptionBarCurrentDataBaseDetailPageButton"
+                Click="OptionBarCurrentDataBaseDetailPageButton_Click"
                 RelativePanel.AlignTopWithPanel="True"
                 RelativePanel.AlignLeftWithPanel="True"
                 Height="100" Width="110"
                 CornerRadius="0,0,8,0">
             <Button.Content>
-                <Image x:Name="OptionBarCurrentDataBasePropertyPageButtonImage"
+                <Image x:Name="OptionBarCurrentDataBaseDetailPageButtonImage"
                        Height="80"
                        Width="80"
                        Stretch="UniformToFill"/>
@@ -66,7 +66,7 @@
         </Button>
         <RelativePanel x:Name="OperationPanel"
                        RelativePanel.AlignRightWithPanel="True"
-                       RelativePanel.RightOf="OptionBarCurrentDataBasePropertyPageButton"
+                       RelativePanel.RightOf="OptionBarCurrentDataBaseDetailPageButton"
                        RelativePanel.AlignTopWithPanel="True"
                        Height="80"
                        Style="{ThemeResource Tagme_DefaultPanelBackground}">

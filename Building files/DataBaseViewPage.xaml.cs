@@ -83,7 +83,7 @@ namespace Tagme_
             anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionSelectedDataBaseCoverConnectedAnimation");
             if (anim != null)
             {
-                anim.TryStart(OptionBarCurrentDataBasePropertyPageButtonImage);
+                anim.TryStart(OptionBarCurrentDataBaseDetailPageButtonImage);
             }
         }
 
@@ -137,7 +137,7 @@ namespace Tagme_
                     //Get image
                     SqliteCommand selectCommand = new SqliteCommand($"SELECT {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.DataBaseCover.Name} FROM {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name}");
                     selectCommand.Connection = db;
-                    OptionBarCurrentDataBasePropertyPageButtonImage.Source = ShimizuCoreUWP.TypeService.ByteToBitmapImage((byte[])selectCommand.ExecuteScalar());
+                    OptionBarCurrentDataBaseDetailPageButtonImage.Source = ShimizuCoreUWP.TypeService.ByteToBitmapImage((byte[])selectCommand.ExecuteScalar());
 
                     db.Close();
                 }
@@ -145,9 +145,10 @@ namespace Tagme_
         }
 
 
-        private void OptionBarCurrentDataBasePropertyPageButton_Click(object sender, RoutedEventArgs e)
+        private void OptionBarCurrentDataBaseDetailPageButton_Click(object sender, RoutedEventArgs e)
         {
-            //Navigate to DataBasePropertyPage
+            //Navigate to DataBaseDetailPage
+            Frame.Navigate(typeof(DataBaseDetailPage));
         }
     }
 }
