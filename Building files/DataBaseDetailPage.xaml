@@ -8,11 +8,38 @@
     mc:Ignorable="d"
     Background="Transparent">
 
-    <RelativePanel Background="Transparent">
+    <RelativePanel Background="Transparent" Margin="8">
         <StackPanel Orientation="Vertical">
+            <TextBlock x:Name="DataBaseCover_Title"
+                       Text="cover"
+                       />
             <Image x:Name="DataBaseCover"
-                   Width="100" Height="100"
-                   />
+                   Width="200" Height="200"
+                   Stretch="UniformToFill"
+                   Source="Assets\Square150x150Logo.scale-200.png"/>
+            <TextBlock x:Name="DataBaseTitle_Title"
+                       Text="database name"
+                       />
+            <TextBlock x:Name="DataBaseTitle"/>
+            <TextBlock x:Name="DataBasePath_Title"
+                       Text="path"
+                       />
+            <TextBlock x:Name="DataBasePath"/>
+            <TextBlock x:Name="CreatedTime_Title"
+                       Text="created time"
+                       />
+            <TextBlock x:Name="CreatedTime"/>
+            <TextBlock x:Name="ModifiedTime_Title"
+                       Text="modified time"
+                       />
+            <TextBlock x:Name="ModifiedTime"/>
+            <TextBlock x:Name="SubitemCount_Title"
+                       Text="subitem count"
+                       />
+            <TextBlock x:Name="SubitemCount"/>
+            <TextBlock x:Name="Storage_Title"
+                       Text="storage"/>
+            <TextBlock x:Name="Storage"/>
         </StackPanel>
     </RelativePanel>
 </Page>
