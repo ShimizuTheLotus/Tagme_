@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="Transparent">
 
-    <RelativePanel Background="Transparent" Margin="8">
+    <RelativePanel Background="Transparent" Margin="16">
         <StackPanel Orientation="Vertical">
             <TextBlock x:Name="DataBaseCover_Title"
                        Text="cover"
@@ -22,32 +22,38 @@
                        Text="database name"
                        FontWeight="Bold"
                        />
-            <TextBlock x:Name="DataBaseTitle"/>
+            <TextBlock x:Name="DataBaseTitle"
+                       Margin="0,0,0,8"/>
             <TextBlock x:Name="DataBasePath_Title"
                        Text="path"
                        FontWeight="Bold"
                        />
-            <TextBlock x:Name="DataBasePath"/>
+            <TextBlock x:Name="DataBasePath"
+                       Margin="0,0,0,8"/>
             <TextBlock x:Name="CreatedTime_Title"
                        Text="created time"
                        FontWeight="Bold"
                        />
-            <TextBlock x:Name="CreatedTime"/>
+            <TextBlock x:Name="CreatedTime"
+                       Margin="0,0,0,8"/>
             <TextBlock x:Name="ModifiedTime_Title"
                        Text="modified time"
                        FontWeight="Bold"
                        />
-            <TextBlock x:Name="ModifiedTime"/>
+            <TextBlock x:Name="ModifiedTime"
+                       Margin="0,0,0,8"/>
             <TextBlock x:Name="SubitemCount_Title"
                        Text="subitem count"
                        FontWeight="Bold"
                        />
-            <TextBlock x:Name="SubitemCount"/>
+            <TextBlock x:Name="SubitemCount"
+                       Margin="0,0,0,8"/>
             <TextBlock x:Name="Storage_Title"
                        Text="storage"
                        FontWeight="Bold"
                        />
-            <TextBlock x:Name="Storage"/>
+            <TextBlock x:Name="Storage"
+                       Margin="0,0,0,8"/>
         </StackPanel>
     </RelativePanel>
 </Page>

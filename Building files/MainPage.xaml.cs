@@ -23,6 +23,8 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Runtime.CompilerServices;
+using Windows.UI.Core;
+using Windows.System;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -43,6 +45,7 @@ namespace Tagme_
             //To make sure the page is loaded, then we can navigate without error.
             Loaded += MainPage_Loaded;
 
+            SystemNavigationManager.GetForCurrentView().BackRequested += BackButtonPressed;
             //Initialize
         }
 
@@ -74,6 +77,28 @@ namespace Tagme_
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
         }
+
+        protected override void OnKeyDown(KeyRoutedEventArgs e)
+        {
+            base.OnKeyDown(e);
+
+            if (e.Key == VirtualKey.Escape)
+            {
+                if (NavigationFrame.CanGoBack)
+                {
+                    NavigationFrame.GoBack();
+                }
+            }
+        }
+
+        private void BackButtonPressed(object sender, BackRequestedEventArgs e)
+        {
+            if (NavigationFrame.CanGoBack)
+            {
+                NavigationFrame.GoBack();
+            }
+        }
+
 
         /// <summary>
         /// This "MainPage" is not refered to MainPage.xaml!
