@@ -236,7 +236,6 @@ namespace Tagme_
                             //Get dbTitle
                             SqliteCommand selectCommand = new SqliteCommand($"SELECT {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.DataBaseName.Name} FROM {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name}");
                             selectCommand.Connection = db;
-                            selectCommand.Parameters.Clear();
                             SqliteDataReader reader = selectCommand.ExecuteReader();
                             while (reader.Read())
                             {
@@ -245,7 +244,6 @@ namespace Tagme_
                             //Get dbDiscribe
                             selectCommand = new SqliteCommand($"SELECT {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.Description.Name} FROM {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name}");
                             selectCommand.Connection = db;
-                            selectCommand.Parameters.Clear();
                             reader = selectCommand.ExecuteReader();
                             while (reader.Read())
                             {
@@ -254,12 +252,10 @@ namespace Tagme_
                             //Get dbCover
                             selectCommand = new SqliteCommand($"SELECT {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.DataBaseCover.Name} FROM {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name}");
                             selectCommand.Connection = db;
-                            selectCommand.Parameters.Clear();
                             dbCover = (byte[])selectCommand.ExecuteScalar();
                             //Get createdTime
                             selectCommand = new SqliteCommand($"SELECT {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.CreatedTimeStamp.Name} FROM {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name}");
                             selectCommand.Connection = db;
-                            selectCommand.Parameters.Clear();
                             reader = selectCommand.ExecuteReader();
                             while (reader.Read())
                             {
@@ -268,7 +264,6 @@ namespace Tagme_
                             //Get modifiedTime
                             selectCommand = new SqliteCommand($"SELECT {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.LastModifiedTimeStamp.Name} FROM {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name}");
                             selectCommand.Connection = db;
-                            selectCommand.Parameters.Clear();
                             reader = selectCommand.ExecuteReader();
                             while (reader.Read())
                             {

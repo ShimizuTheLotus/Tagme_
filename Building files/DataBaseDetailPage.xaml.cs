@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,6 +27,13 @@ namespace Tagme_
         public DataBaseDetailPage()
         {
             this.InitializeComponent();
+
+            Loaded += DataBaseDetailPage_Loaded;
+        }
+
+        private void DataBaseDetailPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            GetBasicProperties();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -37,6 +45,44 @@ namespace Tagme_
             {
                 anim.TryStart(DataBaseCover);
             }
+        }
+
+
+        private void GetBasicProperties()
+        {
+            if (File.Exists(Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath))
+            {
+                using (SqliteConnection db = new SqliteConnection($"Filename={Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath}"))
+                {
+                    db.Open();
+
+                    //Get image
+                    SqliteCommand selectCommand = new SqliteCommand($"SELECT {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.DataBaseCover.Name} FROM {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name}");
+                    selectCommand.Connection = db;
+                    DataBaseCover.Source = ShimizuCoreUWP.TypeService.ByteToBitmapImage((byte[])selectCommand.ExecuteScalar());
+
+                    selectCommand = new SqliteCommand($"SELECT {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.CreatedTimeStamp.Name} FROM {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name}");
+                    selectCommand.Connection = db;
+                    SqliteDataReader reader = selectCommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        CreatedTime.Text = ShimizuCoreUWP.UnitConvertion.SecondUnixTimeStampToDateTime(long.Parse(reader.GetString(0))).ToString();
+                    }
+
+                    selectCommand = new SqliteCommand($"SELECT {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Item.LastModifiedTimeStamp.Name} FROM {Tagme_CoreUWP.Tagme_DataBaseConst.BasicDataBaseInfo.Name}");
+                    selectCommand.Connection = db;
+                    reader = selectCommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        ModifiedTime.Text = ShimizuCoreUWP.UnitConvertion.SecondUnixTimeStampToDateTime(long.Parse(reader.GetString(0))).ToString();
+                    }
+
+                    db.Close();
+                }
+            }
+            DataBaseTitle.Text = Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBase;
+            DataBasePath.Text = Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath;
+            
         }
     }
 }

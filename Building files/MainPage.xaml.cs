@@ -129,6 +129,9 @@ namespace Tagme_
                 case "Tagme_.DataBaseViewPage":
                     title = Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBase + " - " + title;
                     break;
+                case "Tagme_.DataBaseDetailPage":
+                    title = "Detail: " + Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBase + " - " + title;
+                    break;
                 //At home page
                 default:
                     break;
