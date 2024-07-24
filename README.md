@@ -28,14 +28,21 @@ Requirements:
   - Microsoft.VCLibs
 
 ## For the developers
+If there's an about page, please keep a link pointing to this repository, the original version.
 
-## For Gitcode
-Don't clone my repo and make a doll of me!
+Feel free to ask and help with us! **If you want to help, there's a help request list below.**
+
+## Help request
+- [ ] Test with back button, **if the program can go back after back button pressed**? (Some special type of windows devices will have a back button, such as Windows phone(though this program dosen't support Windows Phone since some control features used), and some devices originally installed Android system(I once saw a Android pad reinstalled with windows. the back button could work, so I believe I should support it. Unfortunatly, I don't have a device like that).
+  1. Open settings(yes, windows settings)
+  1. Test if your back button works, if not, your back button won't work, there's no need to continue
+  1. Open Tagme_ to test.
+  1. Tell me if it works.
 
 ### Requirements for using Tagme_CoreUWP
 *Please make sure that your template is a UWP one otherwise some functions may not run properly.*
 - Nuget Package: Microsoft.Data.Sqlite
-- NekoWahsCoreUWP(We'll place it in the App.xaml.cs, like what we did to Tagme_CoreUWP)
+- ShimizuCoreUWP(We'll place it in the App.xaml.cs, like what we(at least now it should be "I") did to Tagme_CoreUWP)
 
 ## Want to know my building diary of Tagme_?
 Go to see: ***https://github.com/ShimizuTheLotus/Tagme_/blob/main/Diary.md***
