@@ -40,8 +40,8 @@
     - [x] Path
     - [x] Created time
     - [x] Modified time
-    - [ ] Subitem count
-    - [ ] Storage
+    - [x] Subitem count
+    - [x] Storage
     - [ ] Description
   - [ ] Check incompleted item (These item not have completed data in all tables. Let the user decide whether fix or not, if true, try to fix them automatically.)
   - [ ] Check unlinked item (These item will never show because no links points to them, if there's an unlinked item, provide the user these choices: delete or create a new item with the item)
