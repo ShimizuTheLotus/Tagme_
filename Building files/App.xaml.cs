@@ -202,47 +202,47 @@ namespace Tagme_
         public static class UnitConvertion
         {
             //Change the storage unit to normal unit
-            public static string FitByte(long byteNum)
+            public static string FitByte(long byteNum, bool thousandsSeparator = true)
             {
                 if (byteNum < Math.Pow(1024, 1))
                 {
-                    return byteNum.ToString() + "B";
+                    return byteNum.ToString(thousandsSeparator ? "N0" : "") + "B";
                 }
                 else if (byteNum < Math.Pow(1024, 2))
                 {
-                    return (byteNum/ Math.Pow(1024, 1)).ToString() + "KiB";
+                    return (byteNum/ Math.Pow(1024, 1)).ToString(thousandsSeparator ? "N0" : "") + "KiB";
                 }
                 else if (byteNum < Math.Pow(1024, 3))
                 {
-                    return (byteNum / Math.Pow(1024, 2)) + "MiB";
+                    return (byteNum / Math.Pow(1024, 2)).ToString(thousandsSeparator ? "N0" : "") + "MiB";
                 }
                 else if (byteNum < Math.Pow(1024, 4))
                 {
-                    return (byteNum / Math.Pow(1024, 3)).ToString() + "GiB";
+                    return (byteNum / Math.Pow(1024, 3)).ToString(thousandsSeparator ? "N0" : "") + "GiB";
                 }
                 else if (byteNum < Math.Pow(1024, 5))
                 {
-                    return (byteNum / Math.Pow(1024, 4)).ToString() + "TiB";
+                    return (byteNum / Math.Pow(1024, 4)).ToString(thousandsSeparator ? "N0" : "") + "TiB";
                 }
                 else if (byteNum < Math.Pow(1024, 6))
                 {
-                    return (byteNum / Math.Pow(1024, 5)).ToString() + "PiB";
+                    return (byteNum / Math.Pow(1024, 5)).ToString(thousandsSeparator ? "N0" : "") + "PiB";
                 }
                 else if (byteNum < Math.Pow(1024, 7))
                 {
-                    return (byteNum / Math.Pow(1024, 6)).ToString() + "EiB";
+                    return (byteNum / Math.Pow(1024, 6)).ToString(thousandsSeparator ? "N0" : "") + "EiB";
                 }
                 else if (byteNum < Math.Pow(1024, 8))
                 {
-                    return (byteNum / Math.Pow(1024, 7)).ToString() + "ZiB";
+                    return (byteNum / Math.Pow(1024, 7)).ToString(thousandsSeparator ? "N0" : "") + "ZiB";
                 }
                 else if (byteNum < Math.Pow(1024, 9))
                 {
-                    return (byteNum / Math.Pow(1024, 8)).ToString() + "YiB";
+                    return (byteNum / Math.Pow(1024, 8)).ToString(thousandsSeparator ? "N0" : "") + "YiB";
                 }
                 else
                 {
-                    return (byteNum / Math.Pow(1024, 9)).ToString() + "BiB";
+                    return (byteNum / Math.Pow(1024, 9)).ToString(thousandsSeparator ? "N0" : "") + "BiB";
                 }
             }
 

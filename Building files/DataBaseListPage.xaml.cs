@@ -275,6 +275,13 @@ namespace Tagme_
                             dbFileSize = fileInfoList.Length;
 
                             //Get subitemCount
+                            selectCommand = new SqliteCommand($"SELECT Count(*) FROM {Tagme_CoreUWP.Tagme_DataBaseConst.ItemIndexRoot.Name}");
+                            selectCommand.Connection = db;
+                            reader = selectCommand.ExecuteReader();
+                            while (reader.Read())
+                            {
+                                subitemCount = reader.GetString(0);
+                            }
 
 
                             Tagme_CustomizedCore.DataBaseListViewSource.Add(new Tagme_CustomizedCore.Template.DataBaseListViewTemplate

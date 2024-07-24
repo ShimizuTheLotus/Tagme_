@@ -12,6 +12,7 @@
         <StackPanel Orientation="Vertical">
             <TextBlock x:Name="DataBaseCover_Title"
                        Text="cover"
+                       FontWeight="Bold"
                        />
             <Image x:Name="DataBaseCover"
                    Width="200" Height="200"
@@ -19,26 +20,33 @@
                    Source="Assets\Square150x150Logo.scale-200.png"/>
             <TextBlock x:Name="DataBaseTitle_Title"
                        Text="database name"
+                       FontWeight="Bold"
                        />
             <TextBlock x:Name="DataBaseTitle"/>
             <TextBlock x:Name="DataBasePath_Title"
                        Text="path"
+                       FontWeight="Bold"
                        />
             <TextBlock x:Name="DataBasePath"/>
             <TextBlock x:Name="CreatedTime_Title"
                        Text="created time"
+                       FontWeight="Bold"
                        />
             <TextBlock x:Name="CreatedTime"/>
             <TextBlock x:Name="ModifiedTime_Title"
                        Text="modified time"
+                       FontWeight="Bold"
                        />
             <TextBlock x:Name="ModifiedTime"/>
             <TextBlock x:Name="SubitemCount_Title"
                        Text="subitem count"
+                       FontWeight="Bold"
                        />
             <TextBlock x:Name="SubitemCount"/>
             <TextBlock x:Name="Storage_Title"
-                       Text="storage"/>
+                       Text="storage"
+                       FontWeight="Bold"
+                       />
             <TextBlock x:Name="Storage"/>
         </StackPanel>
     </RelativePanel>

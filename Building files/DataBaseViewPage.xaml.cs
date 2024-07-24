@@ -40,6 +40,7 @@ namespace Tagme_
         {
             base.OnNavigatedTo(e);
 
+            //Forward animation
             var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionBarConnectedAnimation");
             if (anim != null)
             {
@@ -81,6 +82,13 @@ namespace Tagme_
                 anim.TryStart(OptionBarEditLabel);
             }
             anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionSelectedDataBaseCoverConnectedAnimation");
+            if (anim != null)
+            {
+                anim.TryStart(OptionBarCurrentDataBaseDetailPageButtonImage);
+            }
+
+            //Back animation
+            anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("BackDataBaseViewPageOptionBarCurrentDataBaseDetailPageButtonConnectedAnimation");
             if (anim != null)
             {
                 anim.TryStart(OptionBarCurrentDataBaseDetailPageButtonImage);

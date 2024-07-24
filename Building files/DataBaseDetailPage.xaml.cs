@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -47,10 +48,21 @@ namespace Tagme_
             }
         }
 
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            base.OnNavigatingFrom(e);
+
+            if (e.NavigationMode == NavigationMode.Back)
+            {
+                ConnectedAnimation animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackDataBaseViewPageOptionBarCurrentDataBaseDetailPageButtonConnectedAnimation", DataBaseCover);
+                animation.Configuration = new DirectConnectedAnimationConfiguration();
+            }
+        }
 
         private void GetBasicProperties()
         {
-            if (File.Exists(Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath))
+            string dbpath = Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath;
+            if (File.Exists(dbpath))
             {
                 using (SqliteConnection db = new SqliteConnection($"Filename={Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath}"))
                 {
@@ -76,6 +88,18 @@ namespace Tagme_
                     {
                         ModifiedTime.Text = ShimizuCoreUWP.UnitConvertion.SecondUnixTimeStampToDateTime(long.Parse(reader.GetString(0))).ToString();
                     }
+
+                    selectCommand = new SqliteCommand($"SELECT Count(*) FROM {Tagme_CoreUWP.Tagme_DataBaseConst.ItemIndexRoot.Name}");
+                    selectCommand.Connection = db;
+                    reader = selectCommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        SubitemCount.Text = reader.GetString(0);
+                    }
+                    
+                    FileInfo fileInfoList = new FileInfo(dbpath);
+                    Storage.Text = ShimizuCoreUWP.UnitConvertion.FitByte(fileInfoList.Length) + " (" + fileInfoList.Length.ToString("N0") + "bytes" + ")";
+                    
 
                     db.Close();
                 }
