@@ -9,51 +9,65 @@
     Background="Transparent">
 
     <RelativePanel Background="Transparent" Margin="16">
-        <StackPanel Orientation="Vertical">
-            <TextBlock x:Name="DataBaseCover_Title"
+        <StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBlock x:Name="DataBaseCover_Title"
                        Text="cover"
                        FontWeight="Bold"
                        />
-            <Image x:Name="DataBaseCover"
+                <Image x:Name="DataBaseCover"
                    Width="200" Height="200"
                    Stretch="UniformToFill"
                    Source="Assets\Square150x150Logo.scale-200.png"/>
-            <TextBlock x:Name="DataBaseTitle_Title"
+                <TextBlock x:Name="DataBaseTitle_Title"
                        Text="database name"
                        FontWeight="Bold"
                        />
-            <TextBlock x:Name="DataBaseTitle"
-                       Margin="0,0,0,8"/>
-            <TextBlock x:Name="DataBasePath_Title"
+                <TextBlock x:Name="DataBaseTitle"
+                       Margin="0,0,0,8"
+                       TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Name="DataBasePath_Title"
                        Text="path"
                        FontWeight="Bold"
                        />
-            <TextBlock x:Name="DataBasePath"
-                       Margin="0,0,0,8"/>
-            <TextBlock x:Name="CreatedTime_Title"
+                <TextBlock x:Name="DataBasePath"
+                       Margin="0,0,0,8"
+                       TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Name="CreatedTime_Title"
                        Text="created time"
                        FontWeight="Bold"
                        />
-            <TextBlock x:Name="CreatedTime"
-                       Margin="0,0,0,8"/>
-            <TextBlock x:Name="ModifiedTime_Title"
+                <TextBlock x:Name="CreatedTime"
+                       Margin="0,0,0,8"
+                       TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Name="ModifiedTime_Title"
                        Text="modified time"
                        FontWeight="Bold"
                        />
-            <TextBlock x:Name="ModifiedTime"
-                       Margin="0,0,0,8"/>
-            <TextBlock x:Name="SubitemCount_Title"
+                <TextBlock x:Name="ModifiedTime"
+                       Margin="0,0,0,8"
+                       TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Name="SubitemCount_Title"
                        Text="subitem count"
                        FontWeight="Bold"
                        />
-            <TextBlock x:Name="SubitemCount"
-                       Margin="0,0,0,8"/>
-            <TextBlock x:Name="Storage_Title"
+                <TextBlock x:Name="SubitemCount"
+                       Margin="0,0,0,8"
+                       TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Name="Storage_Title"
                        Text="storage"
                        FontWeight="Bold"
                        />
-            <TextBlock x:Name="Storage"
-                       Margin="0,0,0,8"/>
+                <TextBlock x:Name="Storage"
+                       Margin="0,0,0,8"
+                       TextWrapping="WrapWholeWords"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock x:Name="Description_Title"
+                           Text="description"
+                           FontWeight="Bold"/>
+                <TextBlock x:Name="Description"/>
+            </StackPanel>
         </StackPanel>
     </RelativePanel>
 </Page>
