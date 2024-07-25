@@ -97,11 +97,7 @@ namespace Tagme_
                 animation.Configuration = new DirectConnectedAnimationConfiguration();
                 animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackDataBaseViewPageOptionBarViewModeAppBarButtonConnectedAnimation", OptionBarViewModeAppBarButton);
                 animation.Configuration = new DirectConnectedAnimationConfiguration();
-                animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackDataBaseViewPageOptionCommandBarBrowseLabelConnectedAnimation", OptionBarBrowseLabel);
-                animation.Configuration = new DirectConnectedAnimationConfiguration();
                 animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackDataBaseViewPageOptionsCommandBarSeparator1ConnectedAnimation", OptionBarCommandBarSeparator1);
-                animation.Configuration = new DirectConnectedAnimationConfiguration();
-                animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackDataBaseViewPageOptionCommandBarEditLabelConnectedAnimation", OptionBarEditLabel);
                 animation.Configuration = new DirectConnectedAnimationConfiguration();
                 //animation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionSelectedDataBaseCoverConnectedAnimation", OptionBarCurrentDataBasePropertyPageButtonImage);
                 animation.Configuration = new DirectConnectedAnimationConfiguration();
