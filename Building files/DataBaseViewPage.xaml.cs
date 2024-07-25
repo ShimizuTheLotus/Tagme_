@@ -56,11 +56,6 @@ namespace Tagme_
             {
                 anim.TryStart(OptionBarViewModeAppBarButton);
             }
-            anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionCommandBarBrowseLabelConnectedAnimation");
-            if (anim != null)
-            {
-                anim.TryStart(OptionBarBrowseLabel);
-            }
             anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionsCommandBarSeparator1ConnectedAnimation");
             if (anim != null)
             {
@@ -75,11 +70,6 @@ namespace Tagme_
             if (anim != null)
             {
                 anim.TryStart(OptionBarMultiSelectAppBarButton);
-            }
-            anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionCommandBarEditLabelConnectedAnimation");
-            if (anim != null)
-            {
-                anim.TryStart(OptionBarEditLabel);
             }
             anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionSelectedDataBaseCoverConnectedAnimation");
             if (anim != null)
