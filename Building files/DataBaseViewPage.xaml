@@ -79,12 +79,6 @@
                               Icon="PreviewLink" Label="view mode">
                 </AppBarButton>
             </CommandBar>
-            <TextBlock x:Name="OptionBarBrowseLabel"
-                       Text="browse"
-                       FontSize="11"
-                       Margin="0,0,0,0"
-                       RelativePanel.AlignHorizontalCenterWith="OptionBarBrowsePart"
-                       RelativePanel.Below="OptionBarBrowsePart"/>
             <CommandBar x:Name="OptionBarCommandBarSeparator1"
                         RelativePanel.RightOf="OptionBarBrowsePart"
                         Margin="4,4,0,0">
@@ -113,15 +107,8 @@
                 </AppBarButton>
                 <AppBarButton x:Name="OptionBarCopyAppBarButton"
                               Icon="Copy" Label="copy">
-
                 </AppBarButton>
             </CommandBar>
-            <TextBlock x:Name="OptionBarEditLabel"
-                       Text="edit"
-                       FontSize="11"
-                       Margin="0,0,0,0"
-                       RelativePanel.AlignHorizontalCenterWith="OptionBarCommandBarEditPart"
-                       RelativePanel.Below="OptionBarCommandBarEditPart"/>
 
         </RelativePanel>
         <ListView x:Name="DataBaseCurrentFolderListView"
