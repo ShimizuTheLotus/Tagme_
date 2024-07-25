@@ -400,11 +400,9 @@ namespace Tagme_
                 ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionBarConnectedAnimation", OptionBarRelativePanel);
                 ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionBarSortAppBarButtonConnectedAnimation", OptionBarSortAppBarButton);
                 ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionBarViewModeAppBarButtonConnectedAnimation", OptionBarViewModeAppBarButton);
-                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionCommandBarBrowseLabelConnectedAnimation", OptionCommandBarBrowseLabel);
                 ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionsCommandBarSeparator1ConnectedAnimation", OptionsCommandBarSeparator1);
                 ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionBarCreateDataBaseAppBarButtonConnectedAnimation", OptionBarCreateDataBaseAppBarButton);
                 ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionBarMultiSelectAppBarButtonConnectedAnimation", OptionBarMultiSelectAppBarButton);
-                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionCommandBarEditLabelConnectedAnimation", OptionCommandBarEditLabel);
                 if (DataBaseListView.ContainerFromItem(e.ClickedItem) is ListViewItem container)
                 {
                     Tagme_CustomizedCore.Template.DataBaseListViewTemplate item = container.Content as Tagme_CustomizedCore.Template.DataBaseListViewTemplate;
