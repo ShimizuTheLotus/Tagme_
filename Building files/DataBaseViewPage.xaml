@@ -4,6 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
     Background="Transparent">
 
@@ -68,7 +69,7 @@
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.RightOf="OptionBarCurrentDataBaseDetailPageButton"
                        RelativePanel.AlignTopWithPanel="True"
-                       Height="80"
+                       Height="48"
                        Style="{ThemeResource Tagme_DefaultPanelBackground}">
             <CommandBar x:Name="OptionBarBrowsePart"
                         DefaultLabelPosition="Right"
@@ -89,12 +90,11 @@
                         RelativePanel.RightOf="OptionBarCommandBarSeparator1"
                         Margin="4,4,0,0">
                 <AppBarButton x:Name="OptionBarEditAppBarButton"
-                              
                               Icon="Edit" Label="edit">
                 </AppBarButton>
                 <AppBarButton x:Name="OptionBarAddItemAppBarButton"
-                              Icon="Add" Label="add item">
-
+                              Icon="Add" Label="add item"
+                              Click="OptionBarAddItemAppBarButton_Click">
                 </AppBarButton>
                 <AppBarButton x:Name="OptionBarMultiSelectAppBarButton"
                               Label="multi-select">
@@ -111,8 +111,18 @@
             </CommandBar>
 
         </RelativePanel>
+        <RelativePanel x:Name="RouteBarPanel"
+                       RelativePanel.RightOf="OptionBarCurrentDataBaseDetailPageButton"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.Below="OperationPanel"
+                       Style="{ThemeResource Tagme_DefaultPanelBackground}"
+                       Height="48">
+            <muxc:BreadcrumbBar x:Name="RouteBar"
+                                RelativePanel.AlignVerticalCenterWithPanel="True"
+                                Margin="8"/>
+        </RelativePanel>
         <ListView x:Name="DataBaseCurrentFolderListView"
-                  RelativePanel.Below="OperationPanel">
+                  RelativePanel.Below="RouteBarPanel">
 
         </ListView>
     </RelativePanel>

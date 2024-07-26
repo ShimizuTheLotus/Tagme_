@@ -31,6 +31,13 @@ namespace Tagme_
             Loaded += DataBaseViewPage_Loaded;
         }
 
+        //variables
+        public static class Variable
+        {
+            //ID, Name
+            public static List<(string, string)> RouteList = new List<(string, string)>();
+        }
+
         private void DataBaseViewPage_Loaded(object sender, RoutedEventArgs e)
         {
             SetDataBaseCoverImageOnPropertyPagePanel();
@@ -39,6 +46,12 @@ namespace Tagme_
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+
+            //Initialize database
+            if (Frame.BackStack[Frame.BackStack.Count - 1].SourcePageType.ToString() == "Tagme_.DataBaseListPage")
+            {
+                InitializeRouteBar(); 
+            }
 
             //Forward animation
             var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("DataBaseViewPageOptionBarConnectedAnimation");
@@ -138,12 +151,27 @@ namespace Tagme_
             }
         }
 
+        private void InitializeRouteBar()
+        {
+            Variable.RouteList = new List<(string, string)>() {("0","Root")};
+            List<string> RouteListForShow = new List<string>();
+            foreach ((string,string) item in Variable.RouteList)
+            {
+                RouteListForShow.Add(item.Item2);
+            }
+            RouteBar.ItemsSource = RouteListForShow;
+        }
 
         private void OptionBarCurrentDataBaseDetailPageButton_Click(object sender, RoutedEventArgs e)
         {
             //Navigate to DataBaseDetailPage
             ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("DataBaseViewPageOptionBarCurrentDataBaseDetailPageButtonConnectedAnimation", OptionBarCurrentDataBaseDetailPageButton);
             Frame.Navigate(typeof(DataBaseDetailPage));
+        }
+
+        private void OptionBarAddItemAppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AddItemPage));
         }
     }
 }
