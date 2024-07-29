@@ -36,3 +36,5 @@
 - Created a new Page... To show the detail of a database. But now it's just a blank page.
 ### Jul. 24 2024
 - found a way to add thousands separators in number (for int, use ".ToString("N0")". It will cause error when you use it to a string.)
+### Jul. 29 2024
+- Considering using WrapLayout and TokenizingTextBox in Windows Community Tookit Gallery. Fancy controls.
