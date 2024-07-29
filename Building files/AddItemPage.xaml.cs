@@ -26,5 +26,20 @@ namespace Tagme_
         {
             this.InitializeComponent();
         }
+
+        public class TagListTemplate
+        {
+            public string Tag { get; set; }
+        }
+
+        public static class Data
+        {
+            public static List<TagListTemplate> TagList = new List<TagListTemplate>();
+        }
+
+        private void TagTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
