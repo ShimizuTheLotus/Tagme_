@@ -5,22 +5,12 @@
     xmlns:local="using:Tagme_"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+    xmlns:cucc="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d"
     Background="Transparent">
 
     <Page.Resources>
-        <DataTemplate x:Key="TagsRepeaterDataTemplate"
-                      >
-            <Grid>
-                <AppBarButton Content="{Binding Tag}"/>
-                <StackPanel Margin="8"
-                    RelativePanel.AlignTopWithPanel="True"
-                    RelativePanel.AlignBottomWithPanel="True"
-                    RelativePanel.AlignLeftWithPanel="True"
-                    RelativePanel.AlignRightWithPanel="True">
-                </StackPanel>
-            </Grid>
-        </DataTemplate>
+
     </Page.Resources>
     <RelativePanel>
         <StackPanel>
@@ -28,13 +18,20 @@
                      Header="Title"/>
             <TextBox x:Name="DescriptionTextBox"
                      Header="Description"/>
-            <TextBox x:Name="TagTextBox"
-                     Header="Tags"
-                     TextChanged="TagTextBox_TextChanged"/>
-            <controls:ItemsRepeater x:Name="TagsRepeater"
-                                    ItemsSource="{Binding}"
-                                    Layout="{StaticResource UniformGridLayout}"
-                                    ItemTemplate="{StaticResource TagsRepeaterDataTemplate}"/>
+            <cucc:TokenizingTextBox x:Name="TagTextBox"
+                                    Header="Tags"
+                                    ItemsSource="{x:Bind Tags, Mode=TwoWay}"
+                                    TextChanged="TagTextBox_TextChanged"
+                                    TokenDelimiter="   "
+                                    TokenItemAdding="TagTextBox_TokenItemAdding">
+                <cucc:TokenizingTextBox.TokenItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Padding="8,0,0,0"
+                                   Text="{Binding}" 
+                                   TextWrapping="Wrap"/>
+                    </DataTemplate>
+                </cucc:TokenizingTextBox.TokenItemTemplate>
+            </cucc:TokenizingTextBox>
         </StackPanel>
     </RelativePanel>
 </Page>
