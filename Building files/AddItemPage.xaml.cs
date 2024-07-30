@@ -111,7 +111,7 @@ namespace Tagme_
 
         private void TagTextBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-
+            //Suggest contents
         }
     }
 }
