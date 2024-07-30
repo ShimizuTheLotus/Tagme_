@@ -38,3 +38,5 @@
 - found a way to add thousands separators in number (for int, use ".ToString("N0")". It will cause error when you use it to a string.)
 ### Jul. 29 2024
 - Considering using WrapLayout and TokenizingTextBox in Windows Community Tookit Gallery. Fancy controls.
+### Jul. 30 2024
+- Failed to let tokens in TokenizingTextBox wrap. Discussion sended at https://github.com/CommunityToolkit/Windows/discussions/455 and wating for help.
