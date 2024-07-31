@@ -49,3 +49,8 @@
 - [ ] DataBaseStructPage.xaml
  - [ ] Navigation view
  - [ ] Do not show image CheckBox(default: false, when it is false, the image will be shown as "Image" with hyperlink type, click to show it.)
+- [ ] AddItemPage.xaml
+  - [ ] Title
+  - [ ] Description
+  - [ ] Tags
+  - [ ] Attached Item
