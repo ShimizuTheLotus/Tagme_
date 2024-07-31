@@ -17,7 +17,9 @@
             <TextBox x:Name="TitleTextBox"
                      Header="Title"/>
             <TextBox x:Name="DescriptionTextBox"
-                     Header="Description"/>
+                     Header="Description"
+                     TextWrapping="Wrap"
+                     AcceptsReturn="True"/>
             <cucc:TokenizingTextBox x:Name="TagTextBox"
                                     Header="Tags"
                                     ItemsSource="{x:Bind Tags, Mode=TwoWay}"
