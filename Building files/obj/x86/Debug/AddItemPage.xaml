@@ -1,0 +1,40 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="Tagme_.AddItemPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Tagme_"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+    xmlns:cucc="using:CommunityToolkit.WinUI.Controls"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <Page.Resources>
+
+    </Page.Resources>
+    <RelativePanel>
+        <StackPanel>
+            <TextBox x:ConnectionId='2' x:Name="TitleTextBox"
+                     Header="Title"/>
+            <TextBox x:ConnectionId='3' x:Name="DescriptionTextBox"
+                     Header="Description"
+                     TextWrapping="Wrap"
+                     AcceptsReturn="True"/>
+            <cucc:TokenizingTextBox x:ConnectionId='4' x:Name="TagTextBox"
+                                    Header="Tags"
+                                                                            
+                                                                        
+                                    TokenDelimiter="   "
+                                                                                >
+                <cucc:TokenizingTextBox.TokenItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Padding="8,0,0,0"
+                                   Text="{Binding}" 
+                                   TextWrapping="Wrap"/>
+                    </DataTemplate>
+                </cucc:TokenizingTextBox.TokenItemTemplate>
+            </cucc:TokenizingTextBox>
+        </StackPanel>
+    </RelativePanel>
+</Page>
+
