@@ -21,7 +21,12 @@
                      TextWrapping="Wrap"
                      AcceptsReturn="True"/>
             <StackPanel>
-                
+                <Border>
+                    <AppBarButton/>
+                </Border>
+                <Border>
+                    <AppBarButton/>
+                </Border>
             </StackPanel>
             <cucc:TokenizingTextBox x:Name="TagTextBox"
                                     Header="Tags"
