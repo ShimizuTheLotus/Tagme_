@@ -20,6 +20,9 @@
                      Header="Description"
                      TextWrapping="Wrap"
                      AcceptsReturn="True"/>
+            <StackPanel>
+                
+            </StackPanel>
             <cucc:TokenizingTextBox x:Name="TagTextBox"
                                     Header="Tags"
                                     ItemsSource="{x:Bind Tags, Mode=TwoWay}"
