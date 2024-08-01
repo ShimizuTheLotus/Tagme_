@@ -20,6 +20,9 @@
                      Header="Description"
                      TextWrapping="Wrap"
                      AcceptsReturn="True"/>
+            <StackPanel>
+                
+            </StackPanel>
             <cucc:TokenizingTextBox x:ConnectionId='4' x:Name="TagTextBox"
                                     Header="Tags"
                                                                             

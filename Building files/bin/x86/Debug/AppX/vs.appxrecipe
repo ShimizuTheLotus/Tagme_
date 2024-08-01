@@ -30,13 +30,13 @@
     <AppXManifest Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-08-01T03:17:22.595</Modified>
+      <Modified>2024-08-01T03:37:31.891</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x86\Debug\Tagme_.exe">
       <PackagePath>entrypoint\Tagme_.exe</PackagePath>
-      <Modified>2024-08-01T03:17:20.288</Modified>
+      <Modified>2024-08-01T03:37:30.333</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ChiSu\.nuget\packages\microsoft.web.webview2\1.0.1264.42\build\..\runtimes\win-x86\native_uap\Microsoft.Web.WebView2.Core.dll">
       <PackagePath>Microsoft.Web.WebView2.Core.dll</PackagePath>
@@ -150,31 +150,31 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2024-08-01T03:17:20.146</Modified>
+      <Modified>2024-08-01T03:37:30.248</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x86\Debug\AddItemPage.xbf">
       <PackagePath>AddItemPage.xbf</PackagePath>
-      <Modified>2024-08-01T03:17:20.146</Modified>
+      <Modified>2024-08-01T03:37:30.248</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x86\Debug\CreateDataBasePage.xbf">
       <PackagePath>CreateDataBasePage.xbf</PackagePath>
-      <Modified>2024-08-01T03:17:20.130</Modified>
+      <Modified>2024-08-01T03:37:30.239</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x86\Debug\DataBaseDetailPage.xbf">
       <PackagePath>DataBaseDetailPage.xbf</PackagePath>
-      <Modified>2024-08-01T03:17:20.146</Modified>
+      <Modified>2024-08-01T03:37:30.248</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x86\Debug\DataBaseListPage.xbf">
       <PackagePath>DataBaseListPage.xbf</PackagePath>
-      <Modified>2024-08-01T03:17:20.130</Modified>
+      <Modified>2024-08-01T03:37:30.243</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x86\Debug\DataBaseViewPage.xbf">
       <PackagePath>DataBaseViewPage.xbf</PackagePath>
-      <Modified>2024-08-01T03:17:20.130</Modified>
+      <Modified>2024-08-01T03:37:30.245</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2024-08-01T03:17:20.146</Modified>
+      <Modified>2024-08-01T03:37:30.248</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.22621.0\\redist\Debug\x86\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -194,7 +194,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Repos\ShimizuTheLotus\Tagme_\Building files\bin\x86\Debug\Core\Tagme_.exe">
       <PackagePath>Tagme_.exe</PackagePath>
-      <Modified>2024-08-01T03:17:22.575</Modified>
+      <Modified>2024-08-01T03:37:31.886</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
