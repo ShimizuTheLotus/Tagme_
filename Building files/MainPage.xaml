@@ -113,5 +113,9 @@
                RelativePanel.AlignRightWithPanel="True">
 
         </Frame>
+
+        <ContentDialog x:Name="InfoDialog"
+                       x:FieldModifier="public">
+        </ContentDialog>
     </RelativePanel>
 </Page>

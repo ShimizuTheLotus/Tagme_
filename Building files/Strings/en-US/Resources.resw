@@ -198,6 +198,18 @@
   <data name="DataBaseListPage.SearchBox.ToolTipService.ToolTip" xml:space="preserve">
     <value>Search databases by name here</value>
   </data>
+  <data name="Global.CS.Error.BroadFileSystemAccessNotEnabled.DialogCloseKeyText" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Global.CS.Error.BroadFileSystemAccessNotEnabled.DialogContent" xml:space="preserve">
+    <value>Tagme_ need file system access permission to work, please enable the setting for it.</value>
+  </data>
+  <data name="Global.CS.Error.BroadFileSystemAccessNotEnabled.DialogPrimaryKeyText" xml:space="preserve">
+    <value>Go to enable</value>
+  </data>
+  <data name="Global.CS.Error.BroadFileSystemAccessNotEnabled.DialogTitleText" xml:space="preserve">
+    <value>Permision Required</value>
+  </data>
   <data name="MainPage.CS.StatusTitle.ProgramTitle_CreateDataBase.Text" xml:space="preserve">
     <value>Create database</value>
   </data>

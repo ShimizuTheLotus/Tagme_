@@ -198,6 +198,18 @@
   <data name="DataBaseListPage.SearchBox.ToolTipService.ToolTip" xml:space="preserve">
     <value>在此处用名称搜索数据库</value>
   </data>
+  <data name="Global.CS.Error.BroadFileSystemAccessNotEnabled.DialogCloseKeyText" xml:space="preserve">
+    <value>不了</value>
+  </data>
+  <data name="Global.CS.Error.BroadFileSystemAccessNotEnabled.DialogContent" xml:space="preserve">
+    <value>Tagme_ 的运作需要文件系统权限，请为之放行。</value>
+  </data>
+  <data name="Global.CS.Error.BroadFileSystemAccessNotEnabled.DialogPrimaryKeyText" xml:space="preserve">
+    <value>去打开</value>
+  </data>
+  <data name="Global.CS.Error.BroadFileSystemAccessNotEnabled.DialogTitleText" xml:space="preserve">
+    <value>需要权限</value>
+  </data>
   <data name="MainPage.CS.StatusTitle.ProgramTitle_CreateDataBase.Text" xml:space="preserve">
     <value>新建数据库</value>
   </data>

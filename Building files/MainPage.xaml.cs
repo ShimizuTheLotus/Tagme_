@@ -35,6 +35,9 @@ namespace Tagme_
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        //Set global refrence name
+        public static MainPage MainPagePointer;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -47,7 +50,72 @@ namespace Tagme_
 
             SystemNavigationManager.GetForCurrentView().BackRequested += BackButtonPressed;
             //Initialize
+
+            //Set global refrence name
+            MainPagePointer = this;
         }
+
+        //Global ContentDialog
+        public async void ShowGlobalInfoContentDialog(string title, string content, string primaryButtonText, string closeButtonText = "")
+        {
+            ContentDialog dialog = new ContentDialog()
+            {
+                XamlRoot = this.XamlRoot,
+                Title = title,
+                Content = content,
+                PrimaryButtonText = primaryButtonText,
+                CloseButtonText = closeButtonText,
+                DefaultButton = primaryButtonText == "" ? ContentDialogButton.Close : ContentDialogButton.Primary,
+            };
+            dialog.PrimaryButtonClick += Dialog_PrimaryButtonClick;
+            dialog.SecondaryButtonClick += Dialog_SecondaryButtonClick;
+            dialog.CloseButtonClick += Dialog_CloseButtonClick;
+
+            await dialog.ShowAsync();
+        }
+
+        private void Dialog_CloseButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+        }
+
+        private void Dialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+        }
+
+        private async void Dialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            string info = sender.Content.ToString();
+            if (info[0] == '[')
+            {
+                int i = 0;
+                string errInfo = "";
+                foreach (char c in info)
+                {
+                    if (c == ']')
+                    {
+                        break;
+                    }
+                    i += 1;
+                }
+                try
+                {
+                    errInfo = info.Substring(1, i - 1);
+                    switch (errInfo)
+                    {
+                        case "0x1":
+                            //Need BroadFileSystemAccess permission
+                            await Windows.System.Launcher.LaunchUriAsync(new Uri("\tms-settings:privacy-broadfilesystemaccess"));
+                            break;
+                    }
+                }
+                catch
+                {
+                    return;
+                }
+            }
+
+        }
+
 
         //Initializations
         /// <summary>
@@ -182,5 +250,6 @@ namespace Tagme_
                 }
             }
         }
+
     }
 }
