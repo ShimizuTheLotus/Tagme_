@@ -31,6 +31,7 @@
 - **Anyone wanting to clone the repository should obey the GNU GPL 3.0, you shouldn't point the original author to anyother one, even that's a account with a same name with the author but on a different site, even that's a robot account. And, you should put the link of original author at a position easy to see, such as putting it below the modified version author's name.**
   
 - **At least for this project, its only author is [ShimizuTheLotus](https://github.com/ShimizuTheLotus/) on github.com, and here's the [original project link](https://github.com/ShimizuTheLotus/Tagme_)**
+
 ## July
 ### Jul. 12 2024
 - Created a new Page... To show the detail of a database. But now it's just a blank page.
@@ -40,3 +41,8 @@
 - Considering using WrapLayout and TokenizingTextBox in Windows Community Tookit Gallery. Fancy controls.
 ### Jul. 30 2024
 - Failed to let tokens in TokenizingTextBox wrap. Discussion sended at https://github.com/CommunityToolkit/Windows/discussions/455 and wating for help.
+
+## August
+### Aug. 1 2024
+- A misoperation let me uploaded compiled files and it made a change of thousands of lines.
+- Then I found a **fatal error**: after I reinstalled it, the info database dosen't work. This means the problem of the database was solved when coding... I never tried to reinstall it.
