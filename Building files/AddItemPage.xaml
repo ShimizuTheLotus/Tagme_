@@ -13,20 +13,36 @@
 
     </Page.Resources>
     <RelativePanel>
-        <StackPanel>
+        <StackPanel Margin="8">
             <TextBox x:Name="TitleTextBox"
                      Header="Title"/>
             <TextBox x:Name="DescriptionTextBox"
                      Header="Description"
                      TextWrapping="Wrap"
                      AcceptsReturn="True"/>
-            <StackPanel>
-                <Border>
-                    <AppBarButton/>
-                </Border>
-                <Border>
-                    <AppBarButton/>
-                </Border>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="SetTypeFileButton"
+                        Margin="0,16,16,16"
+                        BorderBrush="{ThemeResource SystemAccentColor}"
+                        BorderThickness="4">
+                    <Button.Content>
+                        <StackPanel Orientation="Vertical">
+                            <FontIcon Glyph="&#xE7C3;" FontSize="40"/>
+                            <TextBlock Text="File" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="SetTypeFolderButton"
+                        Margin="0,16,16,16"
+                        BorderBrush="{ThemeResource SystemAccentColor}"
+                        BorderThickness="4">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <FontIcon Glyph="&#xE8B7;" FontSize="40"/>
+                                <TextBlock Text="Folder" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
             </StackPanel>
             <cucc:TokenizingTextBox x:Name="TagTextBox"
                                     Header="Tags"
