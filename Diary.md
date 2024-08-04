@@ -46,3 +46,5 @@
 ### Aug. 1 2024
 - A misoperation let me uploaded compiled files and it made a change of thousands of lines.
 - Then I found a **fatal error**: after I reinstalled it, the info database dosen't work. This means the problem of the database was solved when coding... I never tried to reinstall it.
+### Aug. 2 2024
+- The fatal error was solved.
