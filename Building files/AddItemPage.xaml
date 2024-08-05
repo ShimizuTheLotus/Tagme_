@@ -24,7 +24,8 @@
                 <Button x:Name="SetTypeFileButton"
                         Margin="0,16,16,16"
                         BorderBrush="{ThemeResource SystemAccentColor}"
-                        BorderThickness="4">
+                        BorderThickness="4"
+                        Click="SetTypeFileButton_Click">
                     <Button.Content>
                         <StackPanel Orientation="Vertical">
                             <FontIcon Glyph="&#xE7C3;" FontSize="40"/>
@@ -35,7 +36,8 @@
                 <Button x:Name="SetTypeFolderButton"
                         Margin="0,16,16,16"
                         BorderBrush="{ThemeResource SystemAccentColor}"
-                        BorderThickness="4">
+                        BorderThickness="0"
+                        Click="SetTypeFolderButton_Click">
                         <Button.Content>
                             <StackPanel Orientation="Vertical">
                                 <FontIcon Glyph="&#xE8B7;" FontSize="40"/>

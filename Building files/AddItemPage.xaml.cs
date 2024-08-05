@@ -38,6 +38,20 @@ namespace Tagme_
             pageLoaded = true;
         }
 
+        public static class NewItemProperty
+        {
+            public static bool IsFolder = false;
+            /// <summary>
+            /// Only when IsFolder == false, the content should be get or set
+            /// </summary>
+            public static bool FileContent;
+            /// <summary>
+            /// The tags will be separated with 3 spaces, and the proporty is separated with 2 spaces
+            /// </summary>
+            public static string Tags;
+            public static string Description;
+        }
+
         private void AddItemPage_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (pageLoaded)
@@ -112,6 +126,20 @@ namespace Tagme_
         private void TagTextBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
             //Suggest contents
+        }
+
+        private void SetTypeFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetTypeFileButton.BorderThickness = new Thickness(4, 4, 4, 4);
+            SetTypeFolderButton.BorderThickness = new Thickness(0, 0, 0, 0);
+            NewItemProperty.IsFolder = false;
+        }
+
+        private void SetTypeFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetTypeFileButton.BorderThickness = new Thickness(0, 0, 0, 0);
+            SetTypeFolderButton.BorderThickness = new Thickness(4, 4, 4, 4);
+            NewItemProperty.IsFolder = true;
         }
     }
 }
