@@ -21,6 +21,11 @@
                      TextWrapping="Wrap"
                      AcceptsReturn="True"/>
             <StackPanel Orientation="Horizontal">
+                <StackPanel.ChildrenTransitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition/>
+                    </TransitionCollection>
+                </StackPanel.ChildrenTransitions>
                 <Button x:Name="SetTypeFileButton"
                         Margin="0,16,16,16"
                         BorderBrush="{ThemeResource SystemAccentColor}"
