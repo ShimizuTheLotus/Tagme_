@@ -61,7 +61,7 @@ But I'll write a document here for better understand and safe storage.
 | ContentType | TEXT | The type of the content, including: File:, Folder:, URL:, StorageItemPath: |
 | Title | TEXT | The title of the item |
 | Description | TEXT | The description of this item |
-| ItemSourceMap | TEXT | If this item is not a folder, it will have a Item source in the table ItemSource. For ContentType Folder, it's empty |
+| ItemSourceMap | TEXT | If this item is not a folder and have file content, it will have a Item source in the table ItemSource. For ContentType Folder, it's empty |
 | PropertyMap | TEXT | It will point at a ID in table ItemProperty and that's its property tree root |
 | CreatedTimeStamp | TEXT | The timestamp of item create time(seconds since Jan. 1, 1970) |
 | ModifiedTimeStamp | TEXT | The timestamp of the last modified timestamp(seconds since Jan. 1, 1970) of this item |
