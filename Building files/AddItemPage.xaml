@@ -23,13 +23,18 @@
             <TextBlock Text="item type"/>
             <StackPanel Orientation="Horizontal"
                         Margin="0,8,0,0">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="8,16"/>
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </StackPanel.Resources>
                 <StackPanel.ChildrenTransitions>
                     <TransitionCollection>
                         <RepositionThemeTransition/>
                     </TransitionCollection>
                 </StackPanel.ChildrenTransitions>
                 <Button x:Name="SetTypeFileButton"
-                        Margin="0,0,16,16"
                         BorderBrush="{ThemeResource SystemAccentColor}"
                         BorderThickness="4"
                         Click="SetTypeFileButton_Click">
@@ -41,7 +46,6 @@
                     </Button.Content>
                 </Button>
                 <Button x:Name="SetTypeFolderButton"
-                        Margin="0,0,16,16"
                         BorderBrush="{ThemeResource SystemAccentColor}"
                         BorderThickness="0"
                         Click="SetTypeFolderButton_Click">
@@ -55,6 +59,29 @@
             </StackPanel>
             <TextBlock Text="content"/>
             <StackPanel Orientation="Horizontal">
+                <TextBlock Text="file path:"/>
+                <TextBlock x:Name="SelectedFilePathTextBlock"/>
+            </StackPanel>
+            <Button x:Name="ChangeSelectedFileButton"
+                    Content="choose file"
+                    Margin="4"
+                    Click="ChangeSelectedFileButton_Click"/>
+            <Button x:Name="ClearSelectedFileButton"
+                    Content="clear"
+                    Margin="4"
+                    Click="ClearSelectedFileButton_Click"/>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="8,16"/>
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </StackPanel.Resources>
+                <StackPanel.ChildrenTransitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition/>
+                    </TransitionCollection>
+                </StackPanel.ChildrenTransitions>
                 <Button x:Name="SetContentPathButton"
                         BorderBrush="{ThemeResource SystemAccentColor}"
                         BorderThickness="4"

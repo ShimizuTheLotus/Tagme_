@@ -57,8 +57,8 @@ namespace Tagme_
             /// Only when IsFolder == true, we can add file content. Else, it can only add path or nothing
             /// True: Add file content; False: Add File Path; Null: Add nothing
             /// </summary>
-            public static bool? IsFileContent = null;
-
+            public static bool? IsFileContent = false;
+            public static string FilePath = "";
         }
 
         private void AddItemPage_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -153,15 +153,34 @@ namespace Tagme_
 
         private void SetContentPathButton_Click(object sender, RoutedEventArgs e)
         {
-
+            SetContentPathButton.BorderThickness = new Thickness(4, 4, 4, 4);
+            SetContentFileButton.BorderThickness = new Thickness(0, 0, 0, 0);
+            SetContentNullButton.BorderThickness = new Thickness(0, 0, 0, 0);
+            NewItemProperty.IsFileContent = false;
         }
 
         private void SetContentFileButton_Click(object sender, RoutedEventArgs e)
         {
-
+            SetContentPathButton.BorderThickness = new Thickness(0, 0, 0, 0);
+            SetContentFileButton.BorderThickness = new Thickness(4, 4, 4, 4);
+            SetContentNullButton.BorderThickness = new Thickness(0, 0, 0, 0);
+            NewItemProperty.IsFileContent = true;
         }
 
         private void SetContentNullButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetContentPathButton.BorderThickness = new Thickness(0, 0, 0, 0);
+            SetContentFileButton.BorderThickness = new Thickness(0, 0, 0, 0);
+            SetContentNullButton.BorderThickness = new Thickness(4, 4, 4, 4);
+            NewItemProperty.IsFileContent = null;
+        }
+
+        private void ChangeSelectedFileButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ClearSelectedFileButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
