@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.WinUI.Controls;
+using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -204,7 +205,25 @@ namespace Tagme_
         private void CreateItemButton_Click(object sender, RoutedEventArgs e)
         {
             //Create Item
+            string dbpath = Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath;
+            if (File.Exists(dbpath))
+            {
+                using (SqliteConnection db = new SqliteConnection($"Filename{dbpath}"))
+                {
+                    db.Open();
 
+                    //Check tag mapping, add unlogged tags
+                    SqliteCommand sqliteCommand = new SqliteCommand($"INSERT INTO");
+
+                    //Add Item root
+
+                    //Add item source if a storage item is added, and folder won't have this property
+
+                    //Add a proporty root even it's empty
+
+                    db.Close();
+                }
+            }
         }
     }
 }

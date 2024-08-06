@@ -65,7 +65,7 @@ namespace Tagme_
             string dbpath = Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath;
             if (File.Exists(dbpath))
             {
-                using (SqliteConnection db = new SqliteConnection($"Filename={Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath}"))
+                using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
                 {
                     db.Open();
 
