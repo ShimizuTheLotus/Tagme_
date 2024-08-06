@@ -150,5 +150,20 @@ namespace Tagme_
             SetTypeFolderButton.BorderThickness = new Thickness(4, 4, 4, 4);
             NewItemProperty.IsFolder = true;
         }
+
+        private void SetContentPathButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SetContentFileButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SetContentNullButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

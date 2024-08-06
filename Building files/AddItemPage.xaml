@@ -15,44 +15,83 @@
     <RelativePanel>
         <StackPanel Margin="8">
             <TextBox x:Name="TitleTextBox"
-                     Header="Title"/>
+                     Header="title"/>
             <TextBox x:Name="DescriptionTextBox"
-                     Header="Description"
+                     Header="description"
                      TextWrapping="Wrap"
                      AcceptsReturn="True"/>
-            <StackPanel Orientation="Horizontal">
+            <TextBlock Text="item type"/>
+            <StackPanel Orientation="Horizontal"
+                        Margin="0,8,0,0">
                 <StackPanel.ChildrenTransitions>
                     <TransitionCollection>
                         <RepositionThemeTransition/>
                     </TransitionCollection>
                 </StackPanel.ChildrenTransitions>
                 <Button x:Name="SetTypeFileButton"
-                        Margin="0,16,16,16"
+                        Margin="0,0,16,16"
                         BorderBrush="{ThemeResource SystemAccentColor}"
                         BorderThickness="4"
                         Click="SetTypeFileButton_Click">
                     <Button.Content>
                         <StackPanel Orientation="Vertical">
                             <FontIcon Glyph="&#xE7C3;" FontSize="40"/>
-                            <TextBlock Text="File" TextAlignment="Center"/>
+                            <TextBlock Text="file" TextAlignment="Center"/>
                         </StackPanel>
                     </Button.Content>
                 </Button>
                 <Button x:Name="SetTypeFolderButton"
-                        Margin="0,16,16,16"
+                        Margin="0,0,16,16"
                         BorderBrush="{ThemeResource SystemAccentColor}"
                         BorderThickness="0"
                         Click="SetTypeFolderButton_Click">
                         <Button.Content>
                             <StackPanel Orientation="Vertical">
                                 <FontIcon Glyph="&#xE8B7;" FontSize="40"/>
-                                <TextBlock Text="Folder" TextAlignment="Center"/>
+                                <TextBlock Text="folder" TextAlignment="Center"/>
                             </StackPanel>
                         </Button.Content>
-                    </Button>
+                 </Button>
             </StackPanel>
+            <TextBlock Text="content"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="SetContentPathButton"
+                        BorderBrush="{ThemeResource SystemAccentColor}"
+                        BorderThickness="4"
+                        Click="SetContentPathButton_Click">
+                    <Button.Content>
+                        <StackPanel>
+                            <FontIcon Glyph="&#xE8E5;" FontSize="40"/>
+                            <TextBlock Text="file path" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="SetContentFileButton"
+                        BorderBrush="{ThemeResource SystemAccentColor}"
+                        BorderThickness="0"
+                        Click="SetContentFileButton_Click">
+                    <Button.Content>
+                        <StackPanel>
+                            <FontIcon Glyph="&#xE7C3;" FontSize="40"/>
+                            <TextBlock Text="file" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="SetContentNullButton"
+                        BorderBrush="{ThemeResource SystemAccentColor}"
+                        BorderThickness="0"
+                        Click="SetContentNullButton_Click">
+                    <Button.Content>
+                        <StackPanel>
+                            <FontIcon Glyph="&#xF140;" FontSize="40"/>
+                            <TextBlock Text="none" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            <!--Add Tag-->
             <cucc:TokenizingTextBox x:Name="TagTextBox"
-                                    Header="Tags"
+                                    Header="tags"
                                     ItemsSource="{x:Bind Tags, Mode=TwoWay}"
                                     TextChanged="TagTextBox_TextChanged"
                                     TokenDelimiter="   "
