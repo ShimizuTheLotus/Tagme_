@@ -59,6 +59,7 @@ namespace Tagme_
             }
         }
 
+
         private void GetBasicProperties()
         {
             string dbpath = Tagme_CoreUWP.CoreRunningData.Tagme_DataBase.UsingDataBasePath;
