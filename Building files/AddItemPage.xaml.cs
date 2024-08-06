@@ -42,14 +42,23 @@ namespace Tagme_
         {
             public static bool IsFolder = false;
             /// <summary>
-            /// Only when IsFolder == false, the content should be get or set
+            /// The tags will be separated with 3 spaces, and the proporty is separated with 2 spaces.
+            /// But actually, the tags will be stored as their unique ID
             /// </summary>
-            public static bool FileContent;
-            /// <summary>
-            /// The tags will be separated with 3 spaces, and the proporty is separated with 2 spaces
-            /// </summary>
-            public static string Tags;
+            public static string TagIDs;
             public static string Description;
+            public static string CreatedTime;
+            public static string ModifiedTime;
+            /// <summary>
+            /// If there's file added, the value will be set to a unique one, or the value will be an empty string.
+            /// </summary>
+            public static string ItemID = "";
+            /// <summary>
+            /// Only when IsFolder == true, we can add file content. Else, it can only add path or nothing
+            /// True: Add file content; False: Add File Path; Null: Add nothing
+            /// </summary>
+            public static bool? IsFileContent = null;
+
         }
 
         private void AddItemPage_SizeChanged(object sender, SizeChangedEventArgs e)
