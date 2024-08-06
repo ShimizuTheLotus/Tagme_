@@ -13,39 +13,40 @@
 
     </Page.Resources>
     <RelativePanel>
-        <StackPanel Margin="8">
-            <TextBox x:Name="TitleTextBox"
+        <ScrollViewer>
+            <StackPanel Margin="8">
+                <TextBox x:Name="TitleTextBox"
                      Header="title"/>
-            <TextBox x:Name="DescriptionTextBox"
+                <TextBox x:Name="DescriptionTextBox"
                      Header="description"
                      TextWrapping="Wrap"
                      AcceptsReturn="True"/>
-            <TextBlock Text="item type"/>
-            <StackPanel Orientation="Horizontal"
+                <TextBlock Text="item type"/>
+                <StackPanel Orientation="Horizontal"
                         Margin="0,8,0,0">
-                <StackPanel.Resources>
-                    <Style TargetType="Button">
-                        <Setter Property="Margin" Value="8,16"/>
-                        <Setter Property="CornerRadius" Value="4"/>
-                    </Style>
-                </StackPanel.Resources>
-                <StackPanel.ChildrenTransitions>
-                    <TransitionCollection>
-                        <RepositionThemeTransition/>
-                    </TransitionCollection>
-                </StackPanel.ChildrenTransitions>
-                <Button x:Name="SetTypeFileButton"
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Margin" Value="8,16"/>
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <StackPanel.ChildrenTransitions>
+                        <TransitionCollection>
+                            <RepositionThemeTransition/>
+                        </TransitionCollection>
+                    </StackPanel.ChildrenTransitions>
+                    <Button x:Name="SetTypeFileButton"
                         BorderBrush="{ThemeResource SystemAccentColor}"
                         BorderThickness="4"
                         Click="SetTypeFileButton_Click">
-                    <Button.Content>
-                        <StackPanel Orientation="Vertical">
-                            <FontIcon Glyph="&#xE7C3;" FontSize="40"/>
-                            <TextBlock Text="file" TextAlignment="Center"/>
-                        </StackPanel>
-                    </Button.Content>
-                </Button>
-                <Button x:Name="SetTypeFolderButton"
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <FontIcon Glyph="&#xE7C3;" FontSize="40"/>
+                                <TextBlock Text="file" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="SetTypeFolderButton"
                         BorderBrush="{ThemeResource SystemAccentColor}"
                         BorderThickness="0"
                         Click="SetTypeFolderButton_Click">
@@ -55,82 +56,83 @@
                                 <TextBlock Text="folder" TextAlignment="Center"/>
                             </StackPanel>
                         </Button.Content>
-                 </Button>
-            </StackPanel>
-            <TextBlock Text="content"/>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="file path:"/>
-                <TextBlock x:Name="SelectedFilePathTextBlock"/>
-            </StackPanel>
-            <Button x:Name="ChangeSelectedFileButton"
+                    </Button>
+                </StackPanel>
+                <TextBlock Text="content"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="file path: "/>
+                    <TextBlock x:Name="SelectedFilePathTextBlock"/>
+                </StackPanel>
+                <Button x:Name="ChangeSelectedFileButton"
                     Content="choose file"
                     Margin="4"
                     Click="ChangeSelectedFileButton_Click"/>
-            <Button x:Name="ClearSelectedFileButton"
+                <Button x:Name="ClearSelectedFileButton"
                     Content="clear"
                     Margin="4"
                     Click="ClearSelectedFileButton_Click"/>
-            <StackPanel Orientation="Horizontal">
-                <StackPanel.Resources>
-                    <Style TargetType="Button">
-                        <Setter Property="Margin" Value="8,16"/>
-                        <Setter Property="CornerRadius" Value="4"/>
-                    </Style>
-                </StackPanel.Resources>
-                <StackPanel.ChildrenTransitions>
-                    <TransitionCollection>
-                        <RepositionThemeTransition/>
-                    </TransitionCollection>
-                </StackPanel.ChildrenTransitions>
-                <Button x:Name="SetContentPathButton"
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Margin" Value="8,16"/>
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <StackPanel.ChildrenTransitions>
+                        <TransitionCollection>
+                            <RepositionThemeTransition/>
+                        </TransitionCollection>
+                    </StackPanel.ChildrenTransitions>
+                    <Button x:Name="SetContentPathButton"
                         BorderBrush="{ThemeResource SystemAccentColor}"
                         BorderThickness="4"
                         Click="SetContentPathButton_Click">
-                    <Button.Content>
-                        <StackPanel>
-                            <FontIcon Glyph="&#xE8E5;" FontSize="40"/>
-                            <TextBlock Text="file path" TextAlignment="Center"/>
-                        </StackPanel>
-                    </Button.Content>
-                </Button>
-                <Button x:Name="SetContentFileButton"
+                        <Button.Content>
+                            <StackPanel>
+                                <FontIcon Glyph="&#xE8E5;" FontSize="40"/>
+                                <TextBlock Text="file path" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="SetContentFileButton"
                         BorderBrush="{ThemeResource SystemAccentColor}"
                         BorderThickness="0"
                         Click="SetContentFileButton_Click">
-                    <Button.Content>
-                        <StackPanel>
-                            <FontIcon Glyph="&#xE7C3;" FontSize="40"/>
-                            <TextBlock Text="file" TextAlignment="Center"/>
-                        </StackPanel>
-                    </Button.Content>
-                </Button>
-                <Button x:Name="SetContentNullButton"
+                        <Button.Content>
+                            <StackPanel>
+                                <FontIcon Glyph="&#xE7C3;" FontSize="40"/>
+                                <TextBlock Text="file" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="SetContentNullButton"
                         BorderBrush="{ThemeResource SystemAccentColor}"
                         BorderThickness="0"
                         Click="SetContentNullButton_Click">
-                    <Button.Content>
-                        <StackPanel>
-                            <FontIcon Glyph="&#xF140;" FontSize="40"/>
-                            <TextBlock Text="none" TextAlignment="Center"/>
-                        </StackPanel>
-                    </Button.Content>
-                </Button>
-            </StackPanel>
-            <!--Add Tag-->
-            <cucc:TokenizingTextBox x:Name="TagTextBox"
+                        <Button.Content>
+                            <StackPanel>
+                                <FontIcon Glyph="&#xF140;" FontSize="40"/>
+                                <TextBlock Text="none" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+                <!--Add Tag-->
+                <cucc:TokenizingTextBox x:Name="TagTextBox"
                                     Header="tags"
                                     ItemsSource="{x:Bind Tags, Mode=TwoWay}"
                                     TextChanged="TagTextBox_TextChanged"
                                     TokenDelimiter="   "
                                     TokenItemAdding="TagTextBox_TokenItemAdding">
-                <cucc:TokenizingTextBox.TokenItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Padding="8,0,0,0"
+                    <cucc:TokenizingTextBox.TokenItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Padding="8,0,0,0"
                                    Text="{Binding}" 
                                    TextWrapping="Wrap"/>
-                    </DataTemplate>
-                </cucc:TokenizingTextBox.TokenItemTemplate>
-            </cucc:TokenizingTextBox>
-        </StackPanel>
+                        </DataTemplate>
+                    </cucc:TokenizingTextBox.TokenItemTemplate>
+                </cucc:TokenizingTextBox>
+            </StackPanel>
+        </ScrollViewer>
     </RelativePanel>
 </Page>

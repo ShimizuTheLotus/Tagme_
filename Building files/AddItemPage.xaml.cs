@@ -175,14 +175,22 @@ namespace Tagme_
             NewItemProperty.IsFileContent = null;
         }
 
-        private void ChangeSelectedFileButton_Click(object sender, RoutedEventArgs e)
+        private async void ChangeSelectedFileButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var picker = new Windows.Storage.Pickers.FileOpenPicker();
+            picker.FileTypeFilter.Add("*");
+            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
+            if (file != null)
+            {
+                NewItemProperty.FilePath = file.Path;
+                SelectedFilePathTextBlock.Text = NewItemProperty.FilePath;
+            }
         }
 
         private void ClearSelectedFileButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NewItemProperty.FilePath = "";
+            SelectedFilePathTextBlock.Text = "[" + "Not Selected" + "]";
         }
     }
 }
