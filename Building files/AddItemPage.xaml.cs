@@ -157,6 +157,7 @@ namespace Tagme_
             SetContentFileButton.BorderThickness = new Thickness(0, 0, 0, 0);
             SetContentNullButton.BorderThickness = new Thickness(0, 0, 0, 0);
             NewItemProperty.IsFileContent = false;
+            SelectedFilePathTextBlock.Opacity = 1;
         }
 
         private void SetContentFileButton_Click(object sender, RoutedEventArgs e)
@@ -165,6 +166,7 @@ namespace Tagme_
             SetContentFileButton.BorderThickness = new Thickness(4, 4, 4, 4);
             SetContentNullButton.BorderThickness = new Thickness(0, 0, 0, 0);
             NewItemProperty.IsFileContent = true;
+            SelectedFilePathTextBlock.Opacity = 1;
         }
 
         private void SetContentNullButton_Click(object sender, RoutedEventArgs e)
@@ -173,6 +175,7 @@ namespace Tagme_
             SetContentFileButton.BorderThickness = new Thickness(0, 0, 0, 0);
             SetContentNullButton.BorderThickness = new Thickness(4, 4, 4, 4);
             NewItemProperty.IsFileContent = null;
+            SelectedFilePathTextBlock.Opacity = 0.7;
         }
 
         private async void ChangeSelectedFileButton_Click(object sender, RoutedEventArgs e)
@@ -191,6 +194,17 @@ namespace Tagme_
         {
             NewItemProperty.FilePath = "";
             SelectedFilePathTextBlock.Text = "[" + "Not Selected" + "]";
+        }
+
+        private void CalcelCreateItemButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.GoBack();
+        }
+
+        private void CreateItemButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Create Item
+
         }
     }
 }

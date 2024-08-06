@@ -121,7 +121,7 @@
                 <!--Main cancel button-->
                 <Button x:Name="CancelCreateDataBaseButton"
                         x:Uid="CreateDataBasePage/CreateOrNotButtonPanel/CancelButton"
-                        Content="Cancel"
+                        Content="cancel"
                         Grid.Column="0" 
                         Margin="16 0 8 0"
                         HorizontalAlignment="Stretch"
@@ -129,7 +129,7 @@
                 <!--Main create button-->
                 <Button x:Name="CreateDataBaseButton" 
                         x:Uid="CreateDataBasePage/CreateOrNotButtonPanel/CreateButton"
-                        Content="Create" 
+                        Content="create" 
                         Style="{StaticResource AccentButtonStyle}" 
                         Grid.Column="1" 
                         Margin="8 0 16 0" 

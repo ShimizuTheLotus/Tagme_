@@ -13,7 +13,8 @@
 
     </Page.Resources>
     <RelativePanel>
-        <ScrollViewer>
+        <ScrollViewer RelativePanel.AlignTopWithPanel="True"
+                      RelativePanel.Above="CreateItemButtonPanel">
             <StackPanel Margin="8">
                 <TextBox x:Name="TitleTextBox"
                      Header="title"/>
@@ -60,7 +61,7 @@
                 </StackPanel>
                 <TextBlock Text="content"/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="file path: "/>
+                    <TextBlock Text="file path:" Margin="0,0,4,0"/>
                     <TextBlock x:Name="SelectedFilePathTextBlock"/>
                 </StackPanel>
                 <Button x:Name="ChangeSelectedFileButton"
@@ -134,5 +135,29 @@
                 </cucc:TokenizingTextBox>
             </StackPanel>
         </ScrollViewer>
+        <!--Create Item Button Panel-->
+        <Grid x:Name="CreateItemButtonPanel"
+              RelativePanel.AlignLeftWithPanel="True"
+              RelativePanel.AlignRightWithPanel="True"
+              RelativePanel.AlignBottomWithPanel="True"
+              Height="64">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="CalcelCreateItemButton"
+                    Content="cancel"
+                    Grid.Column="0"
+                    Margin="16,0,8,0"
+                    HorizontalAlignment="Stretch"
+                    Click="CalcelCreateItemButton_Click"/>
+            <Button x:Name="CreateItemButton"
+                    Content="create"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Grid.Column="1"
+                    Margin="8,0,16,0"
+                    HorizontalAlignment="Stretch"
+                    Click="CreateItemButton_Click"/>
+        </Grid>
     </RelativePanel>
 </Page>
