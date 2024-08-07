@@ -48,3 +48,12 @@
 - Then I found a **fatal error**: after I reinstalled it, the info database dosen't work. This means the problem of the database was solved when coding... I never tried to reinstall it.
 ### Aug. 2 2024
 - The fatal error was solved.
+### Aug. 7 2024
+- Thanks for help by GitHub Support, a problem was solved.
+- Filled https://github.com/CommunityToolkit with 6 issues. Too many bugs in TokenizingTextBox.
+- https://github.com/CommunityToolkit/Windows/issues/461
+- https://github.com/CommunityToolkit/Windows/issues/462
+- https://github.com/CommunityToolkit/Windows/issues/463
+- https://github.com/CommunityToolkit/Windows/issues/464
+- https://github.com/CommunityToolkit/Windows/issues/465
+- https://github.com/CommunityToolkit/Windows/issues/466
