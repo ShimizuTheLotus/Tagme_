@@ -50,7 +50,7 @@
 - The fatal error was solved.
 ### Aug. 7 2024
 - Thanks for help by GitHub Support, a problem was solved.
-- Filled https://github.com/CommunityToolkit with 6 issues. Too many bugs in TokenizingTextBox.
+- Filled https://github.com/CommunityToolkit with 6 issues. Too many bugs occur within TokenizingTextBox.
 - https://github.com/CommunityToolkit/Windows/issues/461
 - https://github.com/CommunityToolkit/Windows/issues/462
 - https://github.com/CommunityToolkit/Windows/issues/463
