@@ -33,7 +33,7 @@ If there's an about page, please keep a link pointing to this repository, the or
 Feel free to ask and help with us! **If you want to help, there's a help request list below.**
 
 ## Help request
-- [ ] Solve bugs of CommunityToolkit
+- [ ] Solve bugs of CommunityToolkit, Tagme_ have some controls rely on this Nuget Package.
   - [ ] https://github.com/CommunityToolkit/Windows/issues/461
   - [ ] https://github.com/CommunityToolkit/Windows/issues/462
   - [ ] https://github.com/CommunityToolkit/Windows/issues/463
