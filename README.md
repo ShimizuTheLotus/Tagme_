@@ -33,8 +33,15 @@ If there's an about page, please keep a link pointing to this repository, the or
 Feel free to ask and help with us! **If you want to help, there's a help request list below.**
 
 ## Help request
+- [ ] Solve bugs of CommunityToolkit
+  - [ ] https://github.com/CommunityToolkit/Windows/issues/461
+  - [ ] https://github.com/CommunityToolkit/Windows/issues/462
+  - [ ] https://github.com/CommunityToolkit/Windows/issues/463
+  - [ ] https://github.com/CommunityToolkit/Windows/issues/464
+  - [ ] https://github.com/CommunityToolkit/Windows/issues/465
+  - [ ] https://github.com/CommunityToolkit/Windows/issues/466 
 
-### Requirements for using Tagme_CoreUWP
+## Requirements for using Tagme_CoreUWP
 *Please make sure that your template is a UWP one otherwise some functions may not run properly.*
 - Nuget Package: Microsoft.Data.Sqlite
 - ShimizuCoreUWP(We'll place it in the App.xaml.cs, like what we(at least now it should be "I") did to Tagme_CoreUWP)
