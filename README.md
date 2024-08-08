@@ -39,7 +39,8 @@ Feel free to ask and help with us! **If you want to help, there's a help request
   - [ ] https://github.com/CommunityToolkit/Windows/issues/463
   - [ ] https://github.com/CommunityToolkit/Windows/issues/464
   - [ ] https://github.com/CommunityToolkit/Windows/issues/465
-  - [ ] https://github.com/CommunityToolkit/Windows/issues/466 
+  - [ ] https://github.com/CommunityToolkit/Windows/issues/466
+- [ ] Support more languages.
 
 ## Requirements for using Tagme_CoreUWP
 *Please make sure that your template is a UWP one otherwise some functions may not run properly.*
