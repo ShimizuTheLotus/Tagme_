@@ -59,3 +59,5 @@
   - https://github.com/CommunityToolkit/Windows/issues/466
 ### Aug. 8 2024
 - Due to stability concern, I'll remove control TokenizingTextBox in CommunityToolkit.Uwp. RichSuggestBox is considered as a succedaneum.
+### Aug. 9 2024
+- RichSuggestBox also have a bug(https://github.com/CommunityToolkit/Windows/issues/470), I'm concerned about its stability.
