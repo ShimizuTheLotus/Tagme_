@@ -1,6 +1,6 @@
 name: Feature Request
-description: Create a report to help us pisition
-labels: ["documentation :documentation:"]
+description: What kind of feature you suggest?
+labels: ["new feature :new feature:"]
 body:
 - type: markdown
   attributes: 
@@ -8,51 +8,23 @@ body:
       ## Before you begin
       🚨 **INSTRUCTION, DO NOT SKIP**🚨
       
-      This info is essential for investigating your bug report. Issues with missing information may be closed without investigation.
+      Check for [issues](https://github.com/ShimizuTheLotus/Tagme_/issues) to make sure no one suggested this idea.
+
+      **Plus, any features using internet will be declined directly. If you want that feature, create a folk repo yourself.**
       
-      If you're not sure about whether the problem is, find or start a [discussion](https://github.com/ShimizuTheLotus/Tagme_/discussions), the community will help.     
 - type: textarea
   id: description
   validations:
     required: true
   attributes:
-     label: Describe the bug
-     description: A clear and concise description of what the bug is.
-- type: textarea
-  id: repro-steps
-  validations:
-    required: true
-  attributes:
-     label: Steps to reproduce
-     render: text
-     description: Provide steps to reproduce the issue, or let us know why it can't be reproduced (e.g. more complex setup, environment, dependencies, etc...)
-     placeholder: |
-        The easier we can reproduce the issue, the easier it is to understand and fix the problem. 
+     label: Describe the feature
+     description: A clear and concise description of what the feature works
 
-        Example repro steps:
-        1. Given the following environment (Sample App w/ XAML, Project with Isolated setup, etc...)
-        2. Go to '...'
-        3. Click on '....'
-        4. Scroll down to '....'
-        5. See error
 - type: textarea
-  id: expected-behavior
-  validations:
-    required: true
+  id: sketch
   attributes:
-     label: Expected behavior
-     description: A clear and concise description of what you expected to happen.
-- type: textarea
-  id: screenshots
-  attributes:
-     label: Screenshots
-     description: If applicable, add screenshots or video(GitHub limit 10MiB each video) to help explain your problem.
-
-- type: input
-  id: tagme_version
-  attributes:
-     label: Tagme_ Version
-     description: Check for update before lauching the problem, the problem might be solved in later versions.
+     label: Sketch
+     description: If you have some pictures to show your idea, fell free to add them.
      
 - type: textarea
   id: additional-context
@@ -65,9 +37,9 @@ body:
   validations:
     required: true
   attributes:
-     label: Help us help you
-     description: Would you like to contribute a solution to this issue?
+     label: Have you already made it and waiting for merge?
+     description: Have you have wrote code for the new feature?
      options:
-       - Yes, I'd like to be assigned to work on this item.
-       - Yes, but only if others can assist.
-       - No, I'm unable to contribute a solution.
+       - Yes, It's all done and I'm waiting for merge.
+       - Not yet, but I can finish it with someone help.
+       - No, I just give my suggesstion.
