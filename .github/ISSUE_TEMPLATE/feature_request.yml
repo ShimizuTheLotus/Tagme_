@@ -1,6 +1,6 @@
 name: Feature Request
 description: Create a report to help us pisition
-labels: ["new feature :new-feature:"]
+labels: ["documentation :documentation:"]
 body:
 - type: markdown
   attributes: 
