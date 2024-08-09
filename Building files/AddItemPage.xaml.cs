@@ -32,6 +32,8 @@ namespace Tagme_
 
             SizeChanged += AddItemPage_SizeChanged;
             Loaded += AddItemPage_Loaded;
+
+            InitializeTagSuggestionList();
         }
 
         private void AddItemPage_Loaded(object sender, RoutedEventArgs e)
@@ -106,12 +108,14 @@ namespace Tagme_
             }
         }
 
-        //status
+
+        //Status
         bool pageLoaded { get; set; } = false;
+
 
         //Variables
         public ObservableCollection<string> Tags { get; set; } = new ObservableCollection<string>();
-        
+        public List<Tagme_CustomizedCore.Template.TagInputSuggestionTemplate> TagSuggestionList { get; set; } = new List<Tagme_CustomizedCore.Template.TagInputSuggestionTemplate>();
 
         public class TagListTemplateItem
         {
@@ -123,6 +127,18 @@ namespace Tagme_
             public static List<TagListTemplateItem> TagList = new List<TagListTemplateItem>();
         }
         
+
+        //Functions
+        private void InitializeTagSuggestionList()
+        {
+            ///For test
+            TagSuggestionList.Add(new Tagme_CustomizedCore.Template.TagInputSuggestionTemplate() {TagName="XAML",ID="2"});
+            TagSuggestionList.Add(new Tagme_CustomizedCore.Template.TagInputSuggestionTemplate() { TagName = "C#", ID = "1" });
+            TagSuggestionList.Add(new Tagme_CustomizedCore.Template.TagInputSuggestionTemplate() { TagName = "C#/XAML", ID = "3" });
+        }
+
+
+        //Events
 
         private void TagTextBox_TokenItemAdding(CommunityToolkit.WinUI.Controls.TokenizingTextBox sender, CommunityToolkit.WinUI.Controls.TokenItemAddingEventArgs args)
         {
@@ -224,6 +240,19 @@ namespace Tagme_
                     db.Close();
                 }
             }
+        }
+
+        private void TagTextBox_SuggestionChosen(RichSuggestBox sender, SuggestionChosenEventArgs args)
+        {
+            if (args.Prefix == "#")
+            {
+                args.DisplayText = ((Tagme_CustomizedCore.Template.TagInputSuggestionTemplate)args.SelectedItem).TagName;
+            }
+        }
+
+        private void TagTextBox_SuggestionRequested(RichSuggestBox sender, SuggestionRequestedEventArgs args)
+        {
+            sender.ItemsSource = TagSuggestionList.Where(x => x.TagName.Contains(args.QueryText, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

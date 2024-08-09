@@ -1279,6 +1279,19 @@ namespace Tagme_
                 public string DataBaseFileSize { get; set; }
                 public string DataBaseAllSubItemCount { get; set; }
             }
+
+            public class TagInputSuggestionTemplate
+            {
+                /// <summary>
+                /// The name of the tag, this will be stored in database.
+                /// This name uses 2 spaces to refer to properties. For display, the program will use highlighted "."
+                /// </summary>
+                public string TagName { get; set; }
+                /// <summary>
+                /// The ID of a stored Tag.
+                /// </summary>
+                public string ID {  get; set; }
+            }
         }
         public static List<Template.DataBaseListViewTemplate> DataBaseListViewSource = new List<Template.DataBaseListViewTemplate>();
         /// <summary>

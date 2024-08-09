@@ -10,11 +10,19 @@
     Background="Transparent">
 
     <Page.Resources>
-
+        <DataTemplate x:Key="TagInputSuggestionTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding ID}" Opacity="0.7" TextAlignment="Center"/>
+                <TextBlock Text=":" Margin="4,0" TextAlignment="Center"/>
+                <TextBlock Text="{Binding TagName}" Foreground="#99EBFF" TextAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
     </Page.Resources>
     <RelativePanel>
         <ScrollViewer RelativePanel.AlignTopWithPanel="True"
-                      RelativePanel.Above="CreateItemButtonPanel">
+                      RelativePanel.Above="CreateItemButtonPanel"
+                      RelativePanel.AlignLeftWithPanel="True"
+                      RelativePanel.AlignRightWithPanel="True">
             <StackPanel Margin="8">
                 <TextBox x:Name="TitleTextBox"
                      Header="title"/>
@@ -119,7 +127,15 @@
                     </Button>
                 </StackPanel>
                 <!--Add Tag-->
-                <cucc:TokenizingTextBox x:Name="TagTextBox"
+                <cucc:RichSuggestBox x:Name="TagTextBox"
+                                     Header="tags"
+                                     Prefixes="#"
+                                     ItemTemplate="{StaticResource TagInputSuggestionTemplate}"
+                                     SuggestionChosen="TagTextBox_SuggestionChosen"
+                                     SuggestionRequested="TagTextBox_SuggestionRequested"/>
+
+                <!--Due to stability concern, I decided to use other controls instead.-->
+                <!--<cucc:TokenizingTextBox x:Name="TagTextBox"
                                     Header="tags"
                                     ItemsSource="{x:Bind Tags, Mode=TwoWay}"
                                     TextChanged="TagTextBox_TextChanged"
@@ -132,7 +148,7 @@
                                    TextWrapping="Wrap"/>
                         </DataTemplate>
                     </cucc:TokenizingTextBox.TokenItemTemplate>
-                </cucc:TokenizingTextBox>
+                </cucc:TokenizingTextBox>-->
             </StackPanel>
         </ScrollViewer>
         <!--Create Item Button Panel-->

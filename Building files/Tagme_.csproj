@@ -186,6 +186,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Uwp.Controls.RichSuggestBox">
+      <Version>8.0.240109</Version>
+    </PackageReference>
     <PackageReference Include="CommunityToolkit.Uwp.Controls.TokenizingTextBox">
       <Version>8.0.240109</Version>
     </PackageReference>
